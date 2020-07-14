@@ -23,5 +23,6 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+*.json
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
