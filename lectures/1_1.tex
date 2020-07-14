@@ -3,21 +3,146 @@
 \section{Основні поняття теорії ймовірностей}
 \subsection*{Стохастичний експеримент (СЕ)}
 \begin{definition}
-    Стохастичним експериментом (випробуванням) називається експеримент, 
+    \emph{Стохастичним експериментом (випробуванням)} називається експеримент, 
     який можна повторювати неодноразово зберігаючи певні умови і результат цього 
     експерименту заздалегідь передбачити неможливо.
 \end{definition}
 \begin{definition}
-    Будь-який результат СЕ називається подією.
+    Будь-який результат СЕ називається \emph{подією}.
 \end{definition}
 \begin{example}
-    СЕ - кидання кубика, подія - випало 6 очок.
+    \begin{enumerate}
+        \mbox{}
+        \item СЕ --- кидання кубика один раз, подія --- випало 6 очок.
+        \item СЕ --- кидання кубика двічі, подія --- сума очок, що випала, дорівнює 6.
+    \end{enumerate}
 \end{example}
 
 \textbf{Події бувають:}
 \begin{enumerate}
-    \item Випадкові (можуть відбутися чи не відбутися при проведенні СЕ)
-    \item Неможливі (ніколи не відбуваються при проведенні СЕ)
-    \item Вірогідні (завжди відбуваються при проведенні СЕ)
+    \item Випадкові --- можуть відбутися чи не відбутися при проведенні СЕ.
+    \item Неможливі --- ніколи не відбуваються в даному СЕ.
+    \item Вірогідні --- завжди відбуваються в даному СЕ.
 \end{enumerate}
+
 \subsection*{Теоретико-множинний підхід до основних понять ТЙ}
+Будемо вважати, що кожному СЕ можна поставити у відповідність деяку множину, що
+називається \emph{простором елементарних подій} $\Omega$. 
+Під \emph{елементарними подіями} $\omega$ будемо розуміти єдині
+логічно можливі події СЕ, що виключають одна одну.
+\begin{example}
+    \begin{enumerate}
+        \mbox{}
+        \item СЕ --- кидання кубика один раз. 
+        $\Omega = \left\{\omega_1, \omega_2, ..., \omega_6\right\}$, 
+        де $\omega_k = \left\{\text{випало } k \text{ очок}\right\}, k = 1,...,6$.
+        \item СЕ --- кидання монетки до першої появи герба.
+        $\Omega = \left\{\omega_1, \omega_2, ..., \omega_k, ...\right\}$, 
+        
+        де $\omega_i = \left\{\text{герб випав на }i\text{-тому киданні}\right\}, i\in \mathbb{N}$.
+        \item СЕ --- зустріч двох осіб, що домовилися зустрітися протягом години.
+        $x$ --- час приходу першої особи, $y$ --- час приходу другої, $0\leq x, y \leq 1$.
+        $\Omega = \left\{ \left( x, y\right): 0\leq x, y \leq 1\right\}\subset \mathbb{R}^2$.
+    \end{enumerate}
+\end{example}
+В подальшому випадкові події позначатимемо $A, B, C, ...$. 
+\emph{Випадкова подія --- підмножина $\Omega$}. 
+У прикладі з киданням кубика один раз $A = \left\{\text{випало }6\text{ очок}\right\} = \left\{ \omega_6\right\}$.
+В загальному випадку маємо $A = \left\{\omega_{k1}, \omega_{k2}, ..., \omega_{kn}, ...\right\} \subset \Omega$.
+Неможлива подія --- $\varnothing$, вірогідна --- $\Omega$. 
+
+\subsection*{Основні операції над подіями}
+\begin{remark}
+    Розглядаємо події в межах фіксованих СЕ та простору елементарних подій.
+\end{remark}
+\begin{enumerate}
+    \item \emph{Включення} $A \subset B$ означає, що якщо відбулася подія $A$, то обов'язково відбудеться подія $B$.
+    Наприклад, $A = \left\{\text{витягнуто даму пік}\right\}, B = \left\{\text{витягнуто карту чорної масті}\right\}$. 
+    Очевидно, $A\subset B$.
+
+    Рівність подій: $\left( A \subset B, B \subset A \right) \iff \left( A = B\right)$.
+    \item \emph{Об'єднання подій} $A \cup B$ --- це подія, яка відбувається тоді, коли відбувається
+    принаймні одна з подій $A$ чи $B$.
+
+    Властивості: $A \cup A = A$,  $A \cup B = B \cup A$, $\left( A \subset B \right) \Rightarrow \left( A \cup B = B \right)$, 
+    $A \cup \Omega = \Omega$, $A \cup \varnothing = A$, $\left( A \cup B \right) \cup C = A \cup \left( B \cup C \right)$.
+
+    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcup_{i=1}^{n \left( \infty \right)} A_i$.
+    \item \emph{Перетин подій} $A \cap B$ --- це подія, яка відбувається тоді, коли $A$ і $B$ відбуваються одночасно.
+
+    Властивості: $A \cap A = A$,  $A \cap B = B \cap A$, $\left( A \subset B \right) \Rightarrow \left( A \cap B = A \right)$, 
+    $A \cap \Omega = A$, $A \cap \varnothing = \varnothing$, $\left( A \cap B \right) \cap C = A \cap \left( B \cap C \right)$,
+    $A \cap B \subset A$, $A \cap B \subset B$, $\left( A \cup B \right) \cap C = \left( A \cap C \right) \cup \left( B \cap C \right)$,
+    $\left( A \cap B \right) \cup C = \left( A \cup C \right) \cap \left( B \cup C \right)$.
+
+    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcap_{i=1}^{n \left( \infty \right)} A_i$.
+    \begin{definition}
+        Події $A$ та $B$ називається \emph{несумісними}, якщо вони не відбуваються одночасно: $A \cap B = \varnothing$.
+        Узагальнення: події $A_1, A_2, ..., A_n, ...$ називаються \emph{попарно несумісними}, якщо $A_i \cap A_j = \varnothing$ для $i \neq j$.
+    \end{definition}
+    \begin{definition}
+        Події $A_1, A_2, ..., A_n, ...$ утворюють \emph{повну групу подій}, якщо вони попарно несумісні 
+        та $\bigcup_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
+    \end{definition}
+    \item \emph{Протилежна подія} $\overline{A}$ --- це подія, яка відбувається тоді, коли $A$ не відбувається.
+    
+    Властивості: $A \cup \overline{A} = \Omega$, $A \cap \overline{A} = \varnothing$, $\overline{\left( A \cup B \right)} = \overline{A} \cap \overline{B}$,
+    $\overline{\left( A \cap B \right)} = \overline{A} \cup \overline{B}$.
+    \item \emph{Різниця подій} $A \backslash B$ --- це подія $A \cap \overline{B}$. Для протилежної події маємо $\overline{A} =  \Omega \backslash A$.
+\end{enumerate}
+
+\subsection*{Алгебра та $\sigma$-алгебра подій}
+\begin{definition}
+    Непорожня система підмножин $\mathcal{F}$ простору елементарних подій $\Omega$ утворює \emph{алгебру подій}, якщо:
+    \begin{enumerate}
+        \item $\Omega \in \mathcal{F}$;
+        \item $\left( A, B \in \mathcal{F}\right) \Rightarrow \left( A \cup B \in \mathcal{F}\right)$;
+        \item $\left( A \in \mathcal{F}\right) \Rightarrow \left( \overline{A} \in \mathcal{F}\right)$.
+    \end{enumerate}
+    \emph{Узагальнення:} якщо $\Omega$ містить зліченну кількість подій, то означення $\sigma$-алгебра отримаємо заміною умови
+    2 на $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup_{n=1}^{\infty} A_n \in \mathcal{F}\right)$.
+    
+    Пара $\left\{\Omega, \mathcal{F}\right\}$ називається \emph{вимірним простором стохастичного експерименту}.
+\end{definition}
+
+\subsection*{Міра вірогідності появи випадкової події}
+Дослідника завжди цікавить кількісна характеристика появи тієї чи іншої події.
+
+Нехай $\Omega$ --- скінченний чи зліченний. 
+Поставимо у відповідність кожній елементарній події $\omega_k$ число $p_k\geq 0$ так, що $\sum_{k=0}^{ n \left( \infty\right)}p_k = 1$.
+Тоді $P(A) = \sum_{\omega_k \in A} p_k$ --- кількісна характеристика, ймовірність події $A$.
+
+\begin{example}
+    \emph{Класична модель ймовірності}. Якщо простір елементарних подій $\Omega$ СЕ скінченний
+    та всі $\omega_k$ рівноможливі, то такий СЕ називається \emph{класичним}.
+    В такому випадку $p_1 = p_2 = ... = p_n = \frac{1}{n}$, де $n = \mathrm{card}(\Omega)$.
+    
+    \begin{equation}\label{eq:m_n}
+        P(A) = \sum_{\omega_k \in A} p_k = \frac{m}{n} = \frac{\text{кількість елементарних подій в } A}{\text{загальна кількість елементарних подій}}
+    \end{equation}
+\end{example}
+Ймовірності, що розраховуються за формулою \eqref{eq:m_n}, називаються \emph{класичними}.
+\begin{example}
+    \begin{enumerate}
+        \item <<Задачі про вибір>> --- коли з великої кількості чогось вибирають певну кількість.
+        Наприклад, з урни з 10 кульками, 3 чорними та 7 білими, навмання витягають 5 кульок.
+        Обчислимо ймовірність події $A = \left\{ \text{серед них 2 чорних кульки}\right\}$:
+        $P(A) = \frac{C_3^2\cdot C_7^3}{C_{10}^5} = \frac{3\cdot 35}{252} = \frac{5}{12}$
+        \item <<Задачі про ліфт>>. 5 осіб одночасно зайшли в ліфт 11-поверхового будинку. 
+        Яка ймовірність того, що вони всі вийдуть на різних поверхах, починаючи з другого?
+        
+        $P(A) = \frac{A_{10}^5}{\widetilde{A}_{10}^5} = \frac{10\cdot 9\cdot 8\cdot 7 \cdot 6}{10^5} = 0.3024$. 
+        Тут $A_n^k$ та $\widetilde{A}_n^k$ --- кількості розміщень без повторень та з повтореннями відповідно.
+    \end{enumerate}
+\end{example}
+
+\textbf{Властивості класичної ймовірності:}
+\begin{enumerate}
+    \item $\forall A \in \mathcal{F}: 0 \leq P(A) \leq 1$.
+    \item $P(\Omega) = 1$.
+    \item $P(\overline{A}) = 1 - P(A)$.
+    \item $P(\varnothing) = 0$.
+    \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$, для несумісних $A$ і $B$ $P(A\cup B) = P(A) + P(B)$.
+    \item $\left( A \subset B\right) \Rightarrow \left( P(A) \leq P(B)\right)$.
+    \item Якщо $A_1, A_2, ..., A_n$ --- повна група подій СЕ, то $P(\bigcup_{i=1}^{n} A_i) = 1$.
+\end{enumerate}
