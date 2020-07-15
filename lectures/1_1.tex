@@ -18,7 +18,7 @@
     \end{enumerate}
 \end{example}
 
-\textbf{Події бувають:}
+\noindent \textbf{Події бувають:}
 \begin{enumerate}
     \item Випадкові --- можуть відбутися чи не відбутися при проведенні СЕ.
     \item Неможливі --- ніколи не відбуваються в даному СЕ.
@@ -76,14 +76,17 @@
     $\left( A \cap B \right) \cup C = \left( A \cup C \right) \cap \left( B \cup C \right)$.
 
     Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcap_{i=1}^{n \left( \infty \right)} A_i$.
-    \begin{definition}
-        Події $A$ та $B$ називається \emph{несумісними}, якщо вони не відбуваються одночасно: $A \cap B = \varnothing$.
-        Узагальнення: події $A_1, A_2, ..., A_n, ...$ називаються \emph{попарно несумісними}, якщо $A_i \cap A_j = \varnothing$ для $i \neq j$.
-    \end{definition}
-    \begin{definition}
-        Події $A_1, A_2, ..., A_n, ...$ утворюють \emph{повну групу подій}, якщо вони попарно несумісні 
-        та $\bigcup_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
-    \end{definition}
+\end{enumerate}
+\begin{definition}
+    Події $A$ та $B$ називається \emph{несумісними}, якщо вони не відбуваються одночасно: $A \cap B = \varnothing$.
+    Узагальнення: події $A_1, A_2, ..., A_n, ...$ називаються \emph{попарно несумісними}, якщо $A_i \cap A_j = \varnothing$ для $i \neq j$.
+\end{definition}
+\begin{definition}
+    Події $A_1, A_2, ..., A_n, ...$ утворюють \emph{повну групу подій}, якщо вони попарно несумісні 
+    та $\bigcup_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
+\end{definition}
+\begin{enumerate}
+    \setcounter{enumi}{3}
     \item \emph{Протилежна подія} $\overline{A}$ --- це подія, яка відбувається тоді, коли $A$ не відбувається.
     
     Властивості: $A \cup \overline{A} = \Omega$, $A \cap \overline{A} = \varnothing$, $\overline{\left( A \cup B \right)} = \overline{A} \cap \overline{B}$,
@@ -136,7 +139,7 @@
     \end{enumerate}
 \end{example}
 
-\textbf{Властивості класичної ймовірності:}
+\noindent \textbf{Властивості класичної ймовірності:}
 \begin{enumerate}
     \item $\forall A \in \mathcal{F}: 0 \leq P(A) \leq 1$.
     \item $P(\Omega) = 1$.
