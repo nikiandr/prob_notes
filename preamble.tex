@@ -11,7 +11,7 @@
 
 \usepackage{multicol} % Несколько колонок
 \usepackage{wrapfig} % Картинки посреди текста
-
+\usepackage{chngcntr}
 
 %%%% Теоремы, определения и т.д. и т.п.
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
@@ -25,6 +25,9 @@
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Зауваження}
+
+\counterwithout{equation}{chapter} % нумерация формул
+\counterwithin*{equation}{section}
 
 %%%% Картинки
 \usepackage{graphicx}
