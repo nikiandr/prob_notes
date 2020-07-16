@@ -34,26 +34,18 @@
     Тому $P(A) = \frac{l_{\left<\alpha, \beta\right>}}{l_{\left[a, b\right]}}$.
 \end{example}
 Нехай простір елементарних подій інтерпретується як замкнена область в 
-$ \mathbb{R} ^n$, а випадкові події - її підмножини. В якості $\sigma-\text{алгебри}$ 
-подій $\mathcal{F}$ беремо підмножини, що мають міру. Тоді в якості ймовірності 
-деякої події $A$ беремо $P(A) = \frac{\mu(A)}{\mu(\Omega)}$
-\newline
-\hbox to \hsize{\hfil{
-\begin{tabular}{ll}
-    $\mathbb{R}^1$: & $P(A) = \dfrac{l_A}{l_\Omega}$ \\
-    $\mathbb{R}^2$: & $P(A) = \dfrac{S_A}{S_\Omega}$ \\
-    $\mathbb{R}^3$: & $P(A) = \dfrac{V_A}{V_\Omega}$ \\
-\end{tabular}
-}\hfil}
+$ \mathbb{R} ^n$, а випадкові події --- її підмножини. В якості $\sigma$-алгебри 
+подій $\mathcal{F}$ беремо підмножини, що мають міру $\mu$. Тоді в якості ймовірності 
+деякої події $A$ беремо $P(A) = \frac{\mu(A)}{\mu(\Omega)}$. 
+Наприклад, в $\mathbb{R}^1$ беремо міру <<довжина>>, в $\mathbb{R}^2$ --- <<площа>>, а в $\mathbb{R}^3$ --- <<об'єм>>.
+
 Ймовірності, що знаходяться таким чином називаються \emph{геометричними}, а сама модель 
 називається \emph{геометричною моделлю ймовірності}.
-\newline
-Геометрична модель може використовуватись коли:
-\begin{enumerate}
-    \item $\Omega$ має геометричну інтерпретацію як замкнена область в $\mathbb{R}^n$.
-    \item Елементарні події - рівноможливі.
-\end{enumerate}
-\begin{example}[Задача Бюффона]\label{buffon}
+Геометрична модель може використовуватись, 
+коли $\Omega$ має геометричну інтерпретацію як замкнена область в $\mathbb{R}^n$,
+а елементарні події --- рівноможливі.
+
+\begin{example}[задача Бюффона]\label{buffon}
     На площині накреслені паралельні прямі на відстані $2a$, на них кидається 
     голка довжиною $2l,\; l \leq a $. Яка ймовірність того, що голка перетне 
     яку-небудь пряму?
@@ -95,6 +87,7 @@ $ \mathbb{R} ^n$, а випадкові події - її підмножини. 
             \node [left] at (0, 2.5) {$x$};
             \node [below] at (4, 0) {$\varphi$};
             \draw [domain=0:pi,fill=gray] plot (\x, {1*sin(\x r)});
+            \node [below] at (0, 0) {$0$};
             \node [below] at (pi, 0) {$\pi$};
             \draw [dashed] (0,1) to (pi/2,1);
             \node [left] at (0, 1) {$l$};
@@ -105,64 +98,26 @@ $ \mathbb{R} ^n$, а випадкові події - її підмножини. 
         \end{tikzpicture}
     }\hfil}
     $P(A) = \frac{S(A)}{S(\Omega)},\; S(\Omega) = \pi a,\;S(A) = \int_0^\pi 
-    l\sin\varphi\,\mathrm{d}x = l\left.(-\cos\varphi)\right|^\pi_0 = 2l$
-    \newline
+    l\sin\varphi\,\mathrm{d}x = l\left.(-\cos\varphi)\right|^\pi_0 = 2l$.
     Отже, $P(A) = \frac{2l}{\pi a}$.
     \newline
-    Якщо провести $n$ кидань голки, з яких $m$ - кількість потраплянь голки 
-    на пряму, то за допомогою приблизної рівності $\frac{m}{n} 
-    \approx \frac{2l}{\pi a}$ можна приблизно обчислити число $\pi$.
+    Якщо провести $n$ кидань голки, у $m$ з яких голка потрапить на пряму, то за допомогою приблизної рівності $\frac{m}{n} 
+    \approx \frac{2l}{\pi a}$ можна приблизно обчислити число $\pi$. 
+    Наприклад, якщо взяти $n=5000, m=2532, l/a = 0.8$, то отримаємо $\pi \approx 3.1596$
 \end{example}
-\begin{example}[Парадокс Бертрана]
-    Нехай в колі радіусом $r$ навмання проводиться хорда. Яка ймовірність того, 
-    що довжина цієї хорди буде більшою за довжину сторони правильного трикутника, 
-    що вписаний в це коло?
+\begin{example}[парадокс Бертрана]
+    Нехай в колі радіусом $R$ навмання обирається хорда. Яка ймовірність того, 
+    що її довжина буде більшою за довжину сторони правильного трикутника, 
+    вписаного в це коло?
     \newline
-    Існують три способи вирішення цієї задачі, при чому кожен з них дає різні 
-    результати.
-    \paragraph*{Спосіб 1}
-    Виберемо випадково дві точки (A та B) на колі та проведемо через них хорду.
-    Вписаний трикутник (без втрати загальності) 
-    будуємо так, щоб його вершина лежала у першій вибраній точці. Друга вибрана на колі 
-    точка однозначно визначає хорду; таким чином кожну з хорд можна співставити з 
-    деякою точкою на колі. 
-    \newline
-    \hbox to \hsize{\hfil{
-        \begin{tikzpicture}[scale = 1.5]
-            \draw (0, 0) circle [radius = 1];
-            \draw (0, 1) -- (-0.86602540378, -0.5); 
-            \draw (0, 1) -- (0.86602540378, -0.5);
-            \draw (0.86602540378, -0.5) -- (-0.86602540378, -0.5);
-            \draw [fill] (0, 1) circle [radius = 0.05];
-            \draw [fill] (0, -1) circle [radius = 0.05];
-            \draw [fill] (1, 0) circle [radius = 0.05];
-            \draw [fill] (-1, 0) circle [radius = 0.05];
-            \node [above] at (0, 1) {A};
-            \draw [dashed] (0,1) to (0, -1);
-            \draw [dashed] (0,1) to (1, 0);
-            \draw [dashed] (0,1) to (-1, 0);
-            \node [right] at (1, 0) {$B_1$};
-            \node [below] at (0, -1) {$B_2$};
-            \node [left] at (-1, 0) {$B_3$};
-            \draw [ultra thick](0.86602540378, -0.5) to [out = 242, in = 0](0, -1);
-            \draw [ultra thick](0, -1) to [out = 180, in = 300](-0.86602540378, -0.5);
-        \end{tikzpicture}
-    }\hfil}
-    $\Omega = \left[0, 2\pi r\right).$ Можна побачити, що якщо точка B потрапить 
-    в нижню третину кола, то хорда буде довшою за сторону трикутника. Таким чином 
-    подію T = \{довжина хорди більше ніж довжина сторони трикутника\} 
-    можна інтерпретувати геометрично як $T = [\frac{2}{3}\pi r, \frac{4}{3}\pi r]$.
-    Згідно з геометричної схеми, $P(T) = \frac{l_T}{l_\Omega} = \frac{1}{3}$.
-    \paragraph*{Спосіб 2}
-    Для будь-якої хорди маємо радіус, що проходить через середину цієї хорди 
-    перпендикулярно їй. Без 
-    втрати загальності "повернемо" вписаний трикутник так, щоб його ближча сторона 
-    була паралельна хорді. Сторона трикутника розділює обраний радіус на дві половини. 
-    Таким чином можна співставити кожну хорду з деякою точкою на радіусі. Якщо точка 
-    буде лежати на половині радіуса "ззовні" вписаного трикутника, то відповідна хорда 
-    буде коротше за сторону трикутника, в іншому випадку - довше. Таким чином маємо 
-    геометричну інтерпретацію для простору елементарних подій та нашої події, ймовірність 
-    якої ми шукаємо.
+    Існують три способи розв'язання цієї задачі, причому кожен з них дає різний результат.
+    
+    \textbf{Спосіб 1.}
+    З міркувань симетрії обирається якийсь фіксований діаметр кола і розглядається
+    всі перпендикулярні до нього хорди. Серед них і обирається навмання довільна хорда.
+    Очевидно, що кожна хорда у цьому випадку може бути однозначно визначена своєю серединою,
+    тобто кожній хорді можна взаємно однозначно поставити у відповідність координату її середини,
+    якщо за початок відліку взяти якийсь з кінців фіксованого діаметру.
     \newline
     \hbox to \hsize{\hfil{
         \begin{tikzpicture}[scale = 1.5]
@@ -170,28 +125,215 @@ $ \mathbb{R} ^n$, а випадкові події - її підмножини. 
             \draw (0, 1) -- (-0.86602540378, -0.5); 
             \draw (0, 1) -- (0.86602540378, -0.5);
             \draw (0.86602540378, -0.5) -- (-0.86602540378, -0.5);
-            %\draw [fill] (0, 1) circle [radius = 0.05];
-            \draw [->] (0,0) to (0, -1);
-            \draw [dashed] (-1, 0) to (1, 0);
-            \draw [dashed] (-0.954, -0.3) to (0.954, -0.3);
-            \draw [dashed] (-0.714, -0.7) to (0.714, -0.7);
-            \draw [ultra thick] (0, 0) -- (0, -0.5);
+            \draw [->] (-1,0) to (1, 0);
+            \node [left] at (-1, 0) {$0$};
+            \node [right] at (1, 0) {$2R$};
+            \draw [dashed] (0, -1) to (0, 1);
+            \draw [dashed] (-0.3, -0.954) to (-0.3, 0.954);
+            \draw [dashed] (-0.7, -0.714) to (-0.7, 0.714);
+            \draw [dashed] (0.3, -0.954) to (0.3, 0.954);
+            \draw [dashed] (0.7, -0.714) to (0.7, 0.714);
+            \draw [ultra thick] (-0.5, 0) -- (0.5, 0);
+            \draw [ultra thick] (-0.5, 0.05) -- (-0.5, -0.05);
+            \draw [ultra thick] (0.5, 0.05) -- (0.5, -0.05);
+            \node [below] at (-0.5, 0) {$\frac{R}{2}$};
+            \node [below] at (0.5, 0) {$\frac{3R}{2}$};
         \end{tikzpicture}
     }\hfil}
-    $\Omega = [0, r], T = [0, \frac{r}{2}], P(T) = \frac{l_T}{l_\Omega} = \frac{1}{2}$.
-    \paragraph*{Спосіб 3}
-    цввввввв
+    Таким чином, множина всіх значень координати середини хорди $\Omega = \left[0; 2R\right]$. 
+    Множина, що відповідає події --- це відрізок $A = \left[\frac{R}{2}; \frac{3R}{2}\right]$.
+    В якості міри візьмемо довжину. Тоді $P(A) = \frac{l(A)}{l(\Omega)} = \frac{R}{2R}= \frac{1}{2}$.
+    
+    \textbf{Спосіб 2.}
+    В цьому способі пропонується розглядати тільки хорди з одним закріпленим кінцем.
+    Кожній хорді поставимо у відповідність ту частину дуги кола, яка потрапляє у кут $\varphi$,
+    що утворює хорда з дотичною, проведеною через точку закріплення кінця всіх хорд.
     \newline
     \hbox to \hsize{\hfil{
-        \begin{tikzpicture}[line join=round]
-            \draw 
-              (0,0) circle [fill = gray, radius=\Radius]
-              (0,0) circle [radius=0.5\Radius]
-              (90:\Radius) -- (210:\Radius) -- (-30:\Radius) -- cycle
-              %(0,0) -- (210:\Radius) node[midway,above] {$R$}
-              %(0,0) -- (-30:0.5\Radius) node[midway,above] {$r$}
-              (90:\Radius) -- (90:-0.5\Radius);
-            \fill (0,0) circle [radius=1.5pt];
-            \end{tikzpicture}
+        \begin{tikzpicture}[scale = 1.5]
+            \draw (0, 0) circle [radius = 1];
+            \draw (0, 1) -- (-0.86602540378, -0.5); 
+            \draw (0, 1) -- (0.86602540378, -0.5);
+            \draw (0.86602540378, -0.5) -- (-0.86602540378, -0.5);
+            \draw (-1.2, 1) -- (1.2, 1);
+            \draw [fill] (0, 1) circle [radius = 0.05];
+            \draw [fill] (0.17, -0.985) circle [radius = 0.05];
+            \draw [fill] (1, 0) circle [radius = 0.05];
+            \draw [fill] (-0.967, -0.256) circle [radius = 0.05];
+            \draw (0.16, 1) arc (0:-46:0.16);
+            \draw (0.19, 1) arc (0:-46:0.19);
+            %\node [above] at (0, 1);
+            \draw [dashed] (0, 1) to (0.17, -0.985);
+            \draw [dashed] (0, 1) to (1, 0);
+            \draw [dashed] (0, 1) to (-0.967, -0.256);
+            \node [below right] at (0.14, 1) {$_\varphi$};
+            \draw [ultra thick](0.86602540378, -0.5) to [out = 242, in = 0](0, -1);
+            \draw [ultra thick](0, -1) to [out = 180, in = 300](-0.86602540378, -0.5);
+        \end{tikzpicture}
     }\hfil}
+    Тоді множина $\Omega = \left[ 0; \pi\right]$, а $A = \left[ \frac{\pi}{3}; \frac{2\pi}{3}\right]$.
+    Знову візьмемо за міру довжину і отримаємо $P(A) = \frac{\pi /3}{\pi} = \frac{1}{3}$.
+    
+    \textbf{Спосіб 3.}
+    Розглядаються всі хорди кола. Кожній з них взаємно однозначно ставиться у відповідність точка її середини $(x,y)$,
+    якщо за початок координат прийняти центр кола.
+    \newline
+    \hbox to \hsize{\hfil{
+        \begin{tikzpicture}[scale = 1.8]
+            \draw (0, 0) circle [radius = 1];
+            \draw (0, 0) circle [radius = 0.5];
+            \draw (0, 0) [fill] circle [radius = 0.05];
+            \draw (0, 1) -- (-0.86602540378, -0.5); 
+            \draw (0, 1) -- (0.86602540378, -0.5);
+            \draw (0.86602540378, -0.5) -- (-0.86602540378, -0.5);
+            \draw (-0.737, 0.675) [fill] circle [radius = 0.05];
+            \draw (0.878, 0.479) [fill] circle [radius = 0.05];
+            \draw [dashed] (-0.737, 0.675) to (0.878, 0.479);
+            \draw [dashed] (0, 0) to (0.0705, 0.577);
+            \draw (0.0705, 0.577) [fill] circle [radius = 0.05];
+        \end{tikzpicture}
+    }\hfil}
+    В такому випадку $\Omega = \left\{ (x,y)\in \mathbb{R}^2: x^2 + y^2 \leq R^2\right\}$,
+    а $A = \left\{ (x,y)\in \Omega: x^2 + y^2 \leq \frac{R^2}{4}\right\}$.
+    Тоді $P(A) = \frac{\pi R^2/4}{\pi R^2} = \frac{1}{4}$.
+
+    Жозеф Бертран був противником геометричного означення ймовірності.
+    Він казав, що воно не дає можливості однозначно обчислити ймовірність
+    однієї і тієї ж випадкової події та використовував вищенаведений приклад
+    для доведення своєї правоти. Дійсно, було отримано три різних відповіді при
+    розв'язанні однієї задачі. Так в чому ж справа? Насправді, помилка полягає
+    у різних трактуваннях поняття <<навмання обрана хорда>>.
+    В кожному з трьох способів це трактування було різним, що й стало причиною різних відповідей.
 \end{example}
+
+\subsection{Аксіоми теорії ймовірностей}
+\begin{enumerate}[I.]
+    \item Побудова вимірного простору $\left\{ \Omega, \mathcal{F}\right\}$:
+    \begin{enumerate}[\bfseries {A}1:]
+        \item Будь-якому стохастичному експерименту можна поставити у відповідність
+        простір елементарних подій $\Omega$.
+        \item $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup_{n=1}^{n (\infty)} A_n \in \mathcal{F}\right)$.
+        \item $\left( A \in \mathcal{F}\right) \Rightarrow \left( \overline{A} \in \mathcal{F}\right)$.
+        
+        Дві останні аксіоми стосуються побудови алгебри чи $\sigma$-алгебри подій.
+    \end{enumerate}
+    \item Властивості ймовірності:
+    \begin{enumerate}[\bfseries {P}1:]
+        \item $\forall A \in \mathcal{F}: P(A)\geq 0$.
+        \item $P(\Omega) = 1$ --- аксіома нормування.
+        \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j \text{ при } i \neq j: P(\bigcup_{n=1}^{\infty} A_n) = \sum_{n=1}^{\infty} P(A_n)$ ---
+        аксіома зліченної адитивності.
+        Іноді у випадках <<простої>> алгебри (а не $\sigma$-алгебри) достатньо
+        аксіоми скінченної адитивності \textbf{P3$'$}: 
+        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j \text{ при } i \neq j: P(\bigcup_{k=1}^{n} A_k) = \sum_{k=1}^{n} P(A_k)$.
+    \end{enumerate}
+\end{enumerate}
+\begin{definition}
+    Нормована міра $P$, що введена на вимірному просторі $\left\{ \Omega, \mathcal{F}\right\}$,
+    називається \emph{ймовірністю}. Всі події беруться з $\sigma$-алгебри подій.
+    Трійка $\left\{ \Omega, \mathcal{F}, P\right\}$ називається 
+    \emph{ймовірнісний простором} стохастичного експерименту.
+\end{definition}
+
+Ця система аксіом несуперечна, бо існують стохастичні експерименти,
+які задовольняють цим аксіомам, але неповна, бо в різних задачах
+теорії ймовірностей розглядаються різні ймовірнісні простори.
+
+\subsection{Властивості імовірності, що випливають з аксіом}
+\begin{enumerate}
+    \item Якщо $A_1, A_2, \dots, A_n, \dots \in \mathcal{F}$ утворюють повну групу 
+    подій, то $P(\cup_{i=1}^\infty A_i) = 1$.
+    \begin{proof}
+        Напряму випливає з аксіоми P2.
+    \end{proof}
+    \item $P(\overline{A}) = 1 - P(A)$
+    \begin{proof}
+        $A \cup \overline{A} = \Omega \Rightarrow 1 \underset{P2}{=} P(\Omega) 
+        = P(A \cup \overline{A}) \underset{P3'}{=} P(A) + P(\overline{A})$
+    \end{proof}
+    \item $P(\varnothing) = 0$
+    \begin{proof}
+        Наслідок з властивості 2 $(\varnothing = \overline{\Omega})$
+    \end{proof}
+    \begin{remark}
+        Якщо імовірність події дорівнює нулю, то це не означає, що подія неможлива.
+    \end{remark}
+    \begin{example}
+        СЕ - кидання точки на відрізок $[a, b]$. A = \{\text{потрапляння в 
+        певну точку} $x \in [a, b]$ \}
+    \end{example}
+    \item $A \subset B \Rightarrow P(A) \leq P(B)$
+    \begin{proof}
+        $A \subset B \Rightarrow B = A \cup (B \backslash A) 
+        \underset{P3'}{\Rightarrow} P(B) = P(A) + P(B \backslash A) 
+        \underset{P1}{\geq} P(A)$
+    \end{proof}
+    \item $\forall A \in \mathcal{F}: P(A) \leq 1$
+    \begin{proof}
+        Наслідок з властивості 4, $A \subset \Omega$ та P2.
+    \end{proof}
+    \item $A \subset B: P(B \backslash A) = P(B) - P(A)$
+    \begin{proof}
+        Наслідок з властивості 4.
+    \end{proof}
+    \item $\forall A, B \in \mathcal{F}: P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+    \begin{proof}
+        $A \cup B = (A\backslash(A \cap B)) 
+        \cup (A \cap B) 
+        \cup (B\backslash(A \cap B))$ - попарно несумісні. 
+        \newline
+        З аксіоми P3': $P(A \cup B) = P(A\backslash(A \cap B)) 
+        + P(A \cap B) 
+        + P(B\backslash(A \cap B))$
+    \end{proof}
+    \item Узагальнення властивості 7: $\forall A_1, A_2, \dots, A_n \in \mathcal{F} 
+    : P(\cup_{i=1}^n A_i) = \sum_{i=1}^n P(A_i) -$
+    \newline
+    $- \sum_{i < j}P(A_i \cap A_j) + \sum_{i < j < k}P(A_i \cap A_j \cap A_k) - $
+    $\dots +(-1)^{n-1}P(\cap_{i=1}^n A_i)$
+    \newline
+    (формула включення-виключення для ймовірностей).
+    \begin{exercise}
+        Довести.
+    \end{exercise}
+\suspend{enumerate}
+\begin{example}[Задача про неуважну секретарку]
+    Секретарка поклала n листів в n чистих конвертів, заклеїла ці конверти і тільки 
+    після цього написала адреси. Яка ймовірність того, що хоча б один з листів дійде 
+    за призначенням?
+    \newline
+    $A_i = \left\{\text{i-тий лист дійшов за призначенням}\right\}, i = 
+    \overline{1,n}. \;P(A_i) = \frac{1}{n} = \frac{(n-1)!}{n!}$.
+    \newline
+    $A = \left\{\text{хоча б один із листів дійшов за призначенням}\right\}, 
+    A = \cup_{i=1}^n A_i$
+    \newline
+    $P(A_i \cap_{i \neq j} A_j) = \frac{(n-2)!}{n!} = \frac{1}{n(n-1)}$
+    \newline
+    $P(A_i \cap_{i \neq j \neq k} A_j \cap A_k) = \frac{1}{n(n-1)(n-2)}$
+    \newline
+    $P(A_1 \cap \dots \cap A_n) = \frac{1}{n!}$
+    \newline
+    $P(A) = n\frac{1}{n} - C_n^2\frac{1}{n(n-1)}- \dots + (-1)^{n-1}\frac{1}{n!}
+    = 1 - \frac{1}{2!} + \frac{1}{3!} - \dots +(-1)^{n-1}\frac{1}{n!} \approx 
+    1 - \frac{1}{e} \approx 0,63$
+\end{example}
+\resume{enumerate}
+    \item $\forall A_1, A_2, \dots, A_n, \dots \in \mathcal{F}: 
+    P(\cup_{i=1}^\infty A_i) \leq \sum_{i=1}^\infty P(A_i)$
+    \begin{proof}
+        Введемо події $B_1 = A_1, B_2 = \overline{A_1} \cap A_2, 
+        B_3 = \overline{A_1} \cap \overline{A_2} \cap A_3, B_n = 
+        \overline{A_1} \cap \overline{A_2} \cap \dots$ 
+        \newline
+        $\dots \cap \overline{A_{n-1}} \cap A_n$. Ці події попарно несумісні, 
+        $\cup_{i=1}^\infty B_i = \cup_{i=1}^\infty A_i,\;B_i \subset A_i.$
+        \newline
+        За аксіомою $P3: P(\cup_{i=1}^\infty A_i) = P(\cup_{i=1}^\infty A_i) 
+        \underset{P3}{=} \sum_{i=1}^\infty P(B_i) \underset{4}{\leq} 
+        \sum_{i=1}^\infty P(A_i)$
+    \end{proof}
+    \item $\forall A_1, A_2, \dots, A_n, \dots \in \mathcal{F}: P(\cap_{i=1}^\infty
+    A_i) = 1 - P(\overline{\cap_{i=1}^\infty A_i}) = 1 - P(\cup_{i=1}^\infty A_i) \geq  
+    1 - \sum_{i=1}^\infty P(\overline{A_i})$
+\end{enumerate}
