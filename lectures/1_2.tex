@@ -251,16 +251,16 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
         $A \cup \overline{A} = \Omega \Rightarrow 1 \overset{P2}{=} P(\Omega) 
         = P(A \cup \overline{A}) \overset{P3'}{=} P(A) + P(\overline{A})$.
     \end{proof}
-    \item $P(\varnothing) = 0$
+    \item $P(\varnothing) = 0$.
     \begin{proof}
         Наслідок з властивості 2 $(\varnothing = \overline{\Omega})$.
     \end{proof}
     \begin{remark}
-        Якщо імовірність події дорівнює нулю, то це не означає, що подія неможлива.
+        Якщо ймовірність події дорівнює нулю, то це не означає, що подія неможлива.
     \end{remark}
     \begin{example}
         СЕ --- кидання точки на відрізок $[a, b]$. A = \{\text{точка потрапила в 
-        певну } $x \in [a; b]$\}.
+        певну } $x \in [a; b]$\}. $A$ не є неможливою, проте $P(A) = 0$.
     \end{example}
     \item $A \subset B \Rightarrow P(A) \leq P(B)$.
     \begin{proof}
@@ -268,7 +268,7 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
         \overset{P3'}{\Rightarrow} P(B) = P(A) + P(B \backslash A) 
         \overset{P1}{\geq} P(A)$.
     \end{proof}
-    \item $\forall A \in \mathcal{F}: P(A) \leq 1$
+    \item $\forall A \in \mathcal{F}: P(A) \leq 1$.
     \begin{proof}
         Наслідок з властивості 4, $A \subset \Omega$ та \textbf{P2}.
     \end{proof}
@@ -333,7 +333,7 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
         \newline
         $P(\bigcup_{k=1}^\infty A_k) = P(\bigcup_{k=1}^\infty B_k) 
         \overset{P3}{=} \sum_{k=1}^\infty P(B_k) \overset{4}{\leq} 
-        \sum_{k=1}^\infty P(A_k)$
+        \sum_{k=1}^\infty P(A_k)$.
     \end{proof}
     \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F}: P(\bigcap_{k=1}^\infty
     A_k) = 1 - P(\overline{\bigcap_{k=1}^\infty A_k}) = 1 - P(\bigcup_{k=1}^\infty \overline{A_k}) \geq  
