@@ -1,0 +1,198 @@
+% !TEX root = ../main.tex
+\section{Аксіома неперервності. Умовні ймовірності. Незалежність подій. Формула Баєса.}
+
+\subsection{Аксіома неперервності}
+\begin{theorem}
+    Аксіома зліченної адитивності \textbf{P3} еквівалентна аксіомі неперервності
+    \textbf{P4}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} P(B_n) = 0$$
+    \begin{proof}
+        За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}.
+
+        Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j \text{ при } i \neq j$
+        введемо події $B_n = \bigcup_{k=n+1}^{\infty} A_k$. Для них виконується $B_1 \supset B_2 \supset ... \supset B_n \supset ...$ та $\bigcap_{n=1}^{\infty} B_n = \varnothing$,
+        тому з аксіоми \textbf{P4} $\lim_{n\rightarrow \infty} P(B_n) = 0$.
+
+        З іншого боку, маємо таку рівність:
+        $$P\left(\bigcup_{k=1}^{\infty} A_k\right) = P\left(\bigcup_{k=1}^{n} A_k\right) + P\left(\bigcup_{k=n+1}^{\infty} A_k\right) = \sum_{k=1}^{n} P(A_k) + P(B_n)$$
+        Перейшовши у правій частині до границі при $n \rightarrow \infty$, отримаємо $P\left(\bigcup_{k=1}^{\infty} A_k\right) = \sum_{k=1}^{\infty} P(A_k)$, 
+        що є твердженням аксіоми зліченної адитивності.
+    \end{proof}
+\end{theorem}
+
+\subsection{Умовні ймовірності}
+Припустимо, що спостерігається деякий експеримент, що описується класичною моделлю, а для події $B$ $P(B)>0$.
+Умовна ймовірність $P(A/B)$ --- це ймовірність події $A$ за умови, що відбулась подія $B$.
+Наприклад, експеримент --- витягання карт з колоди, $A=\left\{\text{витягнуто даму пік}\right\}$, $B=\left\{\text{витягнуто карту чорної масті}\right\}$.
+
+Оскільки експеримент описується класичною моделлю, то можемо позначити $m_B$ та $m_{A\cap B}$ кількості елементарних подій, що сприяють появами подій $B$ та $A \cap B$ відповідно.
+Тоді $P(A/B) = \frac{m_{A\cap B}}{m_B} = \frac{m_{A\cap B}/n}{m_B/n} = \frac{P(A\cap B)}{P(B)}$, де $n = \mathrm{card}(\Omega)$.
+
+Ця формула справджується й для довільних ймовірнісних просторів.
+\begin{definition}
+    Якщо подія $B$ має додатну ймовірність $P(B)>0$, то \emph{умовна ймовірність} події $A$ за умови, що відбулась подія $B$,
+    обчислюється за формулою 
+    \begin{equation}\label{eq:cond_prob}
+        P(A/B) = \frac{P(A\cap B)}{P(B)}
+    \end{equation}
+\end{definition}
+\noindent \textbf{Властивості умовної ймовірності:}
+\begin{enumerate}
+    \item $P(A/B) \geq 0$.
+    \item $P(\Omega /B) = P(B/B) = 1$.
+    \item $ \forall A_1, A_2, ... , A_n, ... \in \mathcal{F}: A_i \cap A_j \text{ при } i \neq j : \\
+    P((\bigcup_{n=1}^{\infty} A_n)/B) = \frac{P((\bigcup_{n=1}^{\infty} A_n)\cap B)}{P(B)} = \frac{P(\bigcup_{n=1}^{\infty} (A_n\cap B))}{P(B)} \overset{P3}{=} \frac{\sum_{n=1}^{\infty} P(A_n \cap B)}{P(B)} = \sum_{n=1}^{\infty} P(A_n/B)$.
+\end{enumerate}
+Таким чином, для умовної ймовірності діють всі аксіоми ТЙ. Фактично, розглядається звуження ймовірнісного простору
+$\left\{ B, \mathcal{F}_B, P(\cdot/B)\right\}$, в якому $B$ стає вірогідною подією.
+
+\noindent \textbf{Теореми множення}
+
+З формули \eqref{eq:cond_prob} випливає, що
+\begin{equation}\label{eq:mult_for_2}
+    P(A\cap B) = P(A)\cdot P(B/A) = P(B) \cdot P(A/B)
+\end{equation}
+Для трьох подій: $P(A \cap B \cap C) = P(A\cap B) \cdot P(C/(A\cap B)) = P(A)\cdot P(B/A) \cdot P(C/(A\cap B))$.
+За методом математичної індукції неважко довести, що
+\begin{equation}\label{eq:mult_for_n}
+    P\left( \bigcap_{n=1}^{n} A_n\right) = P\left(A_1\right) \cdot P\left(A_2/A_1\right) \cdot P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot P\left( A_n / \left( \bigcap_{n=1}^{n-1} A_n\right) \right)
+\end{equation}
+
+\begin{example}
+    На 10 картках написано по одній букві так, що можна скласти слово <<математика>>.
+    Дитина навмання витягує без повернення по одній картці. Яка ймовірність того, що після витягання 4 карток
+    утвориться слово <<мама>>?
+
+    Треба обчислити ймовірність $P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)})$,
+    де верхній індекс означає крок, на якому витягнуто літеру.
+    $P(M^{(1)}) = \frac{2}{10}$, $P(A^{(2)} / M^{(1)}) \frac{3}{9}$,
+    $P(M^{(3)}/(M^{(1)} \cap A^{(2)})) = \frac{1}{8}$, $P(A^{(4)} / (M^{(1)} \cap A^{(2)} \cap M^{(3)})) = \frac{2}{7}$.
+    Тому за формулою \eqref{eq:mult_for_n} $P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7}$.
+\end{example}
+
+\subsection{Незалежність подій}
+\begin{definition}
+    Дві події $A$ та $B$ називаються \emph{незалежними}, якщо
+    \begin{equation}
+        P(A\cap B) = P(A)\cdot P(B)
+    \end{equation}
+\end{definition}
+\noindent \textbf{Властивості незалежних подій:}
+\begin{enumerate}
+    \item Якщо події $A$ та $B$ незалежні, то $P(A/B) = \frac{P(A\cap B)}{P(B)} = \frac{P(A)\cdot P(B)}{P(B)} = P(A)$.
+    
+    Аналогічно $P(B/A) = P(B)$.
+    \begin{remark}
+        Несумісні події залежні, якщо їх ймовірності не нульові.
+    \end{remark}
+
+    \item Якщо події $A$ та $B$ незалежні, то пари $A$ та $\overline{B}$, 
+    $\overline{A}$ та $B$, $\overline{A}$ та $\overline{B}$ --- теж незалежні.
+    \begin{proof}
+        Доведемо спочатку для пари $A$ та $\overline{B}$. $P(A\cap \overline{B}) = P(A\backslash (A\cap B)) = P(A) - P(A\cap B) = P(A) - P(A)\cdot P(B) = P(A)\cdot (1 - P(B)) = P(A)\cdot P(\overline{B})$.
+        Отже, $A$ та $\overline{B}$ --- незалежні. Доведення для інших пар аналогічне.
+    \end{proof}
+    \item Якщо $A$ та $B$, $A$ та $C$ незалежні, а $B$ та $C$ несумісні, то $A$ та $B\cup C$ --- незалежні події.
+    \begin{proof}
+        $P(A\cap (B \cup C)) = P((A \cap B) \cup (A \cap C)) = P(A\cap B) + P(A\cap C) = P(A)\cdot P(B) + P(A)\cdot P(C) = P(A) \cdot (P(B) + P(C)) = P(A)\cdot P(B\cup C).$
+    \end{proof}
+\end{enumerate}
+\subsection{Незалежність у сукупності}
+\begin{definition}
+    Події $A_1, A_2, ..., A_n \in \mathcal{F}$ називаються \emph{незалежними у сукупності}, якщо
+    \begin{equation}\label{eq:indep}
+        \forall i_1, i_2, ... i_r \in {1,...,n}: P\left(\bigcap_{k=1}^r A_{i_k}\right) = \prod_{k=1}^r P\left(A_{i_k}\right)
+    \end{equation}
+    Зокрема:
+    \begin{enumerate}
+        \item $\forall i, j \in {1,..,n}, i\neq j: P(A_i \cap A_j) = P(A_i)\cdot P(A_j)$ --- попарна незалежність.
+        \item $P(\bigcap_{k=1}^n A_k) = \prod_{k=1}^n P(A_k)$.
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    З незалежності подій у сукупності випливає попарна незалежність, 
+    але наслідку в іншу сторону, взагалі кажучи, немає.
+\end{remark}
+\begin{example}[приклад Бернштейна]
+    Дитина кидає на підлогу тетраедр, три грані якого розфарбовані відповідно зеленим, синім та червоним кольором,
+    а четверта --- усіма трьома кольорами. Введемо події $\text{З}, \text{С}, \text{Ч}$, які означають, що випала грань,
+    на якій є зелений, синій або червоний колір відповідно.
+
+    $P(\text{З}) = P(\text{С}) = P(\text{Ч}) = \frac{1}{2}$, 
+    $P(\text{З} \cap \text{С}) = P(\text{З} \cap \text{Ч}) = P(\text{С} \cap \text{Ч}) = \frac{1}{4}$,
+    тому ці події є попарно незалежними. Але $P(\text{З} \cap \text{С} \cap \text{Ч}) = \frac{1}{4} \neq \frac{1}{8}$,
+    тому незалежності у сукупності немає.
+\end{example}
+
+\noindent \textbf{Теорема додавання для незалежних у сукупності подій.}
+$A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
+$P(\bigcup_{k=1}^n A_k) = \text{?}$
+
+$P(\bigcup_{k=1}^n A_k) = 1 - P(\overline{\bigcup_{k=1}^n A_k}) = 1 - P(\bigcap_{k=1}^n \overline{A_k}) = 1 - \prod_{k=1}^n P(\overline{A_k})$.
+
+\noindent Зокрема, для двох незалежних подій $A$ і $B$: $P(A\bigcup B) = 1 - P(\overline{A}) \cdot P(\overline{B})$
+
+\subsection{Формула повної ймовірності}
+Нехай деякому СЕ поставлено у відповідність простір елементарних подій $\Omega$.
+
+$H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кількість) --- повна група подій,
+які називаємо \emph{гіпотезами (припущеннями)}.
+Нехай подія $A$ відбувається разом з якоюсь гіпотезою. Тоді має місце
+\emph{формула повної ймовірності}:
+\begin{equation}\label{eq:total_prob}
+    P\left( A \right) = \sum_{k=1}^n P(H_k)\cdot P(A/H_k)
+\end{equation}
+\begin{proof}
+    $P(A) = P(A \cap \Omega) = P(A \cap (\bigcup_{k=1}^n H_k)) = P((\bigcup_{k=1}^n (A\cap H_k))) = \sum_{k=1}^n P(A\cap H_k) = \sum_{k=1}^n P(H_k)\cdot P(A/H_k)$.
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item У магазин постачають $80\%$ телефонів з Китаю, $15\%$ з В'єтнаму та $5\%$ з Кореї,
+        причому бракованих відповідно $1\%$, $0.1\%$ та $0.01\%$.
+        Знайти ймовірність події $A = \left\{ \text{куплений телефон буде бракованим}\right\}$.
+
+        За умовою введемо гіпотези $H_1 = \left\{ \text{телефон з Китаю}\right\}$,
+        $H_2 = \left\{ \text{телефон з В'єтнаму}\right\}$ та $H_3 = \left\{ \text{телефон з Кореї}\right\}$.
+        $P(H_1) = 0.8$, $P(H_2) = 0.15$, $P(H_3) = 0.05$,
+        $P(A/H_1) = 0.01$, $P(A/H_2) = 0.001$, $P(A/H_3) = 0.0001$.
+        Тоді за формулою \eqref{eq:total_prob} $P(A) = 0.8\cdot 0.01 + 0.15\cdot 0.001 + 0.05\cdot 0.0001 = 0.080155$.
+        \item Серед $N$ екзаменаційних білетів $n$ <<щасливих>>, $n<N$.
+        У якого студента ймовірність витягнути <<щасливий>> білет більша --- у того, хто тягне першим, чи того, хто тягне другим?
+
+        Позначимо через $A$ і $B$ події, що <<щасливий>> білет витягнув перший та другий студент відповідно. За умовою $P(A) = \frac{n}{N}$.
+        Щоб скористатися формулою \eqref{eq:total_prob} для обчислення $P(B)$, введемо гіпотези $H_1$ = $A$ та $H_2$ = $\overline{A}$.
+        $P(H_1) = \frac{n}{N}$, $P(H_2) = \frac{N-n}{N}$.
+        \\ $P(B) = P(H_1)\cdot P(B/H_1) + P(H_2)\cdot P(B/H_2) = \frac{n}{N}\cdot \frac{n-1}{N-1} + \frac{N-n}{N}\cdot \frac{n}{N-1} = 
+        \frac{n^2 - n + N\cdot n - n^2}{N\cdot(N-1)} = \frac{n\cdot (N-1)}{N\cdot(N-1)} = \frac{n}{N}$.
+    \end{enumerate}
+\end{example}
+
+\subsection{Формула Баєса}
+Як і раніше, нехай $H_1, H_2, ..., H_n \in \mathcal{F}$ --- повна група подій деякого СЕ, які називаємо гіпотезами, причому
+перед проведенням експерименту відомі їх \emph{апріорні} ймовірності $P(H_1), P(H_2), ..., P(H_n)$.
+В результаті проведення експерименту відбулась деяка подія $A$.
+Постає питання: чому рівні \emph{апостеріорні} ймовірності $P(H_1/A), P(H_2/A), ..., P(H_n/A)$?
+Тобто, чому дорівнюють ймовірності, що мала місце кожна з гіпотез за умови, що подія $A$ відбулась? На це дає відповідь \emph{формула Баєса}:
+\begin{equation}\label{eq:bayes}
+    P(H_i/A) = \frac{P(H_i \cap A)}{P(A)} = \frac{P(H_i) \cdot P(A/H_i)}{\sum_{k=1}^n P(H_k)\cdot P(A/H_k)}, i = 1,...,n
+\end{equation}
+
+\begin{example}
+    В групі з 10 осіб троє вчаться на <<5>>, четверо на <<4>>, двоє на <<3>> та один на <<2>>.
+    Викладач підготував на екзамен 20 питань. Студенти, які вчаться на <<5>>, знають відповіді на всі,
+    на <<4>> --- на 16, на <<3>> --- на 10, на <<2>> --- на 5.
+    Екзаменаційний білет містить 3 питання. Деякий студент відповів правильно на всі 3.
+    Яка ймовірність того, що він вчиться на <<2>>?
+
+    Введемо гіпотези $H_1 = \left\{ \text{студент вчиться на <<5>>}\right\}$, $H_2 = \left\{ \text{студент вчиться на <<4>>}\right\}$,
+    $H_3 = \left\{ \text{студент вчиться на <<3>>}\right\}$, $H_4 = \left\{ \text{студент вчиться на <<2>>}\right\}$.
+    За умовою $P(H_1) = \frac{3}{10}$, $P(H_2) = \frac{4}{10}$, $P(H_3) = \frac{2}{10}$, $P(H_4) = \frac{1}{10}$. 
+    Позначимо $A = \left\{ \text{студент відповів на всі три питання}\right\}$. 
+    Тоді $P(A/H_1) = 1$, $P(A/H_2) = \frac{16 \cdot 15 \cdot 14}{20 \cdot 19 \cdot 18}$, 
+    $P(A/H_3) = \frac{10 \cdot 9 \cdot 8}{20 \cdot 19 \cdot 18}$, 
+    $P(A/H_4) = \frac{5 \cdot 4 \cdot 3}{20 \cdot 19 \cdot 18}$.
+    За формулою \eqref{eq:bayes} шукана ймовірність $P(H_4/A) = \frac{P(H_4) \cdot P(A/H_4)}{\sum_{k=1}^4 P(H_k)\cdot P(A/H_k)} =
+    \frac{0.1 \cdot 5 \cdot 4 \cdot 3}{0.3 \cdot 20 \cdot 19 \cdot 18 + 0.4 \cdot 16 \cdot 15 \cdot 14 + 0.2 \cdot 10 \cdot 9 \cdot 8 + 0.1 \cdot 5 \cdot 4 \cdot 3}
+     = \frac{60}{35460} = \frac{1}{591}$.
+
+\end{example}
