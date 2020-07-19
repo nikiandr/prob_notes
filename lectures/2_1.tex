@@ -63,3 +63,54 @@ $$\sum_{i=1}^\infty p_i = 1$$
         $\frac{1}{2^4}$
     \end{tabular}
 \end{example}
+\newpage
+\begin{definition}
+    Графічне зображення закону розподілу ДВВ називається 
+    \emph{полігоном розподілу імовірностей}.
+\end{definition}
+
+\hbox to \hsize{\hfil{
+    \begin{tikzpicture}[yscale = 0.8]
+        %\node [below] at (2, 0) {$np-q$};
+        %\node [below] at (6, 0) {$np+p$};
+        %\draw [fill] (4, 0) circle [radius = 0.08];
+        %\draw [fill] (2, 0) circle [radius = 0.05];
+        %\draw [fill] (6, 0) circle [radius = 0.05];
+        %\node [below] at (4, 0) {$m_0$};
+        %\draw [-{Straight Barb}] [thick] (0, 0) -- (8, 0);
+        %\draw [thick] (2, 0) to (2, 0.5);
+        %\draw [thick] (6, 0) to (6, 0.5);
+        %\draw [{Straight Barb}-{Straight Barb}] [thick] (2, 0.5) to (6, 0.5);
+        %\node [above] at (4, 0.5) {1};
+        \draw [->] (0,0) -- (5,0);
+        \draw [->] (0,0) -- (0,6);
+        \draw [fill] (1, 0) circle [radius = 0.05];
+        \node [below] at (1, 0) {$x_1$};
+        \node [below] at (2, 0) {$x_2$};
+        \node [below] at (3, 0) {$x_3$};
+        \node [below] at (3.75, 0) {$...$};
+        \node [below] at (4.5, 0) {$x_n$};
+        \node [left] at (0, 1) {$p_1$};
+        \node [left] at (0, 2) {$p_2$};
+        \node [left] at (0, 3) {$p_3$};
+        \node [left] at (0, 3.75) {$...$};
+        \node [left] at (0, 4.5) {$p_n$};
+        \draw [fill] (2, 0) circle [radius = 0.05];
+        \draw [fill] (3, 0) circle [radius = 0.05];
+        \draw [fill] (4.5, 0) circle [radius = 0.05];
+        \draw [fill] (0, 1) circle [radius = 0.05];
+        \draw [fill] (0, 2) circle [radius = 0.05];
+        \draw [fill] (0, 3) circle [radius = 0.05];
+        \draw [fill] (0, 4.5) circle [radius = 0.05];
+        \draw [fill] (0, 5.5) circle [radius = 0.05];
+        \node [left] at (0, 5.5) {$1$};
+        \node [right] at (5, 0) {$x$};
+        \node [above] at (0, 6) {$p$};
+        \draw [dashed] (0, 5.5) -- (5, 5.5);
+        \draw [fill] (1, 1) circle [radius = 0.05];
+        \draw [fill] (2, 3) circle [radius = 0.05];
+        \draw [fill] (3, 2) circle [radius = 0.05];
+        \draw [fill] (4.5, 4.5) circle [radius = 0.05];
+        \draw (1, 1) -- (2, 3) -- (3, 2) -- (4.5, 4.5);
+    \end{tikzpicture}
+}\hfil}
