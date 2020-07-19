@@ -24,5 +24,6 @@
 *.fls
 *.fdb_latexmk
 *.json
+*.pdf
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
