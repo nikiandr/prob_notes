@@ -1,0 +1,65 @@
+% !TEX root = ../main.tex
+
+\section{Поняття випадкової величини та її задання}
+\begin{definition}
+    \emph{Випадковою величиною} називається дійснозначна вимірна функція, що здійснює 
+    відображення з $\Omega$ в $\mathbb{R}$, тобто $\xi = \xi(\omega): \Omega 
+    \rightarrow \mathbb{R}$.
+\end{definition}
+\begin{remark}
+    Вимірність функції $\xi(\omega)$ означає, що 
+    \begin{equation}
+        \forall x \in \mathbb{R}: 
+        \left\{ \omega \in \Omega\; |\; \xi(\omega) < x\right\} \in \mathcal{F}
+    \end{equation} В курсі 
+    функціонального аналізу доводиться, що якщо виконується (1), то
+    \begin{equation}
+        \left.\begin{aligned}
+            \{\omega\;|&\;\xi(\omega) > x\}\\
+            \{\omega\;|&\;\xi(\omega) \leq x\}\\
+            \{\omega\;|&\;\xi(\omega) \geq x\}\\
+            \{\omega\;|&\;a < \xi(\omega) < b\}
+        \end{aligned}\right\} \in \mathcal{F}
+    \end{equation}
+\end{remark}
+
+Всього існують два види випадкових величин --- дискретні та неперервні.
+
+\subsection{Дискретні випадкові величини та їх задання}
+\begin{definition}
+    Випадкова величина $\xi = \xi(\omega)$ називається 
+    \emph{дискретною випадковою величиною} (ДВВ), якщо вона набуває скінченну або зліченну 
+    кількість значень.
+\end{definition}
+Для задання ДВВ крім знання значень випадкової величини необхідно знати ймовірності, 
+з якими ці значення приймаються.
+$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i)$$
+$$\sum_{i=1}^\infty p_i = 1$$
+\begin{definition}
+    \emph{Законом розподілу (імовірностей)} ДВВ називається співвідношення, яке вказує, 
+    які ця випадкова величина приймає значення і з якими імовірностями.
+
+    Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ & ... \\
+        \hline
+        $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ...
+    \end{tabular}
+    \hspace{40pt}
+    $x_1 < x_2 < ... < x_n < ...,\;\; \sum\limits_i p_i = 1$
+\end{definition}
+\begin{example}
+    $\xi$ задає кількість влучень при чотирьох пострілах з імовірністю влучення 
+    $p = \frac{1}{2}$. Скласти закон розподілу цієї випадкової величини.
+
+    $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
+    C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}$
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $\xi$ & 0 & 1 & 2 & 3 & 4 \\
+        \hline
+        $p$ & $\frac{1}{2^4}$ & $\frac{4}{2^4}$ & $\frac{6}{2^4}$ & $\frac{5}{2^4}$ & 
+        $\frac{1}{2^4}$
+    \end{tabular}
+\end{example}
