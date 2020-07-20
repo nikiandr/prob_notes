@@ -4,26 +4,21 @@
 \begin{definition}
     \emph{Випадковою величиною} називається дійснозначна вимірна функція, що здійснює 
     відображення з $\Omega$ в $\mathbb{R}$, тобто $\xi = \xi(\omega): \Omega 
-    \rightarrow \mathbb{R}$.
+    \mapsto \mathbb{R}$.
 \end{definition}
 \begin{remark}
     Вимірність функції $\xi(\omega)$ означає, що 
-    \begin{equation}
+    \begin{equation}\label{eq:measurable}
         \forall x \in \mathbb{R}: 
         \left\{ \omega \in \Omega\; |\; \xi(\omega) < x\right\} \in \mathcal{F}
     \end{equation} В курсі 
-    функціонального аналізу доводиться, що якщо виконується (1), то
-    \begin{equation}
-        \left.\begin{aligned}
-            \{\omega\;|&\;\xi(\omega) > x\}\\
-            \{\omega\;|&\;\xi(\omega) \leq x\}\\
-            \{\omega\;|&\;\xi(\omega) \geq x\}\\
-            \{\omega\;|&\;a < \xi(\omega) < b\}
-        \end{aligned}\right\} \in \mathcal{F}
-    \end{equation}
+    функціонального аналізу доводиться, що якщо виконується \eqref{eq:measurable}, то
+    $\left\{ \omega \; |\; \xi(\omega) > x\right\}$, $\left\{ \omega \; |\; \xi(\omega) \leq x\right\}$,
+    $\left\{ \omega \; |\; \xi(\omega) \geq x\right\}$, $\left\{ \omega \; |\; \xi(\omega) = x\right\}$ та
+    $\left\{ \omega \; |\; \xi(\omega) \in \left< a; b\right> \right\}$ також належать $\mathcal{F}$.
 \end{remark}
 
-Всього існують два види випадкових величин --- дискретні та неперервні.
+В курсі розглядаються випадкові величини двох видів --- дискретні (ДВВ) та неперервні (НВВ).
 
 \subsection{Дискретні випадкові величини та їх задання}
 \begin{definition}
@@ -31,13 +26,13 @@
     \emph{дискретною випадковою величиною} (ДВВ), якщо вона набуває скінченну або зліченну 
     кількість значень.
 \end{definition}
-Для задання ДВВ крім знання значень випадкової величини необхідно знати ймовірності, 
+Для задання ДВВ, крім знання значень випадкової величини, необхідно знати ймовірності, 
 з якими ці значення приймаються.
-$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i)$$
-$$\sum_{i=1}^\infty p_i = 1$$
+$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum_{i=1}^\infty p_i = 1$$
+
 \begin{definition}
-    \emph{Законом розподілу (імовірностей)} ДВВ називається співвідношення, яке вказує, 
-    які ця випадкова величина приймає значення і з якими імовірностями.
+    \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
+    які значення ця випадкова величина приймає та з якими ймовірностями.
 
     Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
 
@@ -47,14 +42,14 @@ $$\sum_{i=1}^\infty p_i = 1$$
         $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ...
     \end{tabular}
     \hspace{40pt}
-    $x_1 < x_2 < ... < x_n < ...,\;\; \sum\limits_i p_i = 1$
+    $x_1 < x_2 < ... < x_n < ...,\; \sum\limits_i p_i = 1$
 \end{definition}
 \begin{example}
     $\xi$ задає кількість влучень при чотирьох пострілах з імовірністю влучення 
     $p = \frac{1}{2}$. Скласти закон розподілу цієї випадкової величини.
 
-    $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
-    C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}$
+    З формули Бернуллі $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
+    C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}, k = 0,1,2,3,4$.
 
     \begin{tabular}{c|c|c|c|c|c}
         $\xi$ & 0 & 1 & 2 & 3 & 4 \\
@@ -66,7 +61,7 @@ $$\sum_{i=1}^\infty p_i = 1$$
 \newpage
 \begin{definition}
     Графічне зображення закону розподілу ДВВ називається 
-    \emph{полігоном розподілу імовірностей}.
+    \emph{полігоном розподілу ймовірностей}.
 \end{definition}
 
 \hbox to \hsize{\hfil{
@@ -111,6 +106,7 @@ $$\sum_{i=1}^\infty p_i = 1$$
         \draw [fill] (2, 3) circle [radius = 0.05];
         \draw [fill] (3, 2) circle [radius = 0.05];
         \draw [fill] (4.5, 4.5) circle [radius = 0.05];
-        \draw (1, 1) -- (2, 3) -- (3, 2) -- (4.5, 4.5);
+        \draw (1, 1) -- (2, 3) -- (3, 2);
+        \draw [dashed] (3, 2) -- (4.5, 4.5);
     \end{tikzpicture}
 }\hfil}
