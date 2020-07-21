@@ -100,7 +100,7 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
     \end{tikzpicture}
 }\hfil}
 
-Універсальною імовірнісною характеристикою будь-якої випадкової величини є функція 
+Універсальною ймовірнісною характеристикою будь-якої випадкової величини є функція 
 розподілу випадкової величини.
 
 \begin{definition}
@@ -111,48 +111,47 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 
 \noindent \textbf{Властивості функції розподілу:}
 \begin{enumerate}
-    \item $D(F) = \mathbb{R}$, $E(F) = \left<0, 1\right>$
+    \item $D(F) = \mathbb{R}$, $E(F) = \left<0; 1\right>$.
     \item $\forall x_1 > x_2 \in \mathbb{R}$: $ F_\xi(x_1) \geq F_\xi(x_2)$
     - монотонно неспадна.
     \begin{proof}
         Розглянемо події $A = \left\{\omega:\xi(\omega) < x_1\right\}$ та 
-        $B = \left\{\omega:\xi(\omega) < x_2\right\}$, при чому $x_1 > x_2$.
+        $B = \left\{\omega:\xi(\omega) < x_2\right\}$, причому $x_1 > x_2$.
         Отже, $B \subset A \Rightarrow P(B) \leq P(A) \Rightarrow 
         F_\xi(x_1) \geq F_\xi(x_2)$.
     \end{proof}
-    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a)$
+    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a)$.
     \begin{proof}
         Розглянемо події $A = \left\{\omega:\xi(\omega) < a\right\}$,  
         $B = \left\{\omega:\xi(\omega) < b\right\}$, 
         \newline
         $C = \left\{\omega: a \leq \xi(\omega) < b\right\}$.
-        $B = A \vee C \Rightarrow P(B) = P(A) + P(C) \Rightarrow $
+        $B = A \cup C, A \cap C = \varnothing \Rightarrow P(B) = P(A) + P(C) \Rightarrow $
         \newline
         $\Rightarrow P(C) = P\left\{\omega: a \leq \xi(\omega) < b\right\} 
-        = P(B) - P(A) =  F_\xi(b) - F_\xi(a)$
+        = P(B) - P(A) =  F_\xi(b) - F_\xi(a)$.
     \end{proof}
     \item $\lim\limits_{x \to -\infty} F_\xi(x) = 0, 
-    \lim\limits_{x \to +\infty} F_\xi(x) = 1$
+    \lim\limits_{x \to +\infty} F_\xi(x) = 1$.
     \begin{proof}
-        Виділимо дві послідовності подій: $A_n = \left\{\omega:\xi(\omega) 
+        Введемо послідовності подій $A_n = \left\{\omega:\xi(\omega) 
         < -n\right\}$ та
-        \newline
         $B_n = \left\{\omega:\xi(\omega) < n\right\}$. Зауважимо, що $A_n$ є 
         монотонно спадною, а $B_n$ --- монотонно зростаючою.
 
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
-        = \left|\text{теорема \refeq{th:1}}\right| = 
-        P(\cap_{n=1}^\infty A_n) = P(\varnothing) =$ 
+        = \left|\text{теорема \refeq{th:2}}\right| = 
+        P(\bigcap_{n=1}^\infty A_n) = P(\varnothing) =$ 
         \newline
-        $= 0$
+        $= 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
-        = \left|\text{теорема \refeq{th:2}}\right| = 
-        P(\cup_{n=1}^\infty B_n) = P(\Omega) =$
+        = \left|\text{теорема \refeq{th:1}}\right| = 
+        P(\bigcup_{n=1}^\infty B_n) = P(\Omega) =$
         \newline
-        $= 1$
+        $= 1$.
     \end{proof}
     \item Функція розподілу неперервна зліва: $\lim\limits_{x \to x_0 - 0} 
     F_\xi(x) = F_\xi(x_0)$.
@@ -162,7 +161,64 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
         
         $\lim\limits_{x \to x_0 - 0} 
         F_\xi(x) = \lim\limits_{n \to \infty}P(\xi < x_n) =
-        \left|\text{теорема \refeq{th:2}}\right| = P(\cup_{n=1}^\infty A_n) = 
-        P(\xi < x_0) = F_\xi(x_0)$
+        \left|\text{теорема \refeq{th:2}}\right| = P(\bigcup_{n=1}^\infty A_n) = 
+        P(\xi < x_0) = F_\xi(x_0)$.
     \end{proof}
 \end{enumerate}
+
+\begin{remark}
+    В американській літературі функція розподілу вводиться інакше,
+    як $F_\xi (x) = P\left\{\omega:\xi(\omega) \leq x\right\}$.
+    За такого означення функція розподілу є неперервною справа.
+\end{remark}
+
+Розглянемо ймовірність $P\left\{x \leq \xi < x + \Delta x\right\} = F_\xi (x+\Delta x) - F_\xi (x)$.
+Перейдемо до границі при $\Delta \rightarrow 0$:
+$P\left\{ \xi = x\right\} = \begin{cases}
+    0, & \text{якщо } x \text{ --- точка неперервності} \\
+    \Delta \text{-стрибок}, & \text{якщо } x \text{ --- точка розриву 1-го роду}
+\end{cases}$.
+\newline \newline
+\noindent \textbf{Вигляд функції розподілу для ДВВ:}
+
+\begin{tabular}{c|c|c|c|c}
+    $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ \\
+    \hline
+    $p$ & $p_1$ & $p_2$ & ... & $p_n$
+\end{tabular}
+\hspace{30pt}
+$x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
+
+\begin{tabular}{c c}
+    \begin{tikzpicture}[baseline={(current bounding box.center)}]
+        \draw [->] (-2, 0) -- (5, 0);
+        \draw [->] (0, -0.5) -- (0, 3);
+        \draw [ultra thick] (-2, 0) -- (1, 0);
+        \draw [dashed] (1, 0) -- (1, 0.5);
+        \draw [ultra thick] [<-] (1, 0.5) -- (2, 0.5);
+        \draw [dashed] (2, 0) -- (2, 1.2);
+        \draw [ultra thick] [<-] (2, 1.2) -- (2.8, 1.2);
+        \draw [dashed] (2.8, 0) -- (2.8, 1.2);
+        \draw [dashed] (4, 0) -- (4, 2.5);
+        \draw [ultra thick] [<-] (4, 2.5) -- (5, 2.5);
+        \draw [dashed] (0, 2.5) -- (4, 2.5);
+        \draw [dashed] (0, 0.5) -- (1, 0.5);
+        \draw [dashed] (0, 1.2) -- (2, 1.2);
+        \node [below] at (1, 0) {$x_1$};
+        \node [below] at (2, 0) {$x_2$};
+        \node [below] at (2.8, 0) {$x_3$};
+        \node [below] at (3.4, -0.1) {$...$};
+        \node [below] at (4, 0) {$x_n$};
+        \node [left] at (0, 0.5) {$p_1$};
+        \node [left] at (0, 1.2) {$p_1 + p_2$};
+        \node [left] at (0, 2.5) {$1$};
+    \end{tikzpicture} &
+    $F_\xi(x) = \begin{cases}
+        0, & x \leq x_1 \\
+        p_1, & x_1 < x \leq x_2 \\
+        p_1 + p_2, & x_2 < x \leq x_3 \\
+        \dots \\
+        \sum\limits_{i=1}^{n-1} p_i, & x_{n-1} < x \leq x_n \\
+        \sum\limits_{i=1}^{n} p_i = 1, & x > x_n
+    \end{cases}$
+\end{tabular}
