@@ -194,7 +194,7 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
 \sum\limits_{j=0}^k (-1)^{k-j} C_k^j E\xi^j (E\xi)^{k-j}$.
 
 \noindent Отже, $\beta_k = \sum\limits_{j=0}^k (-1)^{k-j} C_k^j \alpha_j (\alpha_1)^{k-j}$.
-Частинним випадком цієї формули є формула для дисперсії: $D\xi = \beta_2 = \alpha_2 - \alpha_1^2 = E\xi^2 - (E\xi)^2$.
+Частковим випадком цієї формули є формула для дисперсії: $D\xi = \beta_2 = \alpha_2 - \alpha_1^2 = E\xi^2 - (E\xi)^2$.
 \begin{exercise}
     Виразити через початкові моменти $\beta_3$ та $\beta_4$.
 \end{exercise}
@@ -215,11 +215,9 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
 \begin{definition}
     Точка $x_0$ називається \emph{медіаною} $Me\xi$, якщо 
     $P\left\{\xi < x_0\right\} = P\left\{\xi \geq x_0\right\} 
-    = \frac{1}{2} \Leftrightarrow $
+    = \frac{1}{2} \Leftrightarrow F_\xi(x_0) = \frac{1}{2}$.
+    Медіана є окремим випадком \emph{квантиля}.
 \end{definition}
-\begin{remark}
-    Медіана $Me\xi$ є окремим випадком \emph{квантиля}.
-\end{remark}
 \begin{definition}
     Точка $x_0$ називається \emph{квантилем q-го порядку} якщо $F_\xi(x_0) = q$.
 \end{definition}
@@ -256,9 +254,8 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
 \begin{definition}
     \emph{Асиметрією} випадкової величини $As\xi$ називається безрозмірна 
     числова характеристика, що дорівнює $\frac{\beta_3}{\sigma_\xi^3} = 
-    \frac{E(\xi - E\xi)^3}{(D\xi)^{3/2}}$.
-
-    Показує порушення чи наявність симетрії щільності відносно математичного сподівання.
+    \frac{E(\xi - E\xi)^3}{(D\xi)^{3/2}}$. 
+    Ця характеристика показує порушення чи наявність симетрії кривої розподілу відносно математичного сподівання.
 \end{definition}
 \begin{tabular}{c c c}
     \begin{tikzpicture}[yscale = 1.5]
@@ -292,8 +289,7 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
     \emph{Ексцесом} випадкової величини $Ex\xi$ називається безрозмірна 
     числова характеристика, що дорівнює $Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 
     \frac{E(\xi - E\xi)^4}{(D\xi)^{2}} - 3$.
-
-    Ця числова характеристика показує, наскільки швидко щільність розподілу 
+    Ця характеристика показує, наскільки швидко крива розподілу 
     прямує до точки максимуму.
 \end{definition}
 \begin{center}
@@ -332,8 +328,7 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
     \item За допомогою генератриси можна знайти початкові та факторіальні моменти $\xi$.
     \begin{proof}
         За означенням факторіальний момент $\gamma_m = E\left( \xi (\xi - 1) ... (\xi - m + 1)\right)$.
-        Для ДВВ він рівний $\sum\limits_{k=0}^{\infty} k(k-1)(k-2)...(k-m+1) P\left\{\xi = k\right\}$.
-        
+        Для ДВВ, що розглядаються, він рівний $\sum\limits_{k=0}^{\infty} k(k-1)(k-2)...(k-m+1) P\left\{\xi = k\right\}$.
         З іншого боку, $\varphi'_\xi(z) = \sum\limits_{k=0}^{\infty} k P\left\{\xi = k\right\} z^{k-1}$,
         $\varphi''_\xi(z) = \sum\limits_{k=0}^{\infty} k(k-1) P\left\{\xi = k\right\} z^{k-2}$ і так далі,
         $\varphi^{(m)}_\xi(z) = \sum\limits_{k=0}^{\infty} k(k-1)(k-2)...(k-m+1) P\left\{\xi = k\right\} z^{k-m}$.
