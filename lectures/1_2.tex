@@ -9,7 +9,6 @@
     Нехай точка кидається навмання на відрізок $\left[a; b\right]$. 
     Яка ймовірність її 
     потрапляння в $\left<\alpha; \beta\right> \subset  \left[a; b\right]$?
-    \newline
     Розглянемо подію $A = \left\{ 
         \text{точка потрапила в} \left<\alpha; \beta\right>
     \right\}$.
@@ -207,9 +206,9 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
 \end{example}
 
 \subsection{Аксіоми теорії ймовірностей}
-\begin{enumerate}[I.]
+\begin{enumerate}[label=\Roman*.]
     \item Побудова вимірного простору $\left\{ \Omega, \mathcal{F}\right\}$:
-    \begin{enumerate}[\bfseries {A}1:]
+    \begin{enumerate}[label = \textbf{A\arabic*:}]
         \item Будь-якому стохастичному експерименту можна поставити у відповідність
         простір елементарних подій $\Omega$.
         \item $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup_{n=1}^{n (\infty)} A_n \in \mathcal{F}\right)$.
@@ -218,7 +217,7 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
         Дві останні аксіоми стосуються побудови алгебри чи $\sigma$-алгебри подій.
     \end{enumerate}
     \item Властивості ймовірності:
-    \begin{enumerate}[\bfseries {P}1:]
+    \begin{enumerate}[label = \textbf{P\arabic*:}]
         \item $\forall A \in \mathcal{F}: P(A)\geq 0$.
         \item $P(\Omega) = 1$ --- аксіома нормування.
         \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j \text{ при } i \neq j: P(\bigcup_{n=1}^{\infty} A_n) = \sum_{n=1}^{\infty} P(A_n)$ ---

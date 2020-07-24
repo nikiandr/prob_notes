@@ -12,8 +12,9 @@
 \usepackage{multicol} % Несколько колонок
 \usepackage{wrapfig} % Картинки посреди текста
 \usepackage{chngcntr} % для нумерации формул
-\usepackage{enumerate} % чтоб можно было делать римскую нумерацию
+\usepackage{enumitem} % чтоб можно было делать римскую нумерацию
 \usepackage{mdwlist}
+\setlist[enumerate]{nosep}
 
 %%%% Теоремы, определения и т.д. и т.п.
 \theoremstyle{plain} % Это стиль по умолчанию, его можно не переопределять.
@@ -23,6 +24,7 @@
  
 \theoremstyle{definition} % "Определение"
 \newtheorem{definition}{Означення}[section]
+\newtheorem*{definition*}{Означення}
 \newtheorem*{example}{Приклад}
 
 \theoremstyle{remark}
