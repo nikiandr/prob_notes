@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 \section{Деякі закони розподілу випадкових величин}
 
-\subsection{Біноміальний закон}
+\subsection{Біноміальний розподіл}
 \noindent\textbf{Означення:}
     ДВВ $\xi$ розподілена за \emph{біноміальним законом}, 
     якщо набуває значень $0,1,...,n$ з ймовірностями \begin{equation}
@@ -14,9 +14,6 @@
 За законом Бернуллі розподілені випадкові події-індикатори $I_A = \begin{cases}
     0, & \text{подія A не відбулась}\\ 1, & \text{подія А відбулась}
 \end{cases}$ при $P(A) = p$.
-
-\noindent\textbf{Основне застосування:} якщо проводиться $n$ незалежних випробувань з ймовірністю успіху $p$, 
-то $\xi \sim {Bin}(n, p)$ задає кількість успіхів.
 
 \noindent\textbf{Ряд розподілу:}
 
@@ -81,6 +78,9 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
     \item ${Me}\xi$ --- одне зі значень $\left[np\right] - 1$, $\left[np\right]$, $\left[np\right] + 1$.
 \end{enumerate}
 
+\noindent\textbf{Застосування:} якщо проводиться $n$ незалежних випробувань з ймовірністю успіху $p$, 
+то $\xi \sim {Bin}(n, p)$ задає кількість успіхів.
+
 \subsection{Геометричний розподіл}
 \noindent\textbf{Означення:}
     ДВВ $\xi$ розподілена за \emph{геометричним законом}, 
@@ -89,9 +89,6 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
     \end{equation}
     \textbf{Коротке позначення:} $\xi \sim {Geom}(p)$.
     $p$ --- параметр закону, $p\in (0;1)$.
-
-\noindent\textbf{Основне застосування:} якщо проводяться незалежні випробування з ймовірністю успіху $p$ до першого успішного,
-то $\xi$, що задає кількість проведених випробувань, має розподіл ${Geom}(p)$.
 
 \noindent\textbf{Ряд розподілу:}
 
@@ -148,6 +145,9 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
     \item ${Mo}\xi = 1$.
     \item ${Me}\xi = \left[ \frac{-1}{\log_2(1-p)}\right]$.
 \end{enumerate}
+
+\noindent\textbf{Застосування:} якщо проводяться незалежні випробування з ймовірністю успіху $p$ до першого успішного,
+то $\xi$, що задає кількість проведених випробувань, має розподіл ${Geom}(p)$.
 
 \begin{exercise}
     Записати ряд розподілу, функцію розподілу, генетратрису та обчислити
@@ -299,3 +299,201 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
 
 Таким чином, $p_m(t) = \frac{(\lambda t)^m}{m!}e^{-\lambda t}$. 
 Тепер зрозумілою стає назва параметру $\lambda$ (<<інтенсивність>>): $E\xi = \lambda t$, $\lambda = \frac{E\xi}{t}$ --- середня кількість подій за одиницю часу.
+
+\subsection{Рівномірний розподіл}
+\noindent\textbf{Означення:}
+    НВВ $\xi$ розподілена за \emph{рівномірним законом}, 
+    якщо її щільність розподілу має вигляд \begin{equation}
+        f_\xi(x) = \begin{cases}
+            \frac{1}{b-a}, & x \in \left<a; b\right> \\
+            0, & x \notin \left<a; b\right>
+        \end{cases}
+    \end{equation}
+\textbf{Коротке позначення:} $\xi \sim {U}\left<a; b\right>$.
+    $a$ і $b$ --- параметри закону, $a<b$, $a, b \in \mathbb{R}$.
+
+Розподіл ${U}\left<0; 1\right>$ називається \emph{стандартним рівномірним розподілом}.
+
+\noindent \textbf{Крива розподілу:}
+
+\begin{tikzpicture}[yscale = 2]
+    \pgfmathsetmacro{\a}{1};
+    \pgfmathsetmacro{\b}{3};
+    \draw [->] (-2, 0) -- (5, 0);
+    \draw [->] (0, -0.5) -- (0, 1);
+    \draw [ultra thick] (\a, {1/(\b -\a)}) -- (\b, {1/(\b -\a)});
+    \draw [dashed] (\a, 0) -- (\a, {1/(\b -\a)});
+    \draw [dashed] (\b, 0) -- (\b, {1/(\b -\a)});
+    \draw [ultra thick] [->] (-2, 0) -- (\a, 0);
+    \draw [ultra thick] [<-] (\b, 0) -- (4.9, 0);
+    \node [below] at (\a, -0.03) {$a$};
+    \node [below] at (\b, 0) {$b$};
+    \draw [dashed] (0, {1/(\b -\a)}) -- (\a, {1/(\b -\a)});
+    \node [left] at (0, {1/(\b -\a)}) {$\frac{1}{b-a}$};
+    \node [below] at (5, 0) {$x$};
+    \node [left] at (0, 0.9) {$f_\xi(x)$};
+\end{tikzpicture}
+
+\noindent \textbf{Функція розподілу:}
+
+\begin{tabular}{c c}
+    $
+        F_\xi(x) = \begin{cases}
+            0, & x \leq a \\
+            \frac{x-a}{b-a}, & a< x \leq b \\
+            1, & x > b
+        \end{cases}
+    $ &
+    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=1.5]
+        \pgfmathsetmacro{\a}{1};
+    \pgfmathsetmacro{\b}{3};
+    \draw [->] (-2, 0) -- (5, 0);
+    \draw [->] (0, -0.5) -- (0, 1.2);
+    \draw [ultra thick] (-2, 0) -- (\a, 0);
+    \draw [domain=\a:\b, smooth, variable = \x, ultra thick] plot ({\x}, {(\x-\a)/(\b-\a)});
+    \draw [ultra thick] (\b, 1) -- (5, 1);
+    \node [below] at (\a, -0.03) {$a$};
+    \node [below] at (\b, 0) {$b$};
+    \node [below] at (5, 0) {$x$};
+    \node [left] at (0, 1.2) {$F_\xi(x)$};
+    \draw [dashed] (0, 1) -- (\b, 1);
+    \node [left] at (0, 1) {$1$};
+    %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
+    \end{tikzpicture}
+\end{tabular}
+
+\noindent\textbf{Числові характеристики:}
+\begin{enumerate}
+    \item $E\xi = \int\limits_{-\infty}^{+\infty} x f_\xi(x)dx = \int\limits_{a}^{b} \frac{x}{b-a}dx = \frac{a+b}{2}$.
+    \item $D\xi = E\xi^2 - (E\xi)^2 = \int\limits_{a}^{b} \frac{x^2}{b-a}dx - \frac{(a+b)^2}{4} = \frac{(b-a)^2}{12}$, $\sigma_\xi = \frac{b-a}{2\sqrt{3}}$.
+    \item ${Mo}\xi$ --- будь-яка точка з $\left<a; b\right>$.
+    \item ${Me}\xi = \frac{a+b}{2}$.
+    \item ${As}\xi = 0$.
+    \item ${Ex}\xi = -\frac{6}{5}$.
+\end{enumerate}
+
+\noindent\textbf{Застосування:} отримання вибірок з інших законів розподілу;
+похибка округлення до найближчої поділки приладу при ціні поділки $a$ має розподіл ${U}\left<-\frac{a}{2}; \frac{a}{2}\right>$.
+
+\subsection{Експоненційний (показниковий) розподіл}
+\noindent\textbf{Означення:}
+    НВВ $\xi$ розподілена за \emph{експоненційним законом}, 
+    якщо її щільність розподілу має вигляд \begin{equation}
+        f_\xi(x) = \begin{cases}
+            \lambda e^{-\lambda x}, & x \geq 0 \\
+            0, & x < 0
+        \end{cases}
+    \end{equation}
+\textbf{Коротке позначення:} $\xi \sim {Exp}(\lambda)$.
+    $\lambda > 0$ --- параметр закону.
+
+\noindent \textbf{Крива розподілу:}
+
+\begin{tikzpicture}[yscale = 2]
+    \pgfmathsetmacro{\l}{1};
+    \draw [->] (-2, 0) -- (5, 0);
+    \draw [->] (0, -0.5) -- (0, 1.2);
+    \draw [ultra thick] [->] (-2, 0) -- (0, 0);
+    \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {\l*e^(-\l*\x)});
+    \node [below] at (5, 0) {$x$};
+    \node [left] at (0, 1.2) {$f_\xi(x)$};
+    \node [below right] at (0, 0) {$0$};
+    \node [left] at (0, \l) {$\lambda$};
+\end{tikzpicture}
+
+\noindent \textbf{Функція розподілу:}
+
+\begin{tabular}{c c}
+    $
+        F_\xi(x) = \begin{cases}
+            0, & x \leq 0 \\
+            \lambda \int\limits_0^x e^{-\lambda t} dt = 1 - e^{-\lambda x}, & x> 0
+        \end{cases}
+        $ &
+    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=2]
+        \pgfmathsetmacro{\l}{1};
+        \draw [->] (-2, 0) -- (5, 0);
+        \draw [->] (0, -0.5) -- (0, 1.2);
+        \draw [ultra thick] (-2, 0) -- (0, 0);
+        \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {1 - e^(-\l*\x)});
+        \node [below] at (5, 0) {$x$};
+        \node [left] at (0, 1.2) {$F_\xi(x)$};
+        \node [below right] at (0, 0) {$0$};
+        \node [left] at (0, 1) {$1$};
+        \draw [dashed] (0, 1) -- (5, 1);
+    \end{tikzpicture}
+\end{tabular}
+
+Знайдемо всі \emph{початкові моменти} експоненційного розподілу.
+
+$E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{0}^{+\infty} x^k e^{-\lambda x}dx = \left[ \lambda x = t, dx = \frac{dt}{\lambda}\right]=
+\frac{\lambda}{\lambda^k \cdot \lambda} \int\limits_{0}^{+\infty} t^k e^{-t} dt = \frac{\Gamma(k+1)}{\lambda^k} = \frac{k!}{\lambda^k}$.
+
+\noindent\textbf{Числові характеристики:}
+\begin{enumerate}
+    \item $E\xi = \frac{1}{\lambda}$.
+    \item $D\xi = E\xi^2 - (E\xi)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$, $\sigma_\xi = \frac{1}{\lambda}$.
+    \item ${Mo}\xi = 0$.
+    \item ${Me}\xi = \frac{ln2}{\lambda}$.
+    \item ${As}\xi = 2$ --- не залежить від $\lambda$, бо $\beta_3 = \alpha_3 - 3\alpha_2 \alpha_1 + 2 \alpha_1^3 = \frac{2}{\lambda^3}$.
+    \item ${Ex}\xi = 6$.
+\end{enumerate}
+
+\begin{exercise}
+    Дослідити характеристики інших варіантів експоненційного розподілу:
+    ${Exp}(\lambda, x_0)$ з щільністю $f_\xi(x) = \begin{cases}
+        \lambda e^{-\lambda (x-x_0)}, & x \geq x_0 \\
+        0, & x < x_0
+    \end{cases}$ (експоненційний із зсувом) та ${Exp}(\alpha)$ зі щільністю
+    $f_\xi(x) = \begin{cases}
+        \frac{1}{\alpha} e^{-\frac{x}{\alpha}}, & x \geq 0 \\
+        0, & x < 0
+    \end{cases}$, що відповідає розглянутому варіанту, але з параметром $\lambda = \frac{1}{\alpha}$.
+\end{exercise}
+
+Як і геометричний розподіл, експоненційний \textbf{<<не має пам'яті>>}.
+Доведемо: якщо проміжок часу $T$, розподілений за експоненційним законом,
+тягнувся час $\tau$, то проміжок $T_1 = T - \tau$ розподілений так само --- 
+за експоненційним законом з тим самим параметром.
+\begin{gather*}
+    F_{T_1}(t) = P\left\{T_1 < t / T \geq \tau\right\} = 
+    \frac{P\left\{(T_1 < t) \cap (T \geq \tau)\right\}}{P\left\{ T \geq \tau \right\}} =
+    \frac{P{\left\{\tau \leq T < t +\tau\right\}}}{1 - P\left\{ T < \tau \right\}} = \\
+    \frac{F_T(t+\tau) - F_T(\tau)}{1-F_T(\tau)} = 
+    \frac{1-e^{-\lambda (t+\tau)} - (1 - e^{-\lambda \tau})}{1-(1-e^{-\lambda \tau})} =
+    \frac{e^{-\lambda \tau}(1-e^{-\lambda t})}{e^{-\lambda \tau}} = 1-e^{-\lambda t}
+\end{gather*}
+Отже, $F_{T_1}(t) = F_T(t)$.
+
+\noindent\textbf{Застосування:}
+\begin{enumerate}
+    \item Час між двома сусідніми подіями в потоці Пуассона має експоненційний розподіл.
+    \begin{exercise}
+        Довести цю властивість.
+    \end{exercise}
+    \item Як правило, час безвідмовної роботи приладу має експоненційний розподіл.
+    
+    Нехай в момент часу $t=0$ увімкнули прилад. Припустимо, що умовна ймовірність виходу з ладу
+    приладу в інтервалі часу $\left[ t; t+\Delta t\right)$ за умови, що до часу $t$ він працював,
+    пропорційна $\Delta t$ і рівна $\lambda\cdot \Delta t + o(\Delta t)$. Нехай $\xi$ --- час безвідмовної роботи,
+    покладемо $Q(t) = P\left\{\xi \geq t\right\}$.
+    $Q(t+\Delta t) = P\left\{\xi \geq t + \Delta t\right\} = P\left\{\xi \geq t\right\} \cdot P\left\{\xi \in \left[t; t+\Delta t\right] / \xi \geq t\right\} = 
+    Q(t) \cdot (1 - \lambda\cdot \Delta t + o(\Delta t))$
+    $\frac{Q(t+\Delta t) - Q(t)}{\Delta t} = -\lambda Q(t) + \frac{o(\Delta t)\cdot Q(t)}{\Delta t}$,
+    при $\Delta t \rightarrow 0$ отримаємо $Q'(t) = -\lambda Q(t)$.
+    Розв'язком цього диференціального рівняння буде $Q(t) = C\cdot e^{-\lambda t}$.
+    Оскільки вважаємо, що в момент часу $t=0$ прилад працював, то $Q(0) = 1$ і $C=1$.
+
+    Тоді $F_\xi(t) = P\left\{ \xi < t\right\} = 1 - P\left\{ \xi \geq t\right\} = 1 - Q(t) = \begin{cases}
+        1 - e^{-\lambda t}, & t \geq 0 \\
+        0, & t < 0
+    \end{cases}$. Отже, $\xi \sim {Exp}(\lambda)$.
+\end{enumerate}
+
+\begin{example}
+    Яка ймовірність того, що людина проживе 100 років? Нехай $\xi$ --- час життя людини.
+    Оскільки $P\left\{\xi = 100\right\} = 0$, знайдемо $P\left\{ \xi \geq 100\right\}$.
+    $P\left\{ \xi \geq 100\right\} = e^{-\lambda \cdot 100}$, $\lambda = \text{?}$.
+    Оскільки $\lambda = \frac{1}{E\xi}$, то, прийнявши $E\xi = 70$ (середня тривалість життя),
+    отримаємо $P\left\{ \xi \geq 100\right\} = e^{-100/70} \approx 0.24$.
+\end{example}
