@@ -503,110 +503,111 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     НВВ $\xi$ розподілена за \emph{нормальним законом}, 
     якщо її щільність розподілу має вигляд 
     \begin{equation}
-        f_\xi(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-a)^2}{2\sigma^2}}
+        f_\xi(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-a)^2}{2\sigma^2}}
     \end{equation}
 \textbf{Коротке позначення:} $\xi \sim {N}(a, \sigma)$ або 
     $\xi \sim {N}(a, \sigma^2)$.
-    $a \in \mathbb{R}, \sigma^2 > 0$ --- параметри закону.
+    $a \in \mathbb{R}, \sigma > 0$ --- параметри закону.
 
     Розподіл $N(0, 1)$ називають стандартним гауссівським розподілом.
 
 \noindent \textbf{Крива розподілу:}
 
 \begin{tikzpicture}[yscale = 2, xscale=2]
-    \pgfmathsetmacro{\l}{1};
+    \pgfmathsetmacro{\a}{2.5};
+    \pgfmathsetmacro{\s}{0.5}
     \draw [->] (-1, 0) -- (5, 0);
     \draw [->] (0, -0.2) -- (0, 1);
-    \draw [dashed] (2.5, 0) -- (2.5, 0.797884);
-    \draw [dashed] (2, 0) -- (2, 0.483941449);
-    \draw [dashed] (3, 0) -- (3, 0.483941449);
-    \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.797884 * e^(-2*(\x-2.5)^2)});
+    \draw [dashed] (\a, 0) -- (\a, 0.398942280401/\s);
+    \draw [dashed] (\a-\s, 0) -- (\a-\s, 0.241970724519/\s);
+    \draw [dashed] (\a+\s, 0) -- (\a+\s, 0.241970724519/\s);
+    \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
     \node [below] at (5, 0) {$x$};
-    \node [below] at (2.5, 0) {$a$};
-    \node [below] at (2, 0) {$a - \sigma$};
-    \node [below] at (1, 0) {$a - 3\sigma$};
-    \node [below] at (3, 0) {$a + \sigma$};
-    \node [below] at (4, 0) {$a + 3\sigma$};
+    \node [below] at (\a, 0) {$a$};
+    \node [below] at (\a-\s, 0) {$a - \sigma$};
+    \node [below] at (\a+\s, 0) {$a + \sigma$};
     \node [below right] at (0, 0) {$0$};
-    \node [left] at (0, \l) {$f_\xi(x)$};
+    \node [left] at (0, 1) {$f_\xi(x)$};
 \end{tikzpicture}
 
 \noindent \textbf{Зміст параметрів $a$ та $\sigma^2$:}
 \begin{enumerate}
     \item $E\xi = 
-    \frac{1}{\sigma\sqrt{2\pi}}
-    \int\limits_{-\infty}^{+\infty}x e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}x 
+    \frac{1}{\sqrt{2\pi}\sigma}
+    \int\limits_{-\infty}^{+\infty}x e^{-\frac{(x-a)^2}{2\sigma^2}} dx 
     = \left[ \frac{x-a}{\sigma \sqrt{2}} = t, \; dx = \sigma\sqrt{2}dt \right] = 
     \frac{1}{\sqrt{\pi}}\int\limits_{-\infty}^{+\infty} 
-    (a + \sigma\sqrt{2}t)e^{-t^2} \,\mathrm{d}t =$
+    (a + \sigma\sqrt{2}t)e^{-t^2} dt =$
     
     $=\frac{a}{\sqrt{\pi}}
-    \int\limits_{-\infty}^{+\infty}e^{-t^2}\,\mathrm{d}t 
-    \left(\text{\emph{інтеграл Ейлера - Пуассона}}\right) = a$
+    \int\limits_{-\infty}^{+\infty}e^{-t^2}dt =
+    \left[\text{інтеграл Ейлера - Пуассона}\right] = a$.
     \item Знайдемо всі центральні моменти:
     $\beta_k = E(\xi - E\xi)^k = 
     \frac{1}{\sigma\sqrt{2\pi}}
     \int\limits_{-\infty}^{+\infty}(x-a)^k 
-    e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}x = \left[
+    e^{-\frac{(x-a)^2}{2\sigma^2}} dx = \left[
         \text{ідентична заміна}
     \right] =
     \frac{\sigma^k 2^{k/2}}{\sqrt{\pi}}
     \int\limits_{-\infty}^{+\infty}t^k 
-    e^{-t^2} \,\mathrm{d}t
-    $
+    e^{-t^2} dt
+    $.
 
     Якщо $k = 2l + 1$, то $\beta_k = 0$ (непарна функція під інтегралом).
-
-    $\beta_3 = 0 \Rightarrow As\xi = 0$
+    $\beta_3 = 0 \Rightarrow As\xi = 0$.
 
     Візьмемо $k = 2l$:
 
     $\beta_{2l} = 
     \frac{\sigma^{2l} 2^{l}}{\sqrt{\pi}}
-    \int\limits_{-\infty}^{+\infty}t^2l 
-    e^{-t^2} \,\mathrm{d}t = 
+    \int\limits_{-\infty}^{+\infty}t^{2l} 
+    e^{-t^2} dt = 
     \left[ t^2 = z, \; dt = \frac{1}{2} z^{-\frac{1}{2}}dz\right] =
     2\frac{\sigma^{2l}2^l}{\sqrt{\pi}}
     \int\limits_{0}^{+\infty}z^l e^{-z}\cdot \frac{1}{2} z^{-\frac{1}{2}}
-    \,\mathrm{d}z = $
+    dz = $
     
     $= \frac{\sigma^{2l}2^l}{\sqrt{\pi}}
     \int\limits_{0}^{+\infty}z^{l-\frac{1}{2}} e^{-z}
-    \,\mathrm{d}z = 
-    \frac{\sigma^{2l}2^l}{\sqrt{\pi}}\Gamma(l+\frac{1}{2})$
+    dz = 
+    \frac{\sigma^{2l}2^l}{\sqrt{\pi}}\cdot\Gamma(l+\frac{1}{2})$.
 \end{enumerate}
 
 \noindent \textbf{Числові характеристики гауссівського закону:}
 \begin{enumerate}
-    \item $E\xi = Mo\xi = Me\xi = a$
-    \item $D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right) 
-    = \sigma^2$
-    \item $As\xi = 0$
-    \item $Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 0$
+    \item $E\xi = Mo\xi = Me\xi = a$.
+    \item $D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\cdot\Gamma\left(\frac{3}{2}\right) 
+    = \sigma^2$, $\sigma_\xi = \sigma$.
+    \item $As\xi = 0$.
+    \item $Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 
+    \frac{\sigma^4\cdot2^2\cdot\Gamma(5/2)}{\sqrt{\pi}\cdot\sigma^4} - 3 = \frac{4\cdot\sqrt{\pi}\cdot 3/4}{\sqrt{\pi}} - 3 = 0$. 
+    Доданок $-3$ у формулі ексцесу був введений саме для того, щоб розподіл Гаусса мав нульовий ексцес.
 \end{enumerate}
 
 \noindent \textbf{Функція розподілу гауссівського закону:}
 
-$F_\xi(x) = \int\limits_{-\infty}^{x} f_\xi(t) \,\mathrm{d}t = 
+$F_\xi(x) = \int\limits_{-\infty}^{x} f_\xi(t) dt = 
 \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^{x} 
-e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}t$ --- не береться в елементарних 
+e^{-\frac{(x-a)^2}{2\sigma^2}} dt$ --- не береться в елементарних 
 функціях.
 
 Для зручного використання гауссівського закону в задачах введемо 
-спеціальну функцію.
+спеціальну функцію, значення якої занесено до таблиць.
 
 \noindent \textbf{Функція Лапласа:}
 
-\begin{equation}
-    \Phi(x) = \frac{1}{\sqrt{2\pi}} 
-    \int\limits_{0}^{x} e^{-\frac{t^2}{2}} \,\mathrm{d}t
-\end{equation}
 
-\hbox to \hsize{\hfil{
+\begin{tabular}{c c}
+    $
+        \Phi(x) = \frac{1}{\sqrt{2\pi}} 
+        \int\limits_{0}^{x} e^{-\frac{t^2}{2}} dt
+    $
+    &
     \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=3, 
         scale = 1]
         \draw [->] (-3, 0) -- (3, 0);
-        \draw [->] (0, -0.2) -- (0, 0.8);
+        \draw [->] (0, -0.2) -- (0, 0.7);
         \draw [domain=-3:3, smooth, variable = \x, ultra thick] plot ({\x}, 
         {
             (0.3989422804) * e^(- (\x * \x / 2))
@@ -615,28 +616,30 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}t$ --- не береться в ел�
         {
             (0.3989422804) * e^(- (\x * \x / 2))
         }) -- (1, 0) -- (0, 0) -- (0, 0.3989422804);
-        \node [below left] at (3, 0.8) {$N(0, 1)$};
         \node [below] at (1, 0) {$x$};
         \draw [dashed] (1, 0) -- (1, 0.25);
-        \draw [->, thick] (1.5, 0.4) -- (0.7, 0.3);
+        \draw [->, thick] (1.5, 0.4) -- (0.7, 0.2);
         \node [below left] at (3.1, 0.5) {$S = \Phi(x)$};
+        \draw [->] (-0.8, 0.5) -- (-0.495, 0.355);
+        \node [left] at (-0.8, 0.5) {$\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}$};
     \end{tikzpicture}
-}\hfil}
+\end{tabular}
 
-\begin{tabular}{p{7cm} c}
+\noindent
+\begin{tabular}{p{0.5\textwidth} c}
     \emph{Властивості функції Лапласа: }
     \begin{enumerate}
-        \item $\Phi(-x) = -\Phi(x)$ (непарна).
-        \item $\Phi(0) = 0$
+        \item $\Phi(-x) = -\Phi(x)$ --- непарна.
+        \item $\Phi(0) = 0$.
         \item $y = \pm 0.5$ --- вертикальні асимптоти.
         \item $\forall x \geq 5: \Phi(x) \approx 0.5 $.
         \item $\forall x \leq -5: \Phi(x) \approx -0.5 $.
     \end{enumerate}
     &
-    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=2, 
-                        scale = 1.2]
+    \adjustbox{valign=t}
+    {\begin{tikzpicture}[yscale=2, scale = 1.2]
         \draw [->] (-2, 0) -- (2, 0);
-        \draw [->] (0, -1) -- (0, 1);
+        \draw [->] (0, -0.6) -- (0, 0.6);
         \draw [domain=-2:2, smooth, variable = \x, ultra thick] plot ({\x}, 
         {
             (0.564189583547756) * (
@@ -650,29 +653,28 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}t$ --- не береться в ел�
             )
         });
         \node [below] at (2, 0) {$x$};
-        \node [left] at (0, 1) {$\Phi(x)$};
+        \node [above left] at (0, 0.5) {$\Phi(x)$};
         \node [below right] at (0, 0) {$0$};
-        \node [right] at (0, 1) {$1$};
         \draw [dashed] (-2, -0.5) -- (2, -0.5);
         \draw [dashed] (-2, 0.5) -- (2, 0.5);
-        \node [above left] at (0, 0.5) {$0.5$};
-        \node [below left] at (0, -0.5) {$-0.5$};
-    \end{tikzpicture}
+        \node [below left] at (0, 0.5) {$0.5$};
+        \node [above left] at (0, -0.5) {$-0.5$};
+    \end{tikzpicture}}
 \end{tabular}
 
-Виразимо функцію розподілу гауссівського закону через функцію Лапласа:
+\noindent Виразимо функцію розподілу гауссівського закону через функцію Лапласа:
 \begin{equation}
     F_\xi (x) = \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^{x} 
-    e^{-\frac{(t-a)^2}{2\sigma^2}} \,\mathrm{d}t = 
+    e^{-\frac{(t-a)^2}{2\sigma^2}} dt = 
     \left[\frac{t-a}{\sigma} = z\right] = 
     \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{\frac{x-a}{\sigma}} 
-    e^{-\frac{t^2}{2}} \, \mathrm{d}t = \frac{1}{2} + 
+    e^{-\frac{t^2}{2}} dt = \frac{1}{2} + 
     \Phi\left(\frac{x-a}{\sigma}\right)
 \end{equation}
 
-\noindent \textbf{Робочі формули для розв'язання задач}
+\noindent \textbf{Робочі формули для розв'язання задач:}
 \begin{enumerate}
-    \item $P\left\{\xi \in \left<\alpha, \beta\right>\right\} 
+    \item $P\left\{\xi \in \left<\alpha; \beta\right>\right\} 
     = F_\xi(\beta) - F_\xi(\alpha) = \Phi\left(\frac{\beta - a}{\sigma}\right)
     - \Phi\left(\frac{\alpha - a}{\sigma}\right)$.
     \item $P\left\{\left| \xi - a \right| < \varepsilon\right\} = 
@@ -681,10 +683,11 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}t$ --- не береться в ел�
     - \Phi\left(\frac{a - \epsilon - a}{\sigma}\right) = 
     2\Phi(\frac{\varepsilon}{\sigma})$.
     \item \emph{<<Правило $3\sigma$>>}: 
-    $P\left\{\left| \xi - a \right| < 3\sigma\right\} = 2\Phi\left(3\right)
+    $P\left\{\left| \xi - a \right| < 3\sigma\right\} = 
+    P\left\{\xi \in \left( a-3\sigma; a+3\sigma\right)\right\} = 2\Phi\left(3\right)
     \approx 0.9973$.
 
-    Маємо, що майже всі значення випадкової величини, розподіленої за 
+    Майже всі значення випадкової величини, розподіленої за 
     гауссівським законом, лежать на відстані не більше трьох середньоквадратичних 
     відхилень від її математичного сподівання.
 \end{enumerate}
