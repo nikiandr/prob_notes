@@ -513,14 +513,20 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 \noindent \textbf{Крива розподілу:}
 
-\begin{tikzpicture}[yscale = 2]
+\begin{tikzpicture}[yscale = 2, xscale=2]
     \pgfmathsetmacro{\l}{1};
     \draw [->] (-1, 0) -- (5, 0);
     \draw [->] (0, -0.2) -- (0, 1);
     \draw [dashed] (2.5, 0) -- (2.5, 0.797884);
+    \draw [dashed] (2, 0) -- (2, 0.483941449);
+    \draw [dashed] (3, 0) -- (3, 0.483941449);
     \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.797884 * e^(-2*(\x-2.5)^2)});
     \node [below] at (5, 0) {$x$};
     \node [below] at (2.5, 0) {$a$};
+    \node [below] at (2, 0) {$a - \sigma$};
+    \node [below] at (1, 0) {$a - 3\sigma$};
+    \node [below] at (3, 0) {$a + \sigma$};
+    \node [below] at (4, 0) {$a + 3\sigma$};
     \node [below right] at (0, 0) {$0$};
     \node [left] at (0, \l) {$f_\xi(x)$};
 \end{tikzpicture}
@@ -535,11 +541,8 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     (a + \sigma\sqrt{2}t)e^{-t^2} \,\mathrm{d}t =$
     
     $=\frac{a}{\sqrt{\pi}}
-    \underbracket{\int\limits_{-\infty}^{+\infty}e^{-t^2}\,\mathrm{d}t}_
-    \text{Ейлера-Пуассона} = a$
-    \begin{equation}
-        E\xi = a
-    \end{equation}
+    \int\limits_{-\infty}^{+\infty}e^{-t^2}\,\mathrm{d}t 
+    \left(\text{\emph{інтеграл Ейлера - Пуассона}}\right) = a$
     \item Знайдемо всі центральні моменти:
     $\beta_k = E(\xi - E\xi)^k = 
     \frac{1}{\sigma\sqrt{2\pi}}
@@ -571,11 +574,15 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     \int\limits_{0}^{+\infty}z^{l-\frac{1}{2}} e^{-z}
     \,\mathrm{d}z = 
     \frac{\sigma^{2l}2^l}{\sqrt{\pi}}\Gamma(l+\frac{1}{2})$
+\end{enumerate}
 
-    \begin{equation}
-        D\xi = \beta_2 = \frac{\sigma^2 \cdot 2}{\sqrt{\pi}} \Gamma(1+\frac{1}{2}) =
-        \sigma^2
-    \end{equation}
+\noindent \textbf{Числові характеристики гауссівського закону:}
+\begin{enumerate}
+    \item $E\xi = Mo\xi = Me\xi = a$
+    \item $D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\Gamma\left(\frac{3}{2}\right) 
+    = \sigma^2$
+    \item $As\xi = 0$
+    \item $Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 0$
 \end{enumerate}
 
 \noindent \textbf{Функція розподілу гауссівського закону:}
@@ -676,7 +683,7 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} \,\mathrm{d}t$ --- не береться в ел�
     \item \emph{<<Правило $3\sigma$>>}: 
     $P\left\{\left| \xi - a \right| < 3\sigma\right\} = 2\Phi\left(3\right)
     \approx 0.9973$.
-    
+
     Маємо, що майже всі значення випадкової величини, розподіленої за 
     гауссівським законом, лежать на відстані не більше трьох середньоквадратичних 
     відхилень від її математичного сподівання.
