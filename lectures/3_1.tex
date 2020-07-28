@@ -1,0 +1,53 @@
+% !TEX root = ../main.tex
+\section{Дискретні випадкові вектори}
+\begin{definition}
+    Вимірна функція $\Omega \rightarrow \mathbb{R}^n$, задана на ймовірнісному 
+    просторі $\left\{\Omega, \mathcal{F}, P \right\}$, 
+    називається \emph{випадковим вектором}.
+\end{definition}
+
+\noindent \textbf{Позначення: }
+$\vec{\xi} = \vec{\xi}(\omega) = 
+\left(\xi_1(\omega), \xi_2(\omega), ... , \xi_n(\omega)\right)^{T}$
+
+\begin{remark}
+    Під вимірністю мається на увазі те, що 
+    \begin{equation*}
+        \forall \vec{x} \in \mathbb{R}^n: 
+        A=\left\{\omega \in \Omega: \xi_1(\omega) < x_1, 
+                                    \xi_2(\omega) < x_2,
+                                    ... ,
+                                    \xi_n(\omega) < x_n\right\}
+        \in \mathcal{F}
+    \end{equation*}
+\end{remark}
+
+\begin{definition}
+    Випадковий вектор називається \emph{дискретним}, якщо всі його координати - 
+    дискретні випадкові величини.
+\end{definition}
+\begin{remark}
+    Випадковий вектор можна трактувати як випадкову точку в $\mathbb{R}^n$.
+
+    При $n = 2$: $\vec{\xi} = (\xi_1, \xi_2)^T$ --- випадкова точка на площині. 
+\end{remark}
+
+Закон розподілу двовимірного дискретного випадкового вектора задається 
+\emph{таблицею розподілу}.
+
+
+\hbox to \hsize{\hfil{
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \backslashbox{$\xi_2$}{$\xi_1$} & $x_1$ & $x_2$ & ... & $x_n$ \\
+        \hline
+        $y_1$ & $p_{11}$ & $p_{21}$ & ... & $p_{n1}$ \\
+        \hline
+        $y_2$ & $p_{12}$ & $p_{22}$ & ... & $p_{n2}$ \\
+        \hline
+        ... & ... & ... & $p_{ij}$ & ... \\
+        \hline
+        $y_m$ & $p_{1m}$ & $p_{2m}$ & ... & $p_{nm}$ \\
+        \hline
+    \end{tabular}
+}\hfil}
