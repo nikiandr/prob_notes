@@ -108,20 +108,20 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
 \end{definition}
 
 \textbf{Геометрична інтерпретація: }
-Значення $F_{\vec{\xi}}(x, y)$ співпадає з імовірністю 
+Значення $F_{\vec{\xi}}(x, y)$ рівне імовірності 
 потрапляння точки в заштриховану зону.
 
 \hbox to \hsize{\hfil{
     \begin{tikzpicture}
         \draw [->] (-0.5, 0) -- (3, 0);
         \draw [->] (0, -0.5) -- (0, 3);
-        \draw [fill] (1, 1) circle [radius=0.05];
-        \node [above right] at (1, 1) {$(x, y)$};
+        \draw [fill] (2, 2) circle [radius=0.05];
+        \node [above right] at (2, 2) {$(x, y)$};
         \path [pattern=north west lines, 
-                pattern color=gray] (1, 1) rectangle (-0.55, -0.51);
-        \draw [dashed] (-0.5, 1) -- (1, 1) -- (1, -0.5);
+                pattern color=gray] (2, 2) rectangle (-0.55, -0.51);
+        \draw [dashed] (-0.5, 2) -- (2, 2) -- (2, -0.5);
         \node [below] at (3, 0) {$x$};
-        \node [above right] at (-0.5, 0) {$F_{\vec{\xi}}(x, y)$};
+        \node [above right] at (0.2, 0.2) {$F_{\vec{\xi}}(x, y)$};
         \node [left] at (0, 3) {$y$};
     \end{tikzpicture}
 }\hfil}
@@ -146,20 +146,18 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
         
         Для другої координати аналогічно.
     \end{proof}
-    \item $\lim_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
-           \lim_{y \to -\infty} F_{\vec{\xi}}(x, y) = 
-           \lim_{x,y \to -\infty} F_{\vec{\xi}}(x, y) = 0$
+    \item $\lim\limits_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
+           \lim\limits_{y \to -\infty} F_{\vec{\xi}}(x, y) = 
+           \lim\limits_{x,y \to -\infty} F_{\vec{\xi}}(x, y) = 0$.
     \begin{proof}
-        Строге доведення грунтується на теоремах про неперервність 
+        Строге доведення ґрунтується на теоремах про неперервність 
         ймовірності.
 
-        $\lim_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
-        \lim_{x \to -\infty} P\left\{\xi_1<x,\;\xi_2<y\right\} 
-        = $
-
-        $= \left|\text{використаємо теорему про неперервність 
-        ймовірності}\right| = P(\varnothing \cap \{\xi_2 < y\})
+        $\lim\limits_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
+        \lim\limits_{x \to -\infty} P\left\{\xi_1<x,\;\xi_2<y\right\} 
+        = [\text{використаємо теорему про неперервність}$ 
+        $\text{ймовірності}] = P(\varnothing \cap \{\xi_2 < y\})
         = P(\varnothing) = 0$.
-        Інші випадки - аналогічно.
+        Інші випадки --- аналогічно.
     \end{proof}
 \suspend{enumerate}
