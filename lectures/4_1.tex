@@ -1,0 +1,179 @@
+% !TEX root = ../main.tex
+\section{Характеристичні функції випадкових величин}
+\subsection{Поняття характеристичної функції}
+\begin{definition}
+    \emph{Характеристичною функцією} випадкової величини $\xi$
+    називається комплекснозначна функція $\chi_\xi(t) = E\left(e^{it\xi}\right), t\in \mathbb{R}$.
+    \begin{equation}\label{eq:char_func}
+        \chi_\xi(t) = \int_{-\infty}^{+\infty} e^{itx} dF_\xi(x) = \begin{cases}
+            \sum\limits_{k=1}^{n(\infty)} e^{itx_k} P\left\{\xi = x_k\right\}, & \xi \text{ --- ДВВ} \\
+            \int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx, & \xi \text{ --- НВВ}
+        \end{cases}
+    \end{equation}
+\end{definition}
+Інтеграл $\int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx$ у курсі
+гармонічного аналізу називається \emph{перетворенням Фур'є} функції $f_\xi(x)$.
+Отже, у випадку НВВ $\xi$ $\chi_\xi(t)$ --- перетворення Фур'є щільності.
+Також з гармонічного аналізу відомо, що за допомогою \emph{оберненого перетворення Фур'є}
+можна відновити $f_\xi(x)$ за $\chi_\xi(t)$: $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} e^{-itx} \chi_\xi(t)dt$.
+
+\subsection{Властивості характеристичної функції}
+\begin{enumerate}
+    \item $\chi_\xi(0) = 1$, оскільки $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
+    
+    $\left|\chi_\xi(t)\right| \leq 1$, оскільки $\left|\int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x)\right| \leq \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right| dF_\xi(x) = \int\limits_{-\infty}^{+\infty} dF_\xi(x) = 1$.
+    \item Характеристична функція є рівномірно неперервною.
+    \begin{proof}
+        $\left| \chi_\xi(t+h) - \chi_\xi(t) \right| = 
+        \left| \int\limits_{-\infty}^{+\infty} \left( e^{i(t+h)x} - e^{itx}\right) dF_\xi(x) \right| \leq \\
+        \leq \int\limits_{-\infty}^{+\infty} \left|e^{i(t+h)x} - e^{itx}\right| dF_\xi(x) = 
+        \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right|\left| e^{ihx} - 1\right| dF_\xi(x) = 
+        \int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x)$.
+
+        $e^{ihx} - 1 = (\cos(hx) - 1) + i\sin(hx) = -2\sin^2(\frac{hx}{2}) + 2\sin(\frac{hx}{2})\cos(\frac{hx}{2})$, 
+        
+        $\left| e^{ihx} - 1\right| = 
+        \sqrt{4\sin^4(\frac{hx}{2}) + 4\sin^2(\frac{hx}{2})\cos^2(\frac{hx}{2})} = 2\left| \sin(\frac{hx}{2})\right|$.
+
+        $\int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x) = 2 \int\limits_{-\infty}^{+\infty} \left| \sin(\frac{hx}{2})\right| dF_\xi(x) =
+        \\\overset{A>0}{=} 2\cdot \left( \int\limits_{-\infty}^{-A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x) + 
+        \int\limits_{-A}^{A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x) + 
+        \int\limits_{A}^{+\infty}\left| \sin(\frac{hx}{2})\right| dF_\xi(x)\right)
+        $.
+
+        Інтеграл $\int\limits_{-A}^{A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x)$
+        можна зробити як завгодно малим за рахунок вибору $h$,
+        а інші два --- за рахунок вибору $A$.
+    \end{proof}
+    \item $\eta = a\xi + b$ --- афінне перетворення $\xi$, $a, b \in \mathbb{R}$.
+
+    $\chi_\eta(t) = E\left( e^{it\eta}\right) = E\left( e^{it(a\xi + b)}\right) = e^{itb}\cdot E\left( e^{ita\xi}\right) = e^{itb}\cdot \chi_\xi(at)$.
+    \item Якщо $\xi_1, ..., \xi_n$ --- незалежні у сукупності, то
+    $\chi_{\sum_{k=1}^n {\xi_k}} (t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
+    \begin{proof}
+        $\chi_{\sum_{k=1}^n \xi_k}(t) = E\left( e^{it\sum_{k=1}^n \xi_k}\right) =
+        E\left( \prod\limits_{k=1}^n e^{it\xi_k}\right) = \\
+        = \left[e^{it\xi_k} \text{ --- теж незалежні у сукупності}\right] = 
+        \prod\limits_{k=1}^n E\left( e^{it\xi_k}\right) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
+    \end{proof}
+    \item $\chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x)$.
+    Похідні характеристичної функції $\chi_\xi^{(k)}(t) = \int\limits_{-\infty}^{+\infty} (ix)^k e^{itx} dF_\xi(x)$,
+    причому $\chi_\xi^{(k)}(0) = \int\limits_{-\infty}^{+\infty} (ix)^k dF_\xi(x) = i^k \cdot E\xi^k$.
+    
+    Отже, $E\xi = -i \chi_\xi'(0)$, $D\xi = E\xi^2 - \left( E\xi\right)^2 = - \chi_\xi''(0) + \left( \chi_\xi'(0) \right)^2$.
+    \item Зв'язок характеристичної функції та генератриси ДВВ.
+
+    $\varphi_\xi(z) = \sum\limits_{k=0}^{\infty} P\left\{\xi = k\right\} z^k$,
+    $\chi_\xi(t) = \sum\limits_{k=0}^{\infty} e^{itk} P\left\{\xi = x_k\right\}$. Отже, $\chi_\xi(t) = \varphi_\xi(e^{it})$.
+    \item $\overline{\chi_\xi(t)} = E\left( e^{-it\xi}\right) = \chi_\xi(-t) = \chi_{-\xi} (t)$. 
+    \item Для того, щоб характеристична функція була дійснозначною,
+    необхідно і достатньо, щоб розподіл ВВ був симетричним відносно 0.
+    \begin{proof}
+        Розглянемо випадок НВВ. Нехай розподіл є симетричним відносно 0, тоді $f_\xi(x)$ --- парна.
+        $\chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx = 
+        \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx +
+        i\int\limits_{-\infty}^{+\infty} \sin(tx) f_\xi(x)dx = 
+        \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx = {Re}\chi_\xi(t)$, 
+        інтеграл з синусом рівний 0, бо інтегрується непарна функція по симетричному проміжку.
+
+        Нехай $\chi_\xi(t)$ --- дійснозначна, тоді $\chi_\xi(t) = \overline{\chi_\xi(t)} = \chi_\xi(-t)$.
+        Отже, $\chi_\xi(t)$ --- парна, тоді з оберненого перетворення Фур'є $f_\xi(t)$ --- теж парна.
+    \end{proof}
+\end{enumerate}
+
+\subsection{Необхідні умови того, що функція є характеристичною}
+Нехай $\chi(t)$ --- деяка комплекснозначна функція дійсного аргументу.
+Якщо вона є характеристичною функцією деякої ВВ, то для неї має виконуватися:
+\begin{enumerate}
+    \item $\chi(0) = 1, \left| \chi(t)\right| \leq 1$.
+    \item $\chi(t)$ --- рівномірно неперервна.
+    \item $\overline{\chi(t)} = \chi(-t)$.
+\end{enumerate}
+\begin{example}
+    \begin{enumerate}
+        \item $\chi(t) = \cos(t)$ --- може бути характеристичною.
+        Оскільки $\cos(t) = \frac{1}{2}e^{it} + \frac{1}{2}e^{-it}$, то відповідна ВВ --- дискретна: 
+        \begin{tabular}{c|c|c}
+            $\xi$ & -1 & 1 \\
+            \hline
+            $p$ & $1/2$ & $1/2$
+        \end{tabular}
+        \item $\chi(t) = \sin(t)$ --- не може бути характеристичною, бо $\chi(0) = 0 \neq 1$.
+        \item $\chi(t) = \cos^2(t)$ --- може бути характеристичною.
+        $\cos(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
+        відповідна ВВ --- дискретна:
+        \begin{tabular}{c|c|c|c}
+            $\xi$ & -1 & 0 & 1 \\
+            \hline
+            $p$ & $1/4$ & $1/2$ & $1/4$
+        \end{tabular}
+        \item $\chi(t) = \frac{\alpha^2}{\alpha^2 + t^2}$ --- може бути характеристичною. 
+        Знайдемо щільність розподілу відповідної НВВ за формулою $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} \frac{\alpha^2 \cdot e^{-itx}}{\alpha^2 + t^2} dt$.
+
+        При $x<0$: $\int\limits_{-\infty}^{+\infty} \frac{e^{-itx}}{\alpha^2 + t^2} dt = 2\pi i \cdot \underset{z=\alpha i}{{Res}} \frac{e^{-izx}}{\alpha^2 + z^2} = 2\pi i \cdot \frac{e^{-i\cdot \alpha i\cdot x}}{2\alpha i} = \pi \cdot \frac{e^{\alpha x}}{\alpha}$.
+
+        При $x>0$ аналогічно отримуємо $\pi \cdot \frac{e^{-\alpha x}}{\alpha}$.
+        Остаточно $f_\xi(x) = \frac{1}{2\alpha}e^{-\alpha |x|}$ --- це щільність розподілу Лапласа.
+    \end{enumerate}
+\end{example}
+
+Необхідні та достатні умови того, що функція є характеристичною, дає
+\emph{теорема Бохнера-Хінчина}: $\chi(t)$ має бути неперервною, $\chi(0) = 1$ та 
+невід'ємно визначеною: $$
+    \forall \; t_1, t_2, ..., t_n \in \mathbb{R}, c_1, c_2, ..., c_n \in \mathbb{C}: 
+    \sum\limits_{k=1}^n {\sum\limits_{m=1}^n \chi(t_k - t_m) c_k \overline{c_m}} \geq 0
+$$
+
+\subsection{Характеристичні функції деяких розподілів}
+\begin{enumerate}
+    \item $\xi \sim {Bin}(n,p)$ --- біноміальний закон.
+    $\varphi_\xi(z) = (pz+q)^n \Rightarrow \chi_\xi(t) = \left( p e^{it} + q\right)^n$.
+    \item $\xi \sim {Geom}(p)$ --- геометричний закон.
+    $\varphi_\xi(z) = \frac{pz}{1-qz} \Rightarrow \chi_\xi(t) = \frac{p e^{it}}{1-q e{it}}$.
+    \item $\xi \sim {Poiss}(a)$ --- закон Пуассона.
+    $\varphi_\xi(z) = e^{a(z-1)} \Rightarrow \chi_\xi(t) = e^{a(e^{it}-1)}$.
+    \item $\xi \sim {U}\left< a; b\right>$ --- рівномірний закон.
+
+    $\chi_\xi(t) = \frac{1}{b-a} \int\limits_a^b e^{itx} dx = \frac{e^{itb} - e^{ita}}{it(b-a)}$.
+    Зокрема, при $\xi \sim {U}\left< -a; a\right>$ $\chi_\xi(t) = \begin{cases}
+        \frac{\sin(at)}{at}, & t \neq 0 \\
+        1, & t = 0
+    \end{cases}$.
+    \item $\xi \sim {Exp}(\lambda)$ --- експоненційний закон.
+    
+    $\chi_\xi(t) = \lambda \int\limits_0^{+\infty} e^{itx} e^{-\lambda x} dx = \lambda \int\limits_0^{+\infty} e^{-(\lambda-it)x} dx = \frac{\lambda}{\lambda - it}$.
+    \item $\xi \sim {N}(a, \sigma^2)$ --- нормальний закон. Розглянемо стандартний розподіл $\eta \sim {N}(0, 1)$,
+    тоді $\xi = a + \sigma\cdot\eta$.
+
+    $\chi_\eta(t) = \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{itx} e^{-x^2/2} dx = 
+    \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{-x^2/2 + itx} dx = 
+    \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{-\frac{1}{2}(x^2 - 2itx + i^2t^2) + \frac{1}{2}i^2t^2} dx = 
+    \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \int\limits_{-\infty}^{+\infty} e^{-\frac{(x-it)^2}{2}} dx = 
+    \left[ x+it = u, dx = du\right] = e^{-\frac{t^2}{2}}$.
+    Отже, $\chi_\xi(t) = e^{iat - \frac{\sigma^2 t^2}{2}}$.
+\end{enumerate}
+
+\begin{definition}
+    \emph{Композицією законів розподілу} називається складання закону розподілу суми незалежних випадкових величин.
+    
+    Закон розподілу називається \emph{стійким по відношенню до операції додавання},
+    якщо закон розподілу суми випадкових величин, розподілених за цим законом (в загальному випадку з різними параметрами),
+    є таким самим.
+\end{definition}
+\begin{example}
+    \begin{enumerate}
+        \item Перевірити стійкість нормального розподілу. Нехай $\xi_1 \sim {N}(a_1, \sigma_1), ..., \xi_n \sim {N}(a_n, \sigma_n)$ ---
+        незалежні у сукупності. 
+    
+        Знайдемо характеристичну функцію суми: $\chi_{\xi_1 + ... + \xi_n}(t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)=
+        \prod\limits_{k=1}^n e^{ia_k t - \frac{\sigma_k^2 t^2}{2}} = 
+        \exp\left\{i\cdot \left( \sum\limits_{k=1}^n a_k\right)\cdot t - \frac{t^2}{2}\cdot\left( \sum\limits_{k=1}^n \sigma_k^2\right)\right\}$ ---
+        це характеристична функція нормального розподілу. Отже, $\sum\limits_{k=1}^n = \xi_1 + ... + \xi_n \sim {N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
+        \item Перевірити стійкість біноміального розподілу. Нехай $\xi_1 \sim {Bin}(n_1, p_1)$, $\xi_2 \sim {Bin}(n_2, p_2)$ --- незалежні.
+        $\chi_{\xi_1 + \xi_2} (t) = \left( p_1 e^{it} + q_1\right)^{n_1} \cdot \left( p_2 e^{it} + q_2\right)^{n_2} \overset{?}{=} \left(P e^{it} + Q\right)^N$.
+
+        Взагалі кажучи, біноміальний розподіл не є стійким по відношенню до  операції додавання.
+        Його називають \emph{умовно стійким} при $p_1 = p_2$, тоді
+        $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim {Bin}(n_1+n_2, p)$.
+    \end{enumerate}
+\end{example}
