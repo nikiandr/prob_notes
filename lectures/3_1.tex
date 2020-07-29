@@ -1,14 +1,13 @@
 % !TEX root = ../main.tex
 \section{Дискретні випадкові вектори}
 \begin{definition}
-    Вимірна функція $\Omega \rightarrow \mathbb{R}^n$, задана на ймовірнісному 
+    Вимірна функція $\Omega \mapsto \mathbb{R}^n$, задана на ймовірнісному 
     просторі $\left\{\Omega, \mathcal{F}, P \right\}$, 
     називається \emph{випадковим вектором}.
-\end{definition}
-
-\noindent \textbf{Позначення: }
+    Позначається
 $\vec{\xi} = \vec{\xi}(\omega) = 
-\left(\xi_1(\omega), \xi_2(\omega), ... , \xi_n(\omega)\right)^{T}$
+\left(\xi_1(\omega), \xi_2(\omega), ... , \xi_n(\omega)\right)^{T}$.
+\end{definition}
 
 \begin{remark}
     Під вимірністю мається на увазі те, що 
@@ -23,12 +22,11 @@ $\vec{\xi} = \vec{\xi}(\omega) =
 \end{remark}
 
 \begin{definition}
-    Випадковий вектор називається \emph{дискретним}, якщо всі його координати - 
+    Випадковий вектор називається \emph{дискретним}, якщо всі його координати --- 
     дискретні випадкові величини.
 \end{definition}
 \begin{remark}
     Випадковий вектор можна трактувати як випадкову точку в $\mathbb{R}^n$.
-
     При $n = 2$: $\vec{\xi} = (\xi_1, \xi_2)^T$ --- випадкова точка на площині. 
 \end{remark}
 
@@ -37,9 +35,10 @@ $\vec{\xi} = \vec{\xi}(\omega) =
 
 
 \hbox to \hsize{\hfil{
+\begin{tabular}{c c}
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \backslashbox{$\xi_2$}{$\xi_1$} & $x_1$ & $x_2$ & ... & $x_n$ \\
+        \diagbox{$\xi_2$}{$\xi_1$} & $x_1$ & $x_2$ & ... & $x_n$ \\
         \hline
         $y_1$ & $p_{11}$ & $p_{21}$ & ... & $p_{n1}$ \\
         \hline
@@ -49,5 +48,54 @@ $\vec{\xi} = \vec{\xi}(\omega) =
         \hline
         $y_m$ & $p_{1m}$ & $p_{2m}$ & ... & $p_{nm}$ \\
         \hline
+    \end{tabular} &
+    \begin{tikzpicture}[baseline={(current bounding box.center)}]
+        \draw [->] (-0.5, 0) -- (5, 0); 
+        \draw [->] (0, -0.5) -- (0, 2.5);
+        %\draw [fill] (1, 1) circle [radius = 0.05];
+        \foreach \i in {1,...,2}:
+            %\draw [dashed] (\i, 0) -- (\i, 1.5);
+            \foreach \j in {1,...,2}:
+                \draw [fill] (\i, {\j/2}) circle [radius = 0.05];
+        \foreach \k in {1,...,2} {
+            \draw [fill] (4, {\k/2}) circle [radius = 0.05];
+            \draw [fill] (\k, 2) circle [radius = 0.05];
+            \draw [dashed] (\k, 0) -- (\k, 2);
+            \node [below] at (\k, 0) {$x_\k$};
+            \node [left] at (0, {\k/2}) {$y_\k$};
+            \draw [dashed] (0, {\k/2}) -- (4, {\k/2});
+        }
+        \draw [fill] (4, 2) circle [radius = 0.05];
+        \draw [dashed] (4, 0) -- (4, 2);
+        \node [below] at (3, -0.1) {$\ldots$};
+        \node [below] at (4, 0) {$x_n$};
+        \node [below] at (5, 0) {$x$};
+        \draw [dashed] (0, 2) -- (4, 2);
+        \node [left] at (0, 1.6) {$\vdots$};
+        \node [left] at (0, 2) {$y_m$};
+        \node [left] at (0, 2.5) {$y$};
+    \end{tikzpicture}
+\end{tabular}
+}\hfil}
+$p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} = 1$.
+
+З таблиці розподілу можна обчислити ряди розподілу $\xi_1$ та $\xi_2$:
+
+\hbox to \hsize{\hfil{
+    \begin{tabular}{c c}
+        \begin{tabular}{c|c|c|c|c}
+            $\xi_1$ & $x_1$ & $x_2$ & ... & $x_n$ \\
+            \hline
+            $p$ & $\sum\limits_{k=1}^m p_{1k}$ & $\sum\limits_{k=1}^m p_{2k}$ & ... & $\sum\limits_{k=1}^m p_{nk}$
+        \end{tabular} &
+        \begin{tabular}{c|c|c|c|c}
+            $\xi_2$ & $y_1$ & $y_2$ & ... & $y_m$ \\
+            \hline
+            $p$ & $\sum\limits_{k=1}^n p_{k1}$ & $\sum\limits_{k=1}^n p_{k2}$ & ... & $\sum\limits_{k=1}^n p_{km}$
+        \end{tabular}
     \end{tabular}
 }\hfil}
+
+\begin{remark}
+    Обчислити таблицю розподілу, знаючи ряди розподілу координат, можна лише у випадку їх незалежності.
+\end{remark}
