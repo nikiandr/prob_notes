@@ -3,7 +3,7 @@
 \begin{definition}
     Вимірна функція $\Omega \mapsto \mathbb{R}^n$, задана на ймовірнісному 
     просторі $\left\{\Omega, \mathcal{F}, P \right\}$, 
-    називається \emph{випадковим вектором}.
+    називається \emph{випадковим вектором (системою випадкових величин)}.
     Позначається
 $\vec{\xi} = \vec{\xi}(\omega) = 
 \left(\xi_1(\omega), \xi_2(\omega), ... , \xi_n(\omega)\right)^{T}$.
@@ -99,3 +99,67 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
 \begin{remark}
     Обчислити таблицю розподілу, знаючи ряди розподілу координат, можна лише у випадку їх незалежності.
 \end{remark}
+
+\subsection{Сумісна функція розподілу двовимірного випадкового вектору}
+\begin{definition} 
+    \emph{Сумісною функцією розподілу} двовимірного випадкового вектора $\vec{\xi}$ 
+    називається $F_{\vec{\xi}}(x, y) = P\left\{\omega: \xi_1 < x,\; \xi_2 < y\right\} = 
+    P(\xi_1 < x, \; \xi_2 < y)$
+\end{definition}
+
+\textbf{Геометрична інтерпретація: }
+Значення $F_{\vec{\xi}}(x, y)$ співпадає з імовірністю 
+потрапляння точки в заштриховану зону.
+
+\hbox to \hsize{\hfil{
+    \begin{tikzpicture}
+        \draw [->] (-0.5, 0) -- (3, 0);
+        \draw [->] (0, -0.5) -- (0, 3);
+        \draw [fill] (1, 1) circle [radius=0.05];
+        \node [above right] at (1, 1) {$(x, y)$};
+        \path [pattern=north west lines, 
+                pattern color=gray] (1, 1) rectangle (-0.55, -0.51);
+        \draw [dashed] (-0.5, 1) -- (1, 1) -- (1, -0.5);
+        \node [below] at (3, 0) {$x$};
+        \node [above right] at (-0.5, 0) {$F_{\vec{\xi}}(x, y)$};
+        \node [left] at (0, 3) {$y$};
+    \end{tikzpicture}
+}\hfil}
+
+\noindent\textbf{Властивості: }
+\begin{enumerate}
+    \item $D(F_{\vec{\xi}}) = \mathbb{R}^2$, $E(F_{\vec{\xi}}) = 
+    \left<0, 1\right>$.
+    \item Монотонно неспадна по кожній з координат.
+    \begin{proof}
+        $A = \left\{\xi_1 < x_2,\;\xi_2 < y \right\}$, 
+        $B = \left\{x_2 \leq \xi_1 < x_1,\; \xi_2<y\right\}$, 
+        $C = \left\{\xi_1 < x_1,\; \xi_2 < y\right\}$.
+
+        $C = A \vee B \Rightarrow P(C) = P(A) + P(B)$
+    
+        $P(C) = F_{\vec{\xi}}(x_1, y)$,  
+        $P(A) = F_{\vec{\xi}}(x_2, y)$
+
+        $F_{\vec{\xi}}(x_1, y) = F_{\vec{\xi}}(x_2, y) + P(B)
+        \Rightarrow F_{\vec{\xi}}(x_1, y) \geq  F_{\vec{\xi}}(x_2, y)$. 
+        
+        Для другої координати аналогічно.
+    \end{proof}
+    \item $\lim_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
+           \lim_{y \to -\infty} F_{\vec{\xi}}(x, y) = 
+           \lim_{x,y \to -\infty} F_{\vec{\xi}}(x, y) = 0$
+    \begin{proof}
+        Строге доведення грунтується на теоремах про неперервність 
+        ймовірності.
+
+        $\lim_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
+        \lim_{x \to -\infty} P\left\{\xi_1<x,\;\xi_2<y\right\} 
+        = $
+
+        $= \left|\text{використаємо теорему про неперервність 
+        ймовірності}\right| = P(\varnothing \cap \{\xi_2 < y\})
+        = P(\varnothing) = 0$.
+        Інші випадки - аналогічно.
+    \end{proof}
+\suspend{enumerate}
