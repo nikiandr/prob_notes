@@ -691,3 +691,119 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
     гауссівським законом, лежать на відстані не більше трьох середньоквадратичних 
     відхилень від її математичного сподівання.
 \end{enumerate}
+
+\subsection{Гамма-розподіл}
+\noindent\textbf{Означення:}
+    НВВ $\xi$ розподілена за \emph{гамма-законом}, 
+    якщо її щільність розподілу має вигляд 
+    \begin{equation}
+        f_\xi(x) = \begin{cases}
+            \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}, & x \geq 0 \\
+            0, & x < 0
+        \end{cases}
+    \end{equation}
+\textbf{Коротке позначення:} $\xi \sim {\Gamma}(\alpha, \beta)$.
+    $\alpha >0, \beta > 0$ --- параметри закону.
+\begin{remark}
+    ${\Gamma}(1, \lambda) = {Exp}(\lambda)$.
+\end{remark}
+\noindent \textbf{Крива розподілу:}
+
+\begin{tabular}{c c}
+    \begin{tikzpicture}[yscale = 15, xscale = 0.5, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\a}{2};
+        \pgfmathsetmacro{\b}{3};
+        \draw [->] (-2, 0) -- (20, 0);
+        \draw [->] (0, -0.05) -- (0, 0.15);
+        \draw [ultra thick] (-2, 0) -- (0, 0);
+        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(-\a)*\x^(\a-1) * e^(-\x/\b)});
+        \node [below] at (20, 0) {$x$};
+        \node [left] at (0, 0.15) {$f_\xi(x)$};
+        \node [below left] at (0, 0) {$0$};
+    \end{tikzpicture} &
+    \begin{tabular}{c}
+        $\alpha = 2$ \\ $\beta = 1$
+    \end{tabular}
+\end{tabular}
+
+\begin{tabular}{c c}
+    \begin{tikzpicture}[yscale = 5, xscale = 0.5, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\a}{1};
+        \pgfmathsetmacro{\b}{2};
+        \draw [->] (-2, 0) -- (20, 0);
+        \draw [->] (0, -0.05) -- (0, 0.6);
+        \draw [ultra thick] [->] (-2, 0) -- (0, 0);
+        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(-\a)*\x^(\a-1) * e^(-\x/\b)});
+        \node [below] at (20, 0) {$x$};
+        \node [left] at (0, 0.6) {$f_\xi(x)$};
+        \node [below right] at (0, 0) {$0$};
+    \end{tikzpicture} &
+    \begin{tabular}{c}
+        $\alpha = 1$ \\ $\beta = \frac{1}{2}$
+    \end{tabular}
+\end{tabular}
+
+\noindent \textbf{Функція розподілу:}
+\nopagebreak
+
+\begin{tabular}{c c}
+    \begin{tabular}{c}
+        $
+        F_\xi(x) = \begin{cases}
+            0, & x \leq 0 \\
+            \int\limits_0^x f_\xi(t)dt = \frac{\gamma(\alpha, \beta x)}{\Gamma(\alpha)}, & x>0 
+        \end{cases}$
+        \\
+        де $\gamma(s, x) = \int\limits_0^x t^{s-1} e^-t dt$
+    \end{tabular}
+    &
+    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=0.9]
+        \pgfmathsetmacro{\a}{2};
+        \pgfmathsetmacro{\b}{3};
+        \draw [->] (-2, 0) -- (5, 0);
+        \draw [->] (0, -0.5) -- (0, 2.7);
+        \draw [ultra thick] (-2, 0) -- (0, 0);
+        \draw [dashed] (0, 2.3) -- (5, 2.3);
+        \node [below] at (5, 0) {$x$};
+        \node [left] at (0, 2.7) {$F_\xi(x)$};
+        \node [left] at (0, 2.3) {$1$};
+        \node [below right] at (0, 0) {$0$};
+        \begin{axis}[width=0.4\textwidth,height=0.25\textwidth, samples=100, domain = 0:4, restrict y to domain = 0:1, axis x line=bottom,axis y line=left, clip=false, axis line style={draw=none}, ticks=none]
+        \addplot [ultra thick] plot ({\x}, {(\x^\a) * (
+            1/\a -
+            \x/(1+\a) +
+            \x^2/(2*(2+\a)) -
+            \x^3/(6*(3+\a)) +
+            \x^4/(24*(4+\a)) -
+            \x^5/(120*(5+\a)) +
+            \x^6/(720*(6+\a)) -
+            \x^7/(5040*(7+\a)) +
+            \x^8/(40320*(8+\a)) -
+            \x^9/(362880*(9+\a)) +
+            \x^10/(3628800*(10+\a)) -
+            \x^11/(39916800*(11+\a))
+        )});
+        \end{axis}
+    \end{tikzpicture}
+\end{tabular}
+
+Знайдемо всі \emph{початкові моменти} гамма-розподілу.
+
+$E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^k x^{\alpha-1} e^{-\beta x} dx = 
+\left[ \beta x = t\right] = \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{\beta^k\cdot \beta^{\alpha}} \int\limits_0^{+\infty} t^{k+\alpha-1} e^{-t} dt = 
+\frac{1}{\Gamma(\alpha) \cdot \beta^k} \int\limits_0^{+\infty} t^{k+\alpha-1} e^{-t} dt = \frac{\Gamma(\alpha+k)}{\Gamma(\alpha) \cdot \beta^k}$.
+Зокрема, $E\xi = \frac{\Gamma(\alpha+1)}{\Gamma(\alpha) \cdot \beta} = \frac{\alpha}{\beta}$,
+$E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alpha+1)\alpha}{\beta^2}$.
+
+\noindent\textbf{Числові характеристики:}
+\begin{enumerate}
+    \item $E\xi = \frac{\alpha}{\beta}$.
+    \item $D\xi = E\xi^2 - (E\xi)^2 = \frac{(\alpha+1)\alpha}{\beta^2} - \frac{\alpha^2}{\beta^2} = \frac{\alpha}{\beta^2}$, $\sigma_\xi = \frac{\sqrt{\alpha}}{\beta}$.
+    \item ${Mo}\xi = \frac{\alpha-1}{\beta}$.
+    \item ${Me}\xi$ --- немає виразу у замкненій формі.
+    \item ${As}\xi = \frac{2}{\sqrt{\alpha}}$.
+    \item ${Ex}\xi = \frac{6}{\alpha}$.
+\end{enumerate}
+
+\noindent\textbf{Застосування:} гамма-розподіл застосується для моделювання
+складних потоків подій, в економіці, теорії масового обслуговування, логістиці.
