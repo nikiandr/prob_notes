@@ -3,9 +3,9 @@
 \subsection{Поняття характеристичної функції}
 \begin{definition}
     \emph{Характеристичною функцією} випадкової величини $\xi$
-    називається комплекснозначна функція $\chi_\xi(t) = E\left(e^{it\xi}\right), t\in \mathbb{R}$.
+    називається комплекснозначна функція $\chi_\xi(t) = Ee^{it\xi}, t\in \mathbb{R}$.
     \begin{equation}\label{eq:char_func}
-        \chi_\xi(t) = \int_{-\infty}^{+\infty} e^{itx} dF_\xi(x) = \begin{cases}
+        \chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x) = \begin{cases}
             \sum\limits_{k=1}^{n(\infty)} e^{itx_k} P\left\{\xi = x_k\right\}, & \xi \text{ --- ДВВ} \\
             \int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx, & \xi \text{ --- НВВ}
         \end{cases}
@@ -47,17 +47,16 @@
     \end{proof}
     \item $\eta = a\xi + b$ --- афінне перетворення $\xi$, $a, b \in \mathbb{R}$.
 
-    $\chi_\eta(t) = E\left( e^{it\eta}\right) = E\left( e^{it(a\xi + b)}\right) = e^{itb}\cdot E\left( e^{ita\xi}\right) = e^{itb}\cdot \chi_\xi(at)$.
+    $\chi_\eta(t) = Ee^{it\eta} = Ee^{it(a\xi + b)} = e^{itb}\cdot Ee^{ita\xi} = e^{itb}\cdot \chi_\xi(at)$.
     \item Якщо $\xi_1, ..., \xi_n$ --- незалежні у сукупності, то
     $\chi_{\sum_{k=1}^n {\xi_k}} (t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
     \begin{proof}
         $\chi_{\sum_{k=1}^n \xi_k}(t) = E\left( e^{it\sum_{k=1}^n \xi_k}\right) =
         E\left( \prod\limits_{k=1}^n e^{it\xi_k}\right) = \\
         = \left[e^{it\xi_k} \text{ --- теж незалежні у сукупності}\right] = 
-        \prod\limits_{k=1}^n E\left( e^{it\xi_k}\right) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
+        \prod\limits_{k=1}^n Ee^{it\xi_k} = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
     \end{proof}
-    \item $\chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x)$.
-    Похідні характеристичної функції $\chi_\xi^{(k)}(t) = \int\limits_{-\infty}^{+\infty} (ix)^k e^{itx} dF_\xi(x)$,
+    \item За допомогою характеристичної функції можна знайти початкові моменти будь-якого порядку: $\chi_\xi^{(k)}(t) = \int\limits_{-\infty}^{+\infty} (ix)^k e^{itx} dF_\xi(x)$,
     причому $\chi_\xi^{(k)}(0) = \int\limits_{-\infty}^{+\infty} (ix)^k dF_\xi(x) = i^k \cdot E\xi^k$.
     
     Отже, $E\xi = -i \chi_\xi'(0)$, $D\xi = E\xi^2 - \left( E\xi\right)^2 = - \chi_\xi''(0) + \left( \chi_\xi'(0) \right)^2$.
@@ -65,7 +64,7 @@
 
     $\varphi_\xi(z) = \sum\limits_{k=0}^{\infty} P\left\{\xi = k\right\} z^k$,
     $\chi_\xi(t) = \sum\limits_{k=0}^{\infty} e^{itk} P\left\{\xi = x_k\right\}$. Отже, $\chi_\xi(t) = \varphi_\xi(e^{it})$.
-    \item $\overline{\chi_\xi(t)} = E\left( e^{-it\xi}\right) = \chi_\xi(-t) = \chi_{-\xi} (t)$. 
+    \item $\overline{\chi_\xi(t)} = E e^{-it\xi} = \chi_\xi(-t) = \chi_{-\xi} (t)$. 
     \item Для того, щоб характеристична функція була дійснозначною,
     необхідно і достатньо, щоб розподіл ВВ був симетричним відносно 0.
     \begin{proof}
@@ -113,7 +112,7 @@
         При $x<0$: $\int\limits_{-\infty}^{+\infty} \frac{e^{-itx}}{\alpha^2 + t^2} dt = 2\pi i \cdot \underset{z=\alpha i}{{Res}} \frac{e^{-izx}}{\alpha^2 + z^2} = 2\pi i \cdot \frac{e^{-i\cdot \alpha i\cdot x}}{2\alpha i} = \pi \cdot \frac{e^{\alpha x}}{\alpha}$.
 
         При $x>0$ аналогічно отримуємо $\pi \cdot \frac{e^{-\alpha x}}{\alpha}$.
-        Остаточно $f_\xi(x) = \frac{1}{2\alpha}e^{-\alpha |x|}$ --- це щільність розподілу Лапласа.
+        Остаточно $f_\xi(x) = \frac{\alpha}{2}e^{-\alpha |x|}$ --- це щільність розподілу Лапласа.
     \end{enumerate}
 \end{example}
 
@@ -122,7 +121,7 @@
 \end{exercise}
 
 Необхідні та достатні умови того, що функція є характеристичною, дає
-\emph{теорема Бохнера-Хінчина}: $\chi(t)$ має бути неперервною, $\chi(0) = 1$ та 
+\emph{теорема Бохнера-Хінчина}: $\chi(t)$ має бути рівномірно неперервною, $\chi(0) = 1$ та 
 невід'ємно визначеною: $$
     \forall \; t_1, t_2, ..., t_n \in \mathbb{R}, c_1, c_2, ..., c_n \in \mathbb{C}: 
     \sum\limits_{k=1}^n {\sum\limits_{m=1}^n \chi(t_k - t_m) c_k \overline{c_m}} \geq 0
@@ -130,23 +129,23 @@ $$
 
 \subsection{Характеристичні функції деяких розподілів}
 \begin{enumerate}
-    \item $\xi \sim {Bin}(n,p)$ --- біноміальний закон.
+    \item $\xi \sim {Bin}(n,p)$ --- біноміальний розподіл.
     $\varphi_\xi(z) = (pz+q)^n \Rightarrow \chi_\xi(t) = \left( p e^{it} + q\right)^n$.
-    \item $\xi \sim {Geom}(p)$ --- геометричний закон.
-    $\varphi_\xi(z) = \frac{pz}{1-qz} \Rightarrow \chi_\xi(t) = \frac{p e^{it}}{1-q e{it}}$.
-    \item $\xi \sim {Poiss}(a)$ --- закон Пуассона.
+    \item $\xi \sim {Geom}(p)$ --- геометричний розподіл.
+    $\varphi_\xi(z) = \frac{pz}{1-qz} \Rightarrow \chi_\xi(t) = \frac{p e^{it}}{1-q e^{it}}$.
+    \item $\xi \sim {Poiss}(a)$ --- розподіл Пуассона.
     $\varphi_\xi(z) = e^{a(z-1)} \Rightarrow \chi_\xi(t) = e^{a(e^{it}-1)}$.
-    \item $\xi \sim {U}\left< a; b\right>$ --- рівномірний закон.
+    \item $\xi \sim {U}\left< a; b\right>$ --- рівномірний розподіл.
 
     $\chi_\xi(t) = \frac{1}{b-a} \int\limits_a^b e^{itx} dx = \frac{e^{itb} - e^{ita}}{it(b-a)}$.
     Зокрема, при $\xi \sim {U}\left< -a; a\right>$ $\chi_\xi(t) = \begin{cases}
         \frac{\sin(at)}{at}, & t \neq 0 \\
         1, & t = 0
     \end{cases}$.
-    \item $\xi \sim {Exp}(\lambda)$ --- експоненційний закон.
+    \item $\xi \sim {Exp}(\lambda)$ --- експоненційний розподіл.
     
     $\chi_\xi(t) = \lambda \int\limits_0^{+\infty} e^{itx} e^{-\lambda x} dx = \lambda \int\limits_0^{+\infty} e^{-(\lambda-it)x} dx = \frac{\lambda}{\lambda - it}$.
-    \item $\xi \sim {N}(a, \sigma^2)$ --- нормальний закон. Розглянемо стандартний розподіл $\eta \sim {N}(0, 1)$,
+    \item $\xi \sim {N}(a, \sigma^2)$ --- нормальний розподіл. Розглянемо стандартний розподіл $\eta \sim {N}(0, 1)$,
     тоді $\xi = a + \sigma\cdot\eta$.
 
     $\chi_\eta(t) = \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{itx} e^{-x^2/2} dx = 
@@ -155,6 +154,12 @@ $$
     \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \int\limits_{-\infty}^{+\infty} e^{-\frac{(x-it)^2}{2}} dx = 
     \left[ x+it = u, dx = du\right] = e^{-\frac{t^2}{2}}$.
     Отже, $\chi_\xi(t) = e^{iat - \frac{\sigma^2 t^2}{2}}$.
+    \item $\xi \sim \Gamma(\alpha, \beta)$ --- гамма-розподіл.
+    
+    $\chi_\xi(t) = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} e^{itx} x^{\alpha-1} e^{-\beta x} dx =
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^{\alpha-1} e^{-(\beta-it) x} dx = \left[ (\beta-it) x = u, dx = \frac{du}{\beta-it}\right] = 
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \int\limits_0^{+\infty} u^{\alpha-1} e^{-u} du = 
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \cdot \Gamma(\alpha) = (1-\frac{it}{\beta})^{-\alpha}$.
 \end{enumerate}
 
 \begin{definition}
@@ -181,3 +186,85 @@ $$
         $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim {Bin}(n_1+n_2, p)$.
     \end{enumerate}
 \end{example}
+
+\begin{exercise}
+    Перевірити стійкість гамма-розподілу $\Gamma(\alpha, \beta)$.
+\end{exercise}
+
+\section{Характеристичні функції випадкових векторів}
+\subsection{Поняття характеристичної функції випадкового вектору}
+\begin{definition}
+    \emph{Характеристичною функцією} випадкового вектору $\vec{\xi} = \left( \xi_1, \xi_2, ..., \xi_n\right)$ 
+    називається комплекснозначна функція $n$ дійсних аргументів $\chi_{\vec{\xi}}(\vec{t}) = Ee^{i(\vec{\xi}, \vec{t})}$, $\vec{t} \in \mathbb{R}^n$.
+    \begin{equation}\label{eq:char_func_vect}
+        \chi_{\vec{\xi}}(\vec{t}) = \int\limits_{\mathbb{R}^n} e^{i(\vec{x}, \vec{t})} dF_\xi(x) = \begin{cases}
+            \sum\limits_{k_1,k_2, ..., k_n} e^{i \sum\limits_{j=1}^n x_{k_j}t_j} P\left\{\xi_1 = x_{k_1}, ..., \xi_n = x_{k_n}\right\}, & \xi \text{ --- ДВВ} \\
+            \int\limits_{\mathbb{R}^n} e^{i(\vec{x}, \vec{t})} f_{\vec{\xi}}(x_1, x_2, ..., x_n)dx_1 dx_2 ... dx_n, & \xi \text{ --- НВВ}
+        \end{cases}
+    \end{equation}
+\end{definition}
+
+\begin{example} Обчислення характеристичної функції для дискретного та неперервного випадкових векторів
+    \begin{enumerate}
+        \item \begin{tabular}{c c}
+            \begin{tabular}{c|c|c}
+                \diagbox{$\xi_2$}{$\xi_1$} & $1$ & $2$ \\
+                \hline
+                $0$ & $0.1$ & $0.3$ \\
+                \hline
+                $1$ & $0.2$ & $0.4$ 
+            \end{tabular} 
+        \end{tabular}
+
+            $\chi_{\vec{\xi}}(t_1, t_2) = 0.1 e^{i(1\cdot t_1 + 0\cdot t_2)} +
+            0.3 e^{i(2\cdot t_1 + 0\cdot t_2)} + 0.2 e^{i(1\cdot t_1 + 2\cdot t_2)} +
+            0.4 e^{i(2\cdot t_1 + 0\cdot t_2)}$.
+        \item $\vec{\xi} \sim {U}(D)$, $D = \left\{(x;y) \in \mathbb{R}^2:|x|\leq 1, |y|\leq 1\right\}$.
+        
+        $\chi_{\vec{\xi}}(t_1, t_2) = \frac{1}{4} \iint\limits_{D} e^{i(t_1x + t_2y)} dx dy = \frac{1}{4}\cdot\left( \int\limits_{-1}^1 e^{it_1x} dx\right) 
+        \cdot\left( \int\limits_{-1}^1 e^{it_2y} dy\right) = \cdot\frac{e^{it_1}-e^{-it_1}}{2it_1}\cdot\frac{e^{it_2}-e^{-it_2}}{2it_2} = \begin{cases}
+            \frac{\sin(t_1)}{t_1} \cdot \frac{\sin(t_2)}{t_2}, & t_1 \neq 0, t_2 \neq 0 \\
+            \frac{\sin(t_1)}{t_1}, & t_2 = 0 \\
+            \frac{\sin(t_2)}{t_2}, & t_1 = 0 \\
+            1, & t_1 = t_2 = 0
+        \end{cases}$
+    \end{enumerate}
+\end{example}
+
+\subsection{Властивості характеристичних функцій векторів}
+\begin{enumerate}
+    \item Характеристична функція існує для будь-якого розподілу випадкового вектора, бо \\
+    $\left| \chi_{\vec{\xi}}(\vec{t})\right| \leq 1, \chi_{\vec{\xi}}(\vec{0}) = 1$.
+    \item Характеристична функція рівномірно неперервна по кожному з аргументів.
+    \item За характеристичною функцією вектора можна знайти 
+    характеристичну функцію будь-якої підсистеми цього вектора.
+    $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)$, $\vec{\eta} = (\xi_1, \xi_2, ..., \xi_k)$, $k<n$.
+
+    $\chi_{\vec{\eta}}(t_1, t_2, ..., t_k) = \chi_{\vec{\xi}}(t_1, t_2, ..., t_k, 0, ..., 0)$.
+    \item Якщо координати $\vec{\xi}$ незалежні у сукупності, то $\chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$.
+    \begin{proof}
+        $\chi_{\vec{\xi}}(\vec{t}) = E\left( e^{i(\xi_1 t_1 + ... + \xi_n t_n)}\right) = 
+        E\left( e^{i\xi_1 t_1} ... e^{i\xi_n t_n}\right) = \left[ \text{незалежні у сукупності}\right] =
+        E\left( e^{i\xi_1 t_1}\right) \cdot ... \cdot E\left( e^{i\xi_n t_n}\right) = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$.
+    \end{proof}
+    \item $\vec{\eta} = A\vec{\xi} + \vec{b}$ --- афінне перетворення $\vec{\xi}$.
+
+    $\chi_{\vec{\eta}}(\vec{t}) = E e^{i(\vec{\eta}, \vec{t})} = E e^{i(A\vec{\xi} + \vec{b}, \vec{t})}=
+    E e^{i(\vec{b}, \vec{t})} \cdot E e^{(A\vec{\xi}, \vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot E e^{(\vec{\xi}, A^{*}\vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot \chi_{\vec{\xi}}(A^{*}\vec{t})$.
+    \item Характеристична функція вектора дозволяє знайти початкові моменти будь-якого порядку:
+    \begin{gather*}
+        E\xi_1^{k_1} \xi_2^{k_2} ... \xi_n^{k_n} = \frac{1}{i^{k_1 + k_2 + ... + k_n}} \cdot \frac{\partial^{k_1 + k_2 + ... + k_n}\chi_{\vec{\xi}}(t)}{\partial t_1^{k_1} \partial t_2^{k_2} ... \partial t_n^{k_n}} \Biggr \vert_{\vec{t} = \vec{0}}, 
+        \; E\xi_j = \frac{1}{i} \cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}} \\
+        {cov}(\xi_k, \xi_j) = E\xi_k\xi_j - E\xi_k\cdot E\xi_j = \frac{1}{i^2} \frac{\partial^2 \chi_{\vec{\xi}}(t)}{\partial t_k \partial t_j} \Biggr \vert_{\vec{t} = \vec{0}} - 
+        \left( \frac{1}{i} \cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left( \frac{1}{i} \cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}}\right) = \\
+        -\frac{\partial^2 \chi_{\vec{\xi}}(t)}{\partial t_k \partial t_j} \Biggr \vert_{\vec{t} = \vec{0}} + 
+        \left(\cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left(\cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}}\right)\end{gather*}
+\end{enumerate}
+
+Необхідні та достатні умови того, що комплекснозначна функція $n$ дійсних змінних є характеристичною, дає
+\emph{теорема Бохнера-Хінчина}: $\chi(\vec{t})$ має бути рівномірно неперервною по кожній змінній, $\chi(\vec{0}) = 1$ та 
+невід'ємно визначеною: $$
+    \forall \; \vec{t^1}, \vec{t^2}, ..., \vec{t^n} \in \mathbb{R}^n, c_1, c_2, ..., c_n \in \mathbb{C}: 
+    \sum\limits_{k=1}^n {\sum\limits_{m=1}^n \chi(\vec{t^k} - \vec{t^m}) c_k \overline{c_m}} \geq 0
+$$
+
