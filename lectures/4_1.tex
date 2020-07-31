@@ -345,3 +345,75 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 \begin{equation}
     f_{\vec{\xi}}(\vec{x}) = \frac{1}{(2\pi)^{n/2} \sqrt{{\det{K}}}} \exp \left\{ -\frac{1}{2} \left( K^{-1}(\vec{x} - \vec{a}), (\vec{x} - \vec{a})\right)\right\}
 \end{equation}
+
+\subsection{Властивості гауссівських векторів}
+\begin{enumerate}
+    \item Якщо $\vec{\xi}$ --- гауссівський вектор, то всі його координати гауссівські,
+    а будь-яка підсистема теж є гауссівським вектором.
+    \begin{proof}
+        $\chi_{\vec{\xi}}(0,0,...,t_j, ..., 0) = \chi_{\xi_j}(t) = 
+        e^{i a t_j - \frac{1}{2}\sigma_j^2 t_j^2} \Rightarrow \xi_j \sim {N}(a_j, \sigma_j^2)$.
+
+        Аналогічно для будь-якої підсистеми $\vec{\eta} = (\xi_{k_1}, \xi_{k_2}, ..., \xi_{k_n})$.
+    \end{proof}
+    \begin{remark}
+        Обернене твердження, взагалі кажучи, не є вірним.
+
+        Розглянемо випадковий вектор із щільністю
+        $$ f_{\vec{\xi}}(x, y) = \frac{1}{2\pi} \left( 
+            \left( \sqrt{2} e^{-x^2/2} - e^{-x^2}\right)e^{-y^2} + 
+            \left( \sqrt{2} e^{-y^2/2} - e^{-y^2}\right)e^{-x^2}\right)$$
+
+        Очевидно, це не щільність нормального розподілу. Знайдемо щільності розподілу координат $\xi_1$ та $\xi_2$.
+        \begin{gather*}
+            f_{\xi_1}(x) = \int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x, y) dy =
+            \frac{\sqrt{2}}{2\pi} e^{-x^2/2}\int\limits_{-\infty}^{+\infty}e^{-y^2}dy -
+            \frac{1}{2\pi}e^{-x^2}\int\limits_{-\infty}^{+\infty}e^{-y^2}dy \; +\\
+            + \; \frac{\sqrt{2}}{2\pi}e^{-x^2}\int\limits_{-\infty}^{+\infty} e^{-y^2/2}dy - 
+            \frac{1}{2\pi} e^{-x^2}\int\limits_{-\infty}^{+\infty}e^{-y^2}dy =
+            \frac{\sqrt{2}}{2\pi} e^{-x^2/2}\cdot \sqrt{\pi} - \frac{1}{2\pi}e^{-x^2} \cdot \sqrt{\pi} \; + \\
+            + \; \frac{\sqrt{2}}{2\pi}e^{-x^2} \cdot \sqrt{2\pi} - \frac{1}{2\pi}e^{-x^2}\cdot \sqrt{\pi} = 
+            \frac{1}{\sqrt{2\pi}}e^{-x^2/2} - \frac{1}{2\sqrt{\pi}}e^{-x^2} + \frac{1}{\sqrt{\pi}}e^{-x^2} - \frac{1}{2\sqrt{\pi}}e^{-x^2} \; = \\ 
+            \\ = \; \frac{1}{\sqrt{2\pi}}e^{-x^2/2} \Rightarrow \xi_1 \sim {N}(0, 1).
+        \end{gather*}
+        Аналогічно $\xi_2 \sim {N}(0, 1)$. Отже, координати вектора мають нормальний розподіл, а сам вектор --- ні.
+    \end{remark}
+    \item Для гауссівського випадкового вектора поняття незалежності та некорельованості координат є еквівалентними.
+    \begin{proof}
+        Було доведено, що з незалежності координат випливає ії некорельованість.
+
+        Якщо координати некорельовані, то кореляційна матриця $K = \mathrm{diag}(\sigma_1^2, \sigma_2^2, ..., \sigma_n^2)$.
+        Тоді $\left( K \vec{t}, \vec{t}\right) = \sum_{k=1}^n \sigma_k^2 t_k^2$.
+        Тоді $\chi_{\vec{\xi}}(\vec{t}) = \exp\left\{i(\vec{a}, \vec{t}) - \frac{1}{2}\left( K \vec{t}, \vec{t}\right)\right\} = \prod\limits_{k=1}^n e^{i a_k t_k - \frac{1}{2}\sigma_k^2 t_k^2} = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$
+        і координати незалежні.
+    \end{proof}
+    \item В $n$-вимірному евклідовому просторі $\mathbb{R}^n$ завжди можна перейти до
+    ортонормованого базису з власних векторів матриці $K$, в якому $K$ приймає діагональний вигляд.
+    Отже, в базисі з власних векторів матриці $K$ координати відповідного гауссівського вектора стають незалежними.
+    \item \emph{Афінне перетворення гауссівських векторів}.
+
+    $\vec{\xi} \sim {N}(\vec{a}, K)$. $A : \mathbb{R}^n \rightarrow \mathbb{R}^m$ --- матриця, $\vec{b} \in \mathbb{R}^m$, $\vec{\eta} = A\vec{\xi} + \vec{b}$.
+    За властивістю характеристичної функції $\chi_{\vec{\eta}}(\vec{t}) = e^{i(\vec{b}, \vec{t})}\cdot\chi_{\vec{\xi}}(\vec{A^{*}t}) =
+    \exp\left\{i(\vec{b}, \vec{t})\right\}\cdot \exp\left\{i(\vec{a}, A^{*}\vec{t}) - \frac{1}{2}\left( K A^{*}\vec{t}, A^{*}\vec{t}\right)\right\} =
+    \exp\left\{i(A\vec{a} + \vec{b}, \vec{t}) - \frac{1}{2}\left( A K A^{*}\vec{t}, \vec{t}\right)\right\}$. Отже, $\vec{\eta} \sim {N}(A\vec{a} + \vec{b}, A K A^{*})$.
+\end{enumerate}
+\begin{example}
+    \begin{enumerate}
+        \item Задано вектор $\vec{\xi} \sim {N}(\vec{a}, K)$. Знайти розподіл $\eta = \xi_1 + \xi_2 + ... + \xi_n$.
+
+        $\eta = \begin{pmatrix}
+            1 & 1 & \cdots & 1
+        \end{pmatrix}\cdot
+        \begin{pmatrix}
+            \xi_1 & \xi_2 & \cdots & \xi_n
+        \end{pmatrix}^T = A\vec{\xi}$.
+        $E\eta = A\vec{a} = E\xi_1 + E\xi_2 + ... + E\xi_n = \sum\limits_{k=1}^n E\xi_k$.
+        $D\eta = A K A^{*} = \begin{pmatrix}
+            1 & 1 & \cdots & 1
+        \end{pmatrix}\cdot
+        \cdot K \cdot \begin{pmatrix}
+            1 & 1 & \cdots & 1
+        \end{pmatrix}^T$. Якщо $K = \mathrm{diag}(\sigma_1^2, \sigma_2^2, ..., \sigma_n^2)$, то $D\eta = \sum\limits_{k=1}^n D\xi_k$,
+        а в загальному випадку у цій сумі ще будуть доданки вигляду $2K\xi_i\xi_j$.
+    \end{enumerate}
+\end{example}
