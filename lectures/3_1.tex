@@ -160,4 +160,29 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
         = P(\varnothing) = 0$.
         Інші випадки --- аналогічно.
     \end{proof}
+    \item \emph{<<Умови узгодженості>>}
+    
+    $\lim\limits_{x \to +\infty} F_{\vec{\xi}}(x, y) = F_{\xi_2}(y)$, 
+    $\lim\limits_{y \to +\infty} F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)$
+    \begin{proof}
+        $\lim\limits_{x \to +\infty} F_{\vec{\xi}}(x, y) = 
+        \lim\limits_{x \to +\infty} 
+        P\left(\xi_1 < x,\; \xi_2 < y\right) = 
+        P\left(\xi_1 < +\infty,\;\xi_2<y\right) = $
+        
+        $= P\left(\xi_2<y\right) = F_{\xi_2}(y)$. Інша - аналогічно.
+    \end{proof}
+    \item $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$
+    \begin{proof}
+        Напряму випливає з умов узгодженості.
+    \end{proof}
+    \item Функція розподілу є неперервною зліва по кожному з аргументів: 
+    
+    $\lim\limits_{x \to x_0 - 0} F_{\vec{\xi}}(x, y) = F_{\vec{\xi}}(x_0, y)$, 
+    $\lim\limits_{y \to y_0 - 0} F_{\vec{\xi}}(x, y) = F_{\vec{\xi}}(x, y_0)$.
+    \begin{proof}
+        Аналогічне доведення з одновимірним випадком (твердж. \refeq{2_1_con}, 
+        с. \pageref{2_1_con}).
+    \end{proof}
+    \item $P\left(\vec{\xi} \in \Pi \right)$ - ?
 \suspend{enumerate}
