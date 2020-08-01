@@ -33,17 +33,20 @@ $f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$.
 \end{gather}
 Причому в такому випадку $D$ --- кореляційна матриця.
 
-Тепер розглянемо вектор $\vec{\eta} = A\vec{\xi}$. За властивістю 
+Тепер розглянемо вектор $\vec{\eta} = A\vec{\xi}$, де $A$ --- невироджена матриця. За властивістю 
 $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
-\begin{gather*}
-    \chi_{\vec{\eta}}(\vec{t}) = \exp\left\{i(\vec{a^o}, A^{*}\vec{t}) - \frac{1}{2}(DA^{*}\vec{t}, A^{*}\vec{t})\right\} =
-    \exp\left\{i(A\vec{a^o}, \vec{t}) - \frac{1}{2}(ADA^{*}\vec{t}, \vec{t})\right\}
-\end{gather*}
-Доведемо, що $K = ADA^{*}$ --- симетрична й невід'ємно визначена, тому її можна вважати кореляційною матрицею.
+\begin{equation}
+    \begin{gathered}
+        \chi_{\vec{\eta}}(\vec{t}) = \exp\left\{i(\vec{a^o}, A^{*}\vec{t}) - \frac{1}{2}(DA^{*}\vec{t}, A^{*}\vec{t})\right\} =
+    \exp\left\{i(A\vec{a^o}, \vec{t}) - \frac{1}{2}(ADA^{*}\vec{t}, \vec{t})\right\} = \\
+    = \exp\left\{i(\vec{a}, \vec{t}) - \frac{1}{2}(K\vec{t}, \vec{t})\right\}
+    \end{gathered}
+\end{equation}
+Доведемо, що $K = ADA^{*}$ --- симетрична й додатно визначена, тому її можна вважати кореляційною матрицею.
 \begin{enumerate}
     \item $K^{*} = \left( ADA^{*}\right)^{*} = \left( A^{*}\right)^{*}DA^{*} = ADA^{*} = K$.
     \item $\forall \vec{u} \in \mathbb{R}^n$ $\left( K \vec{u}, \vec{u}\right) = \left( ADA^{*} \vec{u}, \vec{u}\right) =
-    \left( DA^{*} \vec{u}, A^{*}\vec{u}\right) = \left[ A^{*}\vec{u} = \vec{v}\right] = \left( D\vec{v}, \vec{v}\right) > 0$ для $\vec{v}\neq \vec{0}$.
+    \left( DA^{*} \vec{u}, A^{*}\vec{u}\right) = \left[ A^{*}\vec{u} = \vec{v}\right] = \left( D\vec{v}, \vec{v}\right) > 0$ для $\vec{u}\neq \vec{0}$.
 \end{enumerate}
 
 Нехай в $n$-вимірному евклідовому просторі задано вектор $\vec{a}$ та симетричну додатно визначену матрицю $K$.
@@ -214,7 +217,37 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
     \end{enumerate}
 \end{example}
 
-\subsection{Нормальний розподіл на площині}
+\subsection{Вироджені гауссівські вектори}
+Розглянемо випадок $n$-вимірного нормального розподілу $\vec{\xi} \sim {N}(\vec{a}, K)$ з виродженою матрицею $K$,
+у якої $\mathrm{rang}K = m < n$. Існує ортогональне перетворення $U$ таке, що $K = UDU^{*}$,
+$D = \mathrm{diag}(\lambda_1, \lambda_2, ..., \lambda_m, 0, ..., 0)$. 
+Знайдемо розподіл вектора $\vec{\eta} = U^{*}\vec{\xi}$ за властивістю характеристичної функції:
+\begin{gather*}
+    \chi_{\vec{\eta}} (\vec{t}) = \chi_{\vec{\eta}} (U^{**}\vec{t}) = \chi_{\vec{\eta}} (U\vec{t}) = 
+\exp\left\{i(\vec{a}, U\vec{t}) - \frac{1}{2}(KU\vec{t}, U\vec{t})\right\} = 
+\exp\left\{i(U^{*}\vec{a}, \vec{t}) - \frac{1}{2}(U^{*}KU\vec{t}, \vec{t})\right\} = \\
+= \left[ U^{*}\vec{a} = \vec{b}, U^{*}KU = D\right] = 
+\exp\left\{i(\vec{b}, \vec{t}) - \frac{1}{2}(D\vec{t}, \vec{t})\right\} = 
+\exp\left\{i\sum\limits_{k=1}^n b_k t_k - \frac{1}{2}\sum\limits_{k=1}^m \lambda_k t_k^2\right\} = \\
+= \exp\left\{i\sum\limits_{k=m+1}^n b_k t_k\right\} \cdot
+\exp\left\{i\sum\limits_{k=1}^m b_k t_k - \frac{1}{2}\sum\limits_{k=1}^m \lambda_k t_k^2\right\}
+\end{gather*}
+
+Перший добуток --- це характеристична функція сталого вектору, а другий --- характеристична функція гауссівського вектору меншої розмірності.
+
+Позначимо $\vec{c} = (0, ..., 0, b_{m+1}, ..., b_{n})^T$,
+$\vec{d} = (b_1, ..., b_m, 0, ..., 0)^T$,
+$\vec{\zeta} = (\zeta_1, ..., \zeta_m, 0, ..., 0)^T$, $\zeta_k \sim {N}(0, 1)$ та незалежні у сукупності,
+$\Lambda = \mathrm{diag}(\sqrt{\lambda_1}, \sqrt{\lambda_2}, ..., \sqrt{\lambda_m}, 1, ..., 1)$.
+
+Тоді $\vec{\eta} = \vec{c} + \left(\Lambda \vec{\zeta} + \vec{d} \right)$. 
+Оскільки $\vec{\eta} = U^{*}\vec{\xi}$, то $\vec{\xi} = U\vec{\eta} = U\Lambda \vec{\zeta} + U(\vec{c} + \vec{d}) = U\Lambda \vec{\zeta} + \vec{a}$.
+Позначимо $U\Lambda = L$. Остаточно: $\vec{\xi} = L\vec{\zeta} + \vec{a}$.
+
+\textbf{Висновок:} $n$-вимірний гауссівський вектор з виродженою кореляційною матрицею, що має ранг $m<n$, можна представити
+у вигляді суми свого вектора математичного сподівання та вектора, перші $m$ координат є незалежними у сукупності та мають стандартний нормальний розподіл, 
+а інші координати нульові, помноженого на невироджену матрицю.
+\subsection{Нормальний розподіл на площині} 
 Розглянемо двовимірний гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)^T \sim {N}(\vec{a}, K)$.
 Нехай $\vec{a} = \begin{pmatrix}
     a \\ b
