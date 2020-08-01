@@ -3,7 +3,7 @@
 \section{Багатовимірний нормальний розподіл}
 \subsection{Виведення характеристичної функції та щільності}
 
-Розглянемо випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)$, $\xi_k \sim {N}(a_k^o, \sigma_k)$ для $k=1,...,n$, координати незалежні у сукупності.
+Розглянемо випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)^T$, $\xi_k \sim {N}(a_k^o, \sigma_k)$ для $k=1,...,n$, координати незалежні у сукупності.
 За властивостями характеристичної функції та щільності $\chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$,
 $f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$.
 
@@ -55,9 +55,9 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 \begin{definition}
     $n$\emph{-вимірним гауссівським вектором} $\vec{\xi}$ називається випадковий вектор,
     характеристична функція якого має вигляд $\chi_{\vec{\xi}}(\vec{t}) = \exp\left\{i(\vec{a}, \vec{t}) - \frac{1}{2}(K\vec{t}, \vec{t})\right\}$,
-    де $K$ --- кореляційна матриця, а $\vec{a} = \left( E\xi_1, E\xi_2, ..., E\xi_n\right)$ --- центр розсіювання.
+    де $K$ --- кореляційна матриця, а $\vec{a} = \left( E\xi_1, E\xi_2, ..., E\xi_n\right)^T$ --- центр розсіювання.
 \end{definition}
-\noindent \textbf{Позначення:} $\vec{\xi} \sim {N}( \vec{a}, K)$, ${N}( \vec{0}, \mathbb{I})$ --- стандартний нормальний розподіл.
+\noindent \textbf{Позначення:} $\vec{\xi} \sim {N}( \vec{a}, K)$. ${N}( \vec{0}, \mathbb{I})$ --- стандартний нормальний розподіл.
 \begin{exercise}
     Перевірити, що $\vec{a}$ дійсно є центром розсіювання.
 \end{exercise}
@@ -86,7 +86,7 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
         $\chi_{\vec{\xi}}(0,0,...,t_j, ..., 0) = \chi_{\xi_j}(t) = 
         e^{i a t_j - \frac{1}{2}\sigma_j^2 t_j^2} \Rightarrow \xi_j \sim {N}(a_j, \sigma_j^2)$.
 
-        Аналогічно для будь-якої підсистеми $\vec{\eta} = (\xi_{k_1}, \xi_{k_2}, ..., \xi_{k_n})$.
+        Аналогічно для будь-якої підсистеми $\vec{\eta} = (\xi_{k_1}, \xi_{k_2}, ..., \xi_{k_n})^T$.
     \end{proof}
     \begin{remark}
         Обернене твердження, взагалі кажучи, не є вірним.
@@ -142,10 +142,87 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
         $E\eta = A\vec{a} = E\xi_1 + E\xi_2 + ... + E\xi_n = \sum\limits_{k=1}^n E\xi_k$.
         $D\eta = A K A^{*} = \begin{pmatrix}
             1 & 1 & \cdots & 1
-        \end{pmatrix}\cdot
+        \end{pmatrix}
         \cdot K \cdot \begin{pmatrix}
             1 & 1 & \cdots & 1
         \end{pmatrix}^T$. Якщо $K = \mathrm{diag}(\sigma_1^2, \sigma_2^2, ..., \sigma_n^2)$, то $D\eta = \sum\limits_{k=1}^n D\xi_k$,
         а в загальному випадку у цій сумі ще будуть доданки вигляду $2K\xi_i\xi_j$.
+        \item $\vec{\xi} = \begin{pmatrix}
+            \xi_1 \\ \xi_2
+        \end{pmatrix} \sim {N}\left( \begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix}, \begin{pmatrix}
+            1 & 2 \\
+            2 & 6
+        \end{pmatrix}\right) = {N}(\vec{a}, K)$. Знайти розподіл, характеристичну функцію, щільність розподілу 
+        $\vec{\eta} = (3\xi_1-2\xi_2+1, \xi_1+3\xi_2)^T$ та розподіл координати $\eta_1$.
+
+        Запишемо $\vec{\eta}$ у вигляді $\vec{\eta} = A\vec{\xi} + \vec{b}$: $\vec{\eta} = \begin{pmatrix}
+            3 & -2 \\
+            1 & 3 
+        \end{pmatrix}\begin{pmatrix}
+            \xi_1 \\ \xi_2
+        \end{pmatrix} + \begin{pmatrix}
+            1 \\ 0 
+        \end{pmatrix}$. Тоді $\vec{\eta} \sim {N}(\vec{d}, B)$,
+        $\vec{d} = A\vec{a} + \vec{b} = \begin{pmatrix}
+            3 & -2 \\
+            1 & 3 \\
+        \end{pmatrix}\begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix} + \begin{pmatrix}
+            1 \\ 0 
+        \end{pmatrix} = \begin{pmatrix}
+            -2 \\ 3 
+        \end{pmatrix} + \begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix} = \begin{pmatrix}
+            -1 \\ 3
+        \end{pmatrix} = \begin{pmatrix}
+            E\eta_1 \\ E\eta_2
+        \end{pmatrix}$, $B=A K A^{*} = \begin{pmatrix}
+            3 & -2 \\
+            1 & 3 \\
+        \end{pmatrix}\begin{pmatrix}
+            1 & 2 \\
+            2 & 6
+        \end{pmatrix}\begin{pmatrix}
+            3 & 1 \\
+            -2 & 3
+        \end{pmatrix} = \begin{pmatrix}
+            9 & -19 \\
+            -19 & 67
+        \end{pmatrix}$.
+
+        $\chi_{\vec{\eta}}(t_1, t_2) = \exp\left\{i(\vec{d}, \vec{t}) - \frac{1}{2}\left( B\vec{t},\vec{t}\right)\right\} = 
+        \exp\left\{i(-1 t_1 + 3 t_2) - \frac{1}{2}(9t_1^2 - 38 t_1 t_2 + 67 t_2^2)\right\}$.
+
+        $B^{-1} = \begin{pmatrix}
+            67/142 & 19/142 \\
+            19/142 & 9/142
+        \end{pmatrix}$, $\det{B} = 142$.
+
+        $f_{\vec{\eta}}(x_1, x_2) = \frac{1}{2\pi \cdot \sqrt{142}} \cdot \exp\left\{-\frac{1}{2}\left( B^{-1}(\vec{x} - \vec{d}), (\vec{x} - \vec{d}))\right)\right\} = $
+
+        $ = \frac{1}{2\pi \cdot \sqrt{142}} \cdot \exp\left\{-\frac{1}{2}\left( \frac{67}{142}(x_1+1)^2 + \frac{38}{142}(x_1+1)(x_2-3) + \frac{9}{142}(x_2-3)^2\right)\right\}$.
+
+        Знайдемо розподіл $\eta_1$ за допомогою характеристичної функції: 
+        $\chi_{\eta_1}(t) = \chi_{\vec{\eta}}(t, 0) = $
+
+        $= \exp\left\{-i t - \frac{1}{2}\cdot 9t^2\right\} \Rightarrow
+        \eta_1 \sim {N}(-1, 9)$.
     \end{enumerate}
 \end{example}
+
+\subsection{Нормальний розподіл на площині}
+Розглянемо двовимірний гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)^T \sim {N}(\vec{a}, K)$.
+Нехай $\vec{a} = \begin{pmatrix}
+    a \\ b
+\end{pmatrix}$, $K = \begin{pmatrix}
+    \sigma_1^2 & \rho \sigma_1 \sigma_2 \\
+    \rho \sigma_1 \sigma_2 & \sigma_2^2
+\end{pmatrix}$, $\det{K} = \sigma_1^2 \sigma_2^2 - \rho^2 \sigma_1^2 \sigma_2^2 = (1-\rho^2)\sigma_1^2\sigma_2^2$, 
+$K^{-1} = \frac{1}{(1-\rho^2)\sigma_1^2\sigma_2^2}\begin{pmatrix}
+    \sigma_2^2 & -\rho \sigma_1 \sigma_2 \\
+    -\rho \sigma_1 \sigma_2 & \sigma_1^2
+\end{pmatrix}$.
