@@ -233,7 +233,7 @@ $D = \mathrm{diag}(\lambda_1, \lambda_2, ..., \lambda_m, 0, ..., 0)$.
 \exp\left\{i\sum\limits_{k=1}^m b_k t_k - \frac{1}{2}\sum\limits_{k=1}^m \lambda_k t_k^2\right\}
 \end{gather*}
 
-Перший добуток --- це характеристична функція сталого вектору, а другий --- характеристична функція гауссівського вектору меншої розмірності.
+Перший множник --- це характеристична функція сталого вектору, а другий --- характеристична функція гауссівського вектору меншої розмірності.
 
 Позначимо $\vec{c} = (0, ..., 0, b_{m+1}, ..., b_{n})^T$,
 $\vec{d} = (b_1, ..., b_m, 0, ..., 0)^T$,
@@ -244,13 +244,21 @@ $\Lambda = \mathrm{diag}(\sqrt{\lambda_1}, \sqrt{\lambda_2}, ..., \sqrt{\lambda_
 Оскільки $\vec{\eta} = U^{*}\vec{\xi}$, то $\vec{\xi} = U\vec{\eta} = U\Lambda \vec{\zeta} + U(\vec{c} + \vec{d}) = U\Lambda \vec{\zeta} + \vec{a}$.
 Позначимо $U\Lambda = L$. Остаточно: $\vec{\xi} = L\vec{\zeta} + \vec{a}$.
 
+Що тепер можна сказати про розподіл такого вектора? Оскільки перші $m$ координат $\vec{\zeta}$ можуть приймати довільні дійсні значення, то
+можливі значення вектора $L\vec{\zeta}$ --- це точки з лінійної оболонки векторів $\left\{u_1, u_2, ..., u_m\right\}$ (це власні вектори, що відповідають ненульовим власним числам $K$).
+Оскільки власні вектори, що відповідають нульовому власному числу, утворюють базис $\mathrm{Ker}K$, то лінійна оболонка $\left\{u_1, u_2, ..., u_m\right\}$ --- це $\mathrm{Im}K$.
+
+
 \textbf{Висновок:} $n$-вимірний гауссівський вектор з виродженою кореляційною матрицею, що має ранг $m<n$, можна представити
 у вигляді суми свого вектора математичного сподівання та вектора, перші $m$ координат є незалежними у сукупності та мають стандартний нормальний розподіл, 
-а інші координати нульові, помноженого на невироджену матрицю.
+а інші координати нульові, помноженого на невироджену матрицю. 
+
+Усі значення $n$-вимірного гауссівського вектора $\vec{\xi} \sim {N}(\vec{a}, K)$ з виродженою кореляційною матрицею, що має ранг $m<n$,
+зосереджені на $m$-вимірному підпросторі $\mathbb{R}^n$ --- $\mathrm{Im}K + \vec{a}$.
 \subsection{Нормальний розподіл на площині} 
 Розглянемо двовимірний гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)^T \sim {N}(\vec{a}, K)$.
 Нехай $\vec{a} = \begin{pmatrix}
-    a \\ b
+    a_1 \\ a_2
 \end{pmatrix}$, $K = \begin{pmatrix}
     \sigma_1^2 & \rho \sigma_1 \sigma_2 \\
     \rho \sigma_1 \sigma_2 & \sigma_2^2
@@ -259,3 +267,180 @@ $K^{-1} = \frac{1}{(1-\rho^2)\sigma_1^2\sigma_2^2}\begin{pmatrix}
     \sigma_2^2 & -\rho \sigma_1 \sigma_2 \\
     -\rho \sigma_1 \sigma_2 & \sigma_1^2
 \end{pmatrix}$.
+Окремо запишемо щільність:
+\begin{equation}
+    \begin{gathered}
+        f_{\vec{\xi}}(x,y) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2}\cdot
+        \frac{\left( \sigma_2^2(x-a_1)^2 - 2\rho\sigma_1\sigma_2(x-a_1)(y-a_2) + \sigma_1^2(y-a_2)^2\right)}{\sigma_1^2\sigma_2^2(1-\rho^2)}
+        \right\} = \\
+        = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \exp\left\{
+            -\frac{1}{2(1-\rho^2)}\cdot
+            \left(\frac{(x-a_1)^2}{\sigma_1^2} -
+            2\rho\frac{x-a_1}{\sigma_1}\frac{y-a_2}{\sigma_2} +
+            \frac{(y-a_2)^2}{\sigma_2^2}
+            \right) 
+        \right\}
+    \end{gathered}
+\end{equation}
+При $\rho = 0$ отримуємо $f_{\vec{\xi}}(x,y) = \frac{1}{\sqrt{2\pi}\sigma_1} e^{-\frac{(x-a_1)^2}{\sigma_1^2}} \cdot \frac{1}{\sqrt{2\pi}\sigma_2} e^{-\frac{(y-a_2)^2}{\sigma_2^2}} = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
+
+Поверхня, утворена графіком щільності,
+називається \emph{поверхнею} або \emph{палаткою Гаусса}.
+ 
+\hbox to \hsize{\hfil{
+    \includegraphics[scale=0.45]{bivar}
+}\hfil}
+Лінії рівня цієї поверхні задають \emph{еліпси розсіювання}:
+$$f_{\vec{\xi}}(x,y) = C \Leftrightarrow \frac{(x-a_1)^2}{\sigma_1^2} -
+2\rho\frac{x-a_1}{\sigma_1}\frac{y-a_2}{\sigma_2} +
+\frac{(y-a_2)^2}{\sigma_2^2} = \lambda^2$$
+
+\begin{tabular}{c p{7.9cm}}
+\begin{tikzpicture}[baseline={(current bounding box.north)}]
+    \draw [->] (-0.5, 0) -- (5, 0);
+    \draw [->] (0, -0.5) -- (0, 3);
+    \draw (2, 1.5) circle [x radius=1, y radius=0.5, rotate=40];
+    \draw (2, 1.5) circle [x radius=1.3, y radius=0.7, rotate=40];
+    \draw (2, 1.5) circle [x radius=1.5, y radius=0.9, rotate=40];
+    \draw [fill] (2, 1.5) circle [radius = 0.05];
+    \draw [<-] (3.5, 2.824) -- (0.3, 0);
+    \draw [<-] (1, 2.64) -- (3, 0.38);
+    \draw [dashed] (2, 1.5) -- (0, 1.5);
+    \draw [dashed] (2, 1.5) -- (2, 0);
+    \node [below] at (5, 0) {$x$};
+    \node [left] at (0, 2.8) {$y$};
+    \node [below] at (2, 0) {$a_1$};
+    \node [left] at (0, 1.5) {$a_2$};
+    \draw (0.6, 0) arc (0:40:0.3);
+    \node [above right] at (0.55, 0) {$\alpha$};
+\end{tikzpicture}&
+$\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\newline
+Осі еліпсів називаються \emph{головними осями розсіювання}.\newline
+Якщо $\rho = 0$, то головні осі розсіювання паралельні осям координат.
+\end{tabular}
+
+Позначимо $E_\lambda = \left\{(x;y) \in \mathbb{R}^2: \frac{(x-a_1)^2}{\sigma_1^2} -
+2\rho\frac{x-a_1}{\sigma_1}\frac{y-a_2}{\sigma_2} +
+\frac{(y-a_2)^2}{\sigma_2^2} \leq \lambda^2\right\}$.
+Знайдемо ймовірність потрапляння в цю область у випадку $\rho = 0$:
+
+\begin{gather*}
+    P\left\{\vec{\xi} \in E_\lambda\right\} = \iint\limits_{E_\lambda} f_{\vec{\xi}}(x,y) dx dy = 
+    \frac{1}{2\pi\sigma_1\sigma_2} \iint\limits_{E_\lambda} \exp\left\{-\frac{1}{2}\left( 
+        \frac{(x-a_1)^2}{\sigma_1^2} + 
+        \frac{(y-a_2)^2}{\sigma_2^2}
+    \right)\right\} dx dy = \\
+    \left[ \begin{gathered}
+        x-a_1 = \lambda\sigma_1 r \cos\varphi \\ 
+        y-a_2 = \lambda\sigma_2 r \sin\varphi \\
+        |\mathcal{J}| = \lambda^2 \sigma_1 \sigma_2 r
+    \end{gathered}\right] = 
+    \frac{\lambda^2}{2\pi} \int\limits_0^{2\pi}  d\varphi
+    \int\limits_0^1 r e^{-\frac{\lambda^2r^2}{2}} dr = 
+    \int\limits_0^1 e^{-\frac{\lambda^2r^2}{2}} d\left(\frac{\lambda^2r^2}{2} \right) = 
+    1 - e^{-\frac{\lambda^2}{2}}
+\end{gather*}
+
+\begin{exercise}
+    Довести, що у випадку $\rho > 0$ $P\left\{\vec{\xi} \in E_\lambda\right\} = 
+    1 - e^{-\frac{\lambda^2}{2(1-\rho^2)}}$.
+\end{exercise}
+
+\begin{example}
+    $\vec{\xi} \sim {N}\left( \begin{pmatrix}
+        -1 \\ 1
+    \end{pmatrix}, \begin{pmatrix}
+        1 & 2 \\
+        2 & 16
+    \end{pmatrix}\right)$. Знайти рівняння еліпса розсіювання, для якого \\
+    $P\left\{\vec{\xi} \in E_\lambda\right\} = 0.93$. З кореляційної матриці $\rho = 0.5$.
+    Розв'яжемо відносно $\lambda^2$ рівняння $1 - e^{-\frac{\lambda^2}{2(1-0.5^2)}} = 0.93
+    \Leftrightarrow e^{-\frac{\lambda^2}{1.5}} = 0.07 \Rightarrow \lambda^2 \approx 4$. Тому рівняння еліпса
+    $\frac{(x+1)^2}{1} - \frac{x+1}{1} \frac{y-1}{4} + \frac{(y-1)^2}{16} = 4$ або 
+    $\frac{(x+1)^2}{4} - \frac{(x+1)(y-1)}{16} + \frac{(y-1)^2}{64} = 1$.
+\end{example}
+
+Розглянемо гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)$ з незалежними координатами.
+Для нього $F_{\vec{\xi}}(x,y) = F_{\xi_1}(x) F_{\xi_2}(y) = 
+\left(\frac{1}{2} + \Phi\left( \frac{x-a_1}{\sigma_1}\right) \right)
+\left(\frac{1}{2} + \Phi\left( \frac{y-a_2}{\sigma_2}\right) \right)$.
+Тоді ймовірність потрапляння в прямокутник $\Pi = \left\{(x;y)\in\mathbb{R}^2 : \alpha < x < \beta, \gamma < y < \delta\right\}$
+дорівнює $$\left( \Phi\left( \frac{\beta-a_1}{\sigma_1}\right) - \Phi\left( \frac{\alpha-a_1}{\sigma_1}\right)\right) \cdot
+\left( \Phi\left( \frac{\gamma-a_2}{\sigma_2}\right) - \Phi\left( \frac{\delta-a_2}{\sigma_2}\right)\right)$$.
+\begin{exercise}
+    Довести формулу для $P\left\{\vec{\xi}\in\Pi\right\}$.
+\end{exercise}
+Для гауссівського вектору з незалежними координатами також має місце <<правило $3\sigma$>>:
+\begin{gather*}
+    P\left\{\vec{\xi} \in (a_1-3\sigma_1; a_1+3\sigma_1)\times(a_2-3\sigma_2; a_2+3\sigma_2)\right\} = \\
+    = P\left\{\xi_1 \in(a_1-3\sigma_1; a_1+3\sigma_1)\right\}\cdot P\left\{\xi_2 \in(a_2-3\sigma_2; a_2+3\sigma_2)\right\}
+    \approx 0.9973^2 \approx 0.9946
+\end{gather*}
+
+\subsection{Колове розсіювання}
+\begin{definition}
+    Двовимірний гауссівський вектор має \emph{колове розсіювання}, якщо
+    $\vec{a} = \vec{0}, \; K = \begin{pmatrix}
+        \sigma^2 & 0 \\
+        0 & \sigma_2
+    \end{pmatrix}$. В цьому випадку $f_{\vec{\xi}} = \frac{1}{2\pi\sigma^2} \exp\left\{-\frac{x^2+y^2}{2\sigma^2}\right\}$, 
+    а еліпси розсіювання стають колами.
+\end{definition}
+Знайдемо ймовірність потрапляння такого $\vec{\xi}$ в коло $K_R = \left\{(x; y) \in \mathbb{R}^2 : x^2 + y^2 \leq R^2\right\}$:
+\begin{gather*}
+    P\left\{\vec{\xi} \in K_R\right\} = \frac{1}{2\pi\sigma^2} \iint\limits_{K_R} e^{-\frac{x^2+y^2}{2\sigma^2}} dx dy = 
+    \left[ \begin{gathered}
+        x = \sigma r\cos\varphi \\
+        y = \sigma r\sin\varphi \\
+        |\mathcal{J}| = \sigma^2 r
+    \end{gathered}\right] =
+    \frac{1}{2\pi} \int\limits_0^{2\pi} d\varphi \int\limits_0^{R/\sigma} r e^{-\frac{r^2}{2}} dr = \\
+    = \int\limits_0^{R/\sigma} e^{-\frac{r^2}{2}} d \left( \frac{r^2}{2}\right) = 
+    1 - e^{-\frac{R^2}{2\sigma^2}}
+\end{gather*}
+Таким чином, тепер відомий розподіл норми $\vec{\xi}$. $\eta = \Vert \vec{\xi} \Vert = \sqrt{\xi_1^2 + \xi_2^2}$ --- випадкова величина,
+для якої $F_{\eta}(R) = P\left\{\Vert \vec{\xi} \Vert < R\right\} = \begin{cases}
+    1 - e^{-\frac{R^2}{2\sigma^2}}, & R > 0 \\
+    0, & R \leq 0
+\end{cases}$ --- це \emph{розподіл Релея}. Ця властивість переноситься й на довільну скінченну розмірність.
+
+\begin{exercise}
+    Знайти основні числові характеристики розподілу Релея.
+\end{exercise}
+
+\subsection{Умовний гауссівський розподіл на площині}
+Знайдемо одну з умовних щільностей розподілу:
+\begin{gather*}
+    f_{\xi_1}(x/\xi_2 = y) = \frac{f_{\vec{\xi}}(x,y)}{f_{\xi_2}(y)} = 
+    \frac{\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \exp\left\{
+        -\frac{1}{2(1-\rho^2)}\cdot
+        \left(\frac{(x-a_1)^2}{\sigma_1^2} -
+        2\rho\frac{x-a_1}{\sigma_1}\frac{y-a_2}{\sigma_2} +
+        \frac{(y-a_2)^2}{\sigma_2^2}
+        \right)\right\} }{
+            \frac{1}{\sqrt{2\pi}\sigma_2} \exp\left\{-\frac{1}{2\sigma_2^2}(y-a_2)^2\right\}
+        } = \\
+        \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{
+            -\frac{1}{2(1-\rho^2)}
+        \left(\frac{(x-a_1)^2}{\sigma_1^2} -
+        2\rho\frac{(x-a_1)(y-a_2)}{\sigma_1\sigma_2} +
+        \frac{(y-a_2)^2}{\sigma_2^2}
+        \right) +
+        \frac{(y-a_2)^2}{2\sigma_2^2}
+        \right\} = \\
+        = \left [ \frac{(y-a_2)^2}{\sigma_2^2} - \frac{(1-\rho^2)(y-a_2)^2}{\sigma_2^2} = \rho^2 \frac{(y-a_2)^2}{\sigma_2^2}\right]=\\
+        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( \frac{x-a_1}{\sigma_1^2} - \rho\cdot\frac{y-a_2}{\sigma^2}\right)^2\right\} = \\
+        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( x- \left( a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}\right)\right)^2\right\}
+\end{gather*}
+Аналогічно $f_{\xi_2}(x/\xi_1 = x) = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( y- \left( a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}\right)\right)^2\right\}$.
+
+\noindentОтже, обидві умовні щільності є щільностями нормального розподілу.
+
+$E\left( \xi_1 / \xi_2 = y\right) = a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}$, 
+$E\left( \xi_2 / \xi_1 = x\right) = a_2 + \frac{\rho\sigma_2(y-a_2)}{\sigma_1}$. Лінії регресії --- прямі,
+
+\noindent
+$\rho\frac{\sigma_1}{\sigma_2} = \frac{K\xi_1\xi_2}{D\xi_2}$ та $\rho\frac{\sigma_2}{\sigma_1}  = \frac{K\xi_1\xi_2}{D\xi_1}$ --- відповідні кутові коефіцієнти прямих регресії.
+
+$D\left( \xi_1 / \xi_2 = y\right) = \sigma_1^2(1-\rho^2)$, 
+$D\left( \xi_2 / \xi_1 = x\right) = \sigma_2^2(1-\rho^2)$. Умовні дисперсії є сталими, ця властивість називається \emph{гомоскедастичністю}.
