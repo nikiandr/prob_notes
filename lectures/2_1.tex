@@ -266,8 +266,8 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
             A\cdot x^2, & x \in \left[1; 3\right]
         \end{cases}$. Знайти $A$ та $F_\xi(x)$.
 
-        \begin{tabular}{c c}
-            \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale = 2]
+        \begin{tabular}{c p{7cm}}
+            \begin{tikzpicture}[baseline={(current bounding box.north)}, yscale = 2, xscale=0.9]
                 \draw [->] (-1, 0) -- (5, 0);
                 \draw [->] (0, -0.1) -- (0, 1.2);
                 \draw [ultra thick] (-1, 0) -- (1, 0);
@@ -281,16 +281,14 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
                 \node [left] at (0, 1) {$f_\xi(x)$};
                 \fill [lightgray, domain=1:3, variable = \x] (1, 0) -- plot ({\x}, {0.115384615385 * \x^2}) -- (3, 0) -- cycle;
             \end{tikzpicture} &
-            \vtop{\hbox{\strut
                 $\int_{-\infty}^{+\infty} f_\xi(x)dx = A\cdot\int_1^3 x^2 dx = 
                 A\cdot \frac{x^3}{3} \bigr\vert_1^3 = A\cdot \frac{26}{3}$.
-            }
-            \hbox{\strut
+            
                 З властивості нормування $A = \frac{3}{26}$.
-            }}
         \end{tabular}
+
         \begin{tabular}{c c}
-            \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale = 1.5]
+            \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale = 1.5, xscale=0.9]
                 \draw [->] (-1, 0) -- (5, 0);
                 \draw [->] (0, -0.1) -- (0, 1.2);
                 \draw [ultra thick] (-1, 0) -- (1, 0);
