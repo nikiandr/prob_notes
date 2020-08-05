@@ -100,14 +100,13 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
     Обчислити таблицю розподілу, знаючи ряди розподілу координат, можна лише у випадку їх незалежності.
 \end{remark}
 
-\subsection{Сумісна функція розподілу двовимірного випадкового вектору}
+\subsection{Сумісна функція розподілу двовимірного випадкового вектора}
 \begin{definition} 
     \emph{Сумісною функцією розподілу} двовимірного випадкового вектора $\vec{\xi}$ 
-    називається $F_{\vec{\xi}}(x, y) = P\left\{\omega: \xi_1 < x,\; \xi_2 < y\right\} = 
-    P(\xi_1 < x, \; \xi_2 < y)$
+    називається $F_{\vec{\xi}}(x, y) = P\left\{\omega: \xi_1 < x, \xi_2 < y\right\}$, $x, y \in \mathbb{R}$.
 \end{definition}
 
-\textbf{Геометрична інтерпретація: }
+\noindent\textbf{Геометрична інтерпретація: }
 Значення $F_{\vec{\xi}}(x, y)$ рівне імовірності 
 потрапляння точки в заштриховану зону.
 
@@ -129,7 +128,7 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
 \noindent\textbf{Властивості: }
 \begin{enumerate}
     \item $D(F_{\vec{\xi}}) = \mathbb{R}^2$, $E(F_{\vec{\xi}}) = 
-    \left<0, 1\right>$.
+    \left<0; 1\right>$.
     \item Монотонно неспадна по кожній з координат.
     \begin{proof}
         $A = \left\{\xi_1 < x_2,\;\xi_2 < y \right\}$, 
@@ -160,29 +159,101 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_m\right\}$, $\sum\limits_{i,j} p_{ij} =
         = P(\varnothing) = 0$.
         Інші випадки --- аналогічно.
     \end{proof}
-    \item \emph{<<Умови узгодженості>>}
-    
+    \item \emph{<<Умови узгодженості>>}:
     $\lim\limits_{x \to +\infty} F_{\vec{\xi}}(x, y) = F_{\xi_2}(y)$, 
-    $\lim\limits_{y \to +\infty} F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)$
+    $\lim\limits_{y \to +\infty} F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)$.
     \begin{proof}
         $\lim\limits_{x \to +\infty} F_{\vec{\xi}}(x, y) = 
         \lim\limits_{x \to +\infty} 
         P\left(\xi_1 < x,\; \xi_2 < y\right) = 
         P\left(\xi_1 < +\infty,\;\xi_2<y\right) = $
         
-        $= P\left(\xi_2<y\right) = F_{\xi_2}(y)$. Інша - аналогічно.
+        $= P\left(\xi_2<y\right) = F_{\xi_2}(y)$. Інша --- аналогічно.
     \end{proof}
-    \item $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$
+    \item $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
     \begin{proof}
-        Напряму випливає з умов узгодженості.
+        Випливає з умов узгодженості.
     \end{proof}
     \item Функція розподілу є неперервною зліва по кожному з аргументів: 
     
     $\lim\limits_{x \to x_0 - 0} F_{\vec{\xi}}(x, y) = F_{\vec{\xi}}(x_0, y)$, 
     $\lim\limits_{y \to y_0 - 0} F_{\vec{\xi}}(x, y) = F_{\vec{\xi}}(x, y_0)$.
     \begin{proof}
-        Аналогічне доведення з одновимірним випадком (твердж. \refeq{2_1_con}, 
+        Доведення аналогічне одновимірному випадку (твердж. \refeq{2_1_con}, 
         с. \pageref{2_1_con}).
     \end{proof}
-    \item $P\left(\vec{\xi} \in \Pi \right)$ - ?
-\suspend{enumerate}
+    \item $\Pi = [a; b)\times [c; d)$. $P\left\{\vec{\xi} \in \Pi \right\} = \text{?}$
+    
+    \begin{tabular}{c p{9cm}}
+        \begin{tikzpicture}[baseline={(current bounding box.north)}]
+            \draw [->] (-1, 0) -- (3, 0);
+            \draw [->] (0, -1) -- (0, 2);
+            \draw [very thick] (0.5,1.5) -- (0.5,0.5) -- (2.5,0.5);
+            \draw [dashed, very thick] (2.5,0.5) -- (2.5,1.5) -- (0.5,1.5);
+            \fill [black!10!white] (0.5,0.5) rectangle (2.5,1.5);
+            \draw [dashed] (0.5, 0.5) -- (-1, 0.5);
+            \draw [dashed] (0.5, 0.5) -- (0.5, -1);
+            \draw [dashed] (0.5, 1.5) -- (-1, 1.5);
+            \draw [dashed] (2.5, 0.5) -- (2.5, -1);
+            \node [below right] at (0.5, 0) {$a$};
+            \node [below left] at (2.5, 0) {$b$};
+            \node [above left] at (0, 0.5) {$c$};
+            \node [below left] at (0, 1.5) {$d$};
+            \node [below] at (3, 0) {$x$};
+            \node [left] at (0, 2) {$y$};
+            \node [below left] at (2.5, 1.5) {$\Pi$};
+        \end{tikzpicture} &
+        Введемо події $A = \left\{\xi_1 < a, \xi_2 < c\right\}$, \newline
+        $B = \left\{\xi_1 \in [a;b), \xi_2 < c\right\}$,
+        $C = \left\{\xi_1 < a, \xi_2 \in [c;d)\right\}$, \newline
+        $D = \left\{\vec{\xi} \in \Pi\right\}$,
+        $E = \left\{\xi_1 < b, \xi_2 < d\right\}$.
+        $E = A \cup B \cup C \cup D$, причому $A$, $B$, $C$, $D$ --- попарно несумісні, тому
+        $P(E) = P(A) + P(B) + P(C) + P(D)$.
+        $P(E) = F(b, d)$, $P(A) = F(a, c)$, $P(B) = F(b,c) - F(a,c)$,
+        $P(C) = F(a, d) - F(a, c)$. 
+        
+        Отже, $P\left\{\vec{\xi} \in \Pi\right\} = F(b,d) + F(a,c) - F(b,c) - F(a,d)$.
+    \end{tabular}
+\end{enumerate}
+
+\subsection{Побудова функції розподілу дискретного випадкового вектора}
+
+Нехай двовимірний випадковий вектор  задано таблицею розподілу:
+\begin{tabular}{c|c|c}
+    \diagbox{$\xi_2$}{$\xi_1$} & 1 & 2 \\
+    \hline
+    0 & 0.3 & 0.4 \\
+    \hline
+    1 & 0.2 & 0.1
+\end{tabular}
+
+Значення функції розподілу також зручно звести в таблицю:
+
+\begin{tabular}{c|c|c|c}
+    \diagbox[height=2em, width=6em]{$y$}{$x$} & $x\leq1$ & $1<x\leq2$ & $x> 2$ \\
+    \hline
+    $y\leq0$ & $0$ & $0$ & $0$ \\
+    \hline
+    $0<y\leq 1$ & $0$ & $0.3$ & $0.7$ \\
+    \hline
+    $y>1$ & $0$ & $0.5$ & $1$
+\end{tabular}
+
+\subsection{Сумісна функція розподілу \texorpdfstring{$n$}{n}-вимірного вектора}
+\begin{definition} 
+    \emph{Сумісною функцією розподілу} $n$-вимірного випадкового вектора $\vec{\xi}$ 
+    називається $F_{\vec{\xi}}(\vec{x}) = P\left\{\omega: \xi_1 < x_1, \xi_2 < x_2, ..., \xi_n < x_n\right\}$, $\vec{x} \in \mathbb{R}^n$.
+\end{definition}
+\noindent\textbf{Властивості: }
+\begin{enumerate}
+    \item Є монотонно неспадною по кожній координаті.
+    \item Є неперервною зліва по кожній координаті.
+    \item $\forall k = 1,...,n: ( x_k \rightarrow -\infty) \Rightarrow ( F_{\vec{\xi}}(\vec{x}) \rightarrow 0)$.
+    \item $\lim\limits_{x_1, ..., x_n \rightarrow +\infty} F_{\vec{\xi}}(\vec{x}) = 1$.
+    \item \emph{<<Умови узгодженості>>}: $\forall k = 1,...,n: F_{\xi_k}(x) = F_{\vec{\xi}}(+\infty, ..., +\infty, x_k, +\infty, ..., +\infty)$,
+    $\forall k<n: F_{\xi_1 \xi_2 ... \xi_k}(x_1, x_2, ..., x_k) = F_{\vec{\xi}}(x_1, x_2, ..., x_k, +\infty, ..., +\infty)$.
+\end{enumerate}
+\begin{exercise}
+    Довести ці властивості.
+\end{exercise}
