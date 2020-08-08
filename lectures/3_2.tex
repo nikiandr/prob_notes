@@ -160,5 +160,77 @@ y + \theta_4 \Delta y)\Delta y}
             2y - y^2, & 0<y\leq 1 \\
             1, y>1
         \end{cases}$
+        \item Сумісна функція розподілу: 
+        
+        $F_{\vec{\xi}}(x, y) = 
+        \int\limits_{-\infty}^{x} \int\limits_{-\infty}^{y} 
+        f_{\vec{\xi}}(t, \tau) dt d\tau$
+
+        \begin{enumerate}[label=(\Roman*)]
+            \item $(x, y) \in D_0$
+            
+            $D_0 = \left\{(x, y):\; x \leq 0 \lor y \leq 0\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 0$
+
+            \item $(x, y) \in D_1$
+            
+            $D_1 = \left\{(x, y):\; x \in \left[0, 1\right],
+            y \in \left[0, 1-x\right]\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 2xy$
+
+            \item $(x, y) \in D_2$
+            
+            $D_2 = \left\{(x, y):\; x \in \left[0, 1\right],
+            y \in \left[1-x, 1\right]\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 2(xy - \frac{1}{2}(x-1+y)(y-1+x))$
+
+            \item $(x, y) \in D_3$
+            
+            $D_3 = \left\{(x, y):\; x > 1,
+            y \in \left[0, 1\right]\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 2\frac{1+1-y}{2}y = y(2-y)$
+
+            \item $(x, y) \in D_4$
+            
+            $D_4 = \left\{(x, y):\; y > 1,
+            x \in \left[0, 1\right]\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 2\frac{1+1-x}{2}x = x(2-x)$
+
+            \item $(x, y) \in D_5$
+            
+            $D_5 = \left\{(x, y):\; x > 1 \land y > 1\right\}$
+
+            $F_{\vec{\xi}}(x, y) = 1$
+        \end{enumerate}
+        \begin{tikzpicture}[scale = 1.5]
+            \fill [orange] (-0.5, -0.5) -- (-0.5, 1.5) -- (0, 1.5) --
+                           (0, 0) -- (1.5, 0) -- (1.5, -0.5) -- (-0.5, -0.5);
+            \fill [lightgray] (0, 0) -- (1, 0) -- (0, 1);
+            \fill [pink] (0, 1) -- (1, 0) -- (1, 1);
+            \fill [red] (0, 1) rectangle (1, 1.5);
+            \fill [yellow] (1, 0) rectangle (1.5, 1);
+            \fill [lime] (1, 1) rectangle (1.5, 1.5);
+            \draw [->] (0, -0.5) -- (0, 1.5);
+            \draw [->] (-0.5, 0) -- (1.5, 0);
+            \draw (1, 0) -- (0, 1);
+            \node [right] at (1.5, 0) {$t$};
+            \node [above] at (0, 1.5) {$\tau$};
+            \node [below left] at (0, 0) {$D_0$};
+            \node [above right] at (0.15, 0.15) {$D_1$};
+            \node [above right] at (0.5, 0.5) {$D_2$};
+            \node at (0.5, 1.25) {$D_4$};
+            \node at (1.25, 0.5) {$D_3$};
+            \node at (1.25, 1.25) {$D_5$};
+        \end{tikzpicture}
     \end{enumerate}
 \end{example}
+
+\begin{remark}
+    Перевірити правильність побудови функції розподілу можна за допомогою 
+    умови узгодженості, перевірки точок стику та неперервності на лініях стику.
+\end{remark}
