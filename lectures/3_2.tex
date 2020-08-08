@@ -4,13 +4,10 @@
 \begin{definition}
     Вимірна функція $\xi(\omega): \Omega \rightarrow \mathbb{R}^n$ називається 
     \emph{неперервним випадковим вектором}, якщо координати $\xi_i$ є 
-    неперервними випадковими випадковими величинами $\forall i = \overline{1,n}$.
+    неперервними випадковими величинами для $i = 1,...,n$.
 \end{definition}
-\begin{remark}
-    $F_{\vec{\xi}}\left(\vec{x}\right) = 
-    P\left\{\omega\;:\;\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ --- 
-    функція розподілу, є неперервною по всім аргументам.
-\end{remark}
+Функція розподілу $F_{\vec{\xi}}\left(\vec{x}\right) = 
+P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є неперервною по всім аргументам.
 
 \subsection{Щільність розподілу двовимірного неперервного випадкового вектора}
 \begin{definition}
@@ -34,8 +31,8 @@
 \end{remark}
 
 \noindent\textbf{Зв’язок щільності розподілу з сумісною функцією розподілу: }
-
-$f_{\vec{\xi}}(x, y) = \lim_{\substack{\Delta x \to 0 \\ 
+\begin{gather*}
+    \lim_{\substack{\Delta x \to 0 \\ 
 \Delta y \to 0}} \frac{P\left\{\vec{\xi} \in \Pi\right\}}
 {\Delta x \Delta y} = 
 \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} 
@@ -45,29 +42,24 @@ $f_{\vec{\xi}}(x, y) = \lim_{\substack{\Delta x \to 0 \\
     -
     \frac{F_{\vec{\xi}}(x+\Delta x, y) - F_{\vec{\xi}}(x, y)}
     {\Delta x \Delta y}
-\right) =$
-
-$= \left|\text{формула Лагранжа про скінченні прирости}\;|
-\;\theta_1, \theta_2 \in (0, 1)\right| = $
-
-$= \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} 
+\right) = \\
+= \left[\text{формула Лагранжа про скінченні прирости}, \theta_1, \theta_2 \in (0, 1)\right] = \\
+= \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} 
 \left(
     \frac{\frac{\partial F}{\partial x}(x + \theta_1 \Delta x, y + \Delta y)\Delta x}
     {\Delta x \Delta y}
     -
     \frac{\frac{\partial F}{\partial x}(x + \theta_2 \Delta x, y)\Delta x}
     {\Delta x \Delta y}
-\right) = 
-\left|\theta_3, \theta_4 \in (0, 1)\right| =$
-
-$= \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}
+\right) =  \\
+= \left[\theta_3, \theta_4 \in (0, 1)\right] 
+= \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}}
 \frac{\frac{\partial^2 F}{\partial x \partial y}(x + \theta_3 \Delta x, 
 y + \theta_4 \Delta y)\Delta y}
-{\Delta y} = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)$
+{\Delta y} = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)\end{gather*}
 
-Таким чином, якщо $\exists \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}$ 
---- неперервна, то
-\begin{equation}
+Таким чином, якщо існує неперервна $ \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}$, то
+\begin{equation}\label{eq:dens_r2}
     f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)
 \end{equation}
 
@@ -82,38 +74,37 @@ y + \theta_4 \Delta y)\Delta y}
 \noindent\textbf{Властивості щільності: }
 
 \begin{enumerate}
-    \item $f_{\vec{\xi}}(x, y) \geq 0$
-    \item З формули 2: $F_{\vec{\xi}}(x, y) 
-    = \int_{-\infty}^x \int_{-\infty}^y f_{\vec{\xi}}(r, s) 
-    \,\mathrm{d}r \mathrm{d}s $
+    \item $f_{\vec{\xi}}(x, y) \geq 0$.
+    \item З формули \refeq{eq:dens_r2}: $F_{\vec{\xi}}(x, y) 
+    = \int\limits_{-\infty}^x \int\limits_{-\infty}^y f_{\vec{\xi}}(t, s) 
+    dt ds $.
     \item Умова нормування: 
-    $\int_{-\infty}^{+\infty} \int_{-\infty}^{\infty} f_{\vec{\xi}}(r, s) 
-    \,\mathrm{d}r \mathrm{d}s = 1$ --- весь об'єм під поверхнею розподілу 
+    $\int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{\infty} f_{\vec{\xi}}(t, s) 
+    dt ds = 1$ --- об'єм під поверхнею розподілу 
     дорівнює 1.
-    \item $F_{\xi_1}(x) = \int_{-\infty}^{x} \int_{-\infty}^{+\infty} 
-    f_{\vec{\xi}}(r, s) \,\mathrm{d}r \mathrm{d}s$
+    \item $F_{\xi_1}(x) = \int\limits_{-\infty}^{x} \int\limits_{-\infty}^{+\infty} 
+    f_{\vec{\xi}}(t, s) dt ds$.
 
-    $F_{\xi_2}(y) = \int_{-\infty}^{+\infty} \int_{-\infty}^{y} 
-    f_{\vec{\xi}}(r, s) \,\mathrm{d}r \mathrm{d}s$
+    $F_{\xi_2}(y) = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{y} 
+    f_{\vec{\xi}}(t, s) dt ds$.
     \item Щільності розподілу окремих координат називаються 
-    \emph{маргінальними щільностями розподілу}.
+    \emph{маргінальними щільностями}.
 
-    $f_{\xi_1}(x) = F^{'}_{\xi_1}(x) 
-    = \int_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) \,\mathrm{d}y $
+    $f_{\xi_1}(x) = F'_{\xi_1}(x) 
+    = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) dy $.
 
-    $f_{\xi_2}(x) = F^{'}_{\xi_2}(x) 
-    = \int_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) \,\mathrm{d}x $
+    $f_{\xi_2}(y) = F'_{\xi_2}(y) 
+    = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) dx $.
     
-    \item D - замкнена обмежена область в $\mathbb{R}^2$.
-    
-    $P\left\{ \vec{\xi} \in D \right\} = \iint_D f_{\vec{\xi}}(x, y) \,
-    \mathrm{d}x \mathrm{d}y$.
+    \item D --- замкнена обмежена область в $\mathbb{R}^2$.
+    $P\left\{ \vec{\xi} \in D \right\} = \iint\limits_D f_{\vec{\xi}}(x, y) 
+    dx dy$.
 \end{enumerate}
 
 \subsection{Рівномірний закон розподілу на площині}
 \begin{definition}
-    D --- замкнена обмежена область (компакт) в $\mathbb{R}^2$. 
-    Вектор $\vec{\xi} = (\xi_1,\;\xi_2)^T$ називається 
+    D --- замкнена обмежена область в $\mathbb{R}^2$. 
+    Вектор $\vec{\xi} = (\xi_1,\xi_2)^T$ називається 
     \emph{рівномірно розподіленим в області D}, якщо 
     \begin{equation*}
         f_{\vec{\xi}}(x, y) = 
@@ -145,23 +136,29 @@ y + \theta_4 \Delta y)\Delta y}
     \end{tabular}
     
     \begin{enumerate}
-        \item $f_{\xi_1}(x) = \int_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) \,\mathrm{d}y = 
+        \item $f_{\xi_1}(x) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) dy = 
         \begin{cases}
-            0 , &x\leq0\\
-            \int_0^{1-x} 2 \,\mathrm{d}y = 2(1-x), & 0 < x \leq 1 \\
-            0, & x > 1 
+            0 , &x\leq0 \text{ або } x>1\\
+            \int\limits_0^{1-x} 2 dy = 2(1-x), & 0 < x \leq 1 
         \end{cases}$
 
-        $f_{\xi_2}(y) = \int_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) \,\mathrm{d}x = 
+        $f_{\xi_2}(y) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) dx = 
         \begin{cases}
-            0 , &y\leq0\\
-            \int_0^{1-y} 2 \,\mathrm{d}x = 2(1-y), & 0 < y \leq 1 \\
-            0, & y > 1 
+            0 , &y\leq0 \text{ або } y>1\\
+            \int\limits_0^{1-y} 2 dx = 2(1-y), & 0 < y \leq 1 
         \end{cases}$
         \item Функції розподілу координат: 
         
-        $F_{\xi_1}(x) = \int_{-\infty}^{x} f_{\xi_1}(t) \,\mathrm{d}t $
+        $F_{\xi_1}(x) = \int\limits_{-\infty}^{x} f_{\xi_1}(t) dt = \begin{cases}
+            0, & x\leq 0 \\
+            2\int\limits_0^x (1-t) dt = 2(x-\frac{x^2}{2}) = 2x - x^2, & 0<x\leq 1 \\
+            1, x>1
+        \end{cases}$
         
-        $F_{\xi_2}(y) = \int_{-\infty}^{y} f_{\xi_2}(t) \,\mathrm{d}t $
+        $F_{\xi_2}(y) = \int\limits_{-\infty}^{y} f_{\xi_2}(t) dt = \begin{cases}
+            0, & y\leq 0 \\
+            2y - y^2, & 0<y\leq 1 \\
+            1, y>1
+        \end{cases}$
     \end{enumerate}
 \end{example}
