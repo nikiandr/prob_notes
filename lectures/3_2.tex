@@ -234,3 +234,75 @@ y + \theta_4 \Delta y)\Delta y}
     Перевірити правильність побудови функції розподілу можна за допомогою 
     умови узгодженості, перевірки точок стику та неперервності на лініях стику.
 \end{remark}
+
+\subsection{Щільність розподілу n-вимірного неперервного випадкового 
+вектора}
+\begin{definition}
+    $\vec{\xi} = \left(\xi_1, \xi_2, ..., \xi_n\right)^T,\; \Pi = 
+    \left[x_1; x_1+\Delta x_1\right] \times ... \times 
+    \left[x_n; x_n+\Delta x_n\right]$
+    \emph{Щільністю розподілу} n-вимірного неперервного випадкового 
+    вектора називається границя
+    \begin{equation*}
+        f_{\vec{\xi}} (\vec{x}) = \lim_{\substack{\Delta x_i \to 0 \\
+        \forall i = \overline{1,n}}} 
+        \frac{P\left\{\vec{\xi} \in \Pi\right\}}{\Delta x_1...\Delta x_n}
+    \end{equation*}
+
+    Якщо існує і неперервна $\frac{\partial^n F_{\vec{\xi}}(\vec{x})}
+    {\partial x_1 ... \partial x_n}$, то
+    \begin{equation*}
+        f_{\vec{\xi}} (\vec{x}) = \frac{\partial^n F_{\vec{\xi}}}
+        {\partial x_1 ... \partial x_n}(\vec{x})
+    \end{equation*}
+\end{definition}
+
+\noindent \textbf{Властивості}
+\begin{enumerate}
+    \item $f_{\vec{\xi}}(\vec{x}) \geq 0$
+    \item $\int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty}
+    f_{\vec{\xi}} (\vec{x})dx_1...dx_n = 1$
+    \item $F_{\vec{\xi}}(\vec{x}) = 
+    \int\limits_{-\infty}^{x_1}...\int\limits_{-\infty}^{x_n}
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+    \item $F_{\xi_1\xi_2...\xi_k}(x_1, ..., x_k) = 
+    \int\limits_{-\infty}^{x_1}...\int\limits_{-\infty}^{x_k}
+    \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty}
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+
+    $F_{\xi_i}(x_i) = \int\limits_{-\infty}^{+\infty}...
+    \int\limits_{-\infty}^{x_i}...\int\limits_{-\infty}^{+\infty}
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+
+    \item $f_{\xi_1...\xi_k}(x_1, ..., x_k) = 
+    \underbrace{
+        \int\limits_{-\infty}^{+\infty} 
+        ... 
+        \int\limits_{-\infty}^{+\infty}
+    }_{n-k} f_{\vec{\xi}}(\vec{x}) dx_{k+1}..dx_n$
+    \item D - замкнена обмежена область в $\mathbb{R}^n$ (компакт).
+    
+    $P\left\{\vec{\xi} \in D\right\} = {\int\int...\int}_D f_{\vec{\xi}}(\vec{x})
+    dx_1 ... dx_n$
+\end{enumerate}
+
+\subsection{Незалежні випадкові величини}
+\begin{definition}
+    $\xi_1$ та $\xi_2$ називаються незалежними, якщо 
+    $\forall x, y \in \mathbb{R}$:  
+    $\left\{\omega\;:\;\xi_1 < x\right\}$ та $\left\{\omega\;:\;\xi_2 < y\right\}$ ---
+    незалежні (як події).
+\end{definition}
+\begin{remark}
+    Якщо $\xi_1$, $\xi_2$ - незалежні координати випадкового вектора $\vec{\xi}$, 
+    то $F_{\vec{\xi}}(x, y) = 
+    P\left(\left\{\xi_1 < x\right\} \cap \left\{\xi_2 < y\right\}\right) = 
+    F_{\xi_1}(x)F_{\xi_2}(y)$.
+
+    Якщо ж вектор ще й є неперервним випадковим вектором та існує неперервна 
+    друга часткова похідна, то
+    $f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}(x, y)}
+    {\partial x \partial y} = \frac{\partial^2(F_{\xi_1}(x)F_{\xi_2}(y))}{\partial x \partial y} 
+    = F_{\xi_1}^\prime (x)F_{\xi_2}^\prime (y) = 
+    f_{\xi_1}(x)f_{\xi_2}(y)$.
+\end{remark}
