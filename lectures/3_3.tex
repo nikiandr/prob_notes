@@ -1,1 +1,57 @@
 % !TEX root = ../main.tex
+\section{Числові характеристики випадкових векторів}
+
+\subsection{Математичне сподівання випадкових векторів}
+$\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
+\begin{definition}
+    \emph{Математичним сподіванням $E_{\vec{\xi}}$} 
+    випадкового вектора $\vec{\xi}$ називається вектор 
+    $\left(E{\xi_1}, ..., E{\xi_n}\right)^T$.
+\end{definition}
+\begin{remark}
+    Математичне сподівання двовимірного випадкового вектора 
+    називається \emph{центром розсіювання}.
+\end{remark}
+
+\noindent \textbf{Способи знаходження}
+
+Знаходимо закони розподілу окремих координат, з цього - 
+математичні сподівання координат і об'єднуємо їх в один вектор.
+
+\begin{equation}
+    E{\xi_i} = 
+    \underbrace{
+        \int\limits_{-\infty}^{+\infty} 
+        ... 
+        \int\limits_{-\infty}^{+\infty}
+    }_{n} x_i f_{\vec{\xi}}(\vec{x})dx_i...dx_n 
+    \;\;\;\;
+    \forall i = \overline{1,n}
+\end{equation}
+
+\subsection{Мішані початкові та центральні 
+            моменти випадкових векторів}
+\begin{definition}
+    \emph{Мішаним початковим моментом} порядку 
+    $k_1+k_2+...+k_n$ 
+    $\left(k_i \in \mathbb{N} \; \forall i = \overline{1,n}
+    \right)$
+    випадкового вектора 
+    $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
+    називається число
+    \begin{equation*}
+        \alpha_{k_1+k_2+...+k_n} = 
+        E{\xi_1^{k_1}...\xi_n^{k_n}}
+    \end{equation*}
+\end{definition}
+\begin{remark}
+    Зауважимо, що
+    \begin{center}
+        \begin{tabular}{c}
+            $E\xi_1 = \alpha_{1+0+...+0}$ \\
+            $E\xi_2 = \alpha_{0+1+...+0}$ \\
+            $...$ \\
+            $E\xi_n = \alpha_{0+0+...+n}$
+        \end{tabular}
+    \end{center}
+\end{remark}
