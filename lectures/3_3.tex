@@ -51,7 +51,85 @@ $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
             $E\xi_1 = \alpha_{1+0+...+0}$ \\
             $E\xi_2 = \alpha_{0+1+...+0}$ \\
             $...$ \\
-            $E\xi_n = \alpha_{0+0+...+n}$
+            $E\xi_n = \alpha_{0+0+...+1}$
         \end{tabular}
     \end{center}
 \end{remark}
+\begin{definition}
+    \emph{Мішаним центральним моментом} порядку 
+    $k_1+k_2+...+k_n$
+    $\left(k_i \in \mathbb{N} \; \forall i = \overline{1,n}
+    \right)$ 
+    випадкового вектора
+    $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
+    називається число
+    \begin{equation*}
+        \beta_{k_1+k_2+...+k_n} = 
+        E{\mathring{\xi_1}^{k_1}
+        ...
+        \mathring{\xi_n}^{k_n}}
+    \end{equation*}
+    де $\mathring{\xi_i} = \xi_i - 
+    E\xi_i$.
+\end{definition}
+\begin{remark}
+    Всі центральні моменти 1-го порядку - 
+    нульові.
+
+    $\forall i = \overline{1,n}$: 
+    $\beta_{0+...+0+\underset{i}{2}
+    +0+...+0} = E\mathring{\xi_i}^2 = 
+    D\xi_i$
+\end{remark}
+
+Дисперсії координат задають розсіювання 
+вздовж відповідної координатної осі.
+
+\begin{definition}
+    \emph{Кореляційним моментом} або 
+    \emph{коваріацією} випадкових величин 
+    $\xi_i$ та $\xi_j$ називається змішаний 
+    центральний момент 
+    порядку
+    $0+...+0+1+0+...+0+1+0+....+0$ 
+    \begin{equation*}
+        \beta_{0+...+\underset{i}{1}+...
+        +\underset{j}{1}+...+0}
+        =
+        E(\xi_i-E\xi_i)(\xi_j-E\xi_j)
+    \end{equation*}
+\end{definition}
+
+\noindent \textbf{Позначення:} 
+$cov(\xi_i,\xi_j)$ або 
+$K\xi_i\xi_j$.
+
+\begin{definition}
+   \emph{Кореляційною матрицею} випадкового 
+   вектора $\vec{\xi}$ називається матриця, у яку зібрано усі 
+   кореляційні моменти випадкового вектора
+   \begin{equation*}
+       K = 
+       \begin{pmatrix}
+           D\xi_1 & K\xi_1\xi_2 & ... & K\xi_1\xi_n \\
+           K\xi_1\xi_2 & D\xi_2 & ... & K\xi_2\xi_n \\
+           ... & ... & ... & ...\\
+           K\xi_1\xi_n & K\xi_2\xi_n & ... & D\xi_n
+       \end{pmatrix}
+   \end{equation*} 
+\end{definition}
+\begin{remark}[1]
+    Діагональні елементи кореляційної матриці - дисперсії, бо 
+    $\forall i = \overline{1,n} $: $K\xi_i\xi_i = D_\xi$
+\end{remark}
+\begin{remark}[2]
+    $\mathring{\vec{\xi}} = \left(\mathring{\xi_1}, ..., \mathring{\xi_n}
+    \right)^T$.
+    Тоді $K = E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T$.
+\end{remark}
+
+% \noindent \textbf{Властивості кореляційного моменту випадкових 
+% величин}
+% \begin{enumerate}
+%     \item 
+% \end{enumerate}
