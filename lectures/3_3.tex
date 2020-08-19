@@ -149,8 +149,36 @@
         $D(a\xi_1 \pm b\xi_2) = 
         E(a\xi_1 \pm b\xi_2 - E(a\xi_1 \pm b\xi_2))^2 =
         E(a(\xi_1-E\xi_1)\pm b(\xi_2 - E\xi_2))^2 = 
-        a^2 E\mathring{\xi_1}^2 \pm 2abE\mathring{\xi_1}E\mathring{\xi_2} 
-        + b^2 E\mathring{\xi_2}^2 = 
+        a^2 E\mathring{\xi}_1^2 \pm 2abE\mathring{\xi}_1 E\mathring{\xi} _2 
+        + b^2 E\mathring{\xi}_2^2 = 
         a^2D\xi_1 \pm 2abK\xi_1\xi_2 + b^2D\xi_2$
     \end{proof}
 \end{enumerate}
+
+\subsection{Коваріація як скалярний добуток випадкових величин}
+Зафіксуємо ймовірнісний простір $\left\{\Omega, \mathcal{F}, P\right\}$.
+Позначимо $\mathcal{L}^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi^2 < +\infty\right\}$.
+Оскільки $D\xi = E\xi^2 - (E\xi)^2 \geq 0$, то для $\xi \in \mathcal{L}^2(\Omega)$ $|E\xi| < +\infty$.
+Таким чином, для будь-яких $\xi, \eta \in \mathcal{L}^2(\Omega)$ 
+існує ${cov}(\xi,\eta)$, бо $|{cov}(\xi,\eta)| \leq \sqrt{D\xi} \cdot \sqrt{D\eta}$.
+
+Для коваріації маємо 
+${cov}(a\xi_1 + b\xi_2,\eta) = E(a\xi_1+b\xi_2)\eta - E(a\xi_1 + b\xi_2)E\eta = 
+a E\xi_1\eta + b E\xi_2\eta - a E\xi_1 E\eta - b E\xi_2 E\eta = a\cdot{cov}(\xi_1,\eta) + b\cdot{cov}(\xi_2,\eta)$.
+Також було доведено ${cov}(\xi, \eta) = {cov}(\eta, \xi)$ та ${cov}(\xi, \xi) \geq 0$.
+Виконуються всі умови скалярного добутку, окрім ${cov}(\xi, \xi) = 0 \Rightarrow \xi = 0$.
+Ця умова буде виконуватися, якщо розглядати інший простір випадкових величин:
+$\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi = 0, E\xi^2 < +\infty\right\}$.
+\begin{remark}
+    Якщо $\xi \in \mathcal{L}^2(\Omega)$, то $\mathring{\xi} \in \mathcal{L}_0^2(\Omega)$.
+\end{remark}
+\begin{exercise}
+    Перевірити, що $\mathcal{L}_0^2(\Omega)$ є лінійним простором.
+\end{exercise}
+
+\noindent \textbf{Висновок:} ${cov}(\xi, \eta)$ задає \emph{скалярний добуток} на $\mathcal{L}_0^2(\Omega)$.
+
+Таким чином, властивість $|{cov}(\xi,\eta)| \leq \sqrt{D\xi} \cdot \sqrt{D\eta}$ ---
+це нерівність Коші-Буняковського, а кореляційна матриця $K$ --- це матриця Грама системи
+випадкових величин $\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
+З курсу лінійної алгебри відомо, що якщо ці випадкові величини лінійно незалежні, то матриця $K$ є невиродженою.
