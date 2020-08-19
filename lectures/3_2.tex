@@ -58,7 +58,7 @@ P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є непере�
 y + \theta_4 \Delta y)\Delta y}
 {\Delta y} = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)\end{gather*}
 
-Таким чином, якщо існує неперервна $ \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}$, то
+Таким чином, якщо існує неперервна друга похідна $ \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}$, то
 \begin{equation}\label{eq:dens_r2}
     f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)
 \end{equation}
@@ -160,152 +160,159 @@ y + \theta_4 \Delta y)\Delta y}
             2y - y^2, & 0<y\leq 1 \\
             1, y>1
         \end{cases}$
-        \item Сумісна функція розподілу: 
+        \item Сумісна функція розподілу будується за допомогою розбиття площини $\mathbb{R}^2$ на області, в яких
+        функція розподілу має однаковий вигляд, оскільки для рівномірного розподілу ймовірність потрапляння в певну область пропорційна її площі: 
         
         $F_{\vec{\xi}}(x, y) = 
         \int\limits_{-\infty}^{x} \int\limits_{-\infty}^{y} 
-        f_{\vec{\xi}}(t, \tau) dt d\tau$
+        f_{\vec{\xi}}(t, s) dt ds$
 
-        \begin{enumerate}[label=(\Roman*)]
-            \item $(x, y) \in D_0$
+        \begin{tabular}{p{6cm} p{6cm}}
+            \begin{tikzpicture}[scale = 1.5, baseline={(current bounding box.north)}]
+                \fill [black!5] (-0.5, -0.5) -- (-0.5, 1.5) -- (0, 1.5) --
+                               (0, 0) -- (1.5, 0) -- (1.5, -0.5) -- (-0.5, -0.5);
+                \fill [black!10] (0, 0) -- (1, 0) -- (0, 1);
+                \fill [black!15] (0, 1) -- (1, 0) -- (1, 1);
+                \fill [black!25] (0, 1) rectangle (1, 1.5);
+                \fill [black!20] (1, 0) rectangle (1.5, 1);
+                \fill [black!30] (1, 1) rectangle (1.5, 1.5);
+                \draw [->] (0, -0.5) -- (0, 1.5);
+                \draw [->] (-0.5, 0) -- (1.5, 0);
+                \draw (1, 0) -- (0, 1);
+                \node [right] at (1.5, 0) {$t$};
+                \node [above] at (0, 1.5) {$s$};
+                \node [below left] at (0, 0) {$D_0$};
+                \node [above right] at (0.15, 0.15) {$D_1$};
+                \node [above right] at (0.5, 0.5) {$D_2$};
+                \node at (0.5, 1.25) {$D_4$};
+                \node at (1.25, 0.5) {$D_3$};
+                \node at (1.25, 1.25) {$D_5$};
+            \end{tikzpicture} 
+
+            $(x, y) \in D_0$
             
             $D_0 = \left\{(x, y):\; x \leq 0 \lor y \leq 0\right\}$
 
-            $F_{\vec{\xi}}(x, y) = 0$
-
-            \item $(x, y) \in D_1$
+            $F_{\vec{\xi}}(x, y) = 0$ 
+            
+            \vspace{5mm}
+            
+            $(x, y) \in D_1$
             
             $D_1 = \left\{(x, y):\; x \in \left[0, 1\right],
             y \in \left[0, 1-x\right]\right\}$
 
-            $F_{\vec{\xi}}(x, y) = 2xy$
-
-            \item $(x, y) \in D_2$
+            $F_{\vec{\xi}}(x, y) = 2xy$&
+            $(x, y) \in D_2$
             
             $D_2 = \left\{(x, y):\; x \in \left[0, 1\right],
             y \in \left[1-x, 1\right]\right\}$
 
             $F_{\vec{\xi}}(x, y) = 2(xy - \frac{1}{2}(x-1+y)(y-1+x))$
 
-            \item $(x, y) \in D_3$
+            \vspace{5mm}
+
+            $(x, y) \in D_3$
             
             $D_3 = \left\{(x, y):\; x > 1,
             y \in \left[0, 1\right]\right\}$
 
             $F_{\vec{\xi}}(x, y) = 2\frac{1+1-y}{2}y = y(2-y)$
+            
+            \vspace{5mm}
 
-            \item $(x, y) \in D_4$
+            $(x, y) \in D_4$
             
             $D_4 = \left\{(x, y):\; y > 1,
             x \in \left[0, 1\right]\right\}$
 
             $F_{\vec{\xi}}(x, y) = 2\frac{1+1-x}{2}x = x(2-x)$
-
-            \item $(x, y) \in D_5$
+            
+            \vspace{5mm}
+            
+            $(x, y) \in D_5$
             
             $D_5 = \left\{(x, y):\; x > 1 \land y > 1\right\}$
 
-            $F_{\vec{\xi}}(x, y) = 1$
-        \end{enumerate}
-        \begin{tikzpicture}[scale = 1.5]
-            \fill [orange] (-0.5, -0.5) -- (-0.5, 1.5) -- (0, 1.5) --
-                           (0, 0) -- (1.5, 0) -- (1.5, -0.5) -- (-0.5, -0.5);
-            \fill [lightgray] (0, 0) -- (1, 0) -- (0, 1);
-            \fill [pink] (0, 1) -- (1, 0) -- (1, 1);
-            \fill [red] (0, 1) rectangle (1, 1.5);
-            \fill [yellow] (1, 0) rectangle (1.5, 1);
-            \fill [lime] (1, 1) rectangle (1.5, 1.5);
-            \draw [->] (0, -0.5) -- (0, 1.5);
-            \draw [->] (-0.5, 0) -- (1.5, 0);
-            \draw (1, 0) -- (0, 1);
-            \node [right] at (1.5, 0) {$t$};
-            \node [above] at (0, 1.5) {$\tau$};
-            \node [below left] at (0, 0) {$D_0$};
-            \node [above right] at (0.15, 0.15) {$D_1$};
-            \node [above right] at (0.5, 0.5) {$D_2$};
-            \node at (0.5, 1.25) {$D_4$};
-            \node at (1.25, 0.5) {$D_3$};
-            \node at (1.25, 1.25) {$D_5$};
-        \end{tikzpicture}
+            $F_{\vec{\xi}}(x, y) = 1$\\
+           
+        \end{tabular}
     \end{enumerate}
 \end{example}
 
 \begin{remark}
     Перевірити правильність побудови функції розподілу можна за допомогою 
-    умови узгодженості, перевірки точок стику та неперервності на лініях стику.
+    умов узгодженості, перевірки точок стику та неперервності на лініях стику.
 \end{remark}
 
-\subsection{Щільність розподілу n-вимірного неперервного випадкового 
+\subsection{Щільність розподілу \texorpdfstring{$n$}{n}-вимірного неперервного випадкового 
 вектора}
 \begin{definition}
-    $\vec{\xi} = \left(\xi_1, \xi_2, ..., \xi_n\right)^T,\; \Pi = 
-    \left[x_1; x_1+\Delta x_1\right] \times ... \times 
-    \left[x_n; x_n+\Delta x_n\right]$
-    \emph{Щільністю розподілу} n-вимірного неперервного випадкового 
-    вектора називається границя
-    \begin{equation*}
+    \emph{Щільністю розподілу} $n$-вимірного неперервного випадкового 
+    вектора $\vec{\xi} = \left(\xi_1, \xi_2, ..., \xi_n\right)^T$ називається границя
+    \begin{equation}
         f_{\vec{\xi}} (\vec{x}) = \lim_{\substack{\Delta x_i \to 0 \\
         \forall i = \overline{1,n}}} 
-        \frac{P\left\{\vec{\xi} \in \Pi\right\}}{\Delta x_1...\Delta x_n}
-    \end{equation*}
+        \frac{P\left\{\vec{\xi} \in \Pi\right\}}{\Delta x_1...\Delta x_n},
+    \end{equation}
+    де $\Pi = 
+    \left[x_1; x_1+\Delta x_1\right] \times ... \times 
+    \left[x_n; x_n+\Delta x_n\right]$.
 
-    Якщо існує і неперервна $\frac{\partial^n F_{\vec{\xi}}(\vec{x})}
+    Якщо існує неперервна похідна $\frac{\partial^n F_{\vec{\xi}}(\vec{x})}
     {\partial x_1 ... \partial x_n}$, то
-    \begin{equation*}
+    \begin{equation}
         f_{\vec{\xi}} (\vec{x}) = \frac{\partial^n F_{\vec{\xi}}}
         {\partial x_1 ... \partial x_n}(\vec{x})
-    \end{equation*}
+    \end{equation}
 \end{definition}
 
-\noindent \textbf{Властивості}
+\noindent \textbf{Властивості щільності:}
 \begin{enumerate}
-    \item $f_{\vec{\xi}}(\vec{x}) \geq 0$
+    \item $f_{\vec{\xi}}(\vec{x}) \geq 0$.
     \item $\int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty}
-    f_{\vec{\xi}} (\vec{x})dx_1...dx_n = 1$
+    f_{\vec{\xi}} (\vec{x})dx_1...dx_n = 1$.
     \item $F_{\vec{\xi}}(\vec{x}) = 
     \int\limits_{-\infty}^{x_1}...\int\limits_{-\infty}^{x_n}
-    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$.
     \item $F_{\xi_1\xi_2...\xi_k}(x_1, ..., x_k) = 
     \int\limits_{-\infty}^{x_1}...\int\limits_{-\infty}^{x_k}
     \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty}
-    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$.
 
     $F_{\xi_i}(x_i) = \int\limits_{-\infty}^{+\infty}...
     \int\limits_{-\infty}^{x_i}...\int\limits_{-\infty}^{+\infty}
-    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$
+    f_{\vec{\xi}} (\vec{t})dt_1...dt_n$.
 
     \item $f_{\xi_1...\xi_k}(x_1, ..., x_k) = 
     \underbrace{
         \int\limits_{-\infty}^{+\infty} 
         ... 
         \int\limits_{-\infty}^{+\infty}
-    }_{n-k} f_{\vec{\xi}}(\vec{x}) dx_{k+1}..dx_n$
-    \item D - замкнена обмежена область в $\mathbb{R}^n$ (компакт).
-    
+    }_{n-k} f_{\vec{\xi}}(\vec{x}) dx_{k+1}..dx_n$.
+    \item D --- замкнена обмежена область в $\mathbb{R}^n$,
     $P\left\{\vec{\xi} \in D\right\} = {\int\int...\int}_D f_{\vec{\xi}}(\vec{x})
-    dx_1 ... dx_n$
+    dx_1 ... dx_n$.
 \end{enumerate}
 \begin{exercise}
-    Довести властивості.
+    Довести властивості щільності.
 \end{exercise}
 
 \subsection{Незалежні випадкові величини}
 \begin{definition}
-    $\xi_1$ та $\xi_2$ називаються незалежними, якщо 
+    Випадкові величини $\xi_1$ та $\xi_2$ називаються незалежними, якщо 
     $\forall x, y \in \mathbb{R}$:  
-    $\left\{\omega\;:\;\xi_1 < x\right\}$ та $\left\{\omega\;:\;\xi_2 < y\right\}$ ---
+    $\left\{\omega:\xi_1 < x\right\}$ та $\left\{\omega:\xi_2 < y\right\}$ 
     незалежні (як події).
 \end{definition}
-\begin{remark}
-    Якщо $\xi_1$, $\xi_2$ - незалежні координати випадкового вектора $\vec{\xi}$, 
+    Якщо $\xi_1$, $\xi_2$ --- незалежні координати випадкового вектора $\vec{\xi} = (\xi_1, \xi_2)^T$, 
     то $F_{\vec{\xi}}(x, y) = 
     P\left(\left\{\xi_1 < x\right\} \cap \left\{\xi_2 < y\right\}\right) = 
-    F_{\xi_1}(x)F_{\xi_2}(y)$.
+    F_{\xi_1}(x)\cdot F_{\xi_2}(y)$.
 
-    Якщо ж вектор ще й є неперервним випадковим вектором та існує неперервна 
-    друга часткова похідна, то
+    Якщо вектор є неперервним та існує неперервна 
+    друга часткова похідна функції розподілу, то
     $f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}(x, y)}
     {\partial x \partial y} = \frac{\partial^2(F_{\xi_1}(x)F_{\xi_2}(y))}{\partial x \partial y} 
     = F_{\xi_1}^\prime (x)F_{\xi_2}^\prime (y) = 
-    f_{\xi_1}(x)f_{\xi_2}(y)$.
-\end{remark}
+    f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.

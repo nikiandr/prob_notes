@@ -2,9 +2,8 @@
 \section{Числові характеристики випадкових векторів}
 
 \subsection{Математичне сподівання випадкових векторів}
-$\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
 \begin{definition}
-    \emph{Математичним сподіванням $E_{\vec{\xi}}$} 
+    \emph{Математичним сподіванням $E{\vec{\xi}}$} 
     випадкового вектора $\vec{\xi}$ називається вектор 
     $\left(E{\xi_1}, ..., E{\xi_n}\right)^T$.
 \end{definition}
@@ -13,29 +12,30 @@ $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається \emph{центром розсіювання}.
 \end{remark}
 
-\noindent \textbf{Способи знаходження}
-
-Знаходимо закони розподілу окремих координат, з цього - 
-математичні сподівання координат і об'єднуємо їх в один вектор.
-
-\begin{equation}
-    E{\xi_i} = 
-    \underbrace{
-        \int\limits_{-\infty}^{+\infty} 
-        ... 
-        \int\limits_{-\infty}^{+\infty}
-    }_{n} x_i f_{\vec{\xi}}(\vec{x})dx_i...dx_n 
-    \;\;\;\;
-    \forall i = \overline{1,n}
-\end{equation}
+\noindent \textbf{Способи знаходження:}
+\begin{enumerate}
+    \item Знайти закони розподілу окремих координат, а далі --- математичні сподівання цих координат.
+    \item Знайти математичні сподівання координат одразу.
+    Для $\xi = (\xi_1, \xi_2)^T$:
+    
+    $E\xi_1 = \begin{cases}
+        \sum\limits_i \sum\limits_j x_i p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
+        \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} x f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
+    \end{cases}$,
+    $E\xi_2 = \begin{cases}
+        \sum\limits_j \sum\limits_i y_j p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
+        \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} y f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
+    \end{cases}$.
+    
+    В загальному випадку для НВВ $E\xi_k = \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty} x_k f_{\vec{\xi}}(\vec{x}) dx_1 ... dx_n$.
+\end{enumerate}
 
 \subsection{Мішані початкові та центральні 
             моменти випадкових векторів}
 \begin{definition}
     \emph{Мішаним початковим моментом} порядку 
     $k_1+k_2+...+k_n$ 
-    $\left(k_i \in \mathbb{N} \; \forall i = \overline{1,n}
-    \right)$
+    $\left(k_i \in \mathbb{N}\right)$
     випадкового вектора 
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
@@ -45,45 +45,36 @@ $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     \end{equation*}
 \end{definition}
 \begin{remark}
-    Зауважимо, що
-    \begin{center}
-        \begin{tabular}{c}
-            $E\xi_1 = \alpha_{1+0+...+0}$ \\
-            $E\xi_2 = \alpha_{0+1+...+0}$ \\
-            $...$ \\
-            $E\xi_n = \alpha_{0+0+...+1}$
-        \end{tabular}
-    \end{center}
+    $E\xi_1 = \alpha_{1+0+...+0}, E\xi_2 = \alpha_{0+1+...+0},
+    ..., E\xi_n = \alpha_{0+0+...+1}$.
 \end{remark}
 \begin{definition}
     \emph{Мішаним центральним моментом} порядку 
     $k_1+k_2+...+k_n$
-    $\left(k_i \in \mathbb{N} \; \forall i = \overline{1,n}
-    \right)$ 
+    $\left(k_i \in \mathbb{N}\right)$ 
     випадкового вектора
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
     \begin{equation*}
         \beta_{k_1+k_2+...+k_n} = 
-        E{\mathring{\xi_1}^{k_1}
+        E{\mathring{\xi}_1^{k_1}
         ...
-        \mathring{\xi_n}^{k_n}}
+        \mathring{\xi}_n^{k_n}},
+        \mathring{\xi_k} = \xi_k - E\xi_k
     \end{equation*}
-    де $\mathring{\xi_i} = \xi_i - 
-    E\xi_i$.
 \end{definition}
 \begin{remark}
-    Всі центральні моменти 1-го порядку - 
+    Всі центральні моменти 1-го порядку --- 
     нульові.
-
-    $\forall i = \overline{1,n}$: 
-    $\beta_{0+...+0+\underset{i}{2}
-    +0+...+0} = E\mathring{\xi_i}^2 = 
-    D\xi_i$
 \end{remark}
+Центральні моменти порядку $0+...+0+2+0+...+0$ --- дисперсії відповідних координат:
+    $\forall k = \overline{1,n}$: 
+    $\beta_{0+...+0+\underset{k}{2}
+    +0+...+0} = E\mathring{\xi}_k^2 = 
+    D\xi_k$
 
 Дисперсії координат задають розсіювання 
-вздовж відповідної координатної осі.
+вздовж відповідних координатних осей.
 
 \begin{definition}
     \emph{Кореляційним моментом} або 
@@ -91,19 +82,17 @@ $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     $\xi_i$ та $\xi_j$ називається змішаний 
     центральний момент 
     порядку
-    $0+...+0+1+0+...+0+1+0+....+0$ 
+    $0+...+0+\underset{i}{1}+0+...+0+\underset{j}{1}+0+....+0$:
     \begin{equation*}
-        \beta_{0+...+\underset{i}{1}+...
-        +\underset{j}{1}+...+0}
+        {cov}(\xi_i,\xi_j) = K\xi_i\xi_j = \beta_{0+...+0+\underset{i}{1}+0+...
+        +0+\underset{j}{1}+0+...+0}
         =
         E(\xi_i-E\xi_i)(\xi_j-E\xi_j)
     \end{equation*}
 \end{definition}
-
-\noindent \textbf{Позначення:} 
-$cov(\xi_i,\xi_j)$ або 
-$K\xi_i\xi_j$.
-
+\begin{remark}
+    ${cov}(\xi_k, \xi_k) = E(\xi_k-E\xi_k)^2 = D\xi_k$.
+\end{remark}
 \begin{definition}
    \emph{Кореляційною матрицею} випадкового 
    вектора $\vec{\xi}$ називається матриця, у яку зібрано усі 
@@ -111,18 +100,14 @@ $K\xi_i\xi_j$.
    \begin{equation*}
        K = 
        \begin{pmatrix}
-           D\xi_1 & K\xi_1\xi_2 & ... & K\xi_1\xi_n \\
-           K\xi_1\xi_2 & D\xi_2 & ... & K\xi_2\xi_n \\
-           ... & ... & ... & ...\\
-           K\xi_1\xi_n & K\xi_2\xi_n & ... & D\xi_n
+           D\xi_1 & K\xi_1\xi_2 & \cdots & K\xi_1\xi_n \\
+           K\xi_1\xi_2 & D\xi_2 & \cdots & K\xi_2\xi_n \\
+           \vdots & \vdots & \ddots & \vdots \\
+           K\xi_1\xi_n & K\xi_2\xi_n & \cdots & D\xi_n
        \end{pmatrix}
    \end{equation*} 
 \end{definition}
-\begin{remark}[1]
-    Діагональні елементи кореляційної матриці - дисперсії, бо 
-    $\forall i = \overline{1,n} $: $K\xi_i\xi_i = D_{\xi_i}$
-\end{remark}
-\begin{remark}[2]
+\begin{remark}
     $\mathring{\vec{\xi}} = \left(\mathring{\xi_1}, ..., \mathring{\xi_n}
     \right)^T$.
     Тоді $K = E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T$.
@@ -131,26 +116,25 @@ $K\xi_i\xi_j$.
 \noindent \textbf{Властивості кореляційного моменту випадкових 
 величин}
 \begin{enumerate}
-    \item $K\xi_i\xi_j = K\xi_j\xi_i$, $K\xi_i\xi_i = D\xi_i$
+    \item $K\xi_i\xi_j = K\xi_j\xi_i$.
     \begin{proof}
-        Напряму випливає з визначення кореляційного моменту та дисперсії.
+        Випливає з означення кореляційного моменту.
     \end{proof}
-    \item $\eta_1 = a_1\xi_1 + b_1$, $\eta_2 = a_2\xi_2 + b_2$
-    
-    Тоді $K\eta_1\eta_2 = a_1a_2K\xi_1\xi_2$
+    \item $\eta_1 = a_1\xi_1 + b_1$, $\eta_2 = a_2\xi_2 + b_2$.
+    Тоді $K\eta_1\eta_2 = a_1a_2K\xi_1\xi_2$.
     \begin{proof}
         $K\eta_1\eta_2 = E(\eta_1 - E\eta_1)(\eta_2 - E\eta_2) = 
         E(a_1\xi_1 + b_1 - E(a_1\xi_1 + b_1))
         (a_2\xi_2 + b_2 - E(a_2\xi_2 + b_2)) = 
         Ea_1(\xi_1 - E\xi_1)a_2(\xi_2 - E\xi_2) = 
         a_1a_2E(\xi_1 - E\xi_1)(\xi_2 - E\xi_2) = 
-        a_1a_2K\xi_1\xi_2$
+        a_1a_2K\xi_1\xi_2$.
     \end{proof}
 
-    \item Зручна формула для знаходження кореляційного моменту.
-    \begin{equation*}
+    \item Зручна формула для обчислення кореляційного моменту.
+    \begin{equation}
         K\xi_1\xi_2 = E\xi_1\xi_2 - E\xi_1 E\xi_2
-    \end{equation*}
+    \end{equation}
     \begin{proof}
         $K\xi_1\xi_2 = E(\xi_1 - E\xi_1)(\xi_2 - E\xi_2) = 
         E(\xi_1\xi_2 - \xi_1E\xi_2 - \xi_2E\xi_1 + E\xi_1E\xi_2) = 
