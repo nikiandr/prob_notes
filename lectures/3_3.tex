@@ -153,7 +153,80 @@
         + b^2 E\mathring{\xi}_2^2 = 
         a^2D\xi_1 \pm 2abK\xi_1\xi_2 + b^2D\xi_2$
     \end{proof}
+
+    \item $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+    \begin{proof}
+        Два доведення: 
+
+        \begin{enumerate}
+            \item З 4): $x^2 D\xi_1 \pm2xK\xi_1\xi_2 + D\xi_2 \geq 0 
+            \Rightarrow D = 4K^2\xi_1\xi_2 - 4D\xi_1D\xi_2 \leq 0 
+            \Rightarrow $
+
+            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+
+            \item $\xi_H = \frac{\xi - E\xi}
+            {\sigma_\xi}$, $E\xi_H =0$, $D\xi_H = 1$
+
+            $E(\xi_{H1} \pm \xi_{H2})^2 \geq 0 \Leftrightarrow 
+            E(\xi^2_{H1}\pm2\xi_{H1}\xi_{H2}+\xi^2_{H2}) \geq 0 
+            \Leftrightarrow 2 \pm 
+            2\frac{K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
+            \Leftrightarrow $
+
+            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+        \end{enumerate}
+    \end{proof}
+
+    \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $K\xi_1\xi_2 = 0$.
+    \begin{proof}
+        Нехай $\xi_1$ та $\xi_2$ --- незалежні.
+
+        $K\xi_1\xi_2 = E\xi_1\xi_2 - E\xi_1E\xi_2 = 
+        \iint\limits_{\mathbb{R}^2} xy f_{\vec{\xi}}(x,y)dx dy 
+        - E\xi_1E\xi_2
+        = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx
+        \int\limits_{-\infty}^{+\infty}yf_{\xi_2}(y)dy
+        - E\xi_1E\xi_2 = 
+        E\xi_1E\xi_2 - E\xi_1E\xi_2 = 0$
+    \end{proof}
+
+    Обернене твердження, взагалі кажучи, не має місця. Тому випадкові 
+    величини, для яких $K\xi_1\xi_2 = 0$, називаються 
+    \emph{некорельованими}.
 \end{enumerate}
+
+\noindent \textbf{Контрприклад} (некорельованість $\nRightarrow$ незалежність)
+
+$S$ --- одиничне коло в $\mathbb{R}^2$
+
+$f_{\vec{\xi}}(x, y) = 
+\begin{cases}
+    \frac{1}{\pi r^2} & (x, y) \in S \\
+    0 & (x, y) \notin S
+\end{cases}
+$
+
+\begin{tabular}{c c}
+    $f_{\xi_1}(x) = 
+        \begin{cases}
+            \int\limits_{-\sqrt{r^2 - x^2}}^{\sqrt{r^2 - x^2}} \frac{1}{\pi r^2} dy
+            = \frac{2\sqrt{r^2-x^2}}{\pi r^2}& |x| < r \\
+            0 & |x| \geq r
+        \end{cases}
+    $
+    &
+    $f_{\xi_2}(y) = 
+    \begin{cases}
+        \frac{2\sqrt{r^2-y^2}}{\pi r^2}& |y| < r \\
+        0 & |y| \geq r
+    \end{cases}
+    $
+\end{tabular}
+
+$f_{\vec{\xi}}(x,y) \neq f_{\xi_1}(x)f_{\xi_2}(y)$
+
+$K\xi_1\xi_2 = \iint_S xy \frac{1}{\pi r^2} dxdy - E\xi_1E\xi_2 = 0$
 
 \subsection{Коваріація як скалярний добуток випадкових величин}
 Зафіксуємо ймовірнісний простір $\left\{\Omega, \mathcal{F}, P\right\}$.
