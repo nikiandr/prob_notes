@@ -143,7 +143,7 @@
     \end{proof}
     
     \item $D(a\xi_1 \pm b\xi_2) = a^2D\xi_1 \pm 2abK\xi_1\xi_2 + 
-    b^2D\xi_2$
+    b^2D\xi_2$.
 
     \begin{proof}
         $D(a\xi_1 \pm b\xi_2) = 
@@ -151,33 +151,31 @@
         E(a(\xi_1-E\xi_1)\pm b(\xi_2 - E\xi_2))^2 = 
         a^2 E\mathring{\xi}_1^2 \pm 2abE\mathring{\xi}_1 E\mathring{\xi} _2 
         + b^2 E\mathring{\xi}_2^2 = 
-        a^2D\xi_1 \pm 2abK\xi_1\xi_2 + b^2D\xi_2$
+        a^2D\xi_1 \pm 2abK\xi_1\xi_2 + b^2D\xi_2$.
     \end{proof}
 
-    \item $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+    \item $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
     \begin{proof}
-        Два доведення: 
-
-        \begin{enumerate}
-            \item З 4): $x^2 D\xi_1 \pm2xK\xi_1\xi_2 + D\xi_2 \geq 0 
-            \Rightarrow D = 4K^2\xi_1\xi_2 - 4D\xi_1D\xi_2 \leq 0 
+        Два способи: 
+        \begin{enumerate}[label=\Roman*.]
+            \item $D(x\xi_1 \pm \xi_2) = x^2 D\xi_1 \pm 2xK\xi_1\xi_2 + D\xi_2 \geq 0 
+            \Rightarrow 4(K\xi_1\xi_2)^2 - 4D\xi_1D\xi_2 \leq 0 
             \Rightarrow $
 
-            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
 
-            \item $\xi_H = \frac{\xi - E\xi}
-            {\sigma_\xi}$, $E\xi_H =0$, $D\xi_H = 1$
+            \item Введемо центровані нормовані випадкові величини $\xi_H = \frac{\xi - E\xi}
+            {\sigma_\xi}$, $E\xi_H =0$, $D\xi_H = 1$.
 
-            $E(\xi_{H1} \pm \xi_{H2})^2 \geq 0 \Leftrightarrow 
-            E(\xi^2_{H1}\pm2\xi_{H1}\xi_{H2}+\xi^2_{H2}) \geq 0 
+            $E(\xi_{1H} \pm \xi_{2H})^2 \geq 0 \Leftrightarrow 
+            E(\xi^2_{1H}\pm2\xi_{1H}\xi_{2H}+\xi^2_{2H}) \geq 0 
             \Leftrightarrow 2 \pm 
             2\frac{K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
             \Leftrightarrow $
 
-            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$
+            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
         \end{enumerate}
     \end{proof}
-
     \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $K\xi_1\xi_2 = 0$.
     \begin{proof}
         Нехай $\xi_1$ та $\xi_2$ --- незалежні.
@@ -185,10 +183,10 @@
         $K\xi_1\xi_2 = E\xi_1\xi_2 - E\xi_1E\xi_2 = 
         \iint\limits_{\mathbb{R}^2} xy f_{\vec{\xi}}(x,y)dx dy 
         - E\xi_1E\xi_2
-        = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx
+        = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx \cdot
         \int\limits_{-\infty}^{+\infty}yf_{\xi_2}(y)dy
         - E\xi_1E\xi_2 = 
-        E\xi_1E\xi_2 - E\xi_1E\xi_2 = 0$
+        E\xi_1E\xi_2 - E\xi_1E\xi_2 = 0$.
     \end{proof}
 
     Обернене твердження, взагалі кажучи, не має місця. Тому випадкові 
@@ -196,37 +194,50 @@
     \emph{некорельованими}.
 \end{enumerate}
 
-\noindent \textbf{Контрприклад} (некорельованість $\nRightarrow$ незалежність)
+\begin{example}(некорельованість $\nRightarrow$ незалежність)
+    
+    \begin{tabular}{c p{7cm}}
+        \begin{tikzpicture}[baseline={(current bounding box.center)}]
+            \draw [fill = black!10] (0, 0) circle [radius = 1];
+            \draw [->] (-1.5, 0) -- (1.5, 0);
+            \draw [->] (0, -1.5) -- (0, 1.5);
+            \node [below right] at (0.95, 0) {$R$};
+            \node [below] at (1.5, 0) {$x$};
+            \node [left] at (0, 1.5) {$y$};
+        \end{tikzpicture} &
+        $S = \left\{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq R^2\right\}$, $\vec{\xi} \sim U(S)$.
 
-$S$ --- одиничне коло в $\mathbb{R}^2$
-
-$f_{\vec{\xi}}(x, y) = 
-\begin{cases}
-    \frac{1}{\pi r^2} & (x, y) \in S \\
-    0 & (x, y) \notin S
-\end{cases}
-$
+        $f_{\vec{\xi}}(x, y) = 
+            \begin{cases}
+            \frac{1}{\pi R^2} & (x, y) \in S \\
+            0 & (x, y) \notin S
+        \end{cases}$
+    \end{tabular}
 
 \begin{tabular}{c c}
     $f_{\xi_1}(x) = 
         \begin{cases}
-            \int\limits_{-\sqrt{r^2 - x^2}}^{\sqrt{r^2 - x^2}} \frac{1}{\pi r^2} dy
-            = \frac{2\sqrt{r^2-x^2}}{\pi r^2}& |x| < r \\
-            0 & |x| \geq r
+            \int\limits_{-\sqrt{R^2 - x^2}}^{\sqrt{R^2 - x^2}} \frac{1}{\pi R^2} dy
+            = \frac{2\sqrt{R^2-x^2}}{\pi R^2},& |x| \leq R \\
+            0, & |x| > R
         \end{cases}
-    $
+    $,
     &
     $f_{\xi_2}(y) = 
     \begin{cases}
-        \frac{2\sqrt{r^2-y^2}}{\pi r^2}& |y| < r \\
-        0 & |y| \geq r
+        \frac{2\sqrt{R^2-y^2}}{\pi R^2},& |y| \leq R \\
+        0, & |y| > R
     \end{cases}
     $
 \end{tabular}
 
-$f_{\vec{\xi}}(x,y) \neq f_{\xi_1}(x)f_{\xi_2}(y)$
+$E\xi_1 = E\xi_2 = \int\limits_{-R}^R t\cdot\frac{2\sqrt{R^2-t^2}}{\pi R^2} dt = 0$, бо інтегрується непарна функція по симетричному проміжку.
 
-$K\xi_1\xi_2 = \iint_S xy \frac{1}{\pi r^2} dxdy - E\xi_1E\xi_2 = 0$
+$K\xi_1\xi_2 = \iint\limits_S xy \frac{1}{\pi r^2} dx dy - E\xi_1E\xi_2 =
+\frac{1}{\pi R^2}\int\limits_0^{2\pi} d\varphi \int\limits_0^R r^2 \cos \varphi \sin \varphi r dr = 
+\frac{1}{2\pi R^2}\int\limits_0^{2\pi} \sin 2\varphi d\varphi \int\limits_0^R r^3 dr = 0$.
+Отже, $f_{\vec{\xi}}(x,y) \neq f_{\xi_1}(x)f_{\xi_2}(y)$ і координати вектора залежні, але $K\xi_1\xi_2 = 0$.
+\end{example}
 
 \subsection{Коваріація як скалярний добуток випадкових величин}
 Зафіксуємо ймовірнісний простір $\left\{\Omega, \mathcal{F}, P\right\}$.
@@ -283,37 +294,34 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi
 \noindent \textbf{Властивості коефіцієнту кореляції}
 \begin{enumerate}
     \item Для некорельованих випадкових величин $\xi_1$ та $\xi_2$ 
-    $\rho_{\xi_1\xi_2} = 0$
+    $\rho_{\xi_1\xi_2} = 0$.
     \begin{proof}
-        Напряму випливає з визначення коефіцієнта кореляції.
+        Випливає з визначення коефіцієнта кореляції.
     \end{proof}
-    \item $\left|\rho_{\xi_1\xi_2}\right| \leq 1$
+    \item $\left|\rho_{\xi_1\xi_2}\right| \leq 1$.
     \begin{proof}
-        Напряму випливає з властивості 5 кореляційного моменту.
+        Випливає з властивості кореляційного моменту.
     \end{proof}
     \item $\left|\rho_{\xi_1\xi_2}\right| = 1 \Leftrightarrow 
-    \exists a, b \in \mathbb{R}: \xi_2 = a\xi_1 + b$
+    \exists \; a, b \in \mathbb{R}: \xi_2 = a\xi_1 + b$.
     \begin{proof}
-        $\Leftarrow$ : 
-        
-        $\xi_2 = a\xi_1 + b \Rightarrow K\xi_1\xi_2 = 
+        Нехай 
+        $\xi_2 = a\xi_1 + b$. $K\xi_1\xi_2 = 
         aD\xi_1$
         , 
         $\sigma_{\xi_2} = \sqrt{D\xi_2} = \sqrt{a^2D\xi_1} = 
-        |a|\sqrt{D\xi_1}$
+        |a|\sqrt{D\xi_1}$.
 
         Тоді $\rho_{\xi_1\xi_2} = \frac{aD\xi_1}{|a|(\sqrt{D\xi_1})^2} 
         \Rightarrow
-        \left|\rho\xi_1\xi_2\right| = 1$
+        \left|\rho\xi_1\xi_2\right| = 1$.
 
-        $\Rightarrow$ : 
-        
+        Нехай $\left|\rho\xi_1\xi_2\right| = 1$.
         $E\left(\frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
-        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}}\right)^2 = E\xi^2
-        2(1\pm\rho_{\xi_1\xi_2}) = \left[|\rho_{\xi_1\xi_2}| = 1\right] 
-        = 0$
+        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}}\right)^2 = 
+        2(1\pm\rho_{\xi_1\xi_2}) = 0$.
 
-        $E\xi^2 = 0 \Rightarrow D\xi = -(E\xi)^2 \Rightarrow E\xi = 0
+        $E\xi^2 = 0$ $D\xi = -(E\xi)^2 \geq 0 \Rightarrow E\xi = 0
         \Rightarrow \frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
         \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}} = 0 \Rightarrow 
         $ лінійний зв'язок.
