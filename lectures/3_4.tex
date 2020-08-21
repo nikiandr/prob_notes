@@ -1,0 +1,31 @@
+% !TEX root = ../main.tex
+
+\section{Умовні закони розподілу ВВ}
+
+Розглянемо випадок $n = 2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$
+
+\begin{definition}
+    \emph{Умовним законом розподілу} $\xi_1$ називається закон розподілу 
+    $\xi_1$ за умови того, що $\xi_2$ набула відповідного значення (ДВВ) 
+    або потрапила в деякий проміжок (НВВ) (для $\xi_2$ - аналогічно).
+\end{definition}
+
+\begin{definition}
+    Універсальним умовним законом розподілу ВВ є \emph{умовна функція 
+    розподілу}:
+    \begin{equation*}
+        F_{\xi_1}(x/y) = P({\xi_1 < x}/{\xi_2 < y}) = 
+        \frac{P\left\{\xi_1 < x, \xi_2 < y\right\}}
+        {P\left\{\xi_2 < y\right\}} = 
+        \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_2}(y)}
+    \end{equation*}
+\end{definition}
+\begin{remark}[1]
+    Для $\xi_2$ формулювання та формули абсолютно аналогічні.
+\end{remark}
+\begin{remark}[2]
+    З визначення випливає, що 
+    $F_{\vec{\xi}}(x,y) = F_{\xi_1}(x)F_{\xi_2}(y/x)$
+    та 
+    $F_{\vec{\xi}}(x,y) = F_{\xi_2}(y)F_{\xi_1}(x/y)$.
+\end{remark}
