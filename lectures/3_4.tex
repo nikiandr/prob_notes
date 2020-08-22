@@ -2,7 +2,7 @@
 
 \section{Умовні закони розподілу ВВ}
 
-Розглянемо випадок $n = 2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$
+Розглядаємо випадок $n = 2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$.
 
 \begin{definition}
     \emph{Умовним законом розподілу} $\xi_1$ називається закон розподілу 
@@ -27,14 +27,14 @@
     $F_{\vec{\xi}}(x,y) = F_{\xi_2}(y)F_{\xi_1}(x/y)$.
 \end{remark}
 \subsection{Умовний закон розподілу дискретного випадкового вектора}
-$\vec{\xi} = (\xi_1, \xi_2)^T$
+Знову розглядаємо випадок $n=2$ та $\vec{\xi} = (\xi_1, \xi_2)^T$.
 
-$P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
+Умовні розподіли координат задаються $P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
 \frac{P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{P\left\{\xi_2 = y_j\right\}}$, аналогічно 
+{P\left\{\xi_2 = y_j\right\}}$ та \\ 
 $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} = 
 \frac{P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{P\left\{\xi_1 = x_i\right\}}$
+{P\left\{\xi_1 = x_i\right\}}$.
 
 \begin{example}
     Дискретний випадковий вектор має закон розподілу:
@@ -72,11 +72,11 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \hline
     $\xi_1$ & $-1$ & $0$ & $1$ \\
     \hline
-    $P\left\{\xi_1 / \xi_2 = 0\right\}$ & $\frac{1}{4}$ 
-    & $\frac{2}{4}$ & $\frac{1}{4}$ \\
+    $P\left\{\xi_1 / \xi_2 = 0\right\}$ & $1/4$ 
+    & $2/4$ & $1/4$ \\
     \hline
-    $P\left\{\xi_1 / \xi_2 = 1\right\}$ & $\frac{2}{6}$ 
-    & $\frac{3}{6}$ & $\frac{1}{6}$ \\
+    $P\left\{\xi_1 / \xi_2 = 1\right\}$ & $2/6$ 
+    & $3/6$ & $1/6$ \\
     \hline
 \end{tabular}
 --- умовний закон розподілу $\xi_1$.
@@ -85,14 +85,14 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \hline
     $\xi_2$ & $0$ & $1$ \\
     \hline
-    $P\left\{\xi_2 / \xi_1 = -1\right\}$ & $\frac{1}{3}$ 
-    & $\frac{2}{3}$ \\
+    $P\left\{\xi_2 / \xi_1 = -1\right\}$ & $1/3$ 
+    & $2/3$ \\
     \hline
-    $P\left\{\xi_2 / \xi_1 = 0\right\}$ & $\frac{2}{5}$ 
-    & $\frac{3}{5}$\\
+    $P\left\{\xi_2 / \xi_1 = 0\right\}$ & $2/5$ 
+    & $3/5$\\
     \hline
-    $P\left\{\xi_2 / \xi_1 = 1\right\}$ & $\frac{1}{2}$ 
-    & $\frac{1}{2}$\\
+    $P\left\{\xi_2 / \xi_1 = 1\right\}$ & $1/2$ 
+    & $1/2$\\
     \hline
 \end{tabular}
 --- умовний закон розподілу $\xi_2$.
@@ -102,35 +102,28 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \emph{Умовним математичним сподіванням} випадкової величини $\xi_1$ 
     є математичне сподівання цієї випадкової величини за умови, що 
     $\xi_2$ набула певного значення.
+    $$E(\xi_1 / \xi_2 = y_j) =
+\sum\limits_{i=1}^{n(\infty)}x_i 
+P\left\{\xi_1 = x_i / \xi_2 = y_j\right\}, 
+E(\xi_2 / \xi_1 = x_i) = \sum\limits_{j=1}^{n(\infty)}y_j 
+P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 \end{definition}
 
-\noindent \textbf{Позначення} $E(\xi_1 / \xi_2 = y_j)$, 
-$E(\xi_1 / \xi_2 = y_j)$
-
-\noindent \textbf{Формули} $E(\xi_1 / \xi_2 = y_j) = 
-\sum\limits_{i=1}^{n(\infty)}x_i 
-P\left\{\xi_1 = x_i / \xi_2 = y_j\right\}$
-
-$E(\xi_2 / \xi_1 = x_i) = 
-\sum\limits_{j=1}^{n(\infty)}y_j 
-P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$
-
 \begin{remark}
-    Якщо $\xi_1$ та $\xi_2$ - незалежні, то $E(\xi_1 / \xi_2 = y_j) 
+    Якщо $\xi_1$ та $\xi_2$ незалежні, то $E(\xi_1 / \xi_2 = y_j) 
     = E\xi_1$, $E(\xi_2 / \xi_1 = x_i) = E\xi_2$.
 \end{remark}
 
-Умовні матсподівання є дискретними випадковими величинами, оскільки 
+Умовні математичні сподівання координат дискретного випадкового вектора є дискретними випадковими величинами, оскільки 
 приймають декілька значень з певними ймовірностями, тому можна скласти 
 їх закон розподілу.
-
 \begin{example}
-    Продовження минулого прикладу:
+    Продовження попереднього прикладу:
 
     \begin{tabular}{c c}
         \begin{tabular}{|c|c|c|}
             \hline
-            $E(\xi_1 / \xi_2)$ & $-\frac{1}{6}$ & $0$ \\
+            $E(\xi_1 / \xi_2)$ & $-1/6$ & $0$ \\
             \hline
             $p$ & $0.6$ & $0.4$ \\
             \hline
@@ -138,8 +131,8 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$
         &
         \begin{tabular}{|c|c|c|c|}
             \hline
-            $E(\xi_2 / \xi_1)$ & $\frac{1}{3}$ & $\frac{3}{5}$ 
-            & $\frac{1}{2}$ \\
+            $E(\xi_2 / \xi_1)$ & $1/3$ & $3/5$ 
+            & $1/2$ \\
             \hline
             $p$ & $0.3$ & $0.5$ & $0.2$ \\
             \hline
