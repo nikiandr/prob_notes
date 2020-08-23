@@ -139,3 +139,36 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
         \end{tabular}
     \end{tabular}
 \end{example}
+
+Крім умовного математичного сподівання вводяться так звані 
+\emph{умовні дисперсії} (міра розсіювання однієї випадкової величини 
+за умови того, що інша набула певне значення)
+
+\begin{equation*}
+    D(\xi_1 / \xi_2 = y_j) := 
+    E((\xi_1 - E(\xi_1 / \xi_2 = y_j))/\xi_2 = y_j)
+\end{equation*}
+
+\subsection{Умовні закони розподілу неперервних випадкових величин}
+
+У випадку $n = 2$, $\vec{\xi} = (\xi_1, \xi_2)^T$: 
+\begin{equation*}
+    P\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\} = 
+    \frac{P\{\vec{\xi} \in \Pi\}}{P\{y \leq \xi_2 \leq y+\Delta y\}} = 
+    \frac{f_{\vec{\xi}}(x,y)\Delta x \Delta y + 
+    o(\sqrt{\Delta x^2 + \Delta y^2})}{f_{\xi_2}(y)\Delta y + o(\Delta y)}
+\end{equation*}
+\begin{definition}
+    \emph{Умовною щільністю розподілу} $\xi_1$ називається функція 
+    вигляду:
+    \begin{equation*}
+        f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)}
+    \end{equation*}
+    Для $\xi_2$ - аналогічно.
+\end{definition}
+
+\begin{remark}
+    Умовну щільність розподілу можна інтерпретувати як лінію перетину 
+    поверхні ймовірностей та площини $y = y_{\text{знач.}}$ або
+    $x = x_{\text{знач.}}$ відповідно.
+\end{remark}
