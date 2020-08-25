@@ -172,3 +172,150 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
     поверхні ймовірностей та площини $y = y_{\text{знач.}}$ або
     $x = x_{\text{знач.}}$ відповідно.
 \end{remark}
+
+Умовні щільності мають властивості, аналогічні безумовним щільностям.
+
+\noindent \textbf{Властивості}
+\begin{enumerate}
+    \item $f_{\xi_1}(x / y) \geq 0$
+    \item $f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x,y)}
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx}$
+    \item $\int\limits_{-\infty}^{+\infty} f_{\xi_1}(x / y) dx = 
+    \int\limits_{-\infty}^{+\infty}\frac{f_{\vec{\xi}}(x,y)}
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx}dx = 1$
+\end{enumerate}
+Для $\xi_2$ --- аналогічно.
+
+\subsection{Умовне математичне сподівання неперервного випадкового вектора}
+\noindent \textbf{Формули}
+
+$E(\xi_1 / \xi_2) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx$
+
+$E(\xi_2 / \xi_1) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dx$
+
+\begin{definition}
+    Функції $\phi(y) = E(\xi_1 / \xi_2 = y)$ та 
+    $\psi(x) = E(\xi_2 / \xi_1 = x)$ називаються лініями регресії.
+\end{definition}
+\subsection{Формули повного матсподівання та дисперсії}
+\begin{proposition}[формула повного матсподівання]
+    $E(E(\xi_1 / \xi_2)) = E\xi_1$, $E(E(\xi_2 / \xi_1)) = E\xi_2$
+\end{proposition}
+\begin{proof}
+    Дискретний випадок:
+
+    $E(E(\xi_1 / \xi_2)) = \sum\limits_{j = 1}^m 
+    \left(
+        \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i / \xi_2 = y_j\}
+    \right) P\{\xi_2 = y_j\} = 
+    \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i\} = E\xi_1$
+
+    Неперервний випадок:
+
+    $E(E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
+    \left(
+        \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x / y) dx
+    \right) f_{\xi_2}(y) dy 
+    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = E\xi_1$
+
+    $\xi_2$ --- аналогічно.
+\end{proof}
+
+В літературі часто використовується назва "Adam's law".
+\begin{example}
+    Продовження минулого прикладу:
+
+    $E\xi_1 = -0.3 + 0.2 = -0.1$, $E(E(\xi_1 / \xi_2)) = -\frac{1}{6}
+    \cdot0.6 = -0.1$
+
+    $E\xi_2 = 0.6$, $E(E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
+    \frac{1}{2}\cdot\frac{3}{5} + \frac{1}{2} \cdot\frac{2}{10} = 
+    0.6$
+\end{example}
+
+\begin{proposition}[формула повної дисперсії]
+    Нехай $\xi_1$, $\xi_2$ - випадкові величини та $D\xi_1 < \infty$. 
+    Тоді:
+    $D\xi_1 = E(D(\xi_1/\xi_2)) + D(E(\xi_1 / \xi_2))$.
+\end{proposition}
+
+\begin{proof}
+    $D\xi_1 = E\xi_1^2 - (E \xi_1)^2 = 
+    E(E(\xi_1^2 / \xi_2)) - (E(E(\xi_1/\xi_2)))^2 = 
+    E(D(\xi_1/\xi_2) + (E(\xi_1/\xi_2))^2) - (E(E(\xi_1/\xi_2)))^2 = 
+    E(D(\xi_1 / \xi_2)) + (E(E(\xi_1/\xi_2)^2) - 
+    (E(E(\xi_1 / \xi_2)))^2) = E(D(\xi_1/\xi_2)) + D(E(\xi_1/\xi_2))$
+\end{proof}
+
+
+В літературі часто використовується назва "Eve's law".
+
+\subsection{Незалежність координат випадкового вектора}
+
+$n=2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$
+
+Необхідною і достатньою умовою незалежності, як вже було розглянуто, є 
+$F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)F_{\xi_2}(y)$
+
+З цього випливає те, що $F_{\xi_1}(x/y) = F_{\xi_1}(x)$, 
+$F_{\xi_2}(y/x) = F_{\xi_2}(y)$.
+
+\noindent\textbf{Дискретний випадок: }
+
+$P\{\xi_1 = x_i, \xi_2 = y_j\} = P\{\xi_1 = x_i\}P\{\xi_2 = y_j\}$ 
+$\forall i,j$
+З цього випливає, що:
+
+\begin{enumerate}
+    \item $P\{\xi_1 = x_i / \xi_2 = y_j\} = 
+    P\{\xi_1 = x_i\}P\{\xi_2 = y_j\}$
+    \item $E(\xi_1 / \xi_2 = y_j) = E\xi_1$
+    
+    $E(\xi_2 / \xi_1 = x_i) = E\xi_2$
+\end{enumerate}
+
+\noindent\textbf{Неперервний випадок: }
+$f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)f_{\xi_2}(y)$
+З цього випливає, що:
+
+\begin{enumerate}
+    \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$
+    
+    $f_{\xi_2}(y/x) = f_{\xi_2}(y)$
+    \item $E(\xi_1 / \xi_2 = y) = E\xi_1$
+    
+    $E(\xi_2 / \xi_1 = x) = E\xi_2$
+\end{enumerate}
+
+Для n-вимірного випадку ($n > 2$):
+
+$\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)F_{\xi_j}(x_j)$ - 
+попарна незалежність.
+
+\begin{definition}
+    Координати $\xi_1, \xi_2, ..., \xi_n$ є незалежними у сукупності 
+    тоді і тільки тоді коли $F_{\vec{\xi}}(\vec{x}) = 
+    \prod\limits_{k=1}^n F_{\xi_k}(x_k)$.
+\end{definition}
+\begin{equation*}
+    f_{\vec{\xi}}(\vec{x}) = \frac{\partial^nF_{\vec{\xi}}(\vec{x})}
+    {\partial x_1...\partial x_n} \Rightarrow 
+    f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)
+\end{equation*}
+
+\begin{proposition}
+    Незалежність у сукупності $\Rightarrow$ попарна незалежність
+    (зворотнє, як правило, невірно).
+\end{proposition}
+\begin{proof}
+    $F_{\xi_i\xi_j}(x_i, x_j) = F_{\vec{\xi}}(+\infty, ..., +\infty, x_i, 
+    +\infty, ..., +\infty, x_j, +\infty, ..., +\infty) = $
+
+    $= F_{\xi_1}(+\infty)...F_{\xi_{i-1}}(+\infty)F_{\xi_i}(x_i)
+    F_{\xi_{i+1}}(+\infty)...F_{\xi_{j-1}}(+\infty)F_{\xi_{j}}(x_j)
+    F_{\xi_{j+1}}(+\infty)F_{\xi_n}(+\infty) = $
+    
+    $= F_{\xi_i}(x_i)F_{\xi_j}(x_j)$
+\end{proof}
+
+Таким чином, з незалежності у сукупності випливає некорельованість.
