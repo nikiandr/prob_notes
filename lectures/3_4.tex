@@ -17,7 +17,7 @@
         F_{\xi_1}(x/y) = P({\xi_1 < x}/{\xi_2 < y}) = 
         \frac{P\left\{\xi_1 < x, \xi_2 < y\right\}}
         {P\left\{\xi_2 < y\right\}} = 
-        \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_2}(y)}
+        \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_2}(y)}, F_{\xi_2}(y/x) = \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_1}(x)}
     \end{equation*}
 \end{definition}
 \begin{remark}
@@ -140,12 +140,8 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
     \end{tabular}
 \end{example}
 
-Крім умовного математичного сподівання вводяться так звані 
-\emph{умовні дисперсії} (міра розсіювання однієї випадкової величини 
-за умови того, що інша набула певне значення)
-
 \begin{equation*}
-    D(\xi_1 / \xi_2 = y_j) := 
+    D(\xi_1 / \xi_2 = y_j) = 
     E((\xi_1 - E(\xi_1 / \xi_2 = y_j))/\xi_2 = y_j)
 \end{equation*}
 
@@ -159,48 +155,107 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
     o(\sqrt{\Delta x^2 + \Delta y^2})}{f_{\xi_2}(y)\Delta y + o(\Delta y)}
 \end{equation*}
 \begin{definition}
-    \emph{Умовною щільністю розподілу} $\xi_1$ називається функція 
+    \emph{Умовною щільністю розподілу} називається функція 
     вигляду:
     \begin{equation*}
-        f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)}
+        f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)}, f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_1}(x)}
     \end{equation*}
-    Для $\xi_2$ - аналогічно.
 \end{definition}
 
 \begin{remark}
-    Умовну щільність розподілу можна інтерпретувати як лінію перетину 
-    поверхні ймовірностей та площини $y = y_{\text{знач.}}$ або
-    $x = x_{\text{знач.}}$ відповідно.
+    Графік умовно щільність розподілу можна інтерпретувати лінію перетину 
+    поверхні розподілу та площини $y = y_{\text{знач.}}$ або
+    $x = x_{\text{знач.}}$ відповідно, нормовану на одиничну площу під нею.
 \end{remark}
 
-Умовні щільності мають властивості, аналогічні безумовним щільностям.
-
-\noindent \textbf{Властивості}
+\noindent \textbf{Властивості умовної щільності:}
 \begin{enumerate}
-    \item $f_{\xi_1}(x / y) \geq 0$
+    \item $f_{\xi_1}(x / y) \geq 0, f_{\xi_2}(y / x) \geq 0$.
     \item $f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x,y)}
-    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx}$
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx},
+    f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x,y)}
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dy}$.
     \item $\int\limits_{-\infty}^{+\infty} f_{\xi_1}(x / y) dx = 
     \int\limits_{-\infty}^{+\infty}\frac{f_{\vec{\xi}}(x,y)}
-    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx}dx = 1$
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dx}dx = 1,
+    \int\limits_{-\infty}^{+\infty} f_{\xi_2}(y / x) dy = 
+    \int\limits_{-\infty}^{+\infty}\frac{f_{\vec{\xi}}(x,y)}
+    {\int\limits_{-\infty}^{+\infty}f_{\vec{\xi}}(x,y)dy}dy = 1$.
 \end{enumerate}
-Для $\xi_2$ --- аналогічно.
+Властивості умовної щільності аналогічні властивостям звичайної (безумовної) щільності.
 
 \subsection{Умовне математичне сподівання неперервного випадкового вектора}
-\noindent \textbf{Формули}
+\emph{Умовні математичні сподівання} координат НВВ визначаються через умовні щільності:
 
-$E(\xi_1 / \xi_2) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx$
-
-$E(\xi_2 / \xi_1) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dx$
+$$E(\xi_1 / \xi_2) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx,
+E(\xi_2 / \xi_1) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dx$$
 
 \begin{definition}
-    Функції $\phi(y) = E(\xi_1 / \xi_2 = y)$ та 
+    Функції $\varphi(y) = E(\xi_1 / \xi_2 = y)$ та 
     $\psi(x) = E(\xi_2 / \xi_1 = x)$ називаються лініями регресії.
 \end{definition}
-\subsection{Формули повного матсподівання та дисперсії}
-\begin{proposition}[формула повного матсподівання]
-    $E(E(\xi_1 / \xi_2)) = E\xi_1$, $E(E(\xi_2 / \xi_1)) = E\xi_2$
-\end{proposition}
+\begin{example}
+    \begin{tabular}{c m{4cm}}
+        $f_{\vec{\xi}}(x, y) = 
+        \begin{cases}
+            2, & (x, y) \in D \\
+            0, & (x, y) \notin D
+        \end{cases}
+        $
+        &
+        \begin{tikzpicture}[scale = 1.5]
+            \draw [->] (0, -0.5) -- (0, 1.5);
+            \draw [->] (-0.5, 0) -- (1.5, 0);
+            \draw (0, 0) -- (1, 0) -- (1, 1) -- cycle;
+            \draw [dashed] (0, 1) -- (1, 1);
+            \fill [lightgray] (0, 0) -- (1, 0) -- (1, 1);
+            \node [below] at (1.5, 0) {$x$};
+            \node [left] at (0, 1.5) {$y$};
+            \node [above right] at (0.45, 0.15) {$D$};
+            \node [right] at (0, 0.75) {$y = x$};
+            \node [below] at (1, 0) {$1$};
+            \node [left] at (0, 1) {$1$};
+            \node [below left] at (0, 0) {$0$};  
+        \end{tikzpicture}
+    \end{tabular}
+
+    $f_{\xi_1}(x) = \begin{cases}
+        \int\limits_0^x 2 dy = 2x, & x \in \left[ 0; 1\right] \\
+        0, & x \notin \left[ 0; 1\right]
+    \end{cases}$, 
+    $f_{\xi_2}(y) = \begin{cases}
+        \int\limits_1^y 2 dy = 2(1-y), & y \in \left[ 0; 1\right] \\
+        0, & y \notin \left[ 0; 1\right]
+    \end{cases}$.
+
+    Запишемо умовні щільності: 
+
+    $f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)} = \begin{cases}
+        \frac{1}{1-y}, & x \in \left[ y; 1\right], \\
+        & y \in \left[ 0; 1\right)\\
+        0, & \text{інакше}
+    \end{cases}$,
+    $f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_1}(x)} = \begin{cases}
+        \frac{1}{x}, & y \in \left[ 0; x\right], \\
+        & x \in \left( 0; 1\right] \\
+        0, & \text{інакше}
+    \end{cases}$.
+
+    Умовні розподіли обох координат є рівномірними з параметрами $\left< y, 1\right>$ та $\left<0, x\right>$ відповідно.
+
+    $E\xi_1 = \int\limits_0^1 2x^2 dx = \frac{2}{3}$,
+    $E\xi_2 = \int\limits_0^1 2y(1-y) dy = \frac{1}{3}$.
+    Знайдемо умовні математичні сподівання.
+
+    $E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x/y)dx =
+    \frac{1}{1-y} \int\limits_y^1 x dx = \frac{1}{1-y} \cdot \frac{1-y^2}{2} = \frac{1+y}{2}$, $y \in \left[ 0; 1\right)$.
+
+    $E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} y f_{\xi_2}(y/x)dy = 
+    \frac{1}{x} \int\limits_0^x y dy = \frac{1}{x} \cdot \frac{x^2}{2} = \frac{x}{2}$, $x \in \left( 0; 1\right]$.
+\end{example}
+\subsection{Формули повного математичного сподівання та дисперсії}
+\noindent\textbf{Формула повного математичного сподівання.}
+    $E(E(\xi_1 / \xi_2)) = E\xi_1$, $E(E(\xi_2 / \xi_1)) = E\xi_2$.
 \begin{proof}
     Дискретний випадок:
 
@@ -208,105 +263,118 @@ $E(\xi_2 / \xi_1) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dx$
     \left(
         \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i / \xi_2 = y_j\}
     \right) P\{\xi_2 = y_j\} = 
-    \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i\} = E\xi_1$
+    \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i\} = E\xi_1$.
 
     Неперервний випадок:
 
     $E(E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
     \left(
         \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x / y) dx
-    \right) f_{\xi_2}(y) dy 
-    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = E\xi_1$
+    \right) f_{\xi_2}(y) dy
+    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = E\xi_1$.
 
-    $\xi_2$ --- аналогічно.
+    Для $\xi_2$ --- аналогічно.
 \end{proof}
 
-В літературі часто використовується назва "Adam's law".
+%\begin{remark}
+%    В англомовній літературі також використовується назва «Adam's law».
+%\end{remark}
 \begin{example}
-    Продовження минулого прикладу:
+    Продовження попередніх прикладів.
+    \begin{enumerate}
+        \item Дискретний випадок:
+        
+        $E\xi_1 = -0.3 + 0.2 = -0.1$, $E(E(\xi_1 / \xi_2)) = -\frac{1}{6}
+        \cdot0.6 = -0.1$.
+    
+        $E\xi_2 = 0.6$, $E(E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
+        \frac{1}{2}\cdot\frac{3}{5} + \frac{1}{2} \cdot\frac{2}{10} = 
+        0.6$.
+        \item Неперервний випадок:
 
-    $E\xi_1 = -0.3 + 0.2 = -0.1$, $E(E(\xi_1 / \xi_2)) = -\frac{1}{6}
-    \cdot0.6 = -0.1$
-
-    $E\xi_2 = 0.6$, $E(E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
-    \frac{1}{2}\cdot\frac{3}{5} + \frac{1}{2} \cdot\frac{2}{10} = 
-    0.6$
+        $E(E(\xi_1 / \xi_2)) = \int\limits_0^1 \frac{1+y}{2} \cdot 2(1-y) dy = \int\limits_0^1 (1-y^2) dy = \frac{2}{3} = E\xi_1$,
+        $E(E(\xi_2 / \xi_1)) = \int\limits_0^1 \frac{x}{2} \cdot 2x dx = \int\limits_0^1 x^2 dx = \frac{1}{3} = E\xi_2$.
+    \end{enumerate}
 \end{example}
 
-\begin{proposition}[формула повної дисперсії]
-    Нехай $\xi_1$, $\xi_2$ - випадкові величини та $D\xi_1 < \infty$. 
-    Тоді:
+
+Крім умовного математичного сподівання розглядають
+\emph{умовні дисперсії} --- міра розсіювання однієї випадкової величини 
+за умови того, що інша набула певне значення.
+
+\noindent\textbf{Формула повної дисперсії.}
+    Нехай $\xi_1$, $\xi_2$ --- випадкові величини та $D\xi_1 < +\infty$. 
+    Тоді
     $D\xi_1 = E(D(\xi_1/\xi_2)) + D(E(\xi_1 / \xi_2))$.
-\end{proposition}
 
 \begin{proof}
     $D\xi_1 = E\xi_1^2 - (E \xi_1)^2 = 
     E(E(\xi_1^2 / \xi_2)) - (E(E(\xi_1/\xi_2)))^2 = 
     E(D(\xi_1/\xi_2) + (E(\xi_1/\xi_2))^2) - (E(E(\xi_1/\xi_2)))^2 = 
     E(D(\xi_1 / \xi_2)) + (E(E(\xi_1/\xi_2)^2) - 
-    (E(E(\xi_1 / \xi_2)))^2) = E(D(\xi_1/\xi_2)) + D(E(\xi_1/\xi_2))$
+    (E(E(\xi_1 / \xi_2)))^2) = E(D(\xi_1/\xi_2)) + D(E(\xi_1/\xi_2))$.
 \end{proof}
 
 
-В літературі часто використовується назва "Eve's law".
+%\begin{remark}
+%    В англомовній літературі також використовується назва Eve's law».
+%\end{remark}
 
 \subsection{Незалежність координат випадкового вектора}
 
-$n=2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$
+Розглядаємо випадок $n=2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$.
 
-Необхідною і достатньою умовою незалежності, як вже було розглянуто, є 
-$F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)F_{\xi_2}(y)$
+Необхідною і достатньою умовою незалежності координат, як вже було розглянуто, є 
+$F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)\cdot F_{\xi_2}(y)$.
 
-З цього випливає те, що $F_{\xi_1}(x/y) = F_{\xi_1}(x)$, 
+З цього випливає, що в разі незалежності координат $F_{\xi_1}(x/y) = F_{\xi_1}(x)$, 
 $F_{\xi_2}(y/x) = F_{\xi_2}(y)$.
 
 \noindent\textbf{Дискретний випадок: }
 
-$P\{\xi_1 = x_i, \xi_2 = y_j\} = P\{\xi_1 = x_i\}P\{\xi_2 = y_j\}$ 
-$\forall i,j$
+$P\{\xi_1 = x_i, \xi_2 = y_j\} = P\{\xi_1 = x_i\}\cdot P\{\xi_2 = y_j\}$ 
+$\forall i,j$.
 З цього випливає, що:
 
 \begin{enumerate}
     \item $P\{\xi_1 = x_i / \xi_2 = y_j\} = 
-    P\{\xi_1 = x_i\}P\{\xi_2 = y_j\}$
-    \item $E(\xi_1 / \xi_2 = y_j) = E\xi_1$
-    
-    $E(\xi_2 / \xi_1 = x_i) = E\xi_2$
+    P\{\xi_1 = x_i\}\cdot P\{\xi_2 = y_j\}$.
+    \item $E(\xi_1 / \xi_2 = y_j) = E\xi_1$,
+    $E(\xi_2 / \xi_1 = x_i) = E\xi_2$.
 \end{enumerate}
 
 \noindent\textbf{Неперервний випадок: }
-$f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)f_{\xi_2}(y)$
+
+$f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
 З цього випливає, що:
 
 \begin{enumerate}
-    \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$
-    
-    $f_{\xi_2}(y/x) = f_{\xi_2}(y)$
-    \item $E(\xi_1 / \xi_2 = y) = E\xi_1$
-    
-    $E(\xi_2 / \xi_1 = x) = E\xi_2$
+    \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$,    
+    $f_{\xi_2}(y/x) = f_{\xi_2}(y)$.
+    \item $E(\xi_1 / \xi_2 = y) = E\xi_1$, 
+    $E(\xi_2 / \xi_1 = x) = E\xi_2$.
 \end{enumerate}
 
-Для n-вимірного випадку ($n > 2$):
-
-$\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)F_{\xi_j}(x_j)$ - 
+\noindent Для $n$-вимірного випадку ($n > 2$):
+$\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)\cdot F_{\xi_j}(x_j)$ --- 
 попарна незалежність.
 
 \begin{definition}
-    Координати $\xi_1, \xi_2, ..., \xi_n$ є незалежними у сукупності 
+    Координати $\xi_1, \xi_2, ..., \xi_n$ є \emph{незалежними у сукупності} 
     тоді і тільки тоді коли $F_{\vec{\xi}}(\vec{x}) = 
     \prod\limits_{k=1}^n F_{\xi_k}(x_k)$.
 \end{definition}
+У випадку незалежності у сукупності координат неперервного випадкового вектора має місце аналогічна
+властивість для щільності:
 \begin{equation*}
     f_{\vec{\xi}}(\vec{x}) = \frac{\partial^nF_{\vec{\xi}}(\vec{x})}
     {\partial x_1...\partial x_n} \Rightarrow 
     f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)
 \end{equation*}
 
-\begin{proposition}
-    Незалежність у сукупності $\Rightarrow$ попарна незалежність
-    (зворотнє, як правило, невірно).
-\end{proposition}
+\noindent\textbf{Твердження.}
+    З незалежності у сукупності випливає попарна незалежність
+    (зворотнє твердження, взагалі кажучи, не має місця).
 \begin{proof}
     $F_{\xi_i\xi_j}(x_i, x_j) = F_{\vec{\xi}}(+\infty, ..., +\infty, x_i, 
     +\infty, ..., +\infty, x_j, +\infty, ..., +\infty) = $
@@ -315,7 +383,9 @@ $\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)F_{\xi_j}(x_j)$ -
     F_{\xi_{i+1}}(+\infty)...F_{\xi_{j-1}}(+\infty)F_{\xi_{j}}(x_j)
     F_{\xi_{j+1}}(+\infty)F_{\xi_n}(+\infty) = $
     
-    $= F_{\xi_i}(x_i)F_{\xi_j}(x_j)$
+    $= F_{\xi_i}(x_i)\cdot F_{\xi_j}(x_j)$.
 \end{proof}
 
-Таким чином, з незалежності у сукупності випливає некорельованість.
+\begin{remark}
+    З незалежності у сукупності випливає некорельованість.
+\end{remark}
