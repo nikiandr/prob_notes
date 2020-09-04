@@ -28,7 +28,7 @@
 \end{definition}
 Для задання ДВВ, крім знання значень випадкової величини, необхідно знати ймовірності, 
 з якими ці значення приймаються.
-$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum_{i=1}^\infty p_i = 1$$
+$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
 
 \begin{definition}
     \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
@@ -142,14 +142,14 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
         = \left|\text{теорема \refeq{th:2}}\right| = 
-        P(\bigcap_{n=1}^\infty A_n) = P(\varnothing) =$ 
+        P(\bigcap\limits_{n=1}^\infty A_n) = P(\varnothing) =$ 
         \newline
         $= 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
         = \left|\text{теорема \refeq{th:1}}\right| = 
-        P(\bigcup_{n=1}^\infty B_n) = P(\Omega) =$
+        P(\bigcup\limits_{n=1}^\infty B_n) = P(\Omega) =$
         \newline
         $= 1$.
     \end{proof}
@@ -161,7 +161,7 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
         
         $\lim\limits_{x \to x_0 - 0} 
         F_\xi(x) = \lim\limits_{n \to \infty}P(\xi < x_n) =
-        \left|\text{теорема \refeq{th:2}}\right| = P(\bigcup_{n=1}^\infty A_n) = 
+        \left|\text{теорема \refeq{th:2}}\right| = P(\bigcup\limits_{n=1}^\infty A_n) = 
         P(\xi < x_0) = F_\xi(x_0)$.
     \end{proof}
 \end{enumerate}
@@ -252,10 +252,10 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
 \noindent \textbf{Властивості щільності розподілу:}
 \begin{enumerate}
     \item Область визначення $D(f) = \mathbb{R}$, область значень $E(f) = \left[0; +\infty\right)$ --- з монотонної неспадності $F_\xi(x)$.
-    \item $F_\xi(x)=\int_{-\infty}^x f_\xi(t)dt$.
-    \item \emph{Властивість нормування:} $\lim\limits_{x \to +\infty} F_\xi(x) = 1 \Rightarrow \int_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
+    \item $F_\xi(x)=\int\limits_{-\infty}^x f_\xi(t)dt$.
+    \item \emph{Властивість нормування:} $\lim\limits_{x \to +\infty} F_\xi(x) = 1 \Rightarrow \int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
     Геометрична інтерпретація цієї властивості --- площа під кривою розподілу завжди рівна $1$.
-    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a) = \int_a^b f_\xi(x)dx$.
+    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a) = \int\limits_a^b f_\xi(x)dx$.
     Ця властивість справджується і для довільних проміжків $\left< a; b\right>$.
 \end{enumerate}
 
@@ -281,7 +281,7 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
                 \node [left] at (0, 1) {$f_\xi(x)$};
                 \fill [lightgray, domain=1:3, variable = \x] (1, 0) -- plot ({\x}, {0.115384615385 * \x^2}) -- (3, 0) -- cycle;
             \end{tikzpicture} &
-                $\int_{-\infty}^{+\infty} f_\xi(x)dx = A\cdot\int_1^3 x^2 dx = 
+                $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = A\cdot\int\limits_1^3 x^2 dx = 
                 A\cdot \frac{x^3}{3} \bigr\vert_1^3 = A\cdot \frac{26}{3}$.
             
                 З властивості нормування $A = \frac{3}{26}$.
@@ -301,11 +301,11 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
                 \node [below] at (5, 0) {$x$};
                 \node [above left] at (0, 1) {$F_\xi(x)$};
             \end{tikzpicture} &
-            $ F_\xi(x) = \int_{-\infty}^x f_\xi(t)dt = \begin{cases}
+            $ F_\xi(x) = \int\limits_{-\infty}^x f_\xi(t)dt = \begin{cases}
                 0, \; x \leq 1 \\
-                \int_{-\infty}^1 0dt + \int_1^x \frac{3}{26}t^2dt = \\
+                \int\limits_{-\infty}^1 0dt + \int\limits_1^x \frac{3}{26}t^2dt = \\
                 \frac{1}{26}(x^3-1), \; 1 < x \leq 3 \\
-                \int_{-\infty}^1 0dt + \int_1^3 \frac{3}{26}t^2dt + \\
+                \int\limits_{-\infty}^1 0dt + \int\limits_1^3 \frac{3}{26}t^2dt + \\
                 + \int_3^x 0 dt = 1, \;x > 3
             \end{cases}$
         \end{tabular}

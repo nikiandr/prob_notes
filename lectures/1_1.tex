@@ -66,7 +66,7 @@
     Властивості: $A \cup A = A$,  $A \cup B = B \cup A$, $\left( A \subset B \right) \Rightarrow \left( A \cup B = B \right)$, 
     $A \cup \Omega = \Omega$, $A \cup \varnothing = A$, $\left( A \cup B \right) \cup C = A \cup \left( B \cup C \right)$.
 
-    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcup_{i=1}^{n \left( \infty \right)} A_i$.
+    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcup\limits_{i=1}^{n \left( \infty \right)} A_i$.
     \item \emph{Перетин подій} $A \cap B$ --- це подія, яка відбувається тоді, коли $A$ і $B$ відбуваються одночасно.
 
     Властивості: $A \cap A = A$,  $A \cap B = B \cap A$, $\left( A \subset B \right) \Rightarrow \left( A \cap B = A \right)$, 
@@ -74,7 +74,7 @@
     $A \cap B \subset A$, $A \cap B \subset B$, $\left( A \cup B \right) \cap C = \left( A \cap C \right) \cup \left( B \cap C \right)$,
     $\left( A \cap B \right) \cup C = \left( A \cup C \right) \cap \left( B \cup C \right)$.
 
-    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcap_{i=1}^{n \left( \infty \right)} A_i$.
+    Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcap\limits_{i=1}^{n \left( \infty \right)} A_i$.
 \end{enumerate}
 \begin{definition}
     Події $A$ та $B$ називається \emph{несумісними}, якщо вони не відбуваються одночасно: $A \cap B = \varnothing$.
@@ -82,7 +82,7 @@
 \end{definition}
 \begin{definition}
     Події $A_1, A_2, ..., A_n, ...$ утворюють \emph{повну групу подій}, якщо вони попарно несумісні 
-    та $\bigcup_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
+    та $\bigcup\limits_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
 \end{definition}
 \begin{enumerate}
     \setcounter{enumi}{3}
@@ -102,7 +102,7 @@
         \item $\left( A \in \mathcal{F}\right) \Rightarrow \left( \overline{A} \in \mathcal{F}\right)$.
     \end{enumerate}
     \emph{Узагальнення:} якщо $\Omega$ містить зліченну кількість подій, то означення $\sigma$-алгебра отримаємо заміною умови
-    2 на $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup_{n=1}^{\infty} A_n \in \mathcal{F}\right)$.
+    2 на $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup\limits_{n=1}^{\infty} A_n \in \mathcal{F}\right)$.
     
     Пара $\left\{\Omega, \mathcal{F}\right\}$ називається \emph{вимірним простором стохастичного експерименту}.
 \end{definition}
@@ -111,8 +111,8 @@
 Дослідника завжди цікавить кількісна характеристика появи тієї чи іншої події.
 
 Нехай $\Omega$ --- скінченний чи зліченний. 
-Поставимо у відповідність кожній елементарній події $\omega_k$ число $p_k\geq 0$ так, що $\sum_{k=0}^{ n \left( \infty\right)}p_k = 1$.
-Тоді $P(A) = \sum_{\omega_k \in A} p_k$ --- кількісна характеристика, ймовірність події $A$.
+Поставимо у відповідність кожній елементарній події $\omega_k$ число $p_k\geq 0$ так, що $\sum\limits_{k=0}^{ n \left( \infty\right)}p_k = 1$.
+Тоді $P(A) = \sum\limits_{\omega_k \in A} p_k$ --- кількісна характеристика, ймовірність події $A$.
 
 \begin{example}
     \emph{Класична модель ймовірності}. Якщо простір елементарних подій $\Omega$ СЕ скінченний
@@ -120,7 +120,7 @@
     В такому випадку $p_1 = p_2 = ... = p_n = \frac{1}{n}$, де $n = \mathrm{card}(\Omega)$.
     
     \begin{equation}\label{eq:m_n}
-        P(A) = \sum_{\omega_k \in A} p_k = \frac{m}{n} = \frac{\text{кількість елементарних подій в } A}{\text{загальна кількість елементарних подій}}
+        P(A) = \sum\limits_{\omega_k \in A} p_k = \frac{m}{n} = \frac{\text{кількість елементарних подій в } A}{\text{загальна кількість елементарних подій}}
     \end{equation}
 \end{example}
 Ймовірності, що розраховуються за формулою \eqref{eq:m_n}, називаються \emph{класичними}.
@@ -146,5 +146,5 @@
     \item $P(\varnothing) = 0$.
     \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$, для несумісних $A$ і $B$ $P(A\cup B) = P(A) + P(B)$.
     \item $\left( A \subset B\right) \Rightarrow \left( P(A) \leq P(B)\right)$.
-    \item Якщо $A_1, A_2, ..., A_n$ --- повна група подій СЕ, то $P(\bigcup_{i=1}^{n} A_i) = 1$.
+    \item Якщо $A_1, A_2, ..., A_n$ --- повна група подій СЕ, то $P\left(\bigcup\limits_{i=1}^{n} A_i\right) = 1$.
 \end{enumerate}

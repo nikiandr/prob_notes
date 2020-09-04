@@ -523,7 +523,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     \draw [dashed] (\a+\s, 0) -- (\a+\s, 0.241970724519/\s);
     \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
     \node [below] at (5, 0) {$x$};
-    \node [below] at (\a, 0) {$a$};
+    \node [below] at (\a, -0.025) {$a$};
     \node [below] at (\a-\s, 0) {$a - \sigma$};
     \node [below] at (\a+\s, 0) {$a + \sigma$};
     \node [below right] at (0, 0) {$0$};
@@ -541,7 +541,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     
     $=\frac{a}{\sqrt{\pi}}
     \int\limits_{-\infty}^{+\infty}e^{-t^2}dt =
-    \left[\text{інтеграл Ейлера - Пуассона}\right] = a$.
+    \left[\text{інтеграл Ейлера-Пуассона}\right] = a$.
     \item Знайдемо всі центральні моменти:
     $\beta_k = E(\xi - E\xi)^k = 
     \frac{1}{\sigma\sqrt{2\pi}}

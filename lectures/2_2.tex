@@ -6,7 +6,7 @@
     \emph{Математичним сподіванням} випадкової величини називається
     інтеграл Стілтьєса
     \begin{equation}\label{eq:e_xi}
-        E\xi = \int_{-\infty}^{+\infty} x dF_\xi(x) = \begin{cases}
+        E\xi = \int\limits_{-\infty}^{+\infty} x dF_\xi(x) = \begin{cases}
             \sum\limits_{k=1}^{n(\infty)} x_k P\left\{\xi = x_k\right\}, & \xi \text{ --- ДВВ} \\
             \int\limits_{-\infty}^{+\infty} x f_\xi(x)dx, & \xi \text{ --- НВВ}
         \end{cases}
@@ -16,7 +16,7 @@
 випадкова величина не має математичного сподівання.
 \begin{example}
     НВВ, розподілена за законом Коші з щільністю $f_\xi(x) = \frac{1}{\pi (1+x^2)}$
-    не має математичного сподівання, бо інтеграл $\frac{1}{\pi}\int_{-\infty}^{+\infty} \frac{x}{1+x^2}dx$ 
+    не має математичного сподівання, бо інтеграл $\frac{1}{\pi}\int\limits_{-\infty}^{+\infty} \frac{x}{1+x^2}dx$ 
     розбіжний.
 \end{example}
 Математичне сподівання --- ймовірнісне середнє значення випадкової величини.
@@ -33,8 +33,8 @@
     \item $E\left( \xi_1 + \xi_2\right) = E\xi_1 + E\xi_2$.
     \begin{proof}[Доведення для ДВВ]
         $P\left\{\xi_1 = x_k\right\} = p_k$, $P\left\{\xi_2 = y_j\right\} = p_j$, $P\left\{\xi_1 + \xi_2 = x_k + y_j\right\} = p_{kj}$.
-        $E\left( \xi_1 + \xi_2\right) = \sum_k \sum_j (x_k+y_j) p_k p_j =
-        \sum_k x_k \sum_j p_{kj} + \sum_j y_j \sum_k p_{kj} = \sum_k x_k p_k + \sum_j y_j p_j = E\xi_1 + E\xi_2$.
+        $E\left( \xi_1 + \xi_2\right) = \sum\limits_k \sum\limits_j (x_k+y_j) p_k p_j =
+        \sum\limits_k x_k \sum\limits_j p_{kj} + \sum\limits_j y_j \sum\limits_k p_{kj} = \sum\limits_k x_k p_k + \sum\limits_j y_j p_j = E\xi_1 + E\xi_2$.
     \end{proof}
 \suspend{enumerate}
 \begin{definition}
@@ -47,7 +47,7 @@
     \item Якщо $\xi_1$ та $\xi_2$ незалежні, то $E\xi_1\xi_2 = E\xi_1 \cdot E\xi_2$.
     \begin{proof}[Доведення для ДВВ]
         Позначимо $p_{kj} = P\left\{\xi_1 = x_k, \xi_2 = y_j\right\}$.
-        $E\xi_1\xi_2 = \sum_k \sum_j x_k y_j p_{kj} = \sum_k \sum_j x_k y_j p_k p_j = ( \sum_k x_k p_k)\cdot ( \sum_j y_j p_j) = E\xi_1 \cdot E\xi_2$.
+        $E\xi_1\xi_2 = \sum\limits_k \sum\limits_j x_k y_j p_{kj} = \sum\limits_k \sum\limits_j x_k y_j p_k p_j = \left( \sum\limits_k x_k p_k\right)\cdot \left( \sum\limits_j y_j p_j\right) = E\xi_1 \cdot E\xi_2$.
     \end{proof}
     Властивості 3 та 4 для НВВ буде доведено в темі <<Функції випадкових аргументів>>.
 \end{enumerate}
@@ -103,7 +103,7 @@
 \begin{definition}
     \emph{Дисперсією} випадкової величини називається 
     \begin{equation}\label{eq:d_xi}
-        D\xi = E\left(\xi-E\xi\right)^2 = \int_{-\infty}^{+\infty} \left(x-E\xi\right)^2 dF_\xi(x) = \begin{cases}
+        D\xi = E\left(\xi-E\xi\right)^2 = \int\limits_{-\infty}^{+\infty} \left(x-E\xi\right)^2 dF_\xi(x) = \begin{cases}
             \sum\limits_{k=1}^{n(\infty)} \left(x_k-E\xi\right)^2 P\left\{\xi = x_k\right\}, & \xi \text{ --- ДВВ} \\
             \int\limits_{-\infty}^{+\infty} \left(x-E\xi\right)^2 f_\xi(x)dx, & \xi \text{ --- НВВ}
         \end{cases}
@@ -172,7 +172,7 @@
 \begin{definition}
     \emph{Початковим моментом k-того порядку} ($k \in \mathbb{N}$) ВВ $\xi$ називається
     \begin{equation}\label{eq:e_alpha_k}
-        \alpha_k = E\xi^k = \int_{-\infty}^{+\infty} x^k dF_\xi(x) = \begin{cases}
+        \alpha_k = E\xi^k = \int\limits_{-\infty}^{+\infty} x^k dF_\xi(x) = \begin{cases}
             \sum\limits_{m=1}^{n(\infty)} x_m^k P\left\{\xi = x_m\right\}, & \xi \text{ --- ДВВ} \\
             \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx, & \xi \text{ --- НВВ}
         \end{cases}
@@ -181,7 +181,7 @@
 \begin{definition}
     \emph{Центральним моментом k-того порядку} ($k \in \mathbb{N}$) ВВ $\xi$ називається
     \begin{equation}\label{eq:d_beta_k}
-        \beta_k = E\mathring{\xi}^k = E\left(\xi-E\xi\right)^k = \int_{-\infty}^{+\infty} \left(x-E\xi\right)^k dF_\xi(x) = \begin{cases}
+        \beta_k = E\mathring{\xi}^k = E\left(\xi-E\xi\right)^k = \int\limits_{-\infty}^{+\infty} \left(x-E\xi\right)^k dF_\xi(x) = \begin{cases}
             \sum\limits_{m=1}^{n(\infty)} \left(x_m-E\xi\right)^k P\left\{\xi = x_m\right\}, & \xi \text{ --- ДВВ} \\
             \int\limits_{-\infty}^{+\infty} \left(x-E\xi\right)^k f_\xi(x)dx, & \xi \text{ --- НВВ}
         \end{cases}
