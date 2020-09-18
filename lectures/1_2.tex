@@ -220,11 +220,11 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
     \begin{enumerate}[label = \textbf{P\arabic*:}]
         \item $\forall A \in \mathcal{F}: P(A)\geq 0$.
         \item $P(\Omega) = 1$ --- аксіома нормування.
-        \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j \text{ при } i \neq j: P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \sum\limits_{n=1}^{\infty} P(A_n)$ ---
+        \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j = \varnothing \text{ при } i \neq j: P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \sum\limits_{n=1}^{\infty} P(A_n)$ ---
         аксіома зліченної адитивності.
         Іноді у випадках <<простої>> алгебри (а не $\sigma$-алгебри) достатньо
         аксіоми скінченної адитивності \textbf{P3$'$}: 
-        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j \text{ при } i \neq j: P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} P(A_k)$.
+        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j  = \varnothing \text{ при } i \neq j: P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} P(A_k)$.
     \end{enumerate}
 \end{enumerate}
 \begin{definition}
@@ -328,7 +328,7 @@ $ \mathbb{R} ^n$, а випадкові події --- її підмножини
         B_3 = \overline{A_1} \cap \overline{A_2} \cap A_3, ..., B_n = 
         \overline{A_1} \cap \overline{A_2} \cap ...$ 
         \newline
-        $... \cap \overline{A_{n-1}} \cap A_n$. Ці події попарно несумісні, 
+        $... \cap \overline{A_{n-1}} \cap A_n, ...$. Ці події попарно несумісні, 
         $\bigcup\limits_{k=1}^\infty B_k = \bigcup\limits_{k=1}^\infty A_k,\;B_k \subset A_k $ для всіх $k \in \mathbb{N}$.
         \newline
         $P\left(\bigcup\limits_{k=1}^\infty A_k\right) = P\left(\bigcup\limits_{k=1}^\infty B_k\right) 

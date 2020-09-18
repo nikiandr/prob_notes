@@ -8,7 +8,7 @@
     \begin{proof}
         За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}.
 
-        Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j \text{ при } i \neq j$
+        Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j = \varnothing \text{ при } i \neq j$
         введемо події $B_n = \bigcup\limits_{k=n+1}^{\infty} A_k$. Для них виконується $B_1 \supset B_2 \supset ... \supset B_n \supset ...$ та $\bigcap\limits_{n=1}^{\infty} B_n = \varnothing$,
         тому з аксіоми \textbf{P4} $\lim\limits_{n\rightarrow \infty} P(B_n) = 0$.
 
@@ -39,8 +39,8 @@
 \begin{enumerate}
     \item $P(A/B) \geq 0$.
     \item $P(\Omega /B) = P(B/B) = 1$.
-    \item $ \forall A_1, A_2, ... , A_n, ... \in \mathcal{F}: A_i \cap A_j \text{ при } i \neq j : \\
-    P((\bigcup\limits_{n=1}^{\infty} A_n)/B) = \frac{P((\bigcup\limits_{n=1}^{\infty} A_n)\cap B)}{P(B)} = \frac{P(\bigcup\limits_{n=1}^{\infty} (A_n\cap B))}{P(B)} \overset{P3}{=} \frac{\sum\limits_{n=1}^{\infty} P(A_n \cap B)}{P(B)} = \sum\limits_{n=1}^{\infty} P(A_n/B)$.
+    \item $ \forall A_1, A_2, ... , A_n, ... \in \mathcal{F}: A_i \cap A_j = \varnothing \text{ при } i \neq j : \\
+    P\left(\left(\bigcup\limits_{n=1}^{\infty} A_n\right)/B\right) = \frac{P\left(\left(\bigcup\limits_{n=1}^{\infty} A_n\right)\cap B\right)}{P(B)} = \frac{P\left(\bigcup\limits_{n=1}^{\infty} (A_n\cap B)\right)}{P(B)} \overset{P3}{=} \frac{\sum\limits_{n=1}^{\infty} P(A_n \cap B)}{P(B)} = \sum\limits_{n=1}^{\infty} P(A_n/B)$.
 \end{enumerate}
 Таким чином, для умовної ймовірності діють всі аксіоми ТЙ. Фактично, розглядається звуження ймовірнісного простору
 $\left\{ B, \mathcal{F}_B, P(\cdot/B)\right\}$, в якому $B$ стає вірогідною подією.
@@ -54,7 +54,7 @@ $\left\{ B, \mathcal{F}_B, P(\cdot/B)\right\}$, в якому $B$ стає ві�
 Для трьох подій: $P(A \cap B \cap C) = P(A\cap B) \cdot P(C/(A\cap B)) = P(A)\cdot P(B/A) \cdot P(C/(A\cap B))$.
 За методом математичної індукції неважко довести, що
 \begin{equation}\label{eq:mult_for_n}
-    P\left( \bigcap\limits_{n=1}^{n} A_n\right) = P\left(A_1\right) \cdot P\left(A_2/A_1\right) \cdot P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot P\left( A_n / \left( \bigcap\limits_{n=1}^{n-1} A_n\right) \right)
+    P\left( \bigcap\limits_{k=1}^{n} A_k\right) = P\left(A_1\right) \cdot P\left(A_2/A_1\right) \cdot P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot P\left( A_n / \left( \bigcap\limits_{k=1}^{n-1} A_k\right) \right)
 \end{equation}
 
 \begin{example}
@@ -64,7 +64,7 @@ $\left\{ B, \mathcal{F}_B, P(\cdot/B)\right\}$, в якому $B$ стає ві�
 
     Треба обчислити ймовірність $P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)})$,
     де верхній індекс означає крок, на якому витягнуто літеру.
-    $P(M^{(1)}) = \frac{2}{10}$, $P(A^{(2)} / M^{(1)}) \frac{3}{9}$,
+    $P(M^{(1)}) = \frac{2}{10}$, $P(A^{(2)} / M^{(1)}) = \frac{3}{9}$,
     $P(M^{(3)}/(M^{(1)} \cap A^{(2)})) = \frac{1}{8}$, $P(A^{(4)} / (M^{(1)} \cap A^{(2)} \cap M^{(3)})) = \frac{2}{7}$.
     Тому за формулою \eqref{eq:mult_for_n} $P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7}$.
 \end{example}
@@ -157,7 +157,7 @@ $H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кі
         $H_2 = \left\{ \text{телефон з В'єтнаму}\right\}$ та $H_3 = \left\{ \text{телефон з Кореї}\right\}$.
         $P(H_1) = 0.8$, $P(H_2) = 0.15$, $P(H_3) = 0.05$,
         $P(A/H_1) = 0.01$, $P(A/H_2) = 0.001$, $P(A/H_3) = 0.0001$.
-        Тоді за формулою \eqref{eq:total_prob} $P(A) = 0.8\cdot 0.01 + 0.15\cdot 0.001 + 0.05\cdot 0.0001 = 0.080155$.
+        Тоді за формулою \eqref{eq:total_prob} $P(A) = 0.8\cdot 0.01 + 0.15\cdot 0.001 + 0.05\cdot 0.0001 = 0.008155$.
         \item Серед $N$ екзаменаційних білетів $n$ <<щасливих>>, $n<N$.
         У якого студента ймовірність витягнути <<щасливий>> білет більша --- у того, хто тягне першим, чи того, хто тягне другим?
 
