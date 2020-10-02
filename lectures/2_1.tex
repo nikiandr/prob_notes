@@ -64,12 +64,12 @@
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
         = \left[\text{теорема неперервності \refeq{th:2}}\right] = 
-        P\left(\bigcap\limits_{n=1}^\infty A_n\right) = P(\varnothing) = 0$.
+        P\left(\bigcap\limits_{n=1}^\infty A_n\right) = \\= P(\varnothing) = 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
         = \left[\text{теорема неперервності \refeq{th:1}}\right] = 
-        P\left(\bigcup\limits_{n=1}^\infty B_n\right) = P(\Omega) = 1$.
+        P\left(\bigcup\limits_{n=1}^\infty B_n\right) = \\= P(\Omega) = 1$.
     \end{proof}
     \item \label{2_1_con} Функція розподілу неперервна зліва: $\lim\limits_{x \to x_0 - 0} 
     F_\xi(x) = F_\xi(x_0)$.
@@ -79,8 +79,8 @@
         
         $\lim\limits_{x \to x_0 - 0} 
         F_\xi(x) = \lim\limits_{n \to \infty}P(\xi < x_n) =
-        \left|\text{теорема \refeq{th:2}}\right| = P(\bigcup\limits_{n=1}^\infty A_n) = 
-        P(\xi < x_0) = F_\xi(x_0)$.
+        \left[\text{теорема неперервності \refeq{th:2}}\right] = P\left(\bigcup\limits_{n=1}^\infty A_n\right) = \\
+        = P(\xi < x_0) = F_\xi(x_0)$.
     \end{proof}
 \end{enumerate}
 
@@ -141,7 +141,7 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 \end{definition}
 
 \hbox to \hsize{\hfil{
-    \begin{tikzpicture}[yscale = 0.8]
+    \begin{tikzpicture}[yscale = 0.6]
         \draw [->] (0,0) -- (5,0);
         \draw [->] (0,0) -- (0,6);
         \draw [fill] (1, 0) circle [radius = 0.05];
