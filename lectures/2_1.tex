@@ -18,87 +18,9 @@
     $\left\{ \omega: \xi(\omega) \in \left< a; b\right> \right\}$ також належать $\mathcal{F}$.
 \end{remark}
 
-В курсі розглядаються випадкові величини двох видів --- дискретні (ДВВ) та неперервні (НВВ).
+Надалі розглядатимуться випадкові величини двох видів --- дискретні (ДВВ) та неперервні (НВВ).
 
-\subsection{Дискретні випадкові величини та їх задання}
-\begin{definition}
-    Випадкова величина $\xi = \xi(\omega)$ називається 
-    \emph{дискретною випадковою величиною} (ДВВ), якщо вона набуває скінченну або зліченну 
-    кількість значень.
-\end{definition}
-Для задання ДВВ, крім знання значень випадкової величини, необхідно знати ймовірності, 
-з якими ці значення приймаються.
-$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
-
-\begin{definition}
-    \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
-    які значення ця випадкова величина приймає та з якими ймовірностями.
-
-    Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
-
-    \begin{tabular}{c|c|c|c|c|c}
-        $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ & ... \\
-        \hline
-        $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ...
-    \end{tabular}
-    \hspace{40pt}
-    $x_1 < x_2 < ... < x_n < ...,\; \sum\limits_i p_i = 1$
-\end{definition}
-\begin{example}
-    $\xi$ задає кількість влучень при чотирьох пострілах з імовірністю влучення 
-    $p = \frac{1}{2}$. Скласти закон розподілу цієї випадкової величини.
-
-    З формули Бернуллі $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
-    C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}, k = 0,1,2,3,4$.
-
-    \begin{tabular}{c|c|c|c|c|c}
-        $\xi$ & 0 & 1 & 2 & 3 & 4 \\
-        \hline
-        $p$ & $\frac{1}{2^4}$ & $\frac{4}{2^4}$ & $\frac{6}{2^4}$ & $\frac{5}{2^4}$ & 
-        $\frac{1}{2^4}$
-    \end{tabular}
-\end{example}
-\newpage
-\begin{definition}
-    Графічне зображення закону розподілу ДВВ називається 
-    \emph{полігоном розподілу ймовірностей}.
-\end{definition}
-
-\hbox to \hsize{\hfil{
-    \begin{tikzpicture}[yscale = 0.8]
-        \draw [->] (0,0) -- (5,0);
-        \draw [->] (0,0) -- (0,6);
-        \draw [fill] (1, 0) circle [radius = 0.05];
-        \node [below] at (1, 0) {$x_1$};
-        \node [below] at (2, 0) {$x_2$};
-        \node [below] at (3, 0) {$x_3$};
-        \node [below] at (3.75, 0) {$...$};
-        \node [below] at (4.5, 0) {$x_n$};
-        \node [left] at (0, 1) {$p_1$};
-        \node [left] at (0, 2) {$p_2$};
-        \node [left] at (0, 3) {$p_3$};
-        \node [left] at (0, 3.75) {$...$};
-        \node [left] at (0, 4.5) {$p_n$};
-        \draw [fill] (2, 0) circle [radius = 0.05];
-        \draw [fill] (3, 0) circle [radius = 0.05];
-        \draw [fill] (4.5, 0) circle [radius = 0.05];
-        \draw [fill] (0, 1) circle [radius = 0.05];
-        \draw [fill] (0, 2) circle [radius = 0.05];
-        \draw [fill] (0, 3) circle [radius = 0.05];
-        \draw [fill] (0, 4.5) circle [radius = 0.05];
-        \draw [fill] (0, 5.5) circle [radius = 0.05];
-        \node [left] at (0, 5.5) {$1$};
-        \node [right] at (5, 0) {$x$};
-        \node [above] at (0, 6) {$p$};
-        \draw [dashed] (0, 5.5) -- (5, 5.5);
-        \draw [fill] (1, 1) circle [radius = 0.05];
-        \draw [fill] (2, 3) circle [radius = 0.05];
-        \draw [fill] (3, 2) circle [radius = 0.05];
-        \draw [fill] (4.5, 4.5) circle [radius = 0.05];
-        \draw (1, 1) -- (2, 3) -- (3, 2);
-        \draw [dashed] (3, 2) -- (4.5, 4.5);
-    \end{tikzpicture}
-}\hfil}
+\subsection{Функція розподілу}
 
 Універсальною ймовірнісною характеристикою будь-якої випадкової величини є функція 
 розподілу випадкової величини.
@@ -141,17 +63,13 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
-        = \left|\text{теорема \refeq{th:2}}\right| = 
-        P(\bigcap\limits_{n=1}^\infty A_n) = P(\varnothing) =$ 
-        \newline
-        $= 0$.
+        = \left[\text{теорема неперервності \refeq{th:2}}\right] = 
+        P\left(\bigcap\limits_{n=1}^\infty A_n\right) = P(\varnothing) = 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
-        = \left|\text{теорема \refeq{th:1}}\right| = 
-        P(\bigcup\limits_{n=1}^\infty B_n) = P(\Omega) =$
-        \newline
-        $= 1$.
+        = \left[\text{теорема неперервності \refeq{th:1}}\right] = 
+        P\left(\bigcup\limits_{n=1}^\infty B_n\right) = P(\Omega) = 1$.
     \end{proof}
     \item \label{2_1_con} Функція розподілу неперервна зліва: $\lim\limits_{x \to x_0 - 0} 
     F_\xi(x) = F_\xi(x_0)$.
@@ -173,12 +91,91 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 \end{remark}
 
 Розглянемо ймовірність $P\left\{x \leq \xi < x + \Delta x\right\} = F_\xi (x+\Delta x) - F_\xi (x)$.
-Перейдемо до границі при $\Delta \rightarrow 0$:
+Перейдемо до границі при $\Delta x \rightarrow 0$:
 $P\left\{ \xi = x\right\} = \begin{cases}
     0, & \text{якщо } x \text{ --- точка неперервності} \\
     \Delta \text{-стрибок}, & \text{якщо } x \text{ --- точка розриву 1-го роду}
 \end{cases}$.
-\newline \newline
+
+\subsection{Дискретні випадкові величини}
+\begin{definition}
+    Випадкова величина $\xi = \xi(\omega)$ називається 
+    \emph{дискретною випадковою величиною} (ДВВ), якщо вона набуває скінченну або зліченну 
+    кількість значень.
+\end{definition}
+Для задання ДВВ, крім знання значень випадкової величини, необхідно знати ймовірності, 
+з якими ці значення приймаються.
+$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
+
+\begin{definition}
+    \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
+    які значення ця випадкова величина приймає та з якими ймовірностями.
+
+    Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ & ... \\
+        \hline
+        $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ...
+    \end{tabular}
+    \hspace{40pt}
+    $x_1 < x_2 < ... < x_n < ...,\; \sum\limits_i p_i = 1$
+\end{definition}
+\begin{example}
+    $\xi$ задає кількість влучень при чотирьох пострілах з імовірністю влучення 
+    $p = \frac{1}{2}$. Скласти закон розподілу цієї випадкової величини.
+
+    З формули Бернуллі $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
+    C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}, k = 0,1,2,3,4$.
+
+    \begin{tabular}{c|c|c|c|c|c}
+        $\xi$ & 0 & 1 & 2 & 3 & 4 \\
+        \hline
+        $p$ & $\frac{1}{2^4}$ & $\frac{4}{2^4}$ & $\frac{6}{2^4}$ & $\frac{4}{2^4}$ & 
+        $\frac{1}{2^4}$
+    \end{tabular}
+\end{example}
+\begin{definition}
+    Графічне зображення закону розподілу ДВВ називається 
+    \emph{полігоном розподілу ймовірностей}.
+\end{definition}
+
+\hbox to \hsize{\hfil{
+    \begin{tikzpicture}[yscale = 0.8]
+        \draw [->] (0,0) -- (5,0);
+        \draw [->] (0,0) -- (0,6);
+        \draw [fill] (1, 0) circle [radius = 0.05];
+        \node [below] at (1, 0) {$x_1$};
+        \node [below] at (2, 0) {$x_2$};
+        \node [below] at (3, 0) {$x_3$};
+        \node [below] at (3.75, 0) {$...$};
+        \node [below] at (4.5, 0) {$x_n$};
+        \node [left] at (0, 1) {$p_1$};
+        \node [left] at (0, 2) {$p_3$};
+        \node [left] at (0, 3) {$p_2$};
+        \node [left] at (0, 3.75) {$...$};
+        \node [left] at (0, 4.5) {$p_n$};
+        \draw [fill] (2, 0) circle [radius = 0.05];
+        \draw [fill] (3, 0) circle [radius = 0.05];
+        \draw [fill] (4.5, 0) circle [radius = 0.05];
+        \draw [fill] (0, 1) circle [radius = 0.05];
+        \draw [fill] (0, 2) circle [radius = 0.05];
+        \draw [fill] (0, 3) circle [radius = 0.05];
+        \draw [fill] (0, 4.5) circle [radius = 0.05];
+        \draw [fill] (0, 5.5) circle [radius = 0.05];
+        \node [left] at (0, 5.5) {$1$};
+        \node [right] at (5, 0) {$x$};
+        \node [above] at (0, 6) {$p$};
+        \draw [dashed] (0, 5.5) -- (5, 5.5);
+        \draw [fill] (1, 1) circle [radius = 0.05];
+        \draw [fill] (2, 3) circle [radius = 0.05];
+        \draw [fill] (3, 2) circle [radius = 0.05];
+        \draw [fill] (4.5, 4.5) circle [radius = 0.05];
+        \draw (1, 1) -- (2, 3) -- (3, 2);
+        \draw [dashed] (3, 2) -- (4.5, 4.5);
+    \end{tikzpicture}
+}\hfil}
+
 \noindent \textbf{Вигляд функції розподілу для ДВВ:}
 \nopagebreak
 

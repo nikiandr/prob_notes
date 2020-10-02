@@ -12,7 +12,7 @@
         \end{cases}
     \end{equation}
 \end{definition}
-Інтеграл \eqref{eq:e_xi} має збігатися \emph{абсолютно}, інакше кажуть, що
+Інтеграл або ряд \eqref{eq:e_xi} має збігатися \emph{абсолютно}, інакше кажуть, що
 випадкова величина не має математичного сподівання.
 \begin{example}
     НВВ, розподілена за законом Коші з щільністю $f_\xi(x) = \frac{1}{\pi (1+x^2)}$
@@ -33,7 +33,7 @@
     \item $E\left( \xi_1 + \xi_2\right) = E\xi_1 + E\xi_2$.
     \begin{proof}[Доведення для ДВВ]
         $P\left\{\xi_1 = x_k\right\} = p_k$, $P\left\{\xi_2 = y_j\right\} = p_j$, $P\left\{\xi_1 + \xi_2 = x_k + y_j\right\} = p_{kj}$.
-        $E\left( \xi_1 + \xi_2\right) = \sum\limits_k \sum\limits_j (x_k+y_j) p_k p_j =
+        $E\left( \xi_1 + \xi_2\right) = \sum\limits_k \sum\limits_j (x_k+y_j) p_{kj} =
         \sum\limits_k x_k \sum\limits_j p_{kj} + \sum\limits_j y_j \sum\limits_k p_{kj} = \sum\limits_k x_k p_k + \sum\limits_j y_j p_j = E\xi_1 + E\xi_2$.
     \end{proof}
 \suspend{enumerate}
@@ -283,7 +283,7 @@ $\beta_k = E\left(\xi-E\xi\right)^k = E\left( \sum\limits_{j=0}^k C_k^j \xi^j (-
         \draw [dashed] (0.4977, 0) -- (0.4977, 0.4053);
         \node [below] at (0.4977, 0) {$E\xi$};
     \end{tikzpicture} \\
-    $As\xi = 0$ & $As\xi > 0$ & $As\xi < 0$ 
+    $As\xi = 0$ & $As\xi < 0$ & $As\xi > 0$ 
 \end{tabular}
 \begin{definition}
     \emph{Ексцесом} випадкової величини $Ex\xi$ називається безрозмірна 
