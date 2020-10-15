@@ -133,7 +133,7 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
 
 Для дослідження числових характеристик скористаємося генератрисою розподілу:
 
-$\varphi_\xi(z) = \sum\limits_{k=1}^{\infty} P\left\{\xi = k\right\} z^k = \sum\limits_{k=1}^{\infty} pq^{k-1} z^k = \frac{pq}{1-qz}$, якщо $\left| qz\right|<1$.
+$\varphi_\xi(z) = \sum\limits_{k=1}^{\infty} P\left\{\xi = k\right\} z^k = \sum\limits_{k=1}^{\infty} pq^{k-1} z^k = \frac{pz}{1-qz}$, якщо $\left| qz\right|<1$.
 $\varphi'_\xi(z) = \frac{p}{(1-qz)^2}$, $\varphi''_\xi(z) = \frac{2pq}{(1-qz)^3}$.
 $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''_\xi(1) + \varphi'_\xi(1) - \left( \varphi'_\xi(1)\right)^2 = \frac{2q}{p^2} + \frac{1}{p} - \frac{1}{p^2} = \frac{2q+p-1}{p^2} = \frac{q}{p^2}$.
 Отже, знайдено значення математичного сподівання та дисперсії.
@@ -154,7 +154,7 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
     числові характеристики для іншого означення геометричного розподілу, 
     де $\xi$ приймає значення $0,1,2,...$ з ймовірностями $P\left\{\xi = k\right\} = pq^k$.
 \end{exercise}
-Геометричний розподіл \textbf{<<не має пам'яті>>}: $P\left\{\xi>n+m / \xi>n\right\} = P\left\{\xi>m\right\}$.
+Геометричний розподіл \textbf{<<не має пам'яті>>}: $P\left\{\xi = n+m / \xi \geq n\right\} = P\left\{\xi = m\right\}$.
 Це означає, що кількість минулих <<невдач>> не впливає на кількість майбутніх <<невдач>>.
 \begin{exercise}
     Довести цю властивість і те, що геометричний розподіл --- 
@@ -513,11 +513,11 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 \noindent \textbf{Крива розподілу:}
 
-\begin{tikzpicture}[yscale = 2, xscale=2]
+\begin{tikzpicture}[yscale = 4, xscale = 2]
     \pgfmathsetmacro{\a}{2.5};
-    \pgfmathsetmacro{\s}{0.5}
+    \pgfmathsetmacro{\s}{1}
     \draw [->] (-1, 0) -- (5, 0);
-    \draw [->] (0, -0.2) -- (0, 1);
+    \draw [->] (0, -0.2) -- (0, 0.5);
     \draw [dashed] (\a, 0) -- (\a, 0.398942280401/\s);
     \draw [dashed] (\a-\s, 0) -- (\a-\s, 0.241970724519/\s);
     \draw [dashed] (\a+\s, 0) -- (\a+\s, 0.241970724519/\s);
@@ -527,7 +527,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     \node [below] at (\a-\s, 0) {$a - \sigma$};
     \node [below] at (\a+\s, 0) {$a + \sigma$};
     \node [below right] at (0, 0) {$0$};
-    \node [left] at (0, 1) {$f_\xi(x)$};
+    \node [left] at (0, 0.5) {$f_\xi(x)$};
 \end{tikzpicture}
 
 \noindent \textbf{Зміст параметрів $a$ та $\sigma^2$:}
@@ -589,7 +589,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 $F_\xi(x) = \int\limits_{-\infty}^{x} f_\xi(t) dt = 
 \frac{1}{\sqrt{2\pi}\sigma} \int\limits_{-\infty}^{x} 
-e^{-\frac{(x-a)^2}{2\sigma^2}} dt$ --- не береться в елементарних 
+e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елементарних 
 функціях.
 
 Для зручного використання гауссівського закону в задачах введемо 
@@ -631,7 +631,7 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
     \begin{enumerate}
         \item $\Phi(-x) = -\Phi(x)$ --- непарна.
         \item $\Phi(0) = 0$.
-        \item $y = \pm 0.5$ --- вертикальні асимптоти.
+        \item $y = \pm 0.5$ --- горизонтальні асимптоти.
         \item $\forall x \geq 5: \Phi(x) \approx 0.5 $.
         \item $\forall x \leq -5: \Phi(x) \approx -0.5 $.
     \end{enumerate}
@@ -668,7 +668,7 @@ e^{-\frac{(x-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
     e^{-\frac{(t-a)^2}{2\sigma^2}} dt = 
     \left[\frac{t-a}{\sigma} = z\right] = 
     \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{\frac{x-a}{\sigma}} 
-    e^{-\frac{t^2}{2}} dt = \frac{1}{2} + 
+    e^{-\frac{z^2}{2}} dz = \frac{1}{2} + 
     \Phi\left(\frac{x-a}{\sigma}\right)
 \end{equation}
 
