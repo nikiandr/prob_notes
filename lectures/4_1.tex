@@ -14,7 +14,7 @@
 Інтеграл $\int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx$ у курсі
 гармонічного аналізу називається \emph{перетворенням Фур'є} функції $f_\xi(x)$.
 Отже, у випадку НВВ $\xi$ $\chi_\xi(t)$ --- перетворення Фур'є щільності.
-Також з гармонічного аналізу відомо, що за допомогою \emph{оберненого перетворення Фур'є}
+Також з курсу гармонічного аналізу відомо, що за допомогою \emph{оберненого перетворення Фур'є}
 можна відновити $f_\xi(x)$ за $\chi_\xi(t)$: $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} e^{-itx} \chi_\xi(t)dt$.
 
 \subsection{Властивості характеристичної функції}
@@ -84,7 +84,7 @@
 Нехай $\chi(t)$ --- деяка комплекснозначна функція дійсного аргументу.
 Якщо вона є характеристичною функцією деякої ВВ, то для неї має виконуватися:
 \begin{enumerate}
-    \item $\chi(0) = 1, \left| \chi(t)\right| \leq 1$.
+    \item $\chi(0) = 1$, $\left| \chi(t)\right| \leq 1$.
     \item $\chi(t)$ --- рівномірно неперервна.
     \item $\overline{\chi(t)} = \chi(-t)$.
 \end{enumerate}
@@ -93,7 +93,7 @@
         \item $\chi(t) = \cos(t)$ --- може бути характеристичною.
         Оскільки $\cos(t) = \frac{1}{2}e^{it} + \frac{1}{2}e^{-it}$, то відповідна ВВ --- дискретна: 
         \begin{tabular}{c|c|c}
-            $\xi$ & -1 & 1 \\
+            $\xi$ & $-1$ & $1$ \\
             \hline
             $p$ & $1/2$ & $1/2$
         \end{tabular}
@@ -102,7 +102,7 @@
         $\cos(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
         відповідна ВВ --- дискретна:
         \begin{tabular}{c|c|c|c}
-            $\xi$ & -1 & 0 & 1 \\
+            $\xi$ & $-1$ & $0$ & $1$ \\
             \hline
             $p$ & $1/4$ & $1/2$ & $1/4$
         \end{tabular}
@@ -117,7 +117,7 @@
 \end{example}
 
 \begin{exercise}
-    Нехай $\chi(t)$ --- характеристична функція. Чи можуть бути характеристичними функції $\overline{\chi}$, $\chi^2$, $|\chi|^2$, ${Re}\chi$, $|\chi|$, ${Im}\chi$? 
+    Нехай $\chi(t)$ --- характеристична функція деякого розподілу. Чи можуть бути характеристичними функції $\overline{\chi}$, $\chi^2$, $|\chi|^2$, ${Re}\chi$, $|\chi|$, ${Im}\chi$? 
 \end{exercise}
 
 Необхідні та достатні умови того, що функція є характеристичною, дає
@@ -129,23 +129,23 @@ $$
 
 \subsection{Характеристичні функції деяких розподілів}
 \begin{enumerate}
-    \item $\xi \sim {Bin}(n,p)$ --- біноміальний розподіл.
+    \item $\xi \sim \mathrm{Bin}(n,p)$ --- біноміальний розподіл.
     $\varphi_\xi(z) = (pz+q)^n \Rightarrow \chi_\xi(t) = \left( p e^{it} + q\right)^n$.
-    \item $\xi \sim {Geom}(p)$ --- геометричний розподіл.
+    \item $\xi \sim \mathrm{Geom}(p)$ --- геометричний розподіл.
     $\varphi_\xi(z) = \frac{pz}{1-qz} \Rightarrow \chi_\xi(t) = \frac{p e^{it}}{1-q e^{it}}$.
-    \item $\xi \sim {Poiss}(a)$ --- розподіл Пуассона.
+    \item $\xi \sim \mathrm{Poiss}(a)$ --- розподіл Пуассона.
     $\varphi_\xi(z) = e^{a(z-1)} \Rightarrow \chi_\xi(t) = e^{a(e^{it}-1)}$.
-    \item $\xi \sim {U}\left< a; b\right>$ --- рівномірний розподіл.
+    \item $\xi \sim \mathrm{U}\left< a; b\right>$ --- рівномірний розподіл.
 
     $\chi_\xi(t) = \frac{1}{b-a} \int\limits_a^b e^{itx} dx = \frac{e^{itb} - e^{ita}}{it(b-a)}$.
     Зокрема, при $\xi \sim {U}\left< -a; a\right>$ $\chi_\xi(t) = \begin{cases}
         \frac{\sin(at)}{at}, & t \neq 0 \\
         1, & t = 0
     \end{cases}$.
-    \item $\xi \sim {Exp}(\lambda)$ --- експоненційний розподіл.
+    \item $\xi \sim \mathrm{Exp}(\lambda)$ --- експоненційний розподіл.
     
     $\chi_\xi(t) = \lambda \int\limits_0^{+\infty} e^{itx} e^{-\lambda x} dx = \lambda \int\limits_0^{+\infty} e^{-(\lambda-it)x} dx = \frac{\lambda}{\lambda - it}$.
-    \item $\xi \sim {N}(a, \sigma^2)$ --- нормальний розподіл. Розглянемо стандартний розподіл $\eta \sim {N}(0, 1)$,
+    \item $\xi \sim \mathrm{N}(a, \sigma^2)$ --- нормальний розподіл. Розглянемо стандартний розподіл $\eta \sim \mathrm{N}(0, 1)$,
     тоді $\xi = a + \sigma\cdot\eta$.
 
     $\chi_\eta(t) = \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{itx} e^{-x^2/2} dx = 
@@ -171,19 +171,19 @@ $$
 \end{definition}
 \begin{example}
     \begin{enumerate}
-        \item Перевірити стійкість нормального розподілу. Нехай $\xi_1 \sim {N}(a_1, \sigma_1), ..., \xi_n \sim {N}(a_n, \sigma_n)$ ---
+        \item Перевірити стійкість нормального розподілу. Нехай $\xi_1 \sim \mathrm{N}(a_1, \sigma_1), ..., \xi_n \sim \mathrm{N}(a_n, \sigma_n)$ ---
         незалежні у сукупності. 
     
         Знайдемо характеристичну функцію суми: $\chi_{\xi_1 + ... + \xi_n}(t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)=
         \prod\limits_{k=1}^n e^{ia_k t - \frac{\sigma_k^2 t^2}{2}} = 
         \exp\left\{i\cdot \left( \sum\limits_{k=1}^n a_k\right)\cdot t - \frac{t^2}{2}\cdot\left( \sum\limits_{k=1}^n \sigma_k^2\right)\right\}$ ---
-        це характеристична функція нормального розподілу. Отже, $\sum\limits_{k=1}^n = \xi_1 + ... + \xi_n \sim {N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
-        \item Перевірити стійкість біноміального розподілу. Нехай $\xi_1 \sim {Bin}(n_1, p_1)$, $\xi_2 \sim {Bin}(n_2, p_2)$ --- незалежні.
+        це характеристична функція нормального розподілу. Отже, $\sum\limits_{k=1}^n = \xi_1 + ... + \xi_n \sim \mathrm{N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
+        \item Перевірити стійкість біноміального розподілу. Нехай $\xi_1 \sim \mathrm{Bin}(n_1, p_1)$, $\xi_2 \sim \mathrm{Bin}(n_2, p_2)$ --- незалежні.
         $\chi_{\xi_1 + \xi_2} (t) = \left( p_1 e^{it} + q_1\right)^{n_1} \cdot \left( p_2 e^{it} + q_2\right)^{n_2} \overset{?}{=} \left(P e^{it} + Q\right)^N$.
 
         Взагалі кажучи, біноміальний розподіл не є стійким по відношенню до  операції додавання.
         Його називають \emph{умовно стійким} при $p_1 = p_2$, тоді
-        $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim {Bin}(n_1+n_2, p)$.
+        $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim \mathrm{Bin}(n_1+n_2, p)$.
     \end{enumerate}
 \end{example}
 
@@ -222,7 +222,7 @@ $$
         \item $\vec{\xi} \sim {U}(D)$, $D = \left\{(x;y) \in \mathbb{R}^2:|x|\leq 1, |y|\leq 1\right\}$.
         
         $\chi_{\vec{\xi}}(t_1, t_2) = \frac{1}{4} \iint\limits_{D} e^{i(t_1x + t_2y)} dx dy = \frac{1}{4}\cdot\left( \int\limits_{-1}^1 e^{it_1x} dx\right) 
-        \cdot\left( \int\limits_{-1}^1 e^{it_2y} dy\right) = \cdot\frac{e^{it_1}-e^{-it_1}}{2it_1}\cdot\frac{e^{it_2}-e^{-it_2}}{2it_2} = \begin{cases}
+        \cdot\left( \int\limits_{-1}^1 e^{it_2y} dy\right) = \frac{e^{it_1}-e^{-it_1}}{2it_1}\cdot\frac{e^{it_2}-e^{-it_2}}{2it_2} = \begin{cases}
             \frac{\sin(t_1)}{t_1} \cdot \frac{\sin(t_2)}{t_2}, & t_1 \neq 0, t_2 \neq 0 \\
             \frac{\sin(t_1)}{t_1}, & t_2 = 0 \\
             \frac{\sin(t_2)}{t_2}, & t_1 = 0 \\
@@ -234,7 +234,7 @@ $$
 \subsection{Властивості характеристичних функцій векторів}
 \begin{enumerate}
     \item Характеристична функція існує для будь-якого розподілу випадкового вектора, бо \\
-    $\left| \chi_{\vec{\xi}}(\vec{t})\right| \leq 1, \chi_{\vec{\xi}}(\vec{0}) = 1$.
+    $\left| \chi_{\vec{\xi}}(\vec{t})\right| \leq 1$, $\chi_{\vec{\xi}}(\vec{0}) = 1$.
     \item Характеристична функція рівномірно неперервна по кожному з аргументів.
     \item За характеристичною функцією вектора можна знайти 
     характеристичну функцію будь-якої підсистеми цього вектора.
@@ -258,7 +258,7 @@ $$
         {cov}(\xi_k, \xi_j) = E\xi_k\xi_j - E\xi_k\cdot E\xi_j = \frac{1}{i^2} \frac{\partial^2 \chi_{\vec{\xi}}(t)}{\partial t_k \partial t_j} \Biggr \vert_{\vec{t} = \vec{0}} - 
         \left( \frac{1}{i} \cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left( \frac{1}{i} \cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}}\right) = \\
         -\frac{\partial^2 \chi_{\vec{\xi}}(t)}{\partial t_k \partial t_j} \Biggr \vert_{\vec{t} = \vec{0}} + 
-        \left(\cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left(\cdot\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}}\right)\end{gather*}
+        \left(\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left(\frac{\partial \chi_{\vec{\xi}}(t)}{\partial t_j} \Biggr \vert_{\vec{t} = \vec{0}}\right)\end{gather*}
 \end{enumerate}
 
 Необхідні та достатні умови того, що комплекснозначна функція $n$ дійсних змінних є характеристичною, дає

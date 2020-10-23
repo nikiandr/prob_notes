@@ -7,10 +7,10 @@
     якщо набуває значень $0,1,...,n$ з ймовірностями \begin{equation}
         P\left\{\xi = k\right\} = C_n^k p^k q^{n-k}, q = 1 - p
     \end{equation}
-\textbf{Коротке позначення:} $\xi \sim {Bin}(n, p)$.
+\textbf{Коротке позначення:} $\xi \sim \mathrm{Bin}(n, p)$.
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
 
-Окремим важливим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim {Bin}(1, p)$.
+Окремим важливим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
 За законом Бернуллі розподілені випадкові величини-індикатори $I_A = \begin{cases}
     0, & \text{подія A не відбулась}\\ 1, & \text{подія А відбулась}
 \end{cases}$ при $P(A) = p$.
@@ -79,7 +79,7 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
 \end{enumerate}
 
 \noindent\textbf{Застосування:} якщо проводиться $n$ незалежних випробувань з ймовірністю успіху $p$, 
-то $\xi \sim {Bin}(n, p)$ задає кількість успіхів.
+то $\xi \sim \mathrm{Bin}(n, p)$ задає кількість успіхів.
 
 \subsection{Геометричний розподіл}
 \noindent\textbf{Означення:}
@@ -87,7 +87,7 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
     якщо набуває значень $1,2,3,..$ з ймовірностями \begin{equation}
         P\left\{\xi = k\right\} = pq^{k-1}, q = 1 - p
     \end{equation}
-    \textbf{Коротке позначення:} $\xi \sim {Geom}(p)$.
+    \textbf{Коротке позначення:} $\xi \sim \mathrm{Geom}(p)$.
     $p$ --- параметр закону, $p\in (0;1)$.
 
 \noindent\textbf{Ряд розподілу:}
@@ -147,7 +147,7 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
 \end{enumerate}
 
 \noindent\textbf{Застосування:} якщо проводяться незалежні випробування з ймовірністю успіху $p$ до першого успішного,
-то $\xi$, що задає кількість проведених випробувань, має розподіл ${Geom}(p)$.
+то $\xi$, що задає кількість проведених випробувань, має розподіл $\mathrm{Geom}(p)$.
 
 \begin{exercise}
     Записати ряд розподілу, функцію розподілу, генетратрису та обчислити
@@ -160,7 +160,7 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
     Довести цю властивість і те, що геометричний розподіл --- 
     єдиний дискретний розподіл, що <<не має пам'яті>>.
 \end{exercise}
-До геометричного закону можна звести \emph{закон розподілу Паскаля} $\xi \sim {Pas}(a)$,
+До геометричного закону можна звести \emph{закон розподілу Паскаля} $\xi \sim \mathrm{Pas}(a)$,
 що задається $P\left\{\xi = k\right\} = \frac{a^k}{(1+a)^{k+1}}, k = 0,1,2,..., a>0$,
 заміною $p=\frac{1}{a+1}$. Для нього $E\xi = a$, $D\xi = a + a^2$.
 
@@ -170,7 +170,7 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
     якщо набуває значень $0,1,2,..$ з ймовірностями \begin{equation}
         P\left\{\xi = k\right\} = \frac{a^k}{k!}e^{-a}
     \end{equation}
-    \textbf{Коротке позначення:} $\xi \sim {Poiss}(a)$.
+    \textbf{Коротке позначення:} $\xi \sim \mathrm{Poiss}(a)$.
     $a$ --- параметр закону, $a > 0$.
 
 \noindent\textbf{Ряд розподілу:}
@@ -283,7 +283,7 @@ $\begin{cases}
 
 $\varphi_\xi(z, t) = \sum\limits_{m=0}^{\infty} P\left\{\xi(t) = m\right\} z^m = \sum\limits_{m=0}^{\infty} p_m(t) z^m$ 
 
-\noindent Помножимо всі рівняння отриманої системи на $z^m$ та складемо:
+\noindent Помножимо кожне рівняння отриманої системи на $z^m$ та складемо:
 
 $\sum\limits_{m=0}^{\infty} p'_m(t) z^m = -\lambda \sum\limits_{m=0}^{\infty} p_m(t) z^m + \lambda \sum\limits_{m=1}^{\infty} p_{m-1}(t) z^m = 
 -\lambda \sum\limits_{m=0}^{\infty} p_m(t) z^m + \lambda z \sum\limits_{m=0}^{\infty} p_{m}(t) z^m$
@@ -309,10 +309,10 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
             0, & x \notin \left<a; b\right>
         \end{cases}
     \end{equation}
-\textbf{Коротке позначення:} $\xi \sim {U}\left<a; b\right>$.
+\textbf{Коротке позначення:} $\xi \sim \mathrm{U}\left<a; b\right>$.
     $a$ і $b$ --- параметри закону, $a<b$, $a, b \in \mathbb{R}$.
 
-Розподіл ${U}\left<0; 1\right>$ називається \emph{стандартним рівномірним розподілом}.
+Розподіл $\mathrm{U}\left<0; 1\right>$ називається \emph{стандартним рівномірним розподілом}.
 
 \noindent \textbf{Крива розподілу:}
 
@@ -357,6 +357,7 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
     \node [below] at (5, 0) {$x$};
     \node [left] at (0, 1.2) {$F_\xi(x)$};
     \draw [dashed] (0, 1) -- (\b, 1);
+    \draw [dashed] (\b, 0) -- (\b, 1);
     \node [left] at (0, 1) {$1$};
     %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
     \end{tikzpicture}
@@ -373,7 +374,7 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
 \end{enumerate}
 
 \noindent\textbf{Застосування:} отримання вибірок з інших законів розподілу;
-похибка округлення до найближчої поділки приладу при ціні поділки $a$ має розподіл ${U}\left<-\frac{a}{2}; \frac{a}{2}\right>$.
+похибка округлення до найближчої поділки приладу при ціні поділки $a$ має розподіл $\mathrm{U}\left<-\frac{a}{2}; \frac{a}{2}\right>$.
 
 \subsection{Експоненційний (показниковий) розподіл}
 \noindent\textbf{Означення:}
@@ -384,7 +385,7 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
             0, & x < 0
         \end{cases}
     \end{equation}
-\textbf{Коротке позначення:} $\xi \sim {Exp}(\lambda)$.
+\textbf{Коротке позначення:} $\xi \sim \mathrm{Exp}(\lambda)$.
     $\lambda > 0$ --- параметр закону.
 
 \noindent \textbf{Крива розподілу:}
@@ -441,10 +442,10 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 \begin{exercise}
     Дослідити характеристики інших варіантів експоненційного розподілу:
-    ${Exp}(\lambda, x_0)$ з щільністю $f_\xi(x) = \begin{cases}
+    $\mathrm{Exp}(\lambda, x_0)$ з щільністю $f_\xi(x) = \begin{cases}
         \lambda e^{-\lambda (x-x_0)}, & x \geq x_0 \\
         0, & x < x_0
-    \end{cases}$ (експоненційний із зсувом) та ${Exp}(\alpha)$ зі щільністю
+    \end{cases}$ (експоненційний із зсувом) та $\mathrm{Exp}(\alpha)$ зі щільністю
     $f_\xi(x) = \begin{cases}
         \frac{1}{\alpha} e^{-\frac{x}{\alpha}}, & x \geq 0 \\
         0, & x < 0
@@ -487,7 +488,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     Тоді $F_\xi(t) = P\left\{ \xi < t\right\} = 1 - P\left\{ \xi \geq t\right\} = 1 - Q(t) = \begin{cases}
         1 - e^{-\lambda t}, & t \geq 0 \\
         0, & t < 0
-    \end{cases}$. Отже, $\xi \sim {Exp}(\lambda)$.
+    \end{cases}$. Отже, $\xi \sim \mathrm{Exp}(\lambda)$.
 \end{enumerate}
 
 \begin{example}
@@ -505,11 +506,11 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     \begin{equation}
         f_\xi(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-a)^2}{2\sigma^2}}
     \end{equation}
-\textbf{Коротке позначення:} $\xi \sim {N}(a, \sigma)$ або 
-    $\xi \sim {N}(a, \sigma^2)$.
+\textbf{Коротке позначення:} $\xi \sim \mathrm{N}(a, \sigma)$ або 
+    $\xi \sim \mathrm{N}(a, \sigma^2)$.
     $a \in \mathbb{R}, \sigma > 0$ --- параметри закону.
 
-    Розподіл $N(0, 1)$ називають стандартним гауссівським розподілом.
+    Розподіл $\mathrm{N}(0, 1)$ називають стандартним гауссівським розподілом.
 
 \noindent \textbf{Крива розподілу:}
 
@@ -612,7 +613,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
         {
             (0.3989422804) * e^(- (\x * \x / 2))
         });
-        \fill [gray, domain=0:1, smooth, variable = \x] plot ({\x}, 
+        \fill [lightgray, domain=0:1, smooth, variable = \x] plot ({\x}, 
         {
             (0.3989422804) * e^(- (\x * \x / 2))
         }) -- (1, 0) -- (0, 0) -- (0, 0.3989422804);
@@ -705,7 +706,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 \textbf{Коротке позначення:} $\xi \sim {\Gamma}(\alpha, \beta)$.
     $\alpha >0, \beta > 0$ --- параметри закону.
 \begin{remark}
-    ${\Gamma}(1, \lambda) = {Exp}(\lambda)$.
+    ${\Gamma}(1, \lambda) = \mathrm{Exp}(\lambda)$.
 \end{remark}
 \noindent \textbf{Крива розподілу:}
 
