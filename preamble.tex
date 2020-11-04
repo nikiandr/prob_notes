@@ -60,3 +60,13 @@
 \usetikzlibrary{shapes.geometric}
 \graphicspath{{pictures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+%\pagestyle{headings}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter. #1.}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\fancyhf{}
+\fancyhead[C]{\chaptername~\thechapter}
+\fancyhead[C]{\leftmark}
+\fancyfoot[C]{\thepage}
