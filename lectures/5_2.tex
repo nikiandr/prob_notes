@@ -1,0 +1,64 @@
+% !TEX root = ../main.tex
+
+\section{Функції кількох випадкових аргументів}
+\subsection{Випадок довільної функції}
+Нехай $\varphi : \mathbb{R}^n \to \mathbb{R}$ --- задана числова функція.
+
+Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)$ --- дискретний випадковий вектор, тоді $\eta = \varphi(\vec{\xi})$ --- ДВВ.
+Побудову закону розподілу $\eta$ доцільно розглянути на прикладі.
+\begin{example}
+    $\vec{\xi} = \left( \xi_1, \xi_2\right)$ задано таблицею розподілу:
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \diagbox{$\xi_2$}{$\xi_1$} & $0$ & $1$ & $2$ \\
+        \hline
+        $-1$ & $0.1$ & $0.2$ & $0.3$ \\
+        \hline
+        $1$ & $0.2$ & $0.1$ & $0.1$ \\
+        \hline
+    \end{tabular}.
+
+    \noindentЗнайти закони розподілу $\eta_1 = \xi_1 \xi_2$ та $\eta_2 = \xi_1 + \xi_2$.
+    Для цього треба визначити значення, які приймають ці величини, та обчислити відповідні ймовірності.
+
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $\eta_1$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+        \hline
+        $p$ & $0.3$ & $0.2$ & $0.3$ & $0.1$ & $0.1$ \\
+        \hline
+    \end{tabular}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $\eta_2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\
+        \hline
+        $p$ & $0.1$ & $0.2$ & $0.5$ & $0.1$ & $0.1$ \\
+        \hline
+    \end{tabular}
+\end{example}
+
+Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)$ --- неперервний випадковий вектор
+із щільністю $f_{\vec{\xi}} (\vec{x})$, то можна знайти функцію розподілу $\eta = \varphi(\vec{\xi})$.
+$$F_\eta (y) = P \left\{ \eta < y\right\} = P \left\{ \xi \in D_y\right\} = \underset{D_y}{\int ... \int} f_{\vec{\xi}} (\vec{x}) d \vec{x}, \text{ де }D_y = \left\{\vec{x} \in \mathbb{R}^n : \varphi(\vec{x}) < y\right\}$$
+
+Розглянемо тепер взаємно однозначне гладке перетворення $\vec{\psi} : \mathbb{R}^n \to \mathbb{R}^n$ та
+знайдемо щільність розподілу $\vec{\eta} = \vec{\psi} (\vec{\xi})$. Для множини $D \subset \mathbb{R}^n$
+$P\left\{ \vec{\psi} (\vec{\xi}) \in D\right\} = P\left\{ \vec{\xi} \in \vec{\psi}^{-1}(D)\right\} = \int_{\vec{\psi}^{-1}(D)} f_{\vec{\xi}} (\vec{x}) d\vec{x} = 
+\left[ \text{заміна }\vec{y} = \vec{\psi}(\vec{x})\right] = \int_D f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \mathcal{J}^{-1} (\vec{\psi}^{-1}(\vec{y})\right| d\vec{y}$,
+де $\mathcal{J} (\vec{x})$ --- якобіан $\vec{\psi}$. Отже,
+$$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \mathcal{J}^{-1} (\vec{\psi}^{-1}(\vec{y})\right|$$
+
+\begin{example}
+    Нехай $A$ --- невироджена матриця розміру $n \times n$, $\vec{b} \in \mathbb{R}^n$ --- деякий вектор, $\vec{\xi}$ --- неперервний випадковий вектор.
+    Знайти щільність розподілу $\vec{\eta} = A \vec{\xi} + \vec{b}$.
+
+    Тут $\vec{y} = \vec{\psi}(\vec{x}) = A \vec{x} + \vec{b}$, тому $\vec{\psi}^{-1} (\vec{y}) = A^{-1} (\vec{y} - \vec{b})$. Якобіан $\vec{\psi}$ рівний $\left| \det A\right|$. 
+    Отже,
+    $f_{\vec{\eta}}(\vec{y}) = \frac{1}{\left| \det A\right|} f_{\vec{\xi}}\left(A^{-1} (\vec{y} - \vec{b})\right)$
+\end{example}
+
+\subsection{Закон розподілу добутку двох НВВ}
+
+\subsection{Закон розподілу частки двох НВВ}
+
+\subsection{Закон розподілу суми двох НВВ}

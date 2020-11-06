@@ -83,15 +83,19 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
 
 \hbox to \hsize{\hfil{
     \begin{tabular}{c c}
-        \begin{tabular}{c|c|c|c|c}
-            $\xi_1$ & $x_1$ & $x_2$ & ... & $x_n$ \\
+        \begin{tabular}{|c|c|c|c|c|}
             \hline
-            $p$ & $\sum\limits_{k=1}^m p_{1k}$ & $\sum\limits_{k=1}^m p_{2k}$ & ... & $\sum\limits_{k=1}^m p_{nk}$
+            $\xi_1$ & $x_1$ & $x_2$ & $...$ & $x_n$ \\
+            \hline
+            $p$ & $\sum\limits_{k=1}^m p_{1k}$ & $\sum\limits_{k=1}^m p_{2k}$ & $...$ & $\sum\limits_{k=1}^m p_{nk}$ \\
+            \hline
         \end{tabular} &
-        \begin{tabular}{c|c|c|c|c}
-            $\xi_2$ & $y_1$ & $y_2$ & ... & $y_m$ \\
+        \begin{tabular}{|c|c|c|c|c|}
             \hline
-            $p$ & $\sum\limits_{k=1}^n p_{k1}$ & $\sum\limits_{k=1}^n p_{k2}$ & ... & $\sum\limits_{k=1}^n p_{km}$
+            $\xi_2$ & $y_1$ & $y_2$ & $...$ & $y_m$ \\
+            \hline
+            $p$ & $\sum\limits_{k=1}^n p_{k1}$ & $\sum\limits_{k=1}^n p_{k2}$ & $...$ & $\sum\limits_{k=1}^n p_{km}$ \\
+            \hline
         \end{tabular}
     \end{tabular}
 }\hfil}
@@ -220,24 +224,28 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
 \subsection{Побудова функції розподілу дискретного випадкового вектора}
 
 Нехай двовимірний випадковий вектор  задано таблицею розподілу:
-\begin{tabular}{c|c|c}
-    \diagbox{$\xi_2$}{$\xi_1$} & 1 & 2 \\
+\begin{tabular}{|c|c|c|}
     \hline
-    0 & 0.3 & 0.4 \\
+    \diagbox{$\xi_2$}{$\xi_1$} & $1$ & $2$ \\
     \hline
-    1 & 0.2 & 0.1
+    $0$ & $0.3$ & $0.4$ \\
+    \hline
+    $1$ & $0.2$ & $0.1$ \\
+    \hline
 \end{tabular}
 
 Значення функції розподілу також зручно звести в таблицю:
 
-\begin{tabular}{c|c|c|c}
+\begin{tabular}{|c|c|c|c|}
+    \hline
     \diagbox[height=2em, width=6em]{$y$}{$x$} & $x\leq1$ & $1<x\leq2$ & $x> 2$ \\
     \hline
     $y\leq0$ & $0$ & $0$ & $0$ \\
     \hline
     $0<y\leq 1$ & $0$ & $0.3$ & $0.7$ \\
     \hline
-    $y>1$ & $0$ & $0.5$ & $1$
+    $y>1$ & $0$ & $0.5$ & $1$ \\
+    \hline
 \end{tabular}
 
 Останній рядок таблиці --- значення $F_{\xi_1} (x)$, 

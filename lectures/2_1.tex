@@ -63,12 +63,12 @@
 
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
-        = \left[\text{теорема неперервності \refeq{th:2}}\right] = 
+        = \left[\parbox{7.5em}{ теорема\\ неперервності \refeq{th:2}}\right] = 
         P\left(\bigcap\limits_{n=1}^\infty A_n\right) = \\= P(\varnothing) = 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
         P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
-        = \left[\text{теорема неперервності \refeq{th:1}}\right] = 
+        = \left[\parbox{7.5em}{ теорема\\ неперервності \refeq{th:1}}\right] = 
         P\left(\bigcup\limits_{n=1}^\infty B_n\right) = \\= P(\Omega) = 1$.
     \end{proof}
     \item \label{2_1_con} Функція розподілу неперервна зліва: $\lim\limits_{x \to x_0 - 0} 
@@ -113,10 +113,12 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 
     Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
 
-    \begin{tabular}{c|c|c|c|c|c}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
         $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ & ... \\
         \hline
-        $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ...
+        $p$ & $p_1$ & $p_2$ & ... & $p_n$ & ... \\
+        \hline
     \end{tabular}
     \hspace{40pt}
     $x_1 < x_2 < ... < x_n < ...,\; \sum\limits_i p_i = 1$
@@ -128,11 +130,13 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
     З формули Бернуллі $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
     C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}, k = 0,1,2,3,4$.
 
-    \begin{tabular}{c|c|c|c|c|c}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
         $\xi$ & 0 & 1 & 2 & 3 & 4 \\
         \hline
         $p$ & $\frac{1}{2^4}$ & $\frac{4}{2^4}$ & $\frac{6}{2^4}$ & $\frac{4}{2^4}$ & 
-        $\frac{1}{2^4}$
+        $\frac{1}{2^4}$ \\
+        \hline
     \end{tabular}
 \end{example}
 \begin{definition}
@@ -179,10 +183,12 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 \noindent \textbf{Вигляд функції розподілу для ДВВ:}
 \nopagebreak
 
-\begin{tabular}{c|c|c|c|c}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
     $\xi$ & $x_1$ & $x_2$ & ... & $x_n$ \\
     \hline
-    $p$ & $p_1$ & $p_2$ & ... & $p_n$
+    $p$ & $p_1$ & $p_2$ & ... & $p_n$ \\
+    \hline
 \end{tabular}
 \hspace{30pt}
 $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$

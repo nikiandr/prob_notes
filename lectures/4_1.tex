@@ -92,24 +92,28 @@
     \begin{enumerate}
         \item $\chi(t) = \cos(t)$ --- може бути характеристичною.
         Оскільки $\cos(t) = \frac{1}{2}e^{it} + \frac{1}{2}e^{-it}$, то відповідна ВВ --- дискретна: 
-        \begin{tabular}{c|c|c}
+        \begin{tabular}{|c|c|c|}
+            \hline
             $\xi$ & $-1$ & $1$ \\
             \hline
-            $p$ & $1/2$ & $1/2$
+            $p$ & $1/2$ & $1/2$ \\
+            \hline
         \end{tabular}
         \item $\chi(t) = \sin(t)$ --- не може бути характеристичною, бо $\chi(0) = 0 \neq 1$.
         \item $\chi(t) = \cos^2(t)$ --- може бути характеристичною.
         $\cos(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
         відповідна ВВ --- дискретна:
-        \begin{tabular}{c|c|c|c}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
             $\xi$ & $-1$ & $0$ & $1$ \\
             \hline
-            $p$ & $1/4$ & $1/2$ & $1/4$
+            $p$ & $1/4$ & $1/2$ & $1/4$ \\
+            \hline
         \end{tabular}
         \item $\chi(t) = \frac{\alpha^2}{\alpha^2 + t^2}$ --- може бути характеристичною. 
         Знайдемо щільність розподілу відповідної НВВ за формулою $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} \frac{\alpha^2 \cdot e^{-itx}}{\alpha^2 + t^2} dt$.
 
-        При $x<0$: $\int\limits_{-\infty}^{+\infty} \frac{e^{-itx}}{\alpha^2 + t^2} dt = 2\pi i \cdot \underset{z=\alpha i}{{Res}} \frac{e^{-izx}}{\alpha^2 + z^2} = 2\pi i \cdot \frac{e^{-i\cdot \alpha i\cdot x}}{2\alpha i} = \pi \cdot \frac{e^{\alpha x}}{\alpha}$.
+        При $x<0$: $\int\limits_{-\infty}^{+\infty} \frac{e^{-itx}}{\alpha^2 + t^2} dt = 2\pi i \cdot \underset{z=\alpha i}{\mathrm{Res}} \frac{e^{-izx}}{\alpha^2 + z^2} = 2\pi i \cdot \frac{e^{-i\cdot \alpha i\cdot x}}{2\alpha i} = \pi \cdot \frac{e^{\alpha x}}{\alpha}$.
 
         При $x>0$ аналогічно отримуємо $\pi \cdot \frac{e^{-\alpha x}}{\alpha}$.
         Остаточно $f_\xi(x) = \frac{\alpha}{2}e^{-\alpha |x|}$ --- це щільність розподілу Лапласа.
@@ -207,12 +211,14 @@ $$
 \begin{example} Обчислення характеристичної функції для дискретного та неперервного випадкових векторів
     \begin{enumerate}
         \item \begin{tabular}{c c}
-            \begin{tabular}{c|c|c}
+            \begin{tabular}{|c|c|c|}
+                \hline
                 \diagbox{$\xi_2$}{$\xi_1$} & $1$ & $2$ \\
                 \hline
                 $0$ & $0.1$ & $0.3$ \\
                 \hline
-                $1$ & $0.2$ & $0.4$ 
+                $1$ & $0.2$ & $0.4$ \\
+                \hline
             \end{tabular} 
         \end{tabular}
 

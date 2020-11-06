@@ -297,7 +297,7 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi
     \item Для некорельованих випадкових величин $\xi_1$ та $\xi_2$ 
     $\rho_{\xi_1\xi_2} = 0$.
     \begin{proof}
-        Випливає з визначення коефіцієнта кореляції.
+        Випливає з означення коефіцієнта кореляції.
     \end{proof}
     \item $\left|\rho_{\xi_1\xi_2}\right| \leq 1$.
     \begin{proof}
@@ -315,16 +315,19 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi
 
         Тоді $\rho_{\xi_1\xi_2} = \frac{aD\xi_1}{|a|(\sqrt{D\xi_1})^2} 
         \Rightarrow
-        \left|\rho\xi_1\xi_2\right| = 1$.
+        \left|\rho_{\xi_1\xi_2}\right| = 1$.
 
-        Нехай $\left|\rho\xi_1\xi_2\right| = 1$.
+        Нехай $\left|\rho_{\xi_1\xi_2}\right| = 1$.
         $E\left(\frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
         \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}}\right)^2 = 
         2(1\pm\rho_{\xi_1\xi_2}) = 0$.
 
-        $E\xi^2 = 0$ $D\xi = -(E\xi)^2 \geq 0 \Rightarrow E\xi = 0
-        \Rightarrow \frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
-        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}} = 0 \Rightarrow 
-        $ лінійний зв'язок.
+        $E\xi^2 = 0 \Rightarrow D\xi = -(E\xi)^2 \geq 0 \Rightarrow \begin{cases}
+            E\xi = 0 \\ D\xi = 0
+        \end{cases} \Rightarrow \xi$ приймає значення $0$ з ймовірністю $1$.
+
+        Отже, $\frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
+        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}} = 0$ з ймовірністю $1$,
+        звідки отримуємо лінійний зв'язок.
     \end{proof}
 \end{enumerate}
