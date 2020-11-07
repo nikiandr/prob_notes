@@ -57,6 +57,31 @@ $$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \ma
     $f_{\vec{\eta}}(\vec{y}) = \frac{1}{\left| \det A\right|} f_{\vec{\xi}}\left(A^{-1} (\vec{y} - \vec{b})\right)$
 \end{example}
 
+\subsection{Закон розподілу мінімуму та максимуму ВВ}
+
+$\xi_1, ..., \xi_n \sim \xi$ --- i.i.d
+
+\begin{enumerate}
+    \item $\eta = \min\{\xi_1, \xi_2, ..., \xi_n\}$
+    
+    $F_\eta(x) = P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} = 1 - P\{\xi_1 
+    \geq x, ..., \xi_n \geq x\} = 1 - \left(P\left\{\xi \geq x\right\}\right)^n = 
+    1-(1-F_\xi (x))^n$
+
+    Якщо ВВ - неперервні, то:
+
+    $f_\eta(x) = \frac{d}{dx}(F_\eta(x)) = nf_\xi(x)(1-F_\xi(x))^{n-1}$
+    \item $\zeta = \max\{\xi_1, ..., \xi_n\}$
+    
+    $F_\zeta(x) = P\left\{\max\{\xi_1, ..., \xi_n\}
+     < x\right\} = P\left\{\xi_1 < x, ..., 
+    \xi_n < x \right\} = \left(F_\xi(x)\right)^n$
+
+    Якщо ВВ - неперервні, то:
+
+    $f_\zeta(x) = \frac{d}{dx}(F_\zeta(x)) = n (F_\xi(x))^{n-1}f_\xi(x)$
+\end{enumerate}
+
 \subsection{Закон розподілу добутку двох НВВ}
 
 \subsection{Закон розподілу частки двох НВВ}
