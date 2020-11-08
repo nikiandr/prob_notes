@@ -144,7 +144,7 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 У випадку $n = 2$, $\vec{\xi} = (\xi_1, \xi_2)^T$: 
 \begin{equation*}
     P\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\} = 
-    \frac{P\{\vec{\xi} \in \Pi\}}{P\{y \leq \xi_2 \leq y+\Delta y\}} = 
+    \frac{P\{\vec{\xi} \in \Pi\}}{P\{y \leq \xi_2 < y + \Delta y\}} = 
     \frac{f_{\vec{\xi}}(x,y)\Delta x \Delta y + 
     o(\sqrt{\Delta x^2 + \Delta y^2})}{f_{\xi_2}(y)\Delta y + o(\Delta y)}
 \end{equation*}
@@ -157,7 +157,7 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 \end{definition}
 
 \begin{remark}
-    Графік умовної щільності розподілу можна інтерпретувати лінію перетину 
+    Графік умовної щільності розподілу можна інтерпретувати як лінію перетину 
     поверхні розподілу та площини $y = y_{\text{знач.}}$ або
     $x = x_{\text{знач.}}$ відповідно, нормовану на одиничну площу під нею.
 \end{remark}
@@ -181,8 +181,8 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 \subsection{Умовне математичне сподівання неперервного випадкового вектора}
 \emph{Умовні математичні сподівання} координат НВВ визначаються через умовні щільності:
 
-$$E(\xi_1 / \xi_2) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
-E(\xi_2 / \xi_1) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
+$$E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
+E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
 
 \begin{definition}
     Функції $\varphi(y) = E(\xi_1 / \xi_2 = y)$ та 
@@ -384,7 +384,7 @@ $\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)\cdot F_{\xi_j}(x_j)$ -
 
     $= F_{\xi_1}(+\infty)...F_{\xi_{i-1}}(+\infty)F_{\xi_i}(x_i)
     F_{\xi_{i+1}}(+\infty)...F_{\xi_{j-1}}(+\infty)F_{\xi_{j}}(x_j)
-    F_{\xi_{j+1}}(+\infty)F_{\xi_n}(+\infty) = $
+    F_{\xi_{j+1}}(+\infty)...F_{\xi_n}(+\infty) = $
     
     $= F_{\xi_i}(x_i)\cdot F_{\xi_j}(x_j)$.
 \end{proof}

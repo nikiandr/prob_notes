@@ -289,7 +289,7 @@ $\begin{cases}
 
 $\varphi_\xi(z, t) = \sum\limits_{m=0}^{\infty} P\left\{\xi(t) = m\right\} z^m = \sum\limits_{m=0}^{\infty} p_m(t) z^m$ 
 
-\noindent Помножимо кожне рівняння отриманої системи на $z^m$ та складемо:
+\noindent Помножимо кожне рівняння отриманої системи на $z$ у відповдному степені та складемо:
 
 $\sum\limits_{m=0}^{\infty} p'_m(t) z^m = -\lambda \sum\limits_{m=0}^{\infty} p_m(t) z^m + \lambda \sum\limits_{m=1}^{\infty} p_{m-1}(t) z^m = 
 -\lambda \sum\limits_{m=0}^{\infty} p_m(t) z^m + \lambda z \sum\limits_{m=0}^{\infty} p_{m}(t) z^m$
@@ -761,7 +761,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
             \int\limits_0^x f_\xi(t)dt = \frac{\gamma(\alpha, \beta x)}{\Gamma(\alpha)}, & x>0 
         \end{cases}$
         \\
-        де $\gamma(s, x) = \int\limits_0^x t^{s-1} e^-t dt$
+        де $\gamma(s, x) = \int\limits_0^x t^{s-1} e^{-t} dt$
     \end{tabular}
     &
     \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=0.9]
@@ -812,7 +812,7 @@ $E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alpha
     \item ${Ex}\xi = \frac{6}{\alpha}$.
 \end{enumerate}
 
-\noindent\textbf{Застосування:} гамма-розподіл застосується для моделювання
+\noindent\textbf{Застосування:} гамма-розподіл застосовується для моделювання
 складних потоків подій, в економіці, теорії масового обслуговування, логістиці.
 У випадку натурального параметру $\alpha = k \in \mathbb{N}$ за законом
 $\Gamma(k, \lambda)$ розподілений час очікування появи $k$-тої події

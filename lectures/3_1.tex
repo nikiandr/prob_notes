@@ -137,12 +137,10 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
     \begin{proof}
         $A = \left\{\xi_1 < x_2,\;\xi_2 < y \right\}$, 
         $B = \left\{x_2 \leq \xi_1 < x_1,\; \xi_2<y\right\}$, 
-        $C = \left\{\xi_1 < x_1,\; \xi_2 < y\right\}$.
-
-        $C = A \cup B \Rightarrow P(C) = P(A) + P(B)$
-    
+        $C = \left\{\xi_1 < x_1,\; \xi_2 < y\right\}$, $x_1 > x_2$.
+        $C = A \cup B \Rightarrow P(C) = P(A) + P(B)$,
         $P(C) = F_{\vec{\xi}}(x_1, y)$,  
-        $P(A) = F_{\vec{\xi}}(x_2, y)$
+        $P(A) = F_{\vec{\xi}}(x_2, y)$.
 
         $F_{\vec{\xi}}(x_1, y) = F_{\vec{\xi}}(x_2, y) + P(B)
         \Rightarrow F_{\vec{\xi}}(x_1, y) \geq  F_{\vec{\xi}}(x_2, y)$. 
@@ -262,7 +260,7 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
     \item Є неперервною зліва по кожній координаті.
     \item $\forall k = 1,...,n: ( x_k \rightarrow -\infty) \Rightarrow ( F_{\vec{\xi}}(\vec{x}) \rightarrow 0)$.
     \item $\lim\limits_{x_1, ..., x_n \rightarrow +\infty} F_{\vec{\xi}}(\vec{x}) = 1$.
-    \item \emph{<<Умови узгодженості>>}: $\forall k = 1,...,n: F_{\xi_k}(x) = F_{\vec{\xi}}(+\infty, ..., +\infty, x_k, +\infty, ..., +\infty)$,
+    \item \emph{<<Умови узгодженості>>}: $\forall k = 1,...,n: F_{\xi_k}(x_k) = F_{\vec{\xi}}(+\infty, ..., +\infty, x_k, +\infty, ..., +\infty)$,
     $\forall k<n: F_{\xi_1 \xi_2 ... \xi_k}(x_1, x_2, ..., x_k) = F_{\vec{\xi}}(x_1, x_2, ..., x_k, +\infty, ..., +\infty)$.
 \end{enumerate}
 \begin{exercise}

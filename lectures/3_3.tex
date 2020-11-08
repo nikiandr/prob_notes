@@ -8,15 +8,15 @@
     $\left(E{\xi_1}, ..., E{\xi_n}\right)^T$.
 \end{definition}
 \begin{remark}
-    Математичне сподівання двовимірного випадкового вектора 
-    називається \emph{центром розсіювання}.
+    Математичне сподівання випадкового вектора ще називають
+     \emph{центром розсіювання}.
 \end{remark}
 
 \noindent \textbf{Способи знаходження:}
 \begin{enumerate}
     \item Знайти закони розподілу окремих координат, а далі --- математичні сподівання цих координат.
     \item Знайти математичні сподівання координат одразу.
-    Для $\xi = (\xi_1, \xi_2)^T$:
+    Для $\vec{\xi} = (\xi_1, \xi_2)^T$:
     
     $E\xi_1 = \begin{cases}
         \sum\limits_i \sum\limits_j x_i p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
@@ -27,7 +27,9 @@
         \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} y f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
     \end{cases}$.
     
-    В загальному випадку для НВВ $E\xi_k = \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty} x_k f_{\vec{\xi}}(\vec{x}) dx_1 ... dx_n$.
+    В загальному випадку для ДВВ $E\xi_k = \sum\limits_{i_1, i_2, ..., i_n} (x_k)_{i_k} p_{i_1 i_2 ... i_n}$, де індекс $i_k$ пробігає кількість
+    значень, що приймає координата $x_k$,
+    для НВВ $E\xi_k = \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty} x_k f_{\vec{\xi}}(\vec{x}) dx_1 ... dx_n$.
 \end{enumerate}
 
 \subsection{Мішані початкові та центральні 
@@ -79,7 +81,7 @@
 \begin{definition}
     \emph{Кореляційним моментом} або 
     \emph{коваріацією} випадкових величин 
-    $\xi_i$ та $\xi_j$ називається змішаний 
+    $\xi_i$ та $\xi_j$ називається мішаний 
     центральний момент 
     порядку
     $0+...+0+\underset{i}{1}+0+...+0+\underset{j}{1}+0+....+0$:
@@ -209,8 +211,8 @@
 
         $f_{\vec{\xi}}(x, y) = 
             \begin{cases}
-            \frac{1}{\pi R^2} & (x, y) \in S \\
-            0 & (x, y) \notin S
+            \frac{1}{\pi R^2}, & (x, y) \in S \\
+            0, & (x, y) \notin S
         \end{cases}$
     \end{tabular}
 
