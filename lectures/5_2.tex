@@ -20,6 +20,19 @@
 
     \noindentЗнайти закони розподілу $\eta_1 = \xi_1 \xi_2$ та $\eta_2 = \xi_1 + \xi_2$.
     Для цього треба визначити значення, які приймають ці величини, та обчислити відповідні ймовірності.
+    
+    $\eta_1$ приймає значення $-2$ (коли $\xi_1 = 2$, $\xi_2 = -1$), 
+    $-1$ (коли $\xi_1 = 1$, $\xi_2 = -1$), 
+    $0$ (коли $\xi_1 = 0$, $\xi_2 = -1$ або $\xi_2 = 1$), 
+    $1$ (коли $\xi_1 = 1$, $\xi_2 = 1$), 
+    $2$ (коли $\xi_1 = 2$, $\xi_2 = 1$).
+
+    $\eta_2$ приймає значення $-1$ (коли $\xi_1 = 0$, $\xi_2 = -1$), 
+    $0$ (коли $\xi_1 = 1$, $\xi_2 = -1$), 
+    $1$ (коли $\xi_1 = 0$, $\xi_2 = 1$ або $\xi_1 = 2$, $\xi_2 = -1$), 
+    $2$ (коли $\xi_1 = 1$, $\xi_2 = 1$), 
+    $3$ (коли $\xi_1 = 2$, $\xi_2 = 1$).
+    Відповідні сумісні ймовірності отримуємо з таблиці з таблиці розподілу $\vec{\xi}$.
 
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
@@ -59,28 +72,38 @@ $$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \ma
 
 \subsection{Закон розподілу мінімуму та максимуму ВВ}
 
-$\xi_1, ..., \xi_n \sim \xi$ --- i.i.d
-
+Нехай $\xi_1, ..., \xi_n$ незалежні та розподілені однаково, як деяка випадкова величина $\xi$.
+Знайдемо розподіл їх мінімуму та максимуму.
 \begin{enumerate}
-    \item $\eta = \min\{\xi_1, \xi_2, ..., \xi_n\}$
+    \item $\mu_1 = \min\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
+
+    $F_{\mu_1} (x) = P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
+    1 - P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} \geq x \right\} =$
+
+    $ = 1 - P \left\{ \xi_1 \geq x, \xi_2 \geq x, ..., \xi_n \geq x \right\} = 
+    1 - P\left\{ \xi_1 \geq x\right\} \cdot P\left\{ \xi_2 \geq x\right\} \cdot ... \cdot P\left\{ \xi_n \geq x\right\} = $
     
-    $F_\eta(x) = P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} = 1 - P\{\xi_1 
-    \geq x, ..., \xi_n \geq x\} = 1 - \left(P\left\{\xi \geq x\right\}\right)^n = 
-    1-(1-F_\xi (x))^n$
+    $ = 1 - (P\left\{ \xi \geq x\right\})^n = 1 - (1- F_\xi (x))^n$.
 
-    Якщо ВВ - неперервні, то:
+    Якщо $\xi_1, ..., \xi_n$ --- неперервні, то $f_{\mu_1} (x) = \left( F_{\mu_1} (x)\right)^\prime = n (1- F_\xi (x))^{n-1} f_\xi(x)$.
+    \item $\mu_2 = \max\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
 
-    $f_\eta(x) = \frac{d}{dx}(F_\eta(x)) = nf_\xi(x)(1-F_\xi(x))^{n-1}$
-    \item $\zeta = \max\{\xi_1, ..., \xi_n\}$
-    
-    $F_\zeta(x) = P\left\{\max\{\xi_1, ..., \xi_n\}
-     < x\right\} = P\left\{\xi_1 < x, ..., 
-    \xi_n < x \right\} = \left(F_\xi(x)\right)^n$
+    $F_{\mu_2} (x) = P \left\{ \max\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
+    P \left\{ \xi_1 < x, \xi_2 < x, ..., \xi_n < x \right\} = $
 
-    Якщо ВВ - неперервні, то:
+    $ = P\left\{ \xi_1 < x\right\} \cdot P\left\{ \xi_2 < x\right\} \cdot ... \cdot P\left\{ \xi_n < x\right\} =
+    (P\left\{ \xi < x\right\})^n = (F_\xi (x))^n$.
 
-    $f_\zeta(x) = \frac{d}{dx}(F_\zeta(x)) = n (F_\xi(x))^{n-1}f_\xi(x)$
+    Якщо $\xi_1, ..., \xi_n$ --- неперервні, то $f_{\mu_2} (x) = \left( F_{\mu_2} (x)\right)^\prime = n (F_\xi (x))^{n-1} f_\xi(x)$.
 \end{enumerate}
+
+\begin{example}
+    Нехай $\xi_1, ..., \xi_n$ незалежні та мають розподіл $\mathrm{Exp}(\lambda)$. Знайти розподіл їх мінімуму.
+
+    \noindent$f_{\min}(x) = n (1-(1-e^{-\lambda x}))^{n-1} \lambda e^{-\lambda x} = n \lambda e^{-n\lambda}$ при $x \geq 0$ та $0$ при $x < 0$.
+    
+    \noindentОтже, $\min\{\xi_1, \xi_2, ..., \xi_n\} \sim \mathrm{Exp} (n \lambda)$.
+\end{example}
 
 \subsection{Закон розподілу добутку двох НВВ}
 

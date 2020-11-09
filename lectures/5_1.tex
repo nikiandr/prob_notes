@@ -46,7 +46,7 @@ $k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_
 Розглянемо два випадки.
 
 \begin{enumerate}
-    \item $\varphi$ --- монотонно зростаюча.
+    \item $\eta = \varphi(\xi)$, де $\varphi$ --- монотонно зростаюча.
 
     \begin{tabular}{c p{8.8cm}}
         \begin{tikzpicture}[xscale = 0.7, yscale = 0.3, baseline={(current bounding box.north)}]
@@ -64,7 +64,7 @@ $k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_
 
     Отже, $F_\eta (y) = \int\limits_{-\infty}^{\varphi^{-1} (y)} f_\xi(t) dt$,
     $f_\eta(y) = F^\prime_\eta (y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left(\varphi^{-1} (y) \right)^{\prime}$.
-    \item $\varphi$ --- монотонно спадна.
+    \item $\eta = \varphi(\xi)$, де $\varphi$ --- монотонно спадна.
     
     \begin{tabular}{c p{8.8cm}}
         \begin{tikzpicture}[xscale = 0.7, yscale = 0.3, baseline={(current bounding box.north)}]
