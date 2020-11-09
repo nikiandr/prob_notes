@@ -484,9 +484,9 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     приладу в інтервалі часу $\left[ t; t+\Delta t\right)$ за умови, що до часу $t$ він працював,
     пропорційна $\Delta t$ і рівна $\lambda\cdot \Delta t + o(\Delta t)$. Нехай $\xi$ --- час безвідмовної роботи,
     покладемо $Q(t) = P\left\{\xi \geq t\right\}$.
-    $Q(t+\Delta t) = P\left\{\xi \geq t + \Delta t\right\} = P\left\{\xi \geq t\right\} \cdot P\left\{\xi \in \left[t; t+\Delta t\right] / \xi \geq t\right\} = 
-    Q(t) \cdot (1 - \lambda\cdot \Delta t + o(\Delta t))$
-    $\frac{Q(t+\Delta t) - Q(t)}{\Delta t} = -\lambda Q(t) + \frac{o(\Delta t)\cdot Q(t)}{\Delta t}$,
+    $Q(t+\Delta t) = P\left\{\xi \geq t + \Delta t\right\} = P\left\{\xi \geq t\right\} \cdot P\left\{\xi \geq t+\Delta t / \xi \geq t\right\} = 
+    Q(t) \cdot (1 - \lambda\cdot \Delta t + o(\Delta t))$.
+    $\frac{Q(t+\Delta t) - Q(t)}{\Delta t} = -\lambda Q(t) + \frac{o(\Delta t)}{\Delta t} \cdot Q(t)$,
     при $\Delta t \rightarrow 0$ отримаємо $Q'(t) = -\lambda Q(t)$.
     Розв'язком цього диференціального рівняння буде $Q(t) = C\cdot e^{-\lambda t}$.
     Оскільки вважаємо, що в момент часу $t=0$ прилад працював, то $Q(0) = 1$ і $C=1$.
