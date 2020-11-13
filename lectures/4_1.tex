@@ -30,7 +30,7 @@
         \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right|\left| e^{ihx} - 1\right| dF_\xi(x) = 
         \int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x)$.
 
-        $e^{ihx} - 1 = (\cos(hx) - 1) + i\sin(hx) = -2\sin^2(\frac{hx}{2}) + 2\sin(\frac{hx}{2})\cos(\frac{hx}{2})$, 
+        $e^{ihx} - 1 = (\cos(hx) - 1) + i\sin(hx) = -2\sin^2(\frac{hx}{2}) + 2i\sin(\frac{hx}{2})\cos(\frac{hx}{2})$, 
         
         $\left| e^{ihx} - 1\right| = 
         \sqrt{4\sin^4(\frac{hx}{2}) + 4\sin^2(\frac{hx}{2})\cos^2(\frac{hx}{2})} = 2\left| \sin(\frac{hx}{2})\right|$.
@@ -63,7 +63,7 @@
     \item Зв'язок характеристичної функції та генератриси ДВВ.
 
     $\varphi_\xi(z) = \sum\limits_{k=0}^{\infty} P\left\{\xi = k\right\} z^k$,
-    $\chi_\xi(t) = \sum\limits_{k=0}^{\infty} e^{itk} P\left\{\xi = x_k\right\}$. Отже, $\chi_\xi(t) = \varphi_\xi(e^{it})$.
+    $\chi_\xi(t) = \sum\limits_{k=0}^{\infty} e^{itk} P\left\{\xi = k\right\}$. Отже, $\chi_\xi(t) = \varphi_\xi(e^{it})$.
     \item $\overline{\chi_\xi(t)} = E e^{-it\xi} = \chi_\xi(-t) = \chi_{-\xi} (t)$. 
     \item Для того, щоб характеристична функція була дійснозначною,
     необхідно і достатньо, щоб розподіл ВВ був симетричним відносно 0.
@@ -76,7 +76,7 @@
         інтеграл з синусом рівний 0, бо інтегрується непарна функція по симетричному проміжку.
 
         Нехай $\chi_\xi(t)$ --- дійснозначна, тоді $\chi_\xi(t) = \overline{\chi_\xi(t)} = \chi_\xi(-t)$.
-        Отже, $\chi_\xi(t)$ --- парна, тоді з оберненого перетворення Фур'є $f_\xi(t)$ --- теж парна.
+        Отже, $\chi_\xi(t)$ --- парна, тоді з оберненого перетворення Фур'є $f_\xi(x)$ --- теж парна.
     \end{proof}
 \end{enumerate}
 
@@ -101,11 +101,11 @@
         \end{tabular}
         \item $\chi(t) = \sin(t)$ --- не може бути характеристичною, бо $\chi(0) = 0 \neq 1$.
         \item $\chi(t) = \cos^2(t)$ --- може бути характеристичною.
-        $\cos(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
+        $\cos^2(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
         відповідна ВВ --- дискретна:
         \begin{tabular}{|c|c|c|c|}
             \hline
-            $\xi$ & $-1$ & $0$ & $1$ \\
+            $\xi$ & $-2$ & $0$ & $2$ \\
             \hline
             $p$ & $1/4$ & $1/2$ & $1/4$ \\
             \hline
@@ -156,7 +156,7 @@ $$
     \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{-x^2/2 + itx} dx = 
     \frac{1}{\sqrt{2\pi}} \int\limits_{-\infty}^{+\infty} e^{-\frac{1}{2}(x^2 - 2itx + i^2t^2) + \frac{1}{2}i^2t^2} dx = 
     \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \int\limits_{-\infty}^{+\infty} e^{-\frac{(x-it)^2}{2}} dx = 
-    \left[ x+it = u, dx = du\right] = e^{-\frac{t^2}{2}}$.
+    \left[ x-it = u, dx = du\right] = e^{-\frac{t^2}{2}}$.
     Отже, $\chi_\xi(t) = e^{iat - \frac{\sigma^2 t^2}{2}}$.
     \item $\xi \sim \Gamma(\alpha, \beta)$ --- гамма-розподіл.
     
@@ -170,7 +170,7 @@ $$
     \emph{Композицією законів розподілу} називається складання закону розподілу суми незалежних випадкових величин.
     
     Закон розподілу називається \emph{стійким по відношенню до операції додавання},
-    якщо закон розподілу суми випадкових величин, розподілених за цим законом (в загальному випадку з різними параметрами),
+    якщо закон розподілу суми незалежних випадкових величин, розподілених за цим законом (в загальному випадку з різними параметрами),
     є таким самим.
 \end{definition}
 \begin{example}
@@ -181,12 +181,12 @@ $$
         Знайдемо характеристичну функцію суми: $\chi_{\xi_1 + ... + \xi_n}(t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)=
         \prod\limits_{k=1}^n e^{ia_k t - \frac{\sigma_k^2 t^2}{2}} = 
         \exp\left\{i\cdot \left( \sum\limits_{k=1}^n a_k\right)\cdot t - \frac{t^2}{2}\cdot\left( \sum\limits_{k=1}^n \sigma_k^2\right)\right\}$ ---
-        це характеристична функція нормального розподілу. Отже, $\sum\limits_{k=1}^n = \xi_1 + ... + \xi_n \sim \mathrm{N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
+        це характеристична функція нормального розподілу. Отже, $\xi_1 + ... + \xi_n \sim \mathrm{N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
         \item Перевірити стійкість біноміального розподілу. Нехай $\xi_1 \sim \mathrm{Bin}(n_1, p_1)$, $\xi_2 \sim \mathrm{Bin}(n_2, p_2)$ --- незалежні.
         $\chi_{\xi_1 + \xi_2} (t) = \left( p_1 e^{it} + q_1\right)^{n_1} \cdot \left( p_2 e^{it} + q_2\right)^{n_2} \overset{?}{=} \left(P e^{it} + Q\right)^N$.
 
         Взагалі кажучи, біноміальний розподіл не є стійким по відношенню до  операції додавання.
-        Його називають \emph{умовно стійким} при $p_1 = p_2$, тоді
+        Його називають \emph{умовно стійким} при $p_1 = p_2 = p$, тоді
         $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim \mathrm{Bin}(n_1+n_2, p)$.
     \end{enumerate}
 \end{example}
