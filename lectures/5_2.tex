@@ -106,7 +106,331 @@ $$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \ma
 \end{example}
 
 \subsection{Закон розподілу добутку двох НВВ}
+Нехай маємо $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор та
+$f_{\xi_1 \xi_2}(x, y)$ відома.
+
+\noindent\textbf{Задача}: знайти розподіл $\eta = \xi_1\xi_2$.
+
+Розпишемо функцію розподілу за вже відомою схемою:
+
+$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T \in 
+\mathbb{R}^2 : xy < z\right\}$
+
+\underline{Розглянемо два варіанти:}
+\begin{enumerate}[label=\Roman*)]
+    \item 
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=0.2:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            1/\x
+        });
+        \fill [lightgray, domain=0.2:5, smooth, variable = \x] plot ({\x}, 
+        {
+            1/\x
+        }) -- (5, -5) -- (0, -5) -- (0, 5) -- (0.2, 5);
+        \draw [domain=-5:-0.2, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            1/\x
+        });
+        \fill [lightgray, domain=-5:-0.2, smooth, variable = \x] plot ({\x}, 
+        {
+            1/\x
+        }) -- (0, -5) -- (0, 5) -- (-5, 5) -- (-5, -0.2);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (5, -5) {$D_z$};
+        \node [above right] at (1, 1) {$y = \frac{z}{x}$};
+    \end{tikzpicture} &
+    \underline{$z > 0$ : $y = \frac{z}{x}$}
+
+    $x > 0$ : $y < \frac{z}{x}$
+    
+    $x < 0$ : $y > \frac{z}{x}$
+
+    $F_\eta (z) = \int\limits^{0}_{-\infty}dx\int\limits_{\frac{z}{x}}^{+\infty}
+    f_{\vec{\xi}}(x, y) dy + \int\limits_0^{+\infty}dx\int\limits_{-\infty}^{\frac{z}{x}} 
+    f_{\vec{\xi}}(x, y) dy$
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx + 
+    \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$
+\end{tabular}
+
+\item
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=0.2:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            -1/\x
+        });
+        \fill [lightgray, domain=0.2:5, smooth, variable = \x] plot ({\x}, 
+        {
+            -1/\x
+        }) -- (5, -5) -- (0.2, -5);
+        \draw [domain=-5:-0.2, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            -1/\x
+        });
+        \fill [lightgray, domain=-5:-0.2, smooth, variable = \x] plot ({\x}, 
+        {
+            -1/\x
+        }) -- (-5, 5) -- (-5, 0.2);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (5, -5) {$D_z$};
+        \node [above right] at (1, 1) {$y = \frac{z}{x}$};
+    \end{tikzpicture}
+    &
+    $\underline{z < 0:}$
+
+    $x > 0$ : $y > \frac{z}{x}$
+    
+    $x < 0$ : $y < \frac{z}{x}$
+
+    $F_\eta(z) = \int\limits_{-\infty}^0 dx \int\limits_{\frac{z}{x}}^{+\infty} 
+    f_{\vec{\xi}}(x, y)dy + \int\limits_0^{+\infty}dx\int\limits_{-\infty}^{\frac{z}{x}} 
+    f_{\vec{\xi}}(x, y) dy$
+    
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = - \int\limits_{-\infty}^0 \frac{1}{x} f_{\vec{\xi}}(x, \frac{z}{x})dx 
+    w+ \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$
+
+\end{tabular}
+
+\end{enumerate}
+
+\begin{remark}
+    Якщо вказано, що $\xi_1$ та $\xi_2$ --- незалежні, то $f_{\vec{\xi}}(x, \frac{z}{x}) = 
+    f_{\xi_1}(x)f_{\xi_2}(\frac{z}{x})$.
+\end{remark}
 
 \subsection{Закон розподілу частки двох НВВ}
 
+Нехай маємо $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор та
+$f_{\xi_1 \xi_2}(x, y)$ відома.
+
+\noindent\textbf{Задача 1}: знайти розподіл $\eta = \frac{\xi_2}{\xi_1}$.
+
+Розпишемо функцію розподілу за вже відомою схемою:
+
+$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T \in 
+\mathbb{R}^2 : \frac{y}{x} < z\right\}$
+
+\begin{enumerate}[label=\Roman*)]
+    \item 
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            \x
+        });
+        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
+        {
+            \x
+        }) -- (0, 5) -- (-5, 5) -- (-5, -5);
+        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
+        {
+            \x
+        }) -- (5, -5) -- (0, -5) -- (0, 0);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (5, -5) {$D_z$};
+        \node [above left] at (3, 3) {$y = zx$};
+    \end{tikzpicture} &
+    \underline{$z > 0$ : }
+
+    $x > 0$ : $y < zx$
+    
+    $x < 0$ : $y > zx$
+
+    $F_\eta(z) = \int\limits_{-\infty}^0 dx \int\limits_{zx}^{+\infty}f_{\vec{\xi}}(x, y)dy 
+    + \int\limits_0^{+\infty}dx\int\limits_{-\infty}^{zx}f_{\vec{\xi}}(x, y)dy$
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = -\int\limits_{-\infty}^0 x f_{\vec{\xi}}(x, zx) dx + \int\limits_0^{+\infty}
+    xf_{\vec{\xi}}(x, zx)dx$
+\end{tabular}
+
+\item 
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            -\x
+        });
+        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
+        {
+            -\x
+        }) -- (0, 5) -- (-5, 5);
+        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
+        {
+            -\x
+        }) -- (0, -5) -- (0, 0);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (4, -5) {$D_z$};
+        \node [above right] at (3, -3) {$y = zx$};
+    \end{tikzpicture} &
+    \underline{$z < 0$ : }
+
+    $x > 0$ : $y < zx$
+    
+    $x < 0$ : $y > zx$
+
+    $F_\eta(z) = \int\limits_{-\infty}^0 dx \int\limits_{zx}^{+\infty}f_{\vec{\xi}}(x, y) dy +
+    \int\limits_0^{+\infty}dx\int\limits_{-\infty}^{zx}f_{\vec{\xi}}(x, y)dy $
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = -\int\limits_{-\infty}^0 x f_{\vec{\xi}}(x, zx)dy + \int\limits_0^{+\infty}
+    xf_{\vec{\xi}}(x, zx)dy$
+\end{tabular}
+\end{enumerate}
+
+\begin{remark}
+    Якщо вказано, що $\xi_1$ та $\xi_2$ --- незалежні, то $f_{\vec{\xi}}(x, zx) = 
+    f_{\xi_1}(x)f_{\xi_2}(zx)$.
+\end{remark}
+
+\noindent\textbf{Задача 2}: знайти розподіл $\eta = \frac{\xi_1}{\xi_2}$.
+
+Розпишемо функцію розподілу за вже відомою схемою:
+
+$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T \in 
+\mathbb{R}^2 : \frac{x}{y} < z\right\}$
+
+\begin{enumerate}[label=\Roman*)]
+    \item 
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            \x
+        });
+        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
+        {
+            \x
+        }) -- (5, 0) -- (5, -5) -- (-5, -5);
+        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
+        {
+            \x
+        }) -- (-5, 5) -- (-5, 0) -- (0, 0);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (5, -5) {$D_z$};
+        \node [above left] at (3, 3) {$y = zx$};
+    \end{tikzpicture} &
+    \underline{$z > 0$ : }
+
+    $y > 0$ : $x < zy$
+    
+    $y < 0$ : $x > zy$
+
+    $F_\eta(z) = \int\limits_{-\infty}^0 dy \int\limits_{zy}^{+\infty}f_{\vec{\xi}}(x, y)dx 
+    + \int\limits_0^{+\infty}dy\int\limits_{-\infty}^{zy}f_{\vec{\xi}}(x, y)dx$
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = -\int\limits_{-\infty}^0 y f_{\vec {\xi}}(zy, y) dy + \int\limits_0^{+\infty}
+    yf_{\vec{\xi}}(zy, y)dy$
+\end{tabular}
+
+\item 
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            -\x
+        });
+        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
+        {
+            -\x
+        }) -- (-5, 0) -- (-5, 5);
+        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
+        {
+            -\x
+        }) -- (5, 0) -- (0, 0);
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (-1, 0) {$D_z$};
+        \node [above right] at (2, -2) {$y = zx$};
+    \end{tikzpicture} &
+    \underline{$z < 0$ : }
+
+    $x > 0$ : $y < zx$
+    
+    $x < 0$ : $y > zx$
+
+    $F_\eta(z) = \int\limits_{-\infty}^0 dy \int\limits_{zy}^{+\infty}f_{\vec{\xi}}(x, y) dx +
+    \int\limits_0^{+\infty}dy\int\limits_{-\infty}^{zy}f_{\vec{\xi}}(x, y)dx $
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = -\int\limits_{-\infty}^0 y f_{\vec{\xi}}(zy, y)dy + \int\limits_0^{+\infty}
+    yf_{\vec{\xi}}(zy, y)dy$
+\end{tabular}
+
+\end{enumerate}
+
+\begin{remark}
+    Якщо вказано, що $\xi_1$ та $\xi_2$ --- незалежні, то $f_{\vec{\xi}}(zy, y) = 
+    f_{\xi_1}(zy)f_{\xi_2}(y)$.
+\end{remark}
+
 \subsection{Закон розподілу суми двох НВВ}
+
+Нехай маємо $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор та
+$f_{\xi_1 \xi_2}(x, y)$ відома.
+
+\noindent\textbf{Задача}: знайти розподіл $\eta = \xi_1 + \xi_2$.
+
+Розпишемо функцію розподілу за вже відомою схемою:
+
+$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T \in 
+\mathbb{R}^2 : x + y < z\right\}$
+
+\begin{tabular}{c p{8.8cm}}
+    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.5]
+        \fill [lightgray, domain=-5:5, smooth, variable = \x] 
+        (-4, 5) -- (5, -4) -- (5, -5) -- (-5, -5) -- (-5, 5) -- (-4, 5);
+        \draw [domain=-4:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        {
+            1 - \x
+        });
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -5) -- (0, 5);
+        \node [below left] at (5, 0) {$x$};
+        \node [below left] at (0, 5) {$y$};
+        \node [above left] at (-1, 0) {$D_z$};
+        \node [above right] at (1, 0) {$y = z - x$};
+    \end{tikzpicture} &
+
+    $F_\eta(z) = \int\limits_{-\infty}^{+\infty} dx \int\limits_{-\infty}^{z-x} 
+    f_{\vec{\xi}}(x, y) dy$
+
+    Продиференціюємо обидві частини по $z$:
+
+    $f_\eta(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, z-x) dx$
+\end{tabular}
+
+\begin{remark}
+    Якщо вказано, що $\xi_1$ та $\xi_2$ --- незалежні, то $f_\eta (z) = 
+    \int\limits_{-\infty}^{+\infty}f_{\xi_1}(x) f_{\xi_2}(z-x) dx = 
+    (f_{\xi_1} \ast f_{\xi_2})(z)$.
+\end{remark}
