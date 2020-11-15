@@ -210,6 +210,88 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
     f_{\xi_1}(x)f_{\xi_2}(\frac{z}{x})$.
 \end{remark}
 
+\begin{example}
+    Нехай $\vec{\xi} = (\xi_1, \xi_2)$ рівномірно розподілені в квадраті $[0, 2]\times[0, 2]$.
+    Знайти закон розподілу площі $S = \xi_1 \xi_2$.
+
+    \begin{tabular}{c p{8.8cm}}
+        \begin{tikzpicture}[baseline={(current bounding box.center)} ,scale = 1]
+            \draw [black, ultra thick] 
+            (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
+            \fill [lightgray] 
+            (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
+            \draw [->] (-0.5, 0) -- (3, 0);
+            \draw [->] (0, -0.5) -- (0, 3);
+            \node [below left] at (3, 0) {$x$};
+            \node [below left] at (0, 3) {$y$};
+            \node [above right] at (0, 0) {$K$};
+            \node [left] at (0, 2) {$2$};
+            \node [below] at (2, 0) {$2$};
+            \node [below left] at (0, 0) {$0$};
+        \end{tikzpicture} 
+        &
+        $f_{\vec{\xi}}(x, y) = 
+        \begin{cases}
+            \frac{1}{4}, & (x, y) \in K \\
+            0, & (x, y) \notin K
+        \end{cases}
+        $
+    \end{tabular}
+    
+    $F_S(z) = P\{\xi_1\xi_2 < z\} = \iint\limits_{\{xy < z\} \cap K} f_{\vec{\xi}}(x, y)dxdy$
+
+    \begin{enumerate}
+        \item при $z < 0$: $F_S(z) = 0$
+        \item при $z \geq 4$: $F_S(z) = 1$
+        \item при $0 < z < 4$: 
+        
+        \begin{tabular}{c p{8.8 cm}}
+            \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 1]
+                \fill [lightgray, domain=0.5:2, smooth, variable = \x] plot ({\x}, 
+                {
+                    1/\x
+                }) -- (2, 0) -- (0, 0) -- (0, 2) -- (0.5, 2);
+                \draw [domain=0.333:3, smooth, variable = \x, ultra thick] plot ({\x}, 
+                {
+                    1/\x
+                });
+                \draw [black, ultra thick] 
+                (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
+                
+                \draw [black, dashed] (0.5, 0) -- (0.5, 2);
+                \draw [->] (-0.5, 0) -- (3, 0);
+                \draw [->] (0, -0.5) -- (0, 3);
+                \node [below left] at (3, 0) {$x$};
+                \node [below left] at (0, 3) {$y$};
+                \node [below] at (0.5, 0) {$\frac{z}{2}$};
+                \node [left] at (0, 2) {$2$};
+                \node [below] at (2, 0) {$2$};
+                \node [below left] at (0, 0) {$0$};
+                \node [above right] at (0.5, 2) {$y = \frac{z}{x}$};
+                \node [above left] at (2, 0) {$D_z \cap K$};
+            \end{tikzpicture} 
+            &
+            $F_S(z) = \frac{1}{4}S_{D_z \cap K} = \frac{1}{4} 
+            (4 - \int\limits_{\frac{z}{2}}^2dx
+            \int\limits_{\frac{z}{x}}^2dy) = 
+            \frac{1}{4}(4 - \int\limits_{\frac{z}{2}}^2 
+            (2 -\frac{z}{x})dx = $
+
+            $= 1 - \frac{1}{4}\left.(2x - zlnx)\right|_{\frac{z}{2}}^2 =
+            1 - \frac{1}{4}(4 - zln2 - z + zln\frac{z}{2}) = $
+
+            $= \frac{1}{4}(z + zln2 - zlnz + zln2) = \frac{1}{4}(z + 2zln2 - zlnz)$
+        \end{tabular}
+    \end{enumerate}
+    \begin{equation*}
+        f_S(z) = 
+            \begin{cases}
+                0, & z \notin [0, 4] \\
+                \frac{1}{4}(2ln2 - lnz), & z \in [0, 4]
+            \end{cases}
+    \end{equation*}
+\end{example}
+
 \subsection{Закон розподілу частки двох НВВ}
 
 Нехай маємо $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор та
@@ -392,6 +474,41 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T
     f_{\xi_1}(zy)f_{\xi_2}(y)$.
 \end{remark}
 
+\begin{example}
+    $\xi_1$ та $\xi_2$ --- незалежні випадкові величини, $\xi_i \sim N(0, \sigma)$.
+    
+    \noindentЗакон розподілу $\eta = \frac{\xi_2}{\xi_1}$ --- ?
+
+    За вже знайденою формулою та враховуючи незалежність маємо:
+
+    \begin{equation*}
+        f_\eta(z) = - \int\limits_{-\infty}^0 x f_{\xi_1}(x) f_{\xi_2}(zx) dx + 
+        \int\limits_{0}^{+\infty} x f_{\xi_1}(x) f_{\xi_2}(zx) dx = 
+    \end{equation*}
+    \begin{equation*}
+        =
+        -\frac{1}{2\pi\sigma^2}\int\limits_{-\infty}^0 x e^{-\frac{x^2}{2\sigma^2}(1+z^2)} dx
+        +
+        \frac{1}{2\pi\sigma^2}\int\limits_0^{+\infty} x e^{-\frac{x^2}{2\sigma^2}(1+z^2)}dx = 
+    \end{equation*}
+    \begin{equation*}
+        = \left[
+        \begin{array}{c}
+            \frac{x^2}{2\sigma^2}(1+z^2) = t \\
+            \frac{x}{\sigma^2}(1+z^2)dx = dt 
+        \end{array}
+        \right]
+        =
+        \frac{-\sigma^2}{2\pi\sigma^2(1+z^2)}\int\limits_{+\infty}^0 e^{-t} dt
+        +
+        \frac{\sigma^2}{2\pi\sigma^2(1+z^2)}\int\limits^{+\infty}_0 e^{-t} dt = 
+    \end{equation*}
+    \begin{equation*}
+        = \frac{1}{\pi(1+z^2)}\int\limits_0^{+\infty}e^{-t}dt = \frac{1}{\pi(1+z^2)}
+        \text{ --- розподіл Коші}
+    \end{equation*}
+\end{example}
+
 \subsection{Закон розподілу суми двох НВВ}
 
 Нехай маємо $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор та
@@ -433,3 +550,31 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y)^T
     \int\limits_{-\infty}^{+\infty}f_{\xi_1}(x) f_{\xi_2}(z-x) dx = 
     (f_{\xi_1} \ast f_{\xi_2})(z)$.
 \end{remark}
+
+\begin{example}
+    $\xi_1$ та $\xi_2$ --- незалежні випадкові величини, $\xi_i \sim Exp(\lambda_i)$, 
+    $i = 1,2$.
+    
+    \noindentЗакон розподілу $\eta = \xi_1 + \xi_2$ --- ?
+
+    За вже знайденою формулою та враховуючи незалежність маємо:
+
+    \begin{equation*}
+        f_\eta(z) = \left[z - x > 0 \Rightarrow x < z\right] = 
+        \int\limits_0^z \lambda_1 e^{-\lambda_1 x}\lambda_2e^{-\lambda_2(z-x)}dx
+        =
+        \lambda_1\lambda_2e^{-\lambda_2z}\int\limits_0^z e^{-x(\lambda_1 - \lambda_2)} dx=
+    \end{equation*}
+    \begin{equation*}
+        =\lambda_1\lambda_2e^{-\lambda_2z}
+        \left.
+        \left(\frac{1}{-(\lambda_1 - \lambda_2)} e^{-x(\lambda_1 - \lambda_2)}\right)
+        \right|_0^z = 
+        \frac{\lambda_1\lambda_2}{\lambda_2 - \lambda_1}e^{-\lambda_2z}
+        (e^{-z(\lambda_1 - \lambda_2)} - 1) =
+    \end{equation*}
+    \begin{equation*}
+        = \frac{\lambda_1\lambda_2}{\lambda_2 - \lambda_1}(e^{-z\lambda_1} - e^{-z\lambda_2})
+        , z \geq 0 \text{ --- закон Ерланга 2-го порядку }(\lambda_1 \neq \lambda_2)
+    \end{equation*}
+\end{example}
