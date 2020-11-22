@@ -10,7 +10,7 @@ $f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$.
 \begin{gather*}
     \chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n e^{i a_k^o t_k - \frac{\sigma_k^2 t_k^2}{2}} = \exp\left\{i(\vec{a^o}, \vec{t}) - \frac{1}{2}\sum\limits_{k=1}^n \sigma_k^2 t_k^2\right\}
     \\
-    f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n \frac{1}{\sqrt{2\pi}\sigma_k} e^{-\frac{(x-a_k^o)^2}{2\sigma_k^2}} = \frac{1}{(2\pi)^{n/2}\prod_{k=1}^n \sigma_k} \exp \left\{ -\frac{1}{2} \sum_{k=1}^n \frac{(x-a_k^o)^2}{\sigma_k^2}\right\}
+    f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n \frac{1}{\sqrt{2\pi}\sigma_k} e^{-\frac{(x_k-a_k^o)^2}{2\sigma_k^2}} = \frac{1}{(2\pi)^{n/2}\prod_{k=1}^n \sigma_k} \exp \left\{ -\frac{1}{2} \sum_{k=1}^n \frac{(x_k-a_k^o)^2}{\sigma_k^2}\right\}
 \end{gather*}
 
 Введемо матрицю $D = \begin{pmatrix}
@@ -45,7 +45,7 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 Доведемо, що $K = ADA^{*}$ --- симетрична й додатно визначена, тому її можна вважати кореляційною матрицею.
 \begin{enumerate}
     \item $K^{*} = \left( ADA^{*}\right)^{*} = \left( A^{*}\right)^{*}DA^{*} = ADA^{*} = K$.
-    \item $\forall \vec{u} \in \mathbb{R}^n$ $\left( K \vec{u}, \vec{u}\right) = \left( ADA^{*} \vec{u}, \vec{u}\right) =
+    \item $\forall \;\vec{u} \in \mathbb{R}^n$ $\left( K \vec{u}, \vec{u}\right) = \left( ADA^{*} \vec{u}, \vec{u}\right) =
     \left( DA^{*} \vec{u}, A^{*}\vec{u}\right) = \left[ A^{*}\vec{u} = \vec{v}\right] = \left( D\vec{v}, \vec{v}\right) > 0$ для $\vec{u}\neq \vec{0}$.
 \end{enumerate}
 
