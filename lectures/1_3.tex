@@ -1,23 +1,5 @@
 % !TEX root = ../main.tex
-\section{Аксіома неперервності. Умовні ймовірності. Незалежність подій. Формула Баєса.}
-
-\subsection{Аксіома неперервності}
-\begin{theorem}
-    Аксіома зліченної адитивності \textbf{P3} еквівалентна аксіомі неперервності
-    \textbf{P4}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap\limits_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} P(B_n) = 0$$
-    \begin{proof}
-        За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}.
-
-        Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j = \varnothing \text{ при } i \neq j$
-        введемо події $B_n = \bigcup\limits_{k=n+1}^{\infty} A_k$. Для них виконується $B_1 \supset B_2 \supset ... \supset B_n \supset ...$ та $\bigcap\limits_{n=1}^{\infty} B_n = \varnothing$,
-        тому з аксіоми \textbf{P4} $\lim\limits_{n\rightarrow \infty} P(B_n) = 0$.
-
-        З іншого боку, маємо таку рівність:
-        $$P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = P\left(\bigcup\limits_{k=1}^{n} A_k\right) + P\left(\bigcup\limits_{k=n+1}^{\infty} A_k\right) = \sum\limits_{k=1}^{n} P(A_k) + P(B_n)$$
-        Перейшовши у правій частині до границі при $n \rightarrow \infty$, отримаємо $P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \sum\limits_{k=1}^{\infty} P(A_k)$, 
-        що є твердженням аксіоми зліченної адитивності.
-    \end{proof}
-\end{theorem}
+\section{Умовні ймовірності. Незалежність подій. Формула Баєса.}
 
 \subsection{Умовні ймовірності}
 Припустимо, що спостерігається деякий експеримент, що описується класичною моделлю, а для події $B$ $P(B)>0$.
@@ -96,11 +78,11 @@ $\left\{ B, \mathcal{F}_B, P(\cdot/B)\right\}$, в якому $B$ стає ві�
         $P(A\cap (B \cup C)) = P((A \cap B) \cup (A \cap C)) = P(A\cap B) + P(A\cap C) = P(A)\cdot P(B) + P(A)\cdot P(C) = P(A) \cdot (P(B) + P(C)) = P(A)\cdot P(B\cup C).$
     \end{proof}
 \end{enumerate}
-\subsection{Незалежність у сукупності}
+
 \begin{definition}
     Події $A_1, A_2, ..., A_n \in \mathcal{F}$ називаються \emph{незалежними у сукупності}, якщо
     \begin{equation}\label{eq:indep}
-        \forall i_1, i_2, ... i_r \in {1,...,n}: P\left(\bigcap\limits_{k=1}^r A_{i_k}\right) = \prod\limits_{k=1}^r P\left(A_{i_k}\right)
+        \forall i_1, i_2, ... i_r \in \{1,...,n\}: P\left(\bigcap\limits_{k=1}^r A_{i_k}\right) = \prod\limits_{k=1}^r P\left(A_{i_k}\right)
     \end{equation}
     Зокрема:
     \nopagebreak

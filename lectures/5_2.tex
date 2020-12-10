@@ -52,7 +52,7 @@
 
 Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)$ --- неперервний випадковий вектор
 із щільністю $f_{\vec{\xi}} (\vec{x})$, то можна знайти функцію розподілу $\eta = \varphi(\vec{\xi})$.
-$$F_\eta (y) = P \left\{ \eta < y\right\} = P \left\{ \xi \in D_y\right\} = \underset{D_y}{\int ... \int} f_{\vec{\xi}} (\vec{x}) d \vec{x}, \text{ де }D_y = \left\{\vec{x} \in \mathbb{R}^n : \varphi(\vec{x}) < y\right\}$$
+$$F_\eta (y) = P \left\{ \eta < y\right\} = P \left\{ \vec{\xi} \in D_y\right\} = \underset{D_y}{\int ... \int} f_{\vec{\xi}} (\vec{x}) d \vec{x}, \text{ де }D_y = \left\{\vec{x} \in \mathbb{R}^n : \varphi(\vec{x}) < y\right\}$$
 
 Розглянемо тепер взаємно однозначне гладке перетворення $\vec{\psi} : \mathbb{R}^n \to \mathbb{R}^n$ та
 знайдемо щільність розподілу $\vec{\eta} = \vec{\psi} (\vec{\xi})$. Для множини $D \subset \mathbb{R}^n$
@@ -284,7 +284,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
             Отже, $f_{\eta}(z) = 
             \begin{cases}
                 0, & z \notin (0, 4] \\
-                \frac{1}{4}(2ln2 - \ln z), & z \in (0, 4]
+                \frac{1}{4}(2\ln2 - \ln z), & z \in (0, 4]
             \end{cases}$.
         \end{tabular}
 \end{example}
@@ -359,7 +359,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \
         \node [above left] at (4, -5) {$D_z$};
         \node [above right] at (3, -3) {$y = zx$};
     \end{tikzpicture} &
-    $z > 0$, тоді $D_z = 
+    $z < 0$, тоді $D_z = 
     \left\{x<0, y>z x\right\} \cup 
     \left\{x>0, y<z x\right\}$
 
@@ -373,7 +373,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \
 \end{tabular}
 \end{enumerate}
 
-\noindentОтже, $f_{\frac{\xi_1}{\xi_2}} = -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
+\noindentОтже, $f_{\frac{\xi_2}{\xi_1}} = -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
 \int\limits_0^{+\infty}xf_{\vec{\xi}}(x, zx)dx$.
 
 \begin{remark}
@@ -493,4 +493,41 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \
 \noindentПри $\lambda_1 = \lambda_2 = \lambda$ отримаємо
 $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакше.
 Це вже буде щільність гамма-розподілу $\Gamma(2, \lambda)$.
+\end{example}
+
+\subsection{Числові характеристики функції багатьох випадкових аргументів}
+Розглядаємо неперервний випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)$ та
+випадкову величину $\eta = \varphi(\vec{\xi})$.
+\begin{exercise}
+    Довести, що для НВВ $\eta$, що приймає невід'ємні значення, $E\eta = \int\limits_0^{+\infty} (1 - F_{\eta}(x)) dx$.
+\end{exercise}
+
+\begin{proposition*} 
+    $E\eta^k = \int_{\mathbb{R}^n} \varphi^k(\vec{x}) f_{\vec{\xi}} (\vec{x}) d\vec{x}$ для всіх $k \in \mathbb{N}$.
+\end{proposition*}
+\begin{proof}
+    Доведемо у випадку $n=2$, та $\varphi(x, y) \geq 0$.
+    \begin{gather*}
+        E\eta^k = \int\limits_0^{+\infty} \left(1 - F_{\eta^k}(z)\right) dz = 
+    \int\limits_0^{+\infty} \left({\iint_{\varphi^k(x,y) \geq z}} f_{\vec{x}}(x,y) dx dy\right) dz = \\
+    =\iint\limits_{\mathbb{R}^2} \left( \int\limits_0^{\varphi^k(x,y)} dz\right) f_{\vec{x}}(x,y) dx dy = 
+     \iint\limits_{\mathbb{R}^2} \varphi^k(x,y) f_{\vec{x}}(x,y) dx dy
+    \end{gather*}
+\end{proof}
+
+\begin{exercise}
+    Довести твердження в більш загальному вигляді.
+\end{exercise}
+
+\begin{example}\label{proof:expectation}
+    $\xi_1, \xi_2$ --- НВВ, знайдемо $E(\xi_1 + \xi_2)$ та $E\xi_1\xi_2$
+    у випадку незалежності цих НВВ.
+    $$E(\xi_1 + \xi_2) = \iint\limits_{\mathbb{R}^2} (x+y) f_{\vec{x}}(x,y) dx dy = 
+    \iint\limits_{\mathbb{R}^2} x f_{\vec{x}}(x,y) dx dy + 
+    \iint\limits_{\mathbb{R}^2} y f_{\vec{x}}(x,y) dx dy = E\xi_1 + E\xi_2$$
+    Якщо $\xi_1, \xi_2$ незалежні, то $f_{\vec{x}}(x,y) = f_{\xi_1}(x) f_{\xi_2}(y)$.
+    $$E\xi_1 \xi_2 =
+    \iint\limits_{\mathbb{R}^2} xy f_{\xi_1}(x) f_{\xi_2}(y) dx dy =
+    \left( \int\limits_{\mathbb{R}} x f_{\xi_1}(x) dx \right)
+    \left( \int\limits_{\mathbb{R}} y f_{\xi_2}(y) dy \right) = E\xi_1 E\xi_2$$
 \end{example}

@@ -86,8 +86,8 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
     \item Якщо $\vec{\xi}$ --- гауссівський вектор, то всі його координати гауссівські,
     а будь-яка підсистема теж є гауссівським вектором.
     \begin{proof}
-        $\chi_{\vec{\xi}}(0,0,...,t_j, ..., 0) = \chi_{\xi_j}(t) = 
-        e^{i a t_j - \frac{1}{2}\sigma_j^2 t_j^2} \Rightarrow \xi_j \sim \mathrm{N}(a_j, \sigma_j^2)$.
+        $\chi_{\vec{\xi}}(0,0,...,t_j, ..., 0) = \chi_{\xi_j}(t_j) = 
+        e^{i a_j t_j - \frac{1}{2}\sigma_j^2 t_j^2} \Rightarrow \xi_j \sim \mathrm{N}(a_j, \sigma_j^2)$.
 
         Аналогічно для будь-якої підсистеми $\vec{\eta} = (\xi_{k_1}, \xi_{k_2}, ..., \xi_{k_n})^T$.
     \end{proof}
@@ -127,10 +127,12 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
     Отже, в базисі з власних векторів матриці $K$ координати відповідного гауссівського вектора стають незалежними.
     \item \emph{Афінне перетворення гауссівських векторів}.
 
-    $\vec{\xi} \sim \mathrm{N}(\vec{a}, K)$. $A : \mathbb{R}^n \rightarrow \mathbb{R}^m$ --- матриця, $\vec{b} \in \mathbb{R}^m$, $\vec{\eta} = A\vec{\xi} + \vec{b}$.
+    $\vec{\xi} \sim \mathrm{N}(\vec{a}, K)$. $A : \mathbb{R}^n \rightarrow \mathbb{R}^m$ --- лінійний оператор, заданий матрицею, $\vec{b} \in \mathbb{R}^m$, $\vec{\eta} = A\vec{\xi} + \vec{b}$.
     За властивістю характеристичної функції $\chi_{\vec{\eta}}(\vec{t}) = e^{i(\vec{b}, \vec{t})}\cdot\chi_{\vec{\xi}}(A^{*}\vec{t}) =
     \exp\left\{i(\vec{b}, \vec{t})\right\}\cdot \exp\left\{i(\vec{a}, A^{*}\vec{t}) - \frac{1}{2}\left( K A^{*}\vec{t}, A^{*}\vec{t}\right)\right\} =
-    \exp\left\{i(A\vec{a} + \vec{b}, \vec{t}) - \frac{1}{2}\left( A K A^{*}\vec{t}, \vec{t}\right)\right\}$. Отже, $\vec{\eta} \sim \mathrm{N}(A\vec{a} + \vec{b}, A K A^{*})$.
+    \exp\left\{i(A\vec{a} + \vec{b}, \vec{t}) - \frac{1}{2}\left( A K A^{*}\vec{t}, \vec{t}\right)\right\}$. 
+    
+    Отже, $\vec{\eta} \sim \mathrm{N}(A\vec{a} + \vec{b}, A K A^{*})$.
 \end{enumerate}
 \begin{example}
     \begin{enumerate}
@@ -367,7 +369,7 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
 \left(\frac{1}{2} + \Phi\left( \frac{y-a_2}{\sigma_2}\right) \right)$.
 Тоді ймовірність потрапляння в прямокутник $\Pi = \left\{(x;y)\in\mathbb{R}^2 : \alpha \leq x < \beta, \gamma \leq y < \delta\right\}$
 дорівнює $$\left( \Phi\left( \frac{\beta-a_1}{\sigma_1}\right) - \Phi\left( \frac{\alpha-a_1}{\sigma_1}\right)\right) \cdot
-\left( \Phi\left( \frac{\gamma-a_2}{\sigma_2}\right) - \Phi\left( \frac{\delta-a_2}{\sigma_2}\right)\right)$$
+\left( \Phi\left( \frac{\delta-a_2}{\sigma_2}\right) - \Phi\left( \frac{\gamma-a_2}{\sigma_2}\right)\right)$$
 \begin{exercise}
     Довести формулу для $P\left\{\vec{\xi}\in\Pi\right\}$.
 \end{exercise}
@@ -383,7 +385,7 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
     Двовимірний гауссівський вектор має \emph{колове розсіювання}, якщо
     $\vec{a} = \vec{0}, \; K = \begin{pmatrix}
         \sigma^2 & 0 \\
-        0 & \sigma_2
+        0 & \sigma^2
     \end{pmatrix}$. В цьому випадку $f_{\vec{\xi}} = \frac{1}{2\pi\sigma^2} \exp\left\{-\frac{x^2+y^2}{2\sigma^2}\right\}$, 
     а еліпси розсіювання стають колами.
 \end{definition}
@@ -430,15 +432,15 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
         \frac{(y-a_2)^2}{2\sigma_2^2}
         \right\} = \\
         = \left [ \frac{(y-a_2)^2}{\sigma_2^2} - \frac{(1-\rho^2)(y-a_2)^2}{\sigma_2^2} = \rho^2 \frac{(y-a_2)^2}{\sigma_2^2}\right]=\\
-        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( \frac{x-a_1}{\sigma_1^2} - \rho\cdot\frac{y-a_2}{\sigma^2}\right)^2\right\} = \\
-        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( x- \left( a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}\right)\right)^2\right\}
+        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( \frac{x-a_1}{\sigma_1} - \rho\cdot\frac{y-a_2}{\sigma_2}\right)^2\right\} = \\
+        = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2\sigma_1^2(1-\rho^2)}\left( x- \left( a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}\right)\right)^2\right\}
 \end{gather*}
-Аналогічно $f_{\xi_2}(x/\xi_1 = x) = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2(1-\rho^2)}\left( y- \left( a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}\right)\right)^2\right\}$.
+Аналогічно $f_{\xi_2}(y/\xi_1 = x) = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2\sigma_2^2(1-\rho^2)}\left( y- \left( a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}\right)\right)^2\right\}$.
 
 \noindentОтже, обидві умовні щільності є щільностями нормального розподілу.
 
 $E\left( \xi_1 / \xi_2 = y\right) = a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}$, 
-$E\left( \xi_2 / \xi_1 = x\right) = a_2 + \frac{\rho\sigma_2(y-a_2)}{\sigma_1}$. Лінії регресії --- прямі,
+$E\left( \xi_2 / \xi_1 = x\right) = a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}$. Лінії регресії --- прямі,
 
 \noindent
 $\rho\frac{\sigma_1}{\sigma_2} = \frac{K\xi_1\xi_2}{D\xi_2}$ та $\rho\frac{\sigma_2}{\sigma_1}  = \frac{K\xi_1\xi_2}{D\xi_1}$ --- відповідні кутові коефіцієнти прямих регресії.

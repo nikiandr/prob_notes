@@ -99,6 +99,13 @@ y + \theta_4 \Delta y)\Delta y}
     \item D --- замкнена обмежена область в $\mathbb{R}^2$.
     $P\left\{ \vec{\xi} \in D \right\} = \iint\limits_D f_{\vec{\xi}}(x, y) 
     dx dy$.
+    \item Якщо координати випадкового вектора $\xi_1$ та $\xi_2$ незалежні, то
+    $F_{\vec{\xi}}(x, y) = 
+    F_{\xi_1}(x)\cdot F_{\xi_2}(y)$, і тоді
+    $f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}(x, y)}
+    {\partial x \partial y} = \frac{\partial^2(F_{\xi_1}(x)F_{\xi_2}(y))}{\partial x \partial y} 
+    = F_{\xi_1}^\prime (x)F_{\xi_2}^\prime (y) = 
+    f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
 \end{enumerate}
 
 \subsection{Рівномірний закон розподілу на площині}
@@ -296,31 +303,11 @@ y + \theta_4 \Delta y)\Delta y}
     \item D --- замкнена обмежена область в $\mathbb{R}^n$,
     $P\left\{\vec{\xi} \in D\right\} = {\int\int...\int}_D f_{\vec{\xi}}(\vec{x})
     dx_1 ... dx_n$.
+    \item Якщо координати $\xi_1, ..., \xi_n$ незалежні у сукупності (тобто, події
+    $\left\{\omega : \xi_{i_k}(\omega) < x_{i_k} \right\}$ незалежні для всіх $x_{i_k}$ та 
+    $i_1, i_2, ... i_r \in \{1,...,n\}$), то 
+    $f_{\vec{\xi}} (x_1, ..., x_n) = f_{\xi_1}(x_1) \cdot ... \cdot f_{\xi_n}(x_n)$.
 \end{enumerate}
 \begin{exercise}
     Довести властивості щільності.
 \end{exercise}
-
-\subsection{Незалежні випадкові величини}
-\begin{definition}
-    Випадкові величини $\xi_1$ та $\xi_2$ називаються незалежними, якщо 
-    $\forall x, y \in \mathbb{R}$:  
-    $\left\{\omega:\xi_1 < x\right\}$ та $\left\{\omega:\xi_2 < y\right\}$ 
-    незалежні (як події).
-\end{definition}
-    Якщо $\xi_1$, $\xi_2$ --- незалежні координати випадкового вектора $\vec{\xi} = (\xi_1, \xi_2)^T$, 
-    то $F_{\vec{\xi}}(x, y) = 
-    P\left(\left\{\xi_1 < x\right\} \cap \left\{\xi_2 < y\right\}\right) = 
-    F_{\xi_1}(x)\cdot F_{\xi_2}(y)$.
-
-    Якщо вектор є неперервним та існує неперервна 
-    друга часткова похідна функції розподілу, то
-    $f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}(x, y)}
-    {\partial x \partial y} = \frac{\partial^2(F_{\xi_1}(x)F_{\xi_2}(y))}{\partial x \partial y} 
-    = F_{\xi_1}^\prime (x)F_{\xi_2}^\prime (y) = 
-    f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
-
-    Для $n$-вимірного неперервного випадкового вектора $\vec{\xi} = \left( \xi_1, ..., \xi_n\right)$
-    з незалежними координатами $F_{\vec{\xi}} (x_1, ..., x_n) = F_{\xi_1}(x_1) \cdot ... \cdot F_{\xi_n}(x_n)$ та,
-    якщо існує неперервна $\frac{\partial F_{\vec{\xi}(\vec{x})}}{\partial{x_1} ... \partial{x_n}}$,
-    $f_{\vec{\xi}} (x_1, ..., x_n) = f_{\xi_1}(x_1) \cdot ... \cdot f_{\xi_n}(x_n)$
