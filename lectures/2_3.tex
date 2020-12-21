@@ -717,15 +717,15 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 \noindent \textbf{Крива розподілу:}
 
 \begin{tabular}{c c}
-    \begin{tikzpicture}[yscale = 15, xscale = 0.5, baseline={(current bounding box.center)}]
+    \begin{tikzpicture}[yscale = 7, xscale = 0.5, baseline={(current bounding box.center)}]
         \pgfmathsetmacro{\a}{2};
-        \pgfmathsetmacro{\b}{3};
+        \pgfmathsetmacro{\b}{1};
         \draw [->] (-2, 0) -- (20, 0);
-        \draw [->] (0, -0.05) -- (0, 0.15);
+        \draw [->] (0, -0.05) -- (0, 0.4);
         \draw [ultra thick] (-2, 0) -- (0, 0);
-        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(-\a)*\x^(\a-1) * e^(-\x/\b)});
+        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(\a)*\x^(\a-1) * e^(-\x*\b)});
         \node [below] at (20, 0) {$x$};
-        \node [left] at (0, 0.15) {$f_\xi(x)$};
+        \node [left] at (0, 0.4) {$f_\xi(x)$};
         \node [below left] at (0, 0) {$0$};
     \end{tikzpicture} &
     \begin{tabular}{c}
@@ -736,11 +736,11 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 \begin{tabular}{c c}
     \begin{tikzpicture}[yscale = 5, xscale = 0.5, baseline={(current bounding box.center)}]
         \pgfmathsetmacro{\a}{1};
-        \pgfmathsetmacro{\b}{2};
+        \pgfmathsetmacro{\b}{0.5};
         \draw [->] (-2, 0) -- (20, 0);
         \draw [->] (0, -0.05) -- (0, 0.6);
         \draw [ultra thick] [->] (-2, 0) -- (0, 0);
-        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(-\a)*\x^(\a-1) * e^(-\x/\b)});
+        \draw [domain=0:19.7, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(\a)*\x^(\a-1) * e^(-\x*\b)});
         \node [below] at (20, 0) {$x$};
         \node [left] at (0, 0.6) {$f_\xi(x)$};
         \node [below right] at (0, 0) {$0$};

@@ -417,7 +417,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \
         \frac{\sigma^2}{2\pi\sigma^2(1+z^2)}\int\limits^{+\infty}_0 e^{-t} dt = 
     \end{equation*}
     \begin{equation*}
-        = \frac{1}{\pi(1+z^2)}\int\limits_0^{+\infty}e^{-t}dt = \frac{1}{\pi(1+z^2)}
+        = \frac{1}{\pi(1+z^2)}\int\limits_0^{+\infty}e^{-t}dt = \frac{1}{\pi(1+z^2)}, z \in \mathbb{R}
         \text{ --- це щільність розподілу Коші.}
     \end{equation*}
 \end{example}
@@ -509,9 +509,9 @@ $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакш
     Доведемо у випадку $n=2$, та $\varphi(x, y) \geq 0$.
     \begin{gather*}
         E\eta^k = \int\limits_0^{+\infty} \left(1 - F_{\eta^k}(z)\right) dz = 
-    \int\limits_0^{+\infty} \left({\iint_{\varphi^k(x,y) \geq z}} f_{\vec{x}}(x,y) dx dy\right) dz = \\
-    =\iint\limits_{\mathbb{R}^2} \left( \int\limits_0^{\varphi^k(x,y)} dz\right) f_{\vec{x}}(x,y) dx dy = 
-     \iint\limits_{\mathbb{R}^2} \varphi^k(x,y) f_{\vec{x}}(x,y) dx dy
+    \int\limits_0^{+\infty} \left({\iint_{\varphi^k(x,y) \geq z}} f_{\vec{\xi}}(x,y) dx dy\right) dz = \\
+    =\iint\limits_{\mathbb{R}^2} \left( \int\limits_0^{\varphi^k(x,y)} dz\right) f_{\vec{\xi}}(x,y) dx dy = 
+     \iint\limits_{\mathbb{R}^2} \varphi^k(x,y) f_{\vec{\xi}}(x,y) dx dy
     \end{gather*}
 \end{proof}
 
@@ -522,9 +522,9 @@ $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакш
 \begin{example}\label{proof:expectation}
     $\xi_1, \xi_2$ --- НВВ, знайдемо $E(\xi_1 + \xi_2)$ та $E\xi_1\xi_2$
     у випадку незалежності цих НВВ.
-    $$E(\xi_1 + \xi_2) = \iint\limits_{\mathbb{R}^2} (x+y) f_{\vec{x}}(x,y) dx dy = 
-    \iint\limits_{\mathbb{R}^2} x f_{\vec{x}}(x,y) dx dy + 
-    \iint\limits_{\mathbb{R}^2} y f_{\vec{x}}(x,y) dx dy = E\xi_1 + E\xi_2$$
+    $$E(\xi_1 + \xi_2) = \iint\limits_{\mathbb{R}^2} (x+y) f_{\vec{\xi}}(x,y) dx dy = 
+    \iint\limits_{\mathbb{R}^2} x f_{\vec{\xi}}(x,y) dx dy + 
+    \iint\limits_{\mathbb{R}^2} y f_{\vec{\xi}}(x,y) dx dy = E\xi_1 + E\xi_2$$
     Якщо $\xi_1, \xi_2$ незалежні, то $f_{\vec{x}}(x,y) = f_{\xi_1}(x) f_{\xi_2}(y)$.
     $$E\xi_1 \xi_2 =
     \iint\limits_{\mathbb{R}^2} xy f_{\xi_1}(x) f_{\xi_2}(y) dx dy =
