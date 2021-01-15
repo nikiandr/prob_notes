@@ -1,0 +1,197 @@
+% !TEX root = ../main.tex
+\section{Послідовності випадкових величин}
+\subsection{Нерівності Маркова та Чебишова}
+\noindent\textbf{Нерівність Маркова.} Нехай модуль випадкової величини $\xi$ має скінченне математичне сподівання: $E|\xi| < +\infty$.
+Тоді 
+\begin{gather}\label{Markov_ineq}
+    \forall \; \varepsilon >0 : P\left\{ |\xi| \geq \varepsilon\right\} \leq \frac{E|\xi|}{\varepsilon}
+\end{gather}
+\begin{proof}
+    Запишемо випадкову величину $|\xi|$ через події-індикатори: 
+    $|\xi| = |\xi|\cdot I\left\{|\xi| \geq \varepsilon\right\} + |\xi|\cdot I\left\{|\xi| < \varepsilon\right\} \geq
+    \varepsilon\cdot I\left\{|\xi| < \varepsilon\right\}$. Звідси $E|\xi| \geq E \left( \varepsilon\cdot I\left\{|\xi| < \varepsilon\right\}\right) =
+    \varepsilon \cdot P\left\{ |\xi| \geq \varepsilon\right\}$.
+\end{proof}
+\begin{remark}
+    Еквівалентною нерівністю є $P\left\{ |\xi| < \varepsilon\right\} \geq 1 - \frac{E|\xi|}{\varepsilon}$.
+\end{remark}
+
+\begin{example}
+    Багатьма спостереженнями з'ясовано, що середня кількість
+    сонячних дні у Києві складає 220. Оцінити ймовірність того, що
+    сонячних днів за рік буде не менше 300.
+
+    \noindentПозначимо $\xi$ кількість сонячних днів. За умовою $\xi$ невід'ємна та $E\xi = 220$,
+    тому за нерівністю Маркова $P\left\{ \xi \geq 300\right\} \leq \frac{220}{300} = \frac{11}{15}$.
+\end{example}
+
+\noindent\textbf{Нерівність Чебишова.} Нехай випадкова величина $\xi$ має скінченні математичне сподівання та дисперсію.
+Тоді
+\begin{gather}
+    \forall \; \varepsilon >0 : P\left\{ \left|\xi - E\xi\right| \geq \varepsilon\right\} \leq \frac{D\xi}{\varepsilon^2}
+\end{gather}
+\begin{proof}
+    $P\left\{ |\xi - E\xi| \geq \varepsilon\right\} = P\left\{ (\xi - E\xi)^2 \geq \varepsilon^2\right\}$.
+    Застосуємо нерівність Маркова:
+    
+    \noindent $P\left\{ (\xi - E\xi)^2 \geq \varepsilon^2\right\} \leq \frac{E(\xi - E\xi)^2}{\varepsilon^2} = \frac{D\xi}{\varepsilon^2}$.
+\end{proof}
+\begin{remark}
+    Еквівалентною нерівністю є $P\left\{ \left|\xi - E\xi\right| < \varepsilon\right\} \geq 1 - \frac{D\xi}{\varepsilon^2}$.
+\end{remark}
+\begin{example}
+    Отримаємо <<правило $3 \sigma$>> для довільної випадкової величини зі скінченними математичним сподівання та дисперсією.
+    $P\left\{ |\xi - E\xi| < 3 \sigma\right\} \geq 1 - \frac{D\xi}{9 \sigma^2} = 1 - \frac{\sigma^2}{9 \sigma^2} = \frac{8}{9}$.
+\end{example}
+\noindent\textbf{Нерівність Чебишова в схемі Бернуллі.} Нехай $\xi \sim \mathrm{Bin}(n, p)$, $E\xi = np$, $D\xi = npq$.
+Відношення $\frac{\xi}{n}$ називається відносною частотою появи успіху або частістю. $E\left( \frac{\xi}{n}\right) = p$, 
+$D\left( \frac{\xi}{n}\right) = \frac{pq}{n}$. З нерівності Чебишова 
+$P\left\{ \left|\frac{\xi}{n} - p\right| \geq \varepsilon\right\} \leq \frac{pq}{n \epsilon^2}$.
+
+\subsection{Послідовності випадкових величин}
+Розглядаємо фіксований ймовірнісний простір $\left\{ \Omega, \mathcal{F}, P\right\}$ та
+послідовність випадкових величин $\left\{ \xi_n (\omega)\right\}_{n=1}^{\infty}$.
+Якщо для кожного $n \in \mathbb{N}$ події $\xi_1, \xi_2, ..., \xi_n$ \emph{незалежні у сукупності},
+то послідовність $\left\{ \xi_n (\omega)\right\}_{n=1}^{\infty}$ називається \emph{послідовністю незалежних випадкових величин}.
+
+Послідовності випадкових величин можна задавати різними способами:
+\begin{enumerate}
+    \item Нехай $\xi$ --- деяка випадкова величина, можна задати $\xi_n = f_n(\xi)$, де $f_n$ --- деяка числова функція. 
+    Наприклад: $\xi_n = \xi^n$, $\xi_n = \cos (n\xi)$.
+    \item $n$ може входити як параметр закону розподілу $\xi_n$. Наприклад, $\xi_n \sim \mathrm{Exp}(n)$, $\xi_n \sim \mathrm{N}(0, \frac{1}{n})$.
+    \item Для послідовностей ДВВ $n$ може входити як в значення, що приймає $\xi_n$, так і у відповідні ймовірності. Наприклад:
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $\xi_n$ & $-\sqrt{n}$ & $0$ & $\sqrt{n}$ \\
+        \hline
+        $p$ & $1/n$ & $1 - 2/n$ & $1/n$ \\
+        \hline
+    \end{tabular}
+\end{enumerate}
+В курсі функціонального аналізу вводяться різні види збіжності послідовності вимірних функцій та
+зв'язок між цими видами збіжності.
+
+\subsection{Види збіжності послідовності випадкових величин}
+\begin{enumerate}
+    \item \textbf{Збіжність за розподілом (слабка збіжність, збіжність в основному).}
+
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за розподілом}, якщо функціональна послідовність
+    $\left\{ F_{\xi_n} (x)\right\}_{n=1}^{\infty}$ збігається до $F_{\xi}(x)$ в точках її неперервності.
+
+    Позначення: $\xi_n \overset{F}{\longrightarrow} \xi, n \to \infty$.
+    \begin{example}
+        Нехай $\xi_n \sim \mathrm{Exp}(\frac{1}{n})$. Перевірити $\xi_n \overset{F}{\to} 0, n \to \infty$.
+        Тут під 0 розуміється ДВВ, що приймає значення 0 з ймовірністю 1.
+
+        $F_{\xi_n}(x) = \begin{cases}
+            1 - e^{\frac{x}{n}}, & x > 0 \\
+            0, & x \leq 0
+        \end{cases}$. Видно, що при $n \to \infty$ $F_{\xi_n}(x) \to F_0(x) = \begin{cases}
+            1, & x > 0 \\
+            0, & x \leq 0
+        \end{cases}
+        $ --- функція розподілу 0.
+    \end{example}
+    \item \textbf{Збіжність майже напевно (сильна збіжність, збіжність з ймовірністю 1).}
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{майже напевно}, якщо
+    $P\left\{ \omega: \underset{n\to\infty}{\lim} \xi_n(\omega) = \xi(\omega)\right\} = 1$. 
+    Це еквівалентно умові $P\left\{ \omega: \underset{n\to\infty}{\lim} \xi_n(\omega) \neq \xi(\omega)\right\} = 0$.
+
+    Позначення: $\xi_n \overset{P1}{\longrightarrow} \xi, n \to \infty$ або $\xi_n \overset{\text{м.н.}}{\longrightarrow} \xi, n \to \infty$.
+    \begin{exercise}
+        Довести ще одне еквівалентне визначення збіжності майже напевно: $\xi_n \overset{P1}{\longrightarrow} \xi, n \to \infty$, якщо
+        $\forall \; \varepsilon > 0: P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty}
+        \left\{ \omega : \left| \xi_k(\omega) - \xi(\omega)\right| > \varepsilon\right\}\right) = 0$.
+    \end{exercise}
+    
+    \textbf{Лема Бореля-Кантеллі.} Якщо для послідовності подій $\left\{A_n \right\}_{n=1}^{\infty}$ ряд
+    $\sum\limits_{n=1}^{\infty} P(A_n)$ збігається, то $P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty} A_k\right) = 0$.
+    Це означає, що ймовірність того, що відбудеться нескінченна кількість цих подій, є нульовою.
+    \begin{proof}
+        Послідовність подій $B_n = \bigcup\limits_{k = n}^{\infty} A_k$ монотонно спадна, тому за теоремою неперервності \ref{th:2}
+        $P\left( \bigcap\limits_{n=1}^{\infty} B_n\right) = \underset{n\to\infty}{\lim} P(B_n)$.
+        $P(B_n) = P\left( \bigcup\limits_{k = n}^{\infty} A_k\right) \leq \sum\limits_{k=n}^{\infty}P(A_n) \to 0$ при $n\to \infty$ 
+        зі збіжності ряду. Тому $\underset{n\to\infty}{\lim} P(B_n) = P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty} A_k\right) = 0$.
+    \end{proof}
+    Застосуванням цієї леми до послідовності подій $A_n = \left\{ \omega : \left| \xi_n(\omega) - \xi(\omega)\right| > \varepsilon\right\}$ отримаємо зручну для використання
+    ознаку збіжності майже напевно: якщо для будь-якого $\varepsilon >0$ ряд
+    $\sum\limits_{n=1}^{\infty} P\left\{\left| \xi_n - \xi\right| > \varepsilon\right\}$ збігається, то 
+    $\xi_n \overset{P1}{\longrightarrow} \xi, n \to \infty$.
+    \begin{example}
+        Довести, що послідовність $\xi_n \sim \mathrm{U}(-\frac{1}{n}, \frac{1}{n})$ при $n\to\infty$ збігається до 0 майже напевно.
+        
+        Візьмемо довільне $\varepsilon > 0$ та знайдемо $P\left\{ |\xi_n| > \varepsilon\right\}$. Для $\varepsilon \geq 1$
+        ця ймовірність, очевидно, рівна 0. В іншому випадку, для кожного $\varepsilon \in (0; 1)$ можна знайти такий номер $N$,
+        для якого $\varepsilon$ буде більше за $\frac{1}{n}$ при $n \geq N$. Тому для будь-якого $\varepsilon >0$ ймовірності
+        $P\left\{ |\xi_n| > \varepsilon\right\}$ рівні 0, починаючи з якогось $n$. Отже, для будь-якого $\varepsilon >0$ ряд 
+        $\sum\limits_{n=1}^{\infty} P\left\{\left| \xi_n \right| > \varepsilon\right\}$ збігається і 
+        $\xi_n \overset{P1}{\longrightarrow} 0, n \to \infty$.
+    \end{example}
+    \item \textbf{Збіжність за ймовірністю.}
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за ймовірністю}, якщо 
+    $\forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} P\left\{|\xi_n - \xi| \geq \varepsilon\right\}= 0$.
+    Це еквівалентно умові $\forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} P\left\{|\xi_n - \xi| \leq \varepsilon\right\}= 1$.
+    Позначення: $\xi_n \overset{P}{\longrightarrow} \xi, n \to \infty$.
+    \begin{example}
+        Нехай $\xi_n$ --- послідовність ДВВ: 
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $\xi_n$ & $0$ & $n^7$ \\
+            \hline
+            $p$ & $1-1/n$ & $1/n$ \\
+            \hline
+        \end{tabular}.
+        Перевірити збіжність $\xi_n \overset{P}{\longrightarrow} 0, n \to \infty$.
+        
+        \noindentДля $\varepsilon >0$ $P\left\{|\xi_n -0| \geq \varepsilon\right\} = P\left\{ \xi_n \geq \varepsilon\right\}$.
+        $\forall \; \varepsilon >0 \; \exists \; N: \forall n\geq N:n^7 > \varepsilon$, тому з якогось номера
+        $P\left\{ \xi_n \geq \varepsilon\right\} = P\left\{ \xi_n = n^7 \right\} = \frac{1}{n} \to 0, n\to\infty$, тому $\xi_n \overset{P}{\longrightarrow} 0, n \to \infty$.
+    \end{example}
+    \item \textbf{Збіжність в середньому.}
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{в середньому},
+    якщо $\underset{n \to \infty}{\lim} E|\xi_n - \xi| = 0$.
+    Позначення: $\xi_n \overset{\text{С}}{\longrightarrow} \xi, n \to \infty$.
+    \item \textbf{Збіжність в середньому квадратичному.}
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{в середньому квадратичному},
+    якщо $\underset{n \to \infty}{\lim} E(\xi_n - \xi)^2 = 0$.
+    
+    \noindentПозначення: $\xi_n \overset{\text{СК}}{\longrightarrow} \xi, n \to \infty$.
+\end{enumerate}
+
+\begin{remark}
+    Збіжності в середньому та середньому квадратичному є частковими випадками \emph{збіжності порядку $k$}, для якої
+$\underset{n \to \infty}{\lim} E|\xi_n - \xi|^k = 0$. Оскільки 
+для $0 < s < t$ має місце
+$( E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( E \left| \xi\right|^t)^{\frac{1}{t}}$
+то збіжність порядку $k$ гарантує збіжність порядків менше $k$.
+\end{remark}
+В курсі функціонального аналізу встановлюється зв'язок між розглянутими видами збіжності:
+\begin{center}
+    \begin{tabular}{c c c c c}
+        $P1$ & $\Rightarrow$ & $P$ & $\Rightarrow$ & $F$ \\
+        $\Downarrow$ & & $\Uparrow$ & & \\
+        $\text{С}$ & $\Rightarrow$ & $\text{СК}$ & & \\
+    \end{tabular}
+
+    $P \Leftarrow F$ в разі збіжності до сталої ВВ
+\end{center}
+Доведемо деякі з цих тверджень.
+\begin{enumerate}
+    \item $\text{C} \Rightarrow P$. З нерівності Маркова (\ref{Markov_ineq})
+    $\forall \; \varepsilon > 0: P\left\{|\xi_n - \xi| \geq \varepsilon\right\} \leq \frac{E|\xi_n - \xi|}{\varepsilon}$, 
+    тому з $E|\xi_n - \xi| \to 0$ маємо $P\left\{|\xi_n - \xi| \geq \varepsilon\right\} \to 0, n\to\infty$.
+    \item $\text{СК} \Rightarrow \text{С}$. $E|\xi_n -\xi| \leq \sqrt{E(\xi_n - \xi)^2}$, як було сказано вище, тому з $E(\xi_n - \xi)^2 \to 0$
+    випливає $E|\xi_n - \xi| \to 0, n\to\infty$. 
+\end{enumerate}
+Для збіжності $\xi_n \overset{\text{СК}}{\longrightarrow} C$ ($C$ --- стала) необхідно і достатньо, щоб
+$\underset{n \to \infty}{\lim} E\xi_n = C$ та $\underset{n \to \infty}{\lim} D\xi_n = 0$.
+$\underset{n \to \infty}{\lim} E\xi_n = C \Leftrightarrow \underset{n \to \infty}{\lim} (E\xi_n - EC) = 0$,
+$E(\xi_n - C)^2 = D\xi_n + (E(\xi_n -C))^2$,
+звідки отримуємо твердження при $n \to \infty$, оскільки $D\xi_n \geq 0$ та $(E(\xi_n -C))^2 \geq 0$.
+Зауважимо, що ці дві умови є достатніми для збіжності $\xi_n \overset{P}{\longrightarrow} C$.
+\begin{example}
+    Нехай $\xi_n \sim \mathrm{N}\left(5 + \frac{1}{n}, \sigma = \frac{1}{n}\right)$. Перевірити $\xi_n \overset{P}{\longrightarrow} 5$.
+    
+    \noindent Оскільки $E\xi_n = 5+\frac{1}{n} \to 5$, $D\xi_n = \frac{1}{n^2} \to 0$ при $n \to \infty$,
+    то $\xi_n \overset{\text{СК}}{\longrightarrow} 5 \Rightarrow \xi_n \overset{P}{\longrightarrow} 5$.
+\end{example}

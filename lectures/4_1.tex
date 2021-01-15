@@ -201,7 +201,7 @@ $$
     \emph{Характеристичною функцією} випадкового вектору $\vec{\xi} = \left( \xi_1, \xi_2, ..., \xi_n\right)^T$ 
     називається комплекснозначна функція $n$ дійсних аргументів $\chi_{\vec{\xi}}(\vec{t}) = Ee^{i(\vec{\xi}, \vec{t})}$, $\vec{t} \in \mathbb{R}^n$.
     \begin{equation}\label{eq:char_func_vect}
-        \chi_{\vec{\xi}}(\vec{t}) = \int\limits_{\mathbb{R}^n} e^{i(\vec{x}, \vec{t})} dF_\xi(x) = \begin{cases}
+        \chi_{\vec{\xi}}(\vec{t}) = \int\limits_{\mathbb{R}^n} e^{i(\vec{x}, \vec{t})} dF_{\vec{\xi}}(\vec{x}) = \begin{cases}
             \sum\limits_{k_1,k_2, ..., k_n} e^{i \sum\limits_{j=1}^n x_{k_j}t_j} P\left\{\xi_1 = x_{k_1}, ..., \xi_n = x_{k_n}\right\}, & \vec{\xi} \text{ --- ДВВ} \\
             \int\limits_{\mathbb{R}^n} e^{i(\vec{x}, \vec{t})} f_{\vec{\xi}}(x_1, x_2, ..., x_n)dx_1 dx_2 ... dx_n, & \vec{\xi} \text{ --- НВВ}
         \end{cases}
@@ -256,7 +256,7 @@ $$
     \item $\vec{\eta} = A\vec{\xi} + \vec{b}$ --- афінне перетворення $\vec{\xi}$.
 
     $\chi_{\vec{\eta}}(\vec{t}) = E e^{i(\vec{\eta}, \vec{t})} = E e^{i(A\vec{\xi} + \vec{b}, \vec{t})}=
-    E e^{i(\vec{b}, \vec{t})} \cdot E e^{(A\vec{\xi}, \vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot E e^{(\vec{\xi}, A^{*}\vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot \chi_{\vec{\xi}}(A^{*}\vec{t})$.
+    E e^{i(\vec{b}, \vec{t})} \cdot E e^{i(A\vec{\xi}, \vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot E e^{i(\vec{\xi}, A^{*}\vec{t})} = e^{i(\vec{b}, \vec{t})} \cdot \chi_{\vec{\xi}}(A^{*}\vec{t})$.
     \item Характеристична функція вектора дозволяє знайти початкові моменти будь-якого порядку:
     \begin{gather*}
         E\xi_1^{k_1} \xi_2^{k_2} ... \xi_n^{k_n} = \frac{1}{i^{k_1 + k_2 + ... + k_n}} \cdot \frac{\partial^{k_1 + k_2 + ... + k_n}\chi_{\vec{\xi}}(\vec{t})}{\partial t_1^{k_1} \partial t_2^{k_2} ... \partial t_n^{k_n}} \Biggr \vert_{\vec{t} = \vec{0}}, 
