@@ -72,26 +72,16 @@ $P\left\{ \left|\frac{\xi}{n} - p\right| \geq \varepsilon\right\} \leq \frac{pq}
 зв'язок між цими видами збіжності.
 
 \subsection{Види збіжності послідовності випадкових величин}
+Нагадаємо класичне означення границі числової послідовності. Число $a$ називають границею послідовності 
+$\left\{ a_n\right\}_{n=1}^{\infty}$, якщо
+$$ \forall \; \varepsilon > 0 \; \exists \; N(\varepsilon) \in \mathbb{N}: \forall \; n \geq N(\varepsilon) \; \left| a_n - a\right| < \varepsilon$$
+Оскільки послідовність випадкових величин $\left\{ \xi_n\right\}_{n=1}^{\infty}$ є послідовністю функцій з $\Omega$ в $\mathbb{R}$, то це означення
+не є застосовним, бо $\left| \xi_n - \xi\right| < \varepsilon$ є випадковою подією, що виконується, взагалі кажучи, не для всіх елементарних подій
+$\omega \in \Omega$. ших. Тому ми маємо ввести інше означення границі (та збіжності) послідовності
+випадкових величин. Виявляється, що таких означень можна запропонувати декілька, причому вони
+не є еквівалентними одне одному.
+\vspace{1em}
 \begin{enumerate}
-    \item \textbf{Збіжність за розподілом (слабка збіжність, збіжність в основному).}
-
-    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за розподілом}, якщо функціональна послідовність
-    $\left\{ F_{\xi_n} (x)\right\}_{n=1}^{\infty}$ збігається до $F_{\xi}(x)$ в точках її неперервності.
-
-    Позначення: $\xi_n \overset{F}{\longrightarrow} \xi, n \to \infty$.
-    \begin{example}
-        Нехай $\xi_n \sim \mathrm{Exp}(\frac{1}{n})$. Перевірити $\xi_n \overset{F}{\to} 0, n \to \infty$.
-        Тут під 0 розуміється ДВВ, що приймає значення 0 з ймовірністю 1.
-
-        $F_{\xi_n}(x) = \begin{cases}
-            1 - e^{\frac{x}{n}}, & x > 0 \\
-            0, & x \leq 0
-        \end{cases}$. Видно, що при $n \to \infty$ $F_{\xi_n}(x) \to F_0(x) = \begin{cases}
-            1, & x > 0 \\
-            0, & x \leq 0
-        \end{cases}
-        $ --- функція розподілу 0.
-    \end{example}
     \item \textbf{Збіжність майже напевно (сильна збіжність, збіжність з ймовірністю 1).}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{майже напевно}, якщо
     $P\left\{ \omega: \underset{n\to\infty}{\lim} \xi_n(\omega) = \xi(\omega)\right\} = 1$. 
@@ -103,6 +93,10 @@ $P\left\{ \left|\frac{\xi}{n} - p\right| \geq \varepsilon\right\} \leq \frac{pq}
         $\forall \; \varepsilon > 0: P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty}
         \left\{ \omega : \left| \xi_k(\omega) - \xi(\omega)\right| > \varepsilon\right\}\right) = 0$.
     \end{exercise}
+
+    Це найбільш природний з інтуїтивної точки зору вид збіжності. Зауважимо, однак, що він має доволі дивні властивості. Наприклад, можна навести приклад
+    послідовності $\xi_n$, що не збішається до деякої $\xi$, але будь-яка її підпослідовність $\xi_{n_k}$ містить свою підпослідовність
+    $\xi_{n_{k_l}}$, яка все ж таки збігається до $\xi$.
     
     \textbf{Лема Бореля-Кантеллі.} Якщо для послідовності подій $\left\{A_n \right\}_{n=1}^{\infty}$ ряд
     $\sum\limits_{n=1}^{\infty} P(A_n)$ збігається, то $P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty} A_k\right) = 0$.
@@ -156,6 +150,31 @@ $P\left\{ \left|\frac{\xi}{n} - p\right| \geq \varepsilon\right\} \leq \frac{pq}
     якщо $\underset{n \to \infty}{\lim} E(\xi_n - \xi)^2 = 0$.
     
     \noindentПозначення: $\xi_n \overset{\text{СК}}{\longrightarrow} \xi, n \to \infty$.
+    \item \textbf{Збіжність за розподілом (слабка збіжність, збіжність в основному).}
+
+    \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за розподілом}, якщо функціональна послідовність
+    $\left\{ F_{\xi_n} (x)\right\}_{n=1}^{\infty}$ збігається до $F_{\xi}(x)$ в точках її неперервності.
+
+    Позначення: $\xi_n \overset{F}{\longrightarrow} \xi, n \to \infty$.
+
+    Ця збіжність за характером відрізняється від інших тим, що не враховує залежність або незалежність $\xi_n$.
+    Є також \emph{еквівалентне означення збіжності} за розподілом: якщо для будь-якої обмеженої неперервної функції $\varphi : \mathbb{R} \to \mathbb{R}$
+    $\underset{n \to \infty}{\lim} E \varphi(\xi_n) = E\varphi(\xi)$.
+    Доведення еквівалентності цих двох означень виходить за рамки курсу: його ідея полягає в тому, що $F_{\xi}(x) = P\left\{ \xi < x\right\} = E 1_{(-\infty, x)}(\xi)$,
+    де $1_{(-\infty, x)}$ --- індикатор множини $(-\infty, x)$, і таки функції-індикатори можна наблизити з будь-якою заданою точністю неперервними функціями та навпаки.
+    \begin{example}
+        Нехай $\xi_n \sim \mathrm{Exp}(\frac{1}{n})$. Перевірити $\xi_n \overset{F}{\to} 0, n \to \infty$.
+        Тут під 0 розуміється ДВВ, що приймає значення 0 з ймовірністю 1.
+
+        $F_{\xi_n}(x) = \begin{cases}
+            1 - e^{\frac{x}{n}}, & x > 0 \\
+            0, & x \leq 0
+        \end{cases}$. Видно, що при $n \to \infty$ $F_{\xi_n}(x) \to F_0(x) = \begin{cases}
+            1, & x > 0 \\
+            0, & x \leq 0
+        \end{cases}
+        $ --- функція розподілу 0.
+    \end{example}
 \end{enumerate}
 
 \begin{remark}
