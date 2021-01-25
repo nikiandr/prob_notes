@@ -61,6 +61,17 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning,arrows}
+\tikzset{
+	block/.style={
+		draw, 
+		rectangle, 
+		minimum height=1cm, 
+		minimum width=3cm, align=center
+	}, 
+	line/.style={->,>=stealth'}}
+\newcommand*\circled[1]{{\scriptsize\tikz[baseline=(char.base)]
+{\node[shape=circle,draw,inner sep=0.5pt] (char) {#1};}}}
 \graphicspath{{pictures/}}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 

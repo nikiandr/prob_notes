@@ -185,15 +185,28 @@ $( E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( E \left| \xi\right|^t)^{\frac{1}{
 то збіжність порядку $k$ гарантує збіжність порядків менше $k$.
 \end{remark}
 В курсі функціонального аналізу встановлюється зв'язок між розглянутими видами збіжності:
+\vspace{10 pt}
 \begin{center}
-    \begin{tabular}{c c c c c}
-        $P1$ & $\Rightarrow$ & $P$ & $\Rightarrow$ & $F$ \\
-        $\Downarrow$ & & $\Uparrow$ & & \\
-        $\text{С}$ & $\Rightarrow$ & $\text{СК}$ & & \\
-    \end{tabular}
+\begin{tikzpicture}
+\label{scheme}
+\node[block] (a) {Збіжність з імовірністю 1};
+\node[block, above right = 0cm and 2cm of a] (b) {Збіжність в середньому\\ квадратичному};
+\node[block, below right = 0cm and 2cm of a]   (c) {Збіжність в середньому};
+\node[block, below right = 2cm and -1.5cm of a]   (d) {Збіжність за ймовірністю};
+\node[block, below = 1cm of d]   (e){Збіжність за розподілом};
+\node[below left= 1cm and -3 cm of a]   (1){\circled 1};
+\node[below right= 0.25cm and -1.9 cm of d]   (2){\circled 2};
 
-    $P \Leftarrow F$ в разі збіжності до сталої ВВ
+\draw[line] (a.south) -- ([xshift=-0.5cm]d.north);
+\draw[line] (b.south) -- (c.north);
+\draw[line] (c.south) -- ([xshift=0.5cm]d.north);
+\draw[line] ([xshift=-0.5cm]d.south) -- ([xshift=-0.5cm]e.north);
+\draw[line,dashed] ([xshift=-1.5cm]d.north) -- ([xshift=-1cm]a.south);
+\draw[line,dashdotted] ([xshift=0.5cm]e.north) -- ([xshift=0.5cm]d.south);
+\end{tikzpicture}
 \end{center}
+
+Штрихова лінія \circled 1 ілюструє таку властивість: у кожній випадковій послідовності $(\xi_n,n\in\mathbb N)$, що збігається за ймовірністю, міститься підпослідовність $(\xi_{n_k},k\in\mathbb N)$, що збігається з імовірністю 1. Штрих-пунктирна лінія \circled 2 показує, що відповідний перехід справедливий, коли гранична випадкова величина $\xi$ є константою.
 Доведемо деякі з цих тверджень.
 \begin{enumerate}
     \item $\text{C} \Rightarrow P$. З нерівності Маркова (\ref{Markov_ineq})

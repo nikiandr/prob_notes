@@ -1,0 +1,30 @@
+% !TEX root = ../main.tex
+\section{Закон великих чисел}
+\noindent\underline{Закон великих чисел} --- низка теорем та фактів, які встановлюють умови, 
+за яким середнє арифметичне випадкових величин зі зростанням кількості доданків втрачає 
+свою <<випадковість>> і може бути передбачено з наперед заданою точністю.
+
+
+\noindent\textbf{Теорема Чебишева (ЗВЧ у формі Чебишева).}
+
+\begin{theorem}
+    Нехай $\xi_1$, $\xi_1$, ..., $\xi_n$ --- послідовність незалежних випадкових величин, 
+    таких, що $\exists$ скінченне $E\xi_k = a_k$ $\forall k \in \mathbb{N}$, $\exists$
+    скінченна $D\xi_k = \sigma_k^2$ $\forall k \in \mathbb{N}$, причому дисперсії рівномірно 
+    обмежені (тобто $\exists c < +\infty$: $D\xi_k \leq c$ $\forall k \in \mathbb{N}$). 
+    Тоді:
+    \begin{gather}
+        \forall \varepsilon > 0 \lim_{n \rightarrow \infty} P\left\{\left|
+            \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k 
+        \right| \geq \varepsilon\right\} = 0 \text{ (у випадку} < \varepsilon\text{ --- = 1)}
+    \end{gather}
+    Тобто:
+    \begin{gather}
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k \overset{P}{\rightarrow}  \frac{1}{n}\sum\limits_{k=1}^n E\xi_k
+    \end{gather}
+\end{theorem}
+\begin{remark}
+    Припустимо, що всі ВВ $\eta_n$ розподілені однаково і виконуються умови теореми. Тоді 
+    $\frac{1}{n}\sum\limits_{k=1}^n E\xi_k = a$ і $\frac{1}{n}\sum\limits_{k=1}^n \xi_k 
+    \overset{P}{\rightarrow} a$. 
+\end{remark}
