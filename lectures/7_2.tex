@@ -1,30 +1,184 @@
 % !TEX root = ../main.tex
 \section{Закон великих чисел}
-\noindent\underline{Закон великих чисел} --- низка теорем та фактів, які встановлюють умови, 
+\emph{Закон великих чисел (ЗВЧ)} --- загальна назва низки теорем та фактів, які встановлюють умови, 
 за яким середнє арифметичне випадкових величин зі зростанням кількості доданків втрачає 
 свою <<випадковість>> і може бути передбачено з наперед заданою точністю.
 
+\subsection{Теорема Чебишова (ЗВЧ у формі Чебишова).}
 
-\noindent\textbf{Теорема Чебишева (ЗВЧ у формі Чебишева).}
-
-\begin{theorem}
-    Нехай $\xi_1$, $\xi_1$, ..., $\xi_n$ --- послідовність незалежних випадкових величин, 
-    таких, що $\exists$ скінченне $E\xi_k = a_k$ $\forall k \in \mathbb{N}$, $\exists$
-    скінченна $D\xi_k = \sigma_k^2$ $\forall k \in \mathbb{N}$, причому дисперсії рівномірно 
-    обмежені (тобто $\exists c < +\infty$: $D\xi_k \leq c$ $\forall k \in \mathbb{N}$). 
+\begin{theorem*}
+    Нехай $\left\{ \xi_n\right\}_{n=1}^{\infty}$ --- послідовність незалежних випадкових величин, 
+    таких, що існують скінченні $E\xi_k = a_k$ та $D\xi_k = \sigma_k^2$ для кожного $k \in \mathbb{N}$,
+    причому дисперсії рівномірно 
+    обмежені: тобто $\exists\; C < +\infty : D\xi_k \leq C \;\forall\; k \in \mathbb{N}$. 
     Тоді:
     \begin{gather}
-        \forall \varepsilon > 0 \lim_{n \rightarrow \infty} P\left\{\left|
+        \forall \; \varepsilon > 0 \lim_{n \rightarrow \infty} P\left\{\left|
             \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k 
-        \right| \geq \varepsilon\right\} = 0 \text{ (у випадку} < \varepsilon\text{ --- = 1)}
+        \right| \geq \varepsilon\right\} = 0 \text{ (у випадку} < \varepsilon\text{ --- рівна 1)}
     \end{gather}
-    Тобто:
+    Це означає
     \begin{gather}
-        \frac{1}{n}\sum\limits_{k=1}^n \xi_k \overset{P}{\rightarrow}  \frac{1}{n}\sum\limits_{k=1}^n E\xi_k
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{P}{\longrightarrow} 0, \; n \to \infty
     \end{gather}
-\end{theorem}
-\begin{remark}
-    Припустимо, що всі ВВ $\eta_n$ розподілені однаково і виконуються умови теореми. Тоді 
+\end{theorem*}
+\begin{proof}
+    Позначимо $\eta_n = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, тоді $E\eta_n = E\left(\frac{1}{n}\sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n}\sum\limits_{k=1}^n E\xi_k$,
+
+    \noindent$D\eta_n = D\left( \frac{1}{n}\sum\limits_{k=1}^n \xi_k\right) = \left[\xi_k \text{ --- незалежні} \right] = \frac{1}{n^2}\sum\limits_{k=1}^n D\xi_k \leq \frac{C}{n}$.
+    Тепер скористаємося нерівністю Чебишова (\ref{Cheb_ineq}): 
+    $\forall \; \varepsilon >0 : P\left\{ \left|\eta_n - E\eta_n \right| \geq \varepsilon\right\} \leq \frac{D\eta_n}{\varepsilon^2} \leq \frac{C}{n \varepsilon^2} \to 0, n\to\infty$
+    --- що і треба було довести.
+\end{proof}
+\noindent\textbf{Наслідок.}
+    Припустимо, що всі ВВ $\xi_n$ розподілені однаково і виконуються всі умови теореми. Тоді 
     $\frac{1}{n}\sum\limits_{k=1}^n E\xi_k = a$ і $\frac{1}{n}\sum\limits_{k=1}^n \xi_k 
-    \overset{P}{\rightarrow} a$. 
+    \overset{P}{\longrightarrow} a, n\to\infty$. Розглянемо природну інтерпретацію цього факту.
+    Нехай \emph{невипадкову} величину $a$ може бути виміряно за допомогою деякого пристрою. 
+    Внаслідок наявності похибок вимірювання цей пристрій повертає не точне значення $a$, 
+    а лише деяку \emph{випадкову} величину $\xi$, в якомусь сенсі близьку до $a$. 
+    Будемо, однак, вважати, що в середньому пристрій повертає правильний результат: 
+    $E\xi=a$ (іноді в прикладних науках це називають відсутністю систематичних похибок). 
+    Як в цій ситуації отримати якомога більш точне значення $a$? Отриманий наслідок теореми Чебишова обґрунтовує
+    інтуїтивну відповідь на це питання: провести декілька вимірювань і обчислити їх середнє арифметичне.
+
+\begin{remark}
+    Для однаково розподілених $\xi_n$ припущення щодо дисперсію, виявляється, є зайвим. Для спрощення розглянемо випадок $E\xi_n = 0$.
+    Нехай $\chi(t)$ --- характеристична функція розподілу всіх $\xi_n$, тоді для $\eta_n = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ 
+    маємо характеристичну функцію $\chi_{\eta_n} (t) = \chi^n \left(\frac{t}{n}\right)$. 
+    Тепер $\left| \chi_{\eta_n} (t) - 1\right| = \left| \chi^n \left(\frac{t}{n}\right) - 1\right| \leq n \left| \chi \left(\frac{t}{n}\right) - 1\right|$.
+    Нерівність отримано з простого факту: для $z, w \in \mathbb{C}$ з $|z| \leq 1$ та $|w|\leq 1$
+    $\left|z^n - w^n\right| = \left|z - w\right| \cdot \left|z^{n-1} + z^{n-2}w + ... + z w^{n-2} + w^{n-1}\right| \leq n \cdot \left|z - w\right|$.
+    Оскільки $1$ --- це характеристична функція нульової випадкової величини, а \\
+    \noindent$ \underset{n \to \infty}{\lim} n \left(\chi(\frac{t}{n}) - 1\right) = t \cdot \chi'(0) = \left[ E\xi_n = 0\right]=0$,
+    то за теоремою Леві $\xi_n \overset{F}{\longrightarrow} 0$, а тому й $\xi_n \overset{P}{\longrightarrow} 0$. Залишилося зауважити, що у випадку
+    $E\xi_n = a \neq 0$ можемо розглядати послідовність $\xi_n - a$, і $\xi_n - a \overset{P}{\longrightarrow} 0 \Leftrightarrow \xi_n \overset{P}{\longrightarrow} a$. 
 \end{remark}
+Наведемо ще один варіант формулювання закону великих чисел.
+\begin{theorem*}[теорема Маркова]
+    Нехай $\left\{ \xi_n\right\}_{n=1}^{\infty}$ --- послідовність випадкових величин (можливо, залежних), 
+    таких, що існують скінченні $E\xi_k = a_k$ та $D\xi_k = \sigma_k^2$ для кожного $k \in \mathbb{N}$,
+    причому $D \left( \sum\limits_{k=1}^n \xi_k\right) = o(n^2)$ при $n\to\infty$.
+    Тоді
+    $
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{P}{\longrightarrow} 0, \; n \to \infty
+    $.
+\end{theorem*}
+\begin{exercise}
+    Довести теорему Маркова.
+\end{exercise}
+\begin{example}
+    \begin{enumerate}
+        \item Скільки вимірювань величини $a$ треба провести, щоб з ймовірністю $0.998$ стверджувати, що похибка середнього арифметичного результатів
+        вимірювань не перевищує $\frac{1}{100}$, якщо середньоквадратичне відхилення кожного вимірювання $\sigma = 0.03$?
+        Позначимо $\eta_n = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, де $\xi_k$ --- результат $k$-того випробування.
+        $D\eta_n = \frac{1}{n^2} \sum\limits_{k=1}^n D\xi_k = \frac{1}{n^2} \cdot n\sigma^2 = \frac{\sigma^2}{n}$.
+        $P\{\left|\eta_n - a \right| \leq \underbrace{0.01}_{\varepsilon}\} \geq 1 - \frac{1}{0.01^2}\cdot D\eta_n =
+        1 - \frac{0.03^2}{n\cdot 0.01^2} = 0.998 \Rightarrow \frac{9}{n} = 0.002$, тому $n = 4500$.
+        \item Нехай $\xi_n$ --- послідовність випадкових величин, що мають розподіл $\mathrm{U}[-1; 1]$. Знайти границю за
+        ймовірністю послідовності $\eta_n = \frac{1}{n}\sum\limits_{k=1}^n e^{\xi_k}$.
+
+        За ЗВЧ $\eta_n \overset{P}{\longrightarrow} E e^\xi$, де $\xi \sim \mathrm{U}[-1; 1]$. 
+        $E e^\xi = \frac{1}{2}\int\limits_{-1}^1 e^x dx = \sinh{1}$, тому $\eta_n \overset{P}{\longrightarrow} \sinh{1}$.
+    \end{enumerate}
+\end{example}
+\begin{exercise}
+    Знайти границю за ймовірністю послідовності $\eta_n = \sqrt[^n]{\xi_1 \cdot ... \cdot \xi_n}$, де $\xi_n$ незалежні та мають розподіл $\mathrm{U}[0;1]$.
+\end{exercise}
+
+
+\subsection{Посилений закон великих чисел}
+\emph{Посилений закон великих чисел} --- це загальна назва ЗВЧ, що стосуються збіжності з ймовірністю 1. Наведемо без доведення приклад такого закону.
+\begin{theorem*}[теорема Колмогорова]
+    Нехай $\left\{ \xi_n\right\}_{n=1}^{\infty}$ --- послідовність незалежних однаково розподілених випадкових величин, що мають скінченне
+    математичне сподівання $a$. Тоді без припущень щодо дисперсії
+    \begin{gather}\label{Kolm_theor}
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k \overset{P1}{\longrightarrow} a, \; n \to \infty
+    \end{gather}
+\end{theorem*}
+
+\subsection{Закон великих чисел у схемі Бернуллі}
+Розглянемо частковий випадок ЗВЧ Чебишова для схеми Бернуллі.
+\begin{theorem*}[теорема Бернуллі]
+    Нехай $\xi_n$ задає кількість успіхів в схемі Бернуллі з $n$ випробуваннями зі сталою ймовірністю успіху $p$, $\xi_n \sim \mathrm{Bin}(n, p)$. Тоді 
+    $\frac{\xi_n}{n}  \overset{P}{\longrightarrow} p, n\to\infty$, тобто
+    \begin{gather}
+        \forall \; \varepsilon >0 : \lim_{n \rightarrow \infty} P\left\{ \left| \frac{\xi_n}{n} - p\right| \geq \varepsilon\right\} = 0
+    \end{gather}
+\end{theorem*}
+\begin{proof}
+    Зведемо до теореми Чебишова. $\xi_n = \sum\limits_{k=1}^n \eta_k$, де $\eta_k$ --- індикатор появи успіху в $k$-тому випробуванні,
+    $\eta_k \sim \mathrm{Bin}(1, p)$. $\eta_k$ --- незалежні та однаково розподілені, $E\eta_k = p$ тому за наслідком ЗВЧ Чебишова для однаково
+    розподілених ВВ
+    $\frac{\xi_n}{n} = \frac{1}{n} \sum\limits_{k=1}^n \eta_k \overset{P}{\longrightarrow} p, n\to\infty$.
+\end{proof}
+\begin{remark}
+    Для практичного використання цієї теореми важливою є оцінка збіжності $\frac{\xi_n}{n}$ до $p$:
+    $$P\left\{ \left| \frac{\xi_n}{n} - p\right| \geq \varepsilon\right\} \leq \frac{D\eta_k}{n \varepsilon^2} = \frac{pq}{n \varepsilon^2} \leq \frac{1}{4n \varepsilon^2}$$
+    Остання нерівність пояснюється тим, що максимальне значення функції $f(t) = t(1-t) = -\left(t - \frac{1}{2}\right)^2 + \frac{1}{4}$ на відрізку $[0;1]$ дорівнює $\frac{1}{4}$.
+\end{remark}
+\begin{example}
+    Оцінити ймовірність того, що при $10^4$ підкиданнях симетричної монети частість випадіння герба відхилиться від $\frac{1}{2}$ на $0.01$ і більше.
+
+    Нехай $\xi_n$ задає кількість гербів, що випали за $n$ підкидань. Тоді
+    $P\left\{ \left| \frac{\xi_{10000}}{10000} - \frac{1}{2}\right| \geq 0.01\right\} \leq \frac{1}{4\cdot 10^4 \cdot 0.01^2} = \frac{1}{4}$.
+\end{example}
+Наведемо узагальнення теореми Маркова.
+\begin{theorem*}[теорема Пуассона]
+    Нехай $\xi_n$ задає кількість успіхів в схемі Бернуллі з $n$ випробуваннями та ймовірністю успіху $p_n$, $\xi_n \sim \mathrm{Bin}(n, p_n)$.
+    Тоді 
+    $\frac{\xi_n}{n} - \frac{1}{n}\sum\limits_{k=1}^n p_k \overset{P}{\longrightarrow} 0, \; n \to \infty$.
+\end{theorem*}
+
+\subsection{Методи Монте-Карло}
+\emph{Методом (або методами) Монте-Карло} називають широкий клас підходів, що дозволяють наближено розв'язувати детерміновані (<<невипадкові>>) задачі ймовірнісними методами. 
+Історично одним з перших застосувань такого підходу було наближене обчислення числа $\pi$ за допомогою голки --- задача Бюффона. Проілюструємо метод Монте-Карло задачі наближеного інтегрування.
+
+Нехай $g\:[a,b]\to[0,+\infty)$ --- деяка неперервна невід'ємна функція, для якої потрібно наближено обчислити значення $\int\limits_a^b g(x) dx$. Запропуємо два способи такого обчислення.
+
+Спочатку розглянемо послідовність випадкових величин $\xi_n$, що мають спільний розподіл $\mathrm{U}[a; b]$.
+$Eg(\xi_1) = \frac{1}{b-a} \int\limits_a^b g(x) dx$, тому $\int\limits_a^b g(x) dx = (b-a)\cdot E g(\xi_1)$. З теореми Колмогорова (\ref{Kolm_theor})
+$\frac{1}{n}\sum\limits_{k=1}^n g(\xi_k) \overset{P1}{\longrightarrow} Eg(\xi_1), n\to\infty$, тому при достатньо великих $n$ виконується наближена рівність:
+$$\int\limits_a^b g(x) dx\approx\frac{b-a}{n}\sum\limits_{k=1}^ng(\xi_k)$$
+
+Другий спосіб розв'язання цієї задачі заснований на інтерпретації інтеграла як площі під графіком функції. 
+Оскільки $g$ є неперервною функцією на відрізку, вона також є обмеженою: існує таке $M>0$, що $g(x)\leq M$ для будь-якого $x\in[a,b]$.
+Тому, кидаючи випадкові точки в прямокутник $\Pi=[a;b]\times[0;M]$, ми будемо потрапляти у підграфік $G$ функції $g$ якраз з ймовірністю
+$$p=\frac{\text{площа $G$}}{\text{площа $\Pi$}}=
+\frac{\int\limits_a^b g(x) dx}{M(b-a)}$$
+\begin{center}
+    \begin{tikzpicture}
+    [thick,dot/.style = {
+        draw,
+        fill = black,
+        circle,
+        inner sep = 0pt,
+        minimum size = 3 pt}]
+    \draw[->] (-0.3,0) -- (7,0) coordinate[label = {below:$x$}];
+    \draw[->] (0,-0.3) -- (0,5) coordinate[label = {right:$y$}];
+    \draw plot[smooth] coordinates {(1,2) (2.5,4) (3.5,4) (5,1)}
+    node[above left = 2.5 cm and 2.7 cm] {$g(x)$};
+    \fill[gray!20] (1,0.01) -- plot[smooth] coordinates {(1,2) (2.5,4) (3.5,4) (5,1)} -- (5,0.01);
+    \draw[dashed] (1,0) node[below] {$a$} -- (1,4.5) -- (5,4.5) node[below left] {$\Pi$} -- (5,0) node[below] {$b$};
+    \draw[loosely dotted] (1,4.5) -- (0,4.5) node[left] {$M$};
+    \node at (4,2) {$G$};
+    \node[dot] at (2,2) (p) {};
+    \node[below of = p, node distance = 0.3 cm]
+    {\scriptsize $(\xi_1,\theta_1)$};
+    \node[dot] at (4.5,3.5) (p) {};
+    \node[below of = p, node distance = 0.3 cm]
+    {\scriptsize $(\xi_2,\theta_2)$};
+    \node[dot] at (3.5,1) (p) {};
+    \node[below of = p, node distance = 0.3 cm]
+    {\scriptsize $(\xi_3,\theta_3)$};
+    \end{tikzpicture}
+\end{center}
+Для формалізації введемо дві незалежні послідовності незалежних випадкових величин $\xi_n$ та $\eta_n$, де 
+$\xi_n \sim \mathrm{U}[a;b]$, $\eta_n \sim \mathrm{U}[0; M]$ для всіх $n\in\mathbb{N}$. Розглянемо схему Бернуллі, де 
+<<успіхом>> в $n$-тому випробуванні будемо вважати потрапляння точки $(\xi_n, \eta_n)$ в область $G$, причому його ймовірність рівна
+заданому вище $p$. Знову за теоремою Колмогорова відношення кількості успіхів до загальної кількості проведених випробувань з ймовірністю 1
+прямує до $p$.
+Тому при достатньо великих $n$ виконується наближена рівність
+$$\int\limits_a^b g(x) dx\approx M \cdot(b-a)\cdot \nu_n$$
+де $\nu_n$ --- відношення кількості успіхів до загальної кількості проведених випробувань.
+Зрозуміло, що такий підхід узагальнюється на кратні інтеграли.
