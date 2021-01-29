@@ -114,7 +114,7 @@
 \end{proof}
 \begin{remark}
     Для практичного використання цієї теореми важливою є оцінка збіжності $\frac{\xi_n}{n}$ до $p$:
-    $$P\left\{ \left| \frac{\xi_n}{n} - p\right| \geq \varepsilon\right\} \leq \frac{D\eta_k}{n \varepsilon^2} = \frac{pq}{n \varepsilon^2} \leq \frac{1}{4n \varepsilon^2}$$
+    $$P\left\{ \left| \frac{\xi_n}{n} - p\right| \geq \varepsilon\right\} \leq \frac{D\eta_k}{n \varepsilon^2} = \frac{p(1-p)}{n \varepsilon^2} \leq \frac{1}{4n \varepsilon^2}$$
     Остання нерівність пояснюється тим, що максимальне значення функції $f(t) = t(1-t) = -\left(t - \frac{1}{2}\right)^2 + \frac{1}{4}$ на відрізку $[0;1]$ дорівнює $\frac{1}{4}$.
 \end{remark}
 \begin{example}
@@ -129,6 +129,9 @@
     Тоді 
     $\frac{\xi_n}{n} - \frac{1}{n}\sum\limits_{k=1}^n p_k \overset{P}{\longrightarrow} 0, \; n \to \infty$.
 \end{theorem*}
+\begin{exercise}
+    Довести теорему Пуассона.
+\end{exercise}
 
 \subsection{Методи Монте-Карло}
 \emph{Методом (або методами) Монте-Карло} називають широкий клас підходів, що дозволяють наближено розв'язувати детерміновані (<<невипадкові>>) задачі ймовірнісними методами. 

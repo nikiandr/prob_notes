@@ -1,0 +1,82 @@
+% !TEX root = ../main.tex
+\section{Центральна гранична теорема}
+Як було показано вище, для послідовності незалежних ВВ 
+$\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математичними сподіваннями та обмеженими в сукупності
+дисперсіями $\frac{1}{n}\sum\limits_{k=1}^n (\xi_k - E\xi_k) \overset{P}{\longrightarrow} 0$.
+Виявляється, що якщо знаменник цих сум буде прямувати до $0$ повільніше, то границя (хоча й в слабшому сенсі) вже не буде нульовою.
+\subsection{Теорема Ляпунова}
+\begin{theorem*}[теоерма Ляпунова]
+    Нехай $\left\{ \xi_n\right\}_{n=1}^\infty$ --- послідовність незалежних випадкових величин таких, 
+    що існують скінченні $E\xi_k = a_k$, $D\xi_k = \sigma_k^2$ та
+    $m_k = E\left|\xi_k - a_k\right|^3$ і виконується умова Ляпунова:
+    \begin{gather*}
+        \lim_{n \rightarrow \infty} \frac{\sum\limits_{k=1}^n m_k}{\left(
+            \sum\limits_{k=1}^n \sigma_k^2
+        \right)^{3/2}} = 0
+    \end{gather*}
+    Тоді рівномірно відносно $x$:
+    \begin{gather}
+        \lim_{n \rightarrow \infty} P \left\{
+            \frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
+            {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}
+            < x
+        \right\} = F_{\mathrm{N}(0, 1)}(x) = \Phi(x) + \frac{1}{2} = 
+        \frac{1}{\sqrt{2\pi}} \int\limits_0^x e^{-\frac{t^2}{2}} dt + \frac{1}{2}
+    \end{gather}
+    або:
+    \begin{gather*}
+        \frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
+        {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}
+        \overset{F}{\longrightarrow} \xi \sim \mathrm{N}(0, 1)
+    \end{gather*}
+\end{theorem*}
+\begin{proof}
+    Позначимо $\eta_n = \frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
+    {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}$, $\xi_k - a_k = \mathring{\xi_k}$ ($E\mathring{\xi_k} = 0)$, 
+    $B_n = \sqrt{\sum\limits_{k=1}^n \sigma_k^2}$. 
+    Тоді $\eta_n = \frac{1}{B_n}\sum\limits_{k=1}^n \mathring{\xi_k}$.
+    $E\eta_n = 0$, $D\eta_n = \frac{1}{B_n^2}\sum\limits_{k=1}^n D\mathring{\xi_k} = 
+    \left[D\xi_k = D\mathring{\xi_k}\right] = 1$.
+
+    Доведення ґрунтується на теоремі Леві (\ref{levi_theor}): збіжність за розподілом послідовності 
+    випадкових величин $\left\{ \xi_n\right\}_{n=1}^{\infty}$ еквівалентна поточковій збіжності їх
+    характеристичних функцій.
+
+    Нехай $\chi_k(t)$ --- характеристична функція $\mathring{\xi_k}$, а $f_k(x)$ --- 
+    щільність $\xi_k$.
+    За властивостями характеристичних функцій $\chi_{\eta_n}(t) = 
+    \prod\limits_{k=1}^n \chi_k(\frac{t}{B_n})$. 
+    Доведемо, що $\chi_{\eta_n}(t)\to e^{-t^2/2} = 
+    \chi_{\mathrm{N}(0, 1)}(t)$ при $ n \to \infty$.
+    \begin{gather*}\chi_k\left(\frac{t}{B_n}\right) = \int\limits_{-\infty}^{+\infty} e^{i\frac{t}{B_n}x}f_k(x)dx = 
+    \int\limits_{-\infty}^{+\infty} \left(1 + i\frac{t}{B_n}x - \frac{t^2}{2B_n^2}x^2 - 
+    i\frac{t^3}{6B_n^3}x^3 + ...\right)f_k(x) dx = \\ = \left[\theta_k \in (0; 1)\right]
+    = 1 + \frac{it}{B_n}E\mathring{\xi_k} - \frac{t^2}{2B_n^2}
+    E\mathring{\xi_k}^2 + \theta_k\frac{|t|^3}{6B_n^3}E|\mathring{\xi_k}|^3 = 
+    1 - \frac{t^2}{2B_n^2}\sigma_k^2 + \theta_k\frac{|t|^3}{6B_n^3}m_k \\
+    \ln\chi_{\eta_n}(t) = \sum\limits_{k=1}^n \ln \chi_k \left(\frac{t}{B_n}\right) = 
+    \sum\limits_{k=1}^n \ln\left(1 - \frac{t^2}{2B_n^2}\sigma_k^2 + 
+    \theta_k\frac{|t|^3}{6B_n^3}m_k\right)
+    \end{gather*}
+
+    З умови Ляпунова $\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n m_k}{B_n^3} = 0$, 
+    тому з відомої властивості $\ln(1 + \alpha_n) \sim \alpha_n$, де $\alpha_n$ --- нескінченно мала при 
+    $n \rightarrow \infty$, маємо $\ln\chi_{\eta_n}(t) \sim \sum\limits_{k=1}^n\left(
+        -\frac{t^2\sigma^2_k}{2B_n^2}
+    \right) 
+    = -\frac{t^2}{2}\frac{\sum\limits_{k=1}^n\sigma_k^2}{B_n^2} = -\frac{t^2}{2}
+    $ при $n \rightarrow \infty$.
+    
+    Таким чином, $\xi_{\eta_n}(t) \sim e^{-\frac{t^2}{2}}$ при $n \rightarrow \infty$ і 
+    з теореми Леві маємо, що $\eta_n \overset{F}{\longrightarrow} \xi \sim \mathrm{N}(0, 1)$.
+\end{proof}
+\noindent\textbf{Наслідок.} Нехай всі $\xi_n$ \emph{однаково розподілені}, $E\xi_k = a$, $D\xi_k = \sigma^2$,
+$m_k = E\left| \xi_k - a\right|^3$. Тоді умова Ляпунова виконується автоматично:
+$$\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n m_k}{\left(
+    \sum\limits_{k=1}^n \sigma_k^2
+\right)^{3/2}} = \underset{n \rightarrow \infty}{\lim} \frac{n \cdot m}{(n\cdot \sigma^2)^{3/2}} = 0$$
+В цьому випадку
+$$\frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
+{\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}
+= \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left( \frac{\xi_k - a}{\sigma}\right) \overset{F}{\longrightarrow}\xi \sim \mathrm{N}(0, 1),
+\;n \to \infty$$
