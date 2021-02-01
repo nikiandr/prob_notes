@@ -32,7 +32,7 @@
     $1$ (коли $\xi_1 = 0$, $\xi_2 = 1$ або $\xi_1 = 2$, $\xi_2 = -1$), 
     $2$ (коли $\xi_1 = 1$, $\xi_2 = 1$), 
     $3$ (коли $\xi_1 = 2$, $\xi_2 = 1$).
-    Відповідні сумісні ймовірності отримуємо з таблиці з таблиці розподілу $\vec{\xi}$.
+    Відповідні сумісні ймовірності отримуємо з таблиці розподілу $\vec{\xi}$.
 
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
@@ -100,7 +100,7 @@ $$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \ma
 \begin{example}
     Нехай $\xi_1, ..., \xi_n$ незалежні та мають розподіл $\mathrm{Exp}(\lambda)$. Знайти розподіл їх мінімуму.
 
-    \noindent$f_{\min}(x) = n (1-(1-e^{-\lambda x}))^{n-1} \lambda e^{-\lambda x} = n \lambda e^{-n\lambda}$ при $x \geq 0$ та $0$ при $x < 0$.
+    \noindent$f_{\min}(x) = n (1-(1-e^{-\lambda x}))^{n-1} \lambda e^{-\lambda x} = n \lambda e^{-n\lambda x}$ при $x \geq 0$ та $0$ при $x < 0$.
     
     \noindentОтже, $\min\{\xi_1, ..., \xi_n\} \sim \mathrm{Exp} (n \lambda)$.
 \end{example}
@@ -202,7 +202,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 
 \end{enumerate}
 
-\noindentОтже, $f_{\xi_1 \xi_2} = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx + 
+\noindentОтже, $f_{\xi_1 \xi_2}(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx + 
 \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$.
 
 \begin{remark}
@@ -268,11 +268,12 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
             \end{tikzpicture} 
             &
             $F_{\eta}(z) = \frac{1}{4}S_{D_z \cap K} = \frac{1}{4} 
-            (4 - \int\limits_{\frac{z}{2}}^2dx
-            \int\limits_{\frac{z}{x}}^2dy) = $
+            \left(4 - \int\limits_{\frac{z}{2}}^2dx
+            \int\limits_{\frac{z}{x}}^2dy\right) = $
 
-            $=\frac{1}{4}(4 - \int\limits_{\frac{z}{2}}^2 
-            (2 -\frac{z}{x})dx $
+            $=\frac{1}{4}\left(4 - \int\limits_{\frac{z}{2}}^2 
+            \left(2 -\frac{z}{x}\right)dx\right) $
+
             $= 1 - \frac{1}{4}\left.(2x - z \ln x)\right|_{\frac{z}{2}}^2 = $
             
             $= 1 - \frac{1}{4}(4 - z\ln2 - z + z\ln\frac{z}{2}) =$
@@ -298,7 +299,7 @@ $f_{\vec{\xi}}(x, y)$ відома.
 
 Розпишемо функцію розподілу за вже відомою схемою:
 
-$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
+$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
 \mathbb{R}^2 : \frac{y}{x} < z\right\}$
 
 \begin{enumerate}
@@ -373,7 +374,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \
 \end{tabular}
 \end{enumerate}
 
-\noindentОтже, $f_{\frac{\xi_2}{\xi_1}} = -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
+\noindentОтже, $f_{\frac{\xi_2}{\xi_1}} (z)= -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
 \int\limits_0^{+\infty}xf_{\vec{\xi}}(x, zx)dx$.
 
 \begin{remark}
@@ -431,7 +432,7 @@ $f_{\vec{\xi}}(x, y)$ відома.
 
 Розпишемо функцію розподілу за вже відомою схемою:
 
-$F_\eta(z) = \iint\limits_{D_z}f_{\xi_1\xi_2}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
+$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
 \mathbb{R}^2 : x + y < z\right\}$
 
 \begin{tabular}{c p{8.8cm}}
@@ -525,7 +526,7 @@ $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакш
     $$E(\xi_1 + \xi_2) = \iint\limits_{\mathbb{R}^2} (x+y) f_{\vec{\xi}}(x,y) dx dy = 
     \iint\limits_{\mathbb{R}^2} x f_{\vec{\xi}}(x,y) dx dy + 
     \iint\limits_{\mathbb{R}^2} y f_{\vec{\xi}}(x,y) dx dy = E\xi_1 + E\xi_2$$
-    Якщо $\xi_1, \xi_2$ незалежні, то $f_{\vec{x}}(x,y) = f_{\xi_1}(x) f_{\xi_2}(y)$.
+    Якщо $\xi_1, \xi_2$ незалежні, то $f_{\vec{\xi}}(x,y) = f_{\xi_1}(x) f_{\xi_2}(y)$.
     $$E\xi_1 \xi_2 =
     \iint\limits_{\mathbb{R}^2} xy f_{\xi_1}(x) f_{\xi_2}(y) dx dy =
     \left( \int\limits_{\mathbb{R}} x f_{\xi_1}(x) dx \right)
