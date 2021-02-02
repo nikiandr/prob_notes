@@ -19,7 +19,7 @@
     \end{gather}
     Це означає
     \begin{gather}
-        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{P}{\longrightarrow} 0, \; n \to \infty
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{\mathrm{P}}{\longrightarrow} 0, \; n \to \infty
     \end{gather}
 \end{theorem*}
 \begin{proof}
@@ -33,7 +33,7 @@
 \noindent\textbf{Наслідок.}
     Припустимо, що всі ВВ $\xi_n$ розподілені однаково і виконуються всі умови теореми. Тоді 
     $\frac{1}{n}\sum\limits_{k=1}^n E\xi_k = a$ і $\frac{1}{n}\sum\limits_{k=1}^n \xi_k 
-    \overset{P}{\longrightarrow} a, n\to\infty$. Розглянемо природну інтерпретацію цього факту.
+    \overset{\mathrm{P}}{\longrightarrow} a, n\to\infty$. Розглянемо природну інтерпретацію цього факту.
     Нехай \emph{невипадкову} величину $a$ може бути виміряно за допомогою деякого пристрою. 
     Внаслідок наявності похибок вимірювання цей пристрій повертає не точне значення $a$, 
     а лише деяку \emph{випадкову} величину $\xi$, в якомусь сенсі близьку до $a$. 
@@ -51,8 +51,8 @@
     $\left|z^n - w^n\right| = \left|z - w\right| \cdot \left|z^{n-1} + z^{n-2}w + ... + z w^{n-2} + w^{n-1}\right| \leq n \cdot \left|z - w\right|$.
     Оскільки $1$ --- це характеристична функція нульової випадкової величини, а \\
     \noindent$ \underset{n \to \infty}{\lim} n \left(\chi(\frac{t}{n}) - 1\right) = t \cdot \chi'(0) = \left[ E\xi_n = 0\right]=0$,
-    то за теоремою Леві $\xi_n \overset{F}{\longrightarrow} 0$, а тому й $\xi_n \overset{P}{\longrightarrow} 0$. Залишилося зауважити, що у випадку
-    $E\xi_n = a \neq 0$ можемо розглядати послідовність $\xi_n - a$, і $\xi_n - a \overset{P}{\longrightarrow} 0 \Leftrightarrow \xi_n \overset{P}{\longrightarrow} a$. 
+    то за теоремою Леві $\xi_n \overset{\mathrm{F}}{\longrightarrow} 0$, а тому й $\xi_n \overset{\mathrm{P}}{\longrightarrow} 0$. Залишилося зауважити, що у випадку
+    $E\xi_n = a \neq 0$ можемо розглядати послідовність $\xi_n - a$, і $\xi_n - a \overset{\mathrm{P}}{\longrightarrow} 0 \Leftrightarrow \xi_n \overset{\mathrm{P}}{\longrightarrow} a$. 
 \end{remark}
 Наведемо ще один варіант формулювання закону великих чисел.
 \begin{theorem*}[теорема Маркова]
@@ -61,7 +61,7 @@
     причому $D \left( \sum\limits_{k=1}^n \xi_k\right) = o(n^2)$ при $n\to\infty$.
     Тоді
     $
-        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{P}{\longrightarrow} 0, \; n \to \infty
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k - \frac{1}{n}\sum\limits_{k=1}^n E\xi_k \overset{\mathrm{P}}{\longrightarrow} 0, \; n \to \infty
     $.
 \end{theorem*}
 \begin{exercise}
@@ -78,8 +78,8 @@
         \item Нехай $\xi_n$ --- послідовність випадкових величин, що мають розподіл $\mathrm{U}[-1; 1]$. Знайти границю за
         ймовірністю послідовності $\eta_n = \frac{1}{n}\sum\limits_{k=1}^n e^{\xi_k}$.
 
-        За ЗВЧ $\eta_n \overset{P}{\longrightarrow} E e^\xi$, де $\xi \sim \mathrm{U}[-1; 1]$. 
-        $E e^\xi = \frac{1}{2}\int\limits_{-1}^1 e^x dx = \sinh{1}$, тому $\eta_n \overset{P}{\longrightarrow} \sinh{1}$.
+        За ЗВЧ $\eta_n \overset{\mathrm{P}}{\longrightarrow} E e^\xi$, де $\xi \sim \mathrm{U}[-1; 1]$. 
+        $E e^\xi = \frac{1}{2}\int\limits_{-1}^1 e^x dx = \sinh{1}$, тому $\eta_n \overset{\mathrm{P}}{\longrightarrow} \sinh{1}$.
     \end{enumerate}
 \end{example}
 \begin{exercise}
@@ -93,7 +93,7 @@
     Нехай $\left\{ \xi_n\right\}_{n=1}^{\infty}$ --- послідовність незалежних однаково розподілених випадкових величин, що мають скінченне
     математичне сподівання $a$. Тоді без припущень щодо дисперсії
     \begin{gather}\label{Kolm_theor}
-        \frac{1}{n}\sum\limits_{k=1}^n \xi_k \overset{P1}{\longrightarrow} a, \; n \to \infty
+        \frac{1}{n}\sum\limits_{k=1}^n \xi_k \overset{\mathrm{P1}}{\longrightarrow} a, \; n \to \infty
     \end{gather}
 \end{theorem*}
 
@@ -101,7 +101,7 @@
 Розглянемо частковий випадок ЗВЧ Чебишова для схеми Бернуллі.
 \begin{theorem*}[теорема Бернуллі]
     Нехай $\xi_n$ задає кількість успіхів в схемі Бернуллі з $n$ випробуваннями зі сталою ймовірністю успіху $p$, $\xi_n \sim \mathrm{Bin}(n, p)$. Тоді 
-    $\frac{\xi_n}{n}  \overset{P}{\longrightarrow} p, n\to\infty$, тобто
+    $\frac{\xi_n}{n}  \overset{\mathrm{P}}{\longrightarrow} p, n\to\infty$, тобто
     \begin{gather}
         \forall \; \varepsilon >0 : \lim_{n \rightarrow \infty} P\left\{ \left| \frac{\xi_n}{n} - p\right| \geq \varepsilon\right\} = 0
     \end{gather}
@@ -110,7 +110,7 @@
     Зведемо до теореми Чебишова. $\xi_n = \sum\limits_{k=1}^n \eta_k$, де $\eta_k$ --- індикатор появи успіху в $k$-тому випробуванні,
     $\eta_k \sim \mathrm{Bin}(1, p)$. $\eta_k$ --- незалежні та однаково розподілені, $E\eta_k = p$ тому за наслідком ЗВЧ Чебишова для однаково
     розподілених ВВ
-    $\frac{\xi_n}{n} = \frac{1}{n} \sum\limits_{k=1}^n \eta_k \overset{P}{\longrightarrow} p, n\to\infty$.
+    $\frac{\xi_n}{n} = \frac{1}{n} \sum\limits_{k=1}^n \eta_k \overset{\mathrm{P}}{\longrightarrow} p, n\to\infty$.
 \end{proof}
 \begin{remark}
     Для практичного використання цієї теореми важливою є оцінка збіжності $\frac{\xi_n}{n}$ до $p$:
@@ -127,10 +127,10 @@
 \begin{theorem*}
     Нехай $\xi_n$ задає кількість успіхів в схемі Бернуллі з $n$ випробуваннями та ймовірністю успіху $p_n$, $\xi_n \sim \mathrm{Bin}(n, p_n)$.
     Тоді 
-    $\frac{\xi_n}{n} - \frac{1}{n}\sum\limits_{k=1}^n p_k \overset{P}{\longrightarrow} 0, \; n \to \infty$.
+    $\frac{\xi_n}{n} - \frac{1}{n}\sum\limits_{k=1}^n p_k \overset{\mathrm{P}}{\longrightarrow} 0, \; n \to \infty$.
 \end{theorem*}
 \begin{exercise}
-    Довести теорему Пуассона.
+    Довести це узагальнення.
 \end{exercise}
 
 \subsection{Методи Монте-Карло}
@@ -141,7 +141,7 @@
 
 Спочатку розглянемо послідовність випадкових величин $\xi_n$, що мають спільний розподіл $\mathrm{U}[a; b]$.
 $Eg(\xi_1) = \frac{1}{b-a} \int\limits_a^b g(x) dx$, тому $\int\limits_a^b g(x) dx = (b-a)\cdot E g(\xi_1)$. З теореми Колмогорова (\ref{Kolm_theor})
-$\frac{1}{n}\sum\limits_{k=1}^n g(\xi_k) \overset{P1}{\longrightarrow} Eg(\xi_1), n\to\infty$, тому при достатньо великих $n$ виконується наближена рівність:
+$\frac{1}{n}\sum\limits_{k=1}^n g(\xi_k) \overset{\mathrm{P1}}{\longrightarrow} Eg(\xi_1), n\to\infty$, тому при достатньо великих $n$ виконується наближена рівність:
 $$\int\limits_a^b g(x) dx\approx\frac{b-a}{n}\sum\limits_{k=1}^ng(\xi_k)$$
 
 Другий спосіб розв'язання цієї задачі заснований на інтерпретації інтеграла як площі під графіком функції. 

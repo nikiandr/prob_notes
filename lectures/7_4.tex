@@ -20,7 +20,7 @@
     \begin{gather*}
         \sum\limits_{k=1}^n \left( \eta_k - E\eta_k\right) = \xi_n - np, \; \sum\limits_{k=1}^n D\eta_k = n p q \\
         \frac{\sum\limits_{k=1}^n \left( \eta_k - E\eta_k\right)}{\sqrt{\sum\limits_{k=1}^n D\eta_k}} =
-         \frac{\xi_n - np}{\sqrt{n p q}} \overset{F}{\longrightarrow} \xi \sim \mathrm{N}(0, 1), \; n\to \infty
+         \frac{\xi_n - np}{\sqrt{n p q}} \overset{\mathrm{F}}{\longrightarrow} \xi \sim \mathrm{N}(0, 1), \; n\to \infty
     \end{gather*}
 \end{proof}
 \noindent\textbf{Робочі формули.} При великих $n$:
@@ -40,7 +40,7 @@
     В усіх наведених наближених рівностях будь-яку строгу нерівність можна замінити на нестрогу. На практиці формулі 3 іноді застосовують \emph{<<поправку на неперервність>>},
     використовуючи $m_2 + \frac{1}{2}$ та $m_1 - \frac{1}{2}$ замість $m_2$ та $m_1$ відповідно. Емпірично з'ясовано, що це дозволяє підвищити точність наближення.
     Також важливо зауважити, що на практиці ці формули застосовують при $n \geq 50$ та $npq \geq 10$ (як і для наступних формул, 
-    різні джерела можуть давати інші межі, наприклад $npq \leq 20$).
+    різні джерела можуть давати інші межі, наприклад $npq \geq 20$).
 \end{remark}
 \begin{example}
     Стрілець робить 100 пострілів по мішені з ймовірністю влучення $0.7$, $\xi$ --- кількість влучень. Знайти наближено 
@@ -98,7 +98,7 @@
     \end{gather}
 \end{theorem*}
 \begin{proof}
-    Нехай $\xi \sim \mathrm{Poiss}(a)$. Покажемо $\xi_n \overset{F}{\longrightarrow} \xi, n\to\infty$, скориставшись твердженням теореми Леві (\ref{levi_theor}).
+    Нехай $\xi \sim \mathrm{Poiss}(a)$. Покажемо $\xi_n \overset{\mathrm{F}}{\longrightarrow} \xi, n\to\infty$, скориставшись твердженням теореми Леві (\ref{levi_theor}).
     Характеристичні функції $\xi_n$ та $\xi$ рівні, відповідно, $\chi_{\xi_n}(t) = \left(p_n e^{it} + 1 - p_n \right)^n$ та $\chi_{\xi}(t) = e^{a\left( e^{it} - 1\right)}$.
     З умови $\underset{n\to\infty}{\lim} n p_n = a$ та нерівності $\left| z^n - w^n\right| \leq n\cdot\left| z - w\right|$ для $z, w \in \mathbb{C}$, $|z|\leq1$, $|w|\leq1$:
     $$
@@ -110,7 +110,7 @@
     \underset{n\to\infty}{\lim} \chi_{\xi_n}(t) = \underset{n\to\infty}{\lim} \left(\frac{a}{n} e^{it} + 1 - \frac{a}{n} \right)^n = 
     \underset{n\to\infty}{\lim} \left(1 + \frac{a}{n} \left(e^{it} - 1\right) \right)^n = e^{a\left( e^{it} - 1\right)} = \chi_{\xi}(t)
     $$
-    Отже, $\xi_n \overset{F}{\longrightarrow} \xi, n\to\infty$. Функція розподілу $\xi$ неперервна в будь-якій нецілій точці, тому для цілих $m \geq 0$:
+    Отже, $\xi_n \overset{\mathrm{F}}{\longrightarrow} \xi, n\to\infty$. Функція розподілу $\xi$ неперервна в будь-якій нецілій точці, тому для цілих $m \geq 0$:
     \begin{gather*}
         P\left\{ m - \frac{1}{2} \leq \xi_n < m + \frac{1}{2}\right\} = F_{\xi_n}\left( m + \frac{1}{2}\right) -
         F_{\xi_n}\left( m - \frac{1}{2}\right) \to \\ \to F_{\xi}\left( m + \frac{1}{2}\right) -
