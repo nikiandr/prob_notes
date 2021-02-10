@@ -1,0 +1,90 @@
+% !TEX root = ../../main.tex
+\section{Вибірка та її характеристики}
+\subsection{Поняття вибірки}
+Математична статистика вивчає випадкові величини за певними дослідними даними, які отримано в ході експерименту.
+Коротко кажучи, методами математичної статистики можна оцінювати (але не визначати точно) числові характеристики 
+та розподіл деякої випадкової величини,
+якщо відомо деякий набір значень, яких ця величина набула в ході досліду. При цьому, зазвичай, апріорних відомостей про
+цю випадкову величину майже немає.
+\begin{definition}
+    \emph{Генеральною сукупністю (ГС)} називають як випадкову величину $\xi$, що досліджується, так і множину всіх її можливих значень.
+\end{definition}
+\begin{definition}
+    \emph{Випадковою вибіркою обсягу $n$} називається випадковий вектор $\left( \xi_1, ..., \xi_n\right)$, координати якого є однаково
+    розподіленими, як ГС, і незалежними в сукупності. Підмножина $G\subseteq \mathbb{R}^n$, що складається з усіх можливих значень визначеної вище
+    випадкової вибірки, називається $\emph{вибірковим простором}$, а вектори $\vec{x} \in G$ --- \emph{реалізаціями вибірки}.
+    \emph{Конкретною реалізацією вибірки} інколи називають саме ту реалізацію, з якою працюють після проведення експерименту.
+\end{definition}
+\begin{example}
+    Нехай $\xi \sim \mathrm{Bin}(N, p)$, $N = 3$. В цьому випадку $G = \left\{0, 1, 2, 3\right\}^{\times n}$ --- множина
+    $n$-вимірних векторів, всі координати яких набувають лише значень $0$, $1$, $2$ та $3$.
+\end{example}
+\begin{remark}
+    В прикладній статистиці зазвичай не користуються таким різноманітним набором означень. Там під вибіркою розуміють як і будь-які 
+    отримані внаслідок експерименту спостереження, так і процес їх отримання. Варто навести два означення, які, хоч і не будуть застосовуватися далі
+    в курсі, але зустрічаються в прикладній статистиці. \emph{Репрезентативна вибірка} --- така, яка має всі властивості генеральної сукупності. Інакше кажучи, всі можливі значення 
+    (або проміжки значень) ГС мають однакову ймовірність потрапити до конкретної реалізації вибірки.
+    \emph{Стратифікована вибірка} --- така, що гарантує збереження пропорцій, наявних у ГС.
+    Наприклад, якщо мова йде про результати якогось опитування, то репрезентативна вибірка має містити результати всіх категорій населення, а 
+    стратифікована ще й має містити їх в тих пропорціях, які ці категорії складають в усьому населенні країни.
+    На практиці поняття репрезентативної та стратифікованої вибірки залежать від ГС, структуру та природу якої дослідник попередньо вивчає,
+    та від мети самого дослідження: наприклад, населення всієї країни може грати роль ГС у багатьох статистичних дослідженнях, 
+    але його поділ на категорії може відрізнятися.
+\end{remark}
+\subsection{Розподіл випадкової вибірки}
+Нехай $\vec{\xi} = \left( \xi_1, ..., \xi_n\right)$ --- випадкова вибірка, а $F_{\xi}(x)$ --- функція розподілу ГС. Тоді для 
+$\vec{x} \in \mathbb{R}^n$ визначено функцію розподілу 
+$F_{\vec{\xi}}(\vec{x}) = P\left\{\xi_1 < x_1, ..., \xi_n < x_n \right\} = \prod\limits_{k=1}^n F_{\xi}(x_k)$. Для досліджень вибірок, однак,
+зручно користуватися іншою функцією.
+\begin{definition}
+    \emph{Функцією правдоподібності} випадкової вибірки обсягу $n$ з ГС $\xi$ називається 
+    \begin{gather}
+        \mathcal{L}(\vec{x}) = \prod\limits_{k=1}^n P\left\{ \xi = x_k\right\}, \text{ якщо } \xi \text{ --- ДВВ} \\
+        \mathcal{L}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi}(x_k) \text{ якщо } \xi \text{ --- НВВ}
+    \end{gather}
+\end{definition}
+Часто аргументами функції правдоподібності вважають параметри закону розподілу ГС. В такому випадку при фіксованому значенні
+$\vec{x}$ ця функція фактично показує, як в залежності від параметрів розподілу змінюється ймовірність отримати саме таку реалізацію
+вибірки --- $\left(x_1, ..., x_n \right)$.
+Отримаємо функції правдоподібності для основних законів розподілу. В подальшому будуть більш корисними не самі функції правдоподібності,
+а їх логарифми.
+\begin{enumerate}
+    \item $\xi \sim \mathrm{Bin}(N,p)$ --- біноміальний розподіл, $\forall \; k \in \mathbb{N} \; x_k \in \left\{0, 1, ..., N \right\}$:
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Bin}}(\vec{x}, N, p) = \prod\limits_{k=1}^n C_N^{x_k} p^{x_k} (1-p)^{N - x_k} = 
+        \prod\limits_{k=1}^n C_N^{x_k} \cdot p^{\sum_{k=1}^n x_k} \cdot (1-p)^{N\cdot n - \sum_{k=1}^n x_k} \\
+        \ln \mathcal{L}_{\mathrm{Bin}}(\vec{x}, N, p) = \sum\limits_{k=1}^n \ln C_N^{x_k} + \ln p \cdot \sum\limits_{k=1}^n x_k + 
+        \ln{(1-p)} \cdot\left( N\cdot n - \sum\limits_{k=1}^n x_k\right)
+    \end{gather*}
+    \item $\xi \sim \mathrm{Geom}(p)$ --- геометричний розподіл, $\forall \; k \in \mathbb{N} \; x_k \in \left\{1, 2, 3, ...\right\}$. 
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Geom}}(\vec{x}, p) = \prod\limits_{k=1}^n p (1-p)^{x_k - 1} = p^n \cdot (1-p)^{\sum_{k=1}^n x_k - n} \\
+        \ln \mathcal{L}_{\mathrm{Geom}}(\vec{x}, p) = n \ln p + \ln{(1-p)} \cdot\left(\sum\limits_{k=1}^n x_k - n\right)
+    \end{gather*}
+    \item $\xi \sim \mathrm{Pas}(a)$ --- розподіл Паскаля, $\forall \; k \in \mathbb{N} \; x_k \in \left\{0, 1, 2, 3, ...\right\}$. 
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Pas}}(\vec{x}, a) = \prod\limits_{k=1}^n \frac{a^{x_k}}{(1+a)^{x_k + 1}} = 
+        \frac{a^{\sum_{k=1}^n x_k}}{(1+a)^{n + \sum_{k=1}^n x_k}} \\
+        \ln \mathcal{L}_{\mathrm{Pas}}(\vec{x}, a) = \ln a \cdot \sum\limits_{k=1}^n x_k - \ln{(1+a)} \cdot \left(n+ \sum\limits_{k=1}^n x_k\right) 
+    \end{gather*}
+    \item $\xi \sim \mathrm{Poiss}(a)$ --- розподіл Пуассона, $\forall \; k \in \mathbb{N} \; x_k \in \left\{0, 1, 2, 3, ...\right\}$. 
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Poiss}}(\vec{x}, a) = \prod\limits_{k=1}^n \frac{a^{x_k}}{(x_k)!} e^{-a} = e^{-na} \cdot \frac{a^{\sum\limits_{k=1}^n x_k}}{\prod\limits_{k=1}^n x_k !} \\
+        \ln \mathcal{L}_{\mathrm{Poiss}}(\vec{x}, a) = -n a + \ln a \cdot \sum\limits_{k=1}^n x_k - \sum\limits_{k=1}^n \ln{x_k!}
+    \end{gather*}
+    \item $\xi \sim \mathrm{U}\left< a; b\right>$ --- рівномірний розподіл, $\forall \; k \in \mathbb{N} \; x_k \in \left< a; b\right>$:
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{U}}(\vec{x}, a, b) = \prod\limits_{k=1}^n \frac{1}{b-a} = \frac{1}{(b-a)^n} \\
+        \ln\mathcal{L}_{\mathrm{U}}(\vec{x}, a, b) = -n \ln{(b-a)}
+    \end{gather*} 
+    \item $\xi \sim \mathrm{Exp}(\lambda, b)$ --- експоненційний розподіл зі зсувом, $\forall \; k \in \mathbb{N} \; x_k \geq b$:
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = \prod\limits_{k=1}^n \lambda e^{-\lambda (x_k-b)} = \lambda^n e^{-\lambda\left(\sum\limits_{k=1}^n x_k + n b\right)} \\
+        \ln \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = n \ln \lambda - \lambda\left(\sum\limits_{k=1}^n x_k + n b\right)
+    \end{gather*}
+    \item $\xi \sim \mathrm{N}(a, \sigma^2)$ --- нормальний розподіл, $\forall \; k \in \mathbb{N} \; x_k \in \mathbb{R}$:
+    \begin{gather*}
+        \mathcal{L}_{\mathrm{Exp}}(\vec{x}, a, \sigma) = \prod\limits_{k=1}^n \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{-\frac{(x_k - a)^2}{2\sigma^2}\right\} \\
+        \ln \mathcal{L}_{\mathrm{Exp}}(\vec{x}, a, \sigma) = \frac{1}{(2\pi)^{\frac{n}{2}} \sigma^n} \cdot \exp\left\{-\frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a)^2\right\}
+    \end{gather*}
+\end{enumerate}
