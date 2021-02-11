@@ -145,38 +145,40 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
 \end{definition}
 
 \hbox to \hsize{\hfil{
-    \begin{tikzpicture}[yscale = 0.6]
-        \draw [->] (0,0) -- (5,0);
-        \draw [->] (0,0) -- (0,6);
-        \draw [fill] (1, 0) circle [radius = 0.05];
-        \node [below] at (1, 0) {$x_1$};
-        \node [below] at (2, 0) {$x_2$};
-        \node [below] at (3, 0) {$x_3$};
-        \node [below] at (3.75, 0) {$...$};
-        \node [below] at (4.5, 0) {$x_n$};
-        \node [left] at (0, 1) {$p_1$};
-        \node [left] at (0, 2) {$p_3$};
-        \node [left] at (0, 3) {$p_2$};
-        \node [left] at (0, 3.75) {$...$};
-        \node [left] at (0, 4.5) {$p_n$};
-        \draw [fill] (2, 0) circle [radius = 0.05];
-        \draw [fill] (3, 0) circle [radius = 0.05];
-        \draw [fill] (4.5, 0) circle [radius = 0.05];
-        \draw [fill] (0, 1) circle [radius = 0.05];
-        \draw [fill] (0, 2) circle [radius = 0.05];
-        \draw [fill] (0, 3) circle [radius = 0.05];
-        \draw [fill] (0, 4.5) circle [radius = 0.05];
-        \draw [fill] (0, 5.5) circle [radius = 0.05];
-        \node [left] at (0, 5.5) {$1$};
-        \node [right] at (5, 0) {$x$};
-        \node [above] at (0, 6) {$p$};
-        \draw [dashed] (0, 5.5) -- (5, 5.5);
-        \draw [fill] (1, 1) circle [radius = 0.05];
-        \draw [fill] (2, 3) circle [radius = 0.05];
-        \draw [fill] (3, 2) circle [radius = 0.05];
-        \draw [fill] (4.5, 4.5) circle [radius = 0.05];
-        \draw (1, 1) -- (2, 3) -- (3, 2);
-        \draw [dashed] (3, 2) -- (4.5, 4.5);
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\s}{0.6};
+        \pgfmathsetmacro{\t}{1.5};
+        \draw [->] (0,0) -- (5*\t,0);
+        \draw [->] (0,0) -- (0,6*\s);
+        \draw [fill] (1*\t, 0) circle [radius = 0.05];
+        \node [below] at (1*\t, 0) {$x_1$};
+        \node [below] at (2*\t, 0) {$x_2$};
+        \node [below] at (3*\t, 0) {$x_3$};
+        \node [below] at (3.75*\t, 0) {$...$};
+        \node [below] at (4.5*\t, 0) {$x_n$};
+        \node [left] at (0, 1*\s) {$p_1$};
+        \node [left] at (0, 2*\s) {$p_3$};
+        \node [left] at (0, 3*\s) {$p_2$};
+        \node [left] at (0, 3.75*\s) {$...$};
+        \node [left] at (0, 4.5*\s) {$p_n$};
+        \draw [fill] (2*\t, 0) circle [radius = 0.05];
+        \draw [fill] (3*\t, 0) circle [radius = 0.05];
+        \draw [fill] (4.5*\t, 0) circle [radius = 0.05];
+        \draw [fill] (0, 1*\s) circle [radius = 0.05];
+        \draw [fill] (0, 2*\s) circle [radius = 0.05];
+        \draw [fill] (0, 3*\s) circle [radius = 0.05];
+        \draw [fill] (0, 4.5*\s) circle [radius = 0.05];
+        \draw [fill] (0, 5.5*\s) circle [radius = 0.05];
+        \node [left] at (0, 5.5*\s) {$1$};
+        \node [right] at (5*\t, 0) {$x$};
+        \node [above] at (0, 6*\s) {$p$};
+        \draw [dashed] (0, 5.5*\s) -- (5*\t, 5.5*\s);
+        \draw [fill] (1*\t, 1*\s) circle [radius = 0.05];
+        \draw [fill] (2*\t, 3*\s) circle [radius = 0.05];
+        \draw [fill] (3*\t, 2*\s) circle [radius = 0.05];
+        \draw [fill] (4.5*\t, 4.5*\s) circle [radius = 0.05];
+        \draw (1*\t, 1*\s) -- (2*\t, 3*\s) -- (3*\t, 2*\s);
+        \draw [dashed] (3*\t, 2*\s) -- (4.5*\t, 4.5*\s);
     \end{tikzpicture}
 }\hfil}
 
