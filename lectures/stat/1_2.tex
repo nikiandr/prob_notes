@@ -6,7 +6,8 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 \begin{definition}
     \emph{Точковою оцінкою} $\theta^*$ невідомого параметру $\theta$ називається деяка статистика
     $\theta^*(\xi_1, ..., \xi_n)$, значення якої на конкретній
-    реалізації вибірки приймається за наближене значення $\theta$.
+    реалізації вибірки приймається за наближене значення $\theta$. Іноді вводиться позначення $\theta^*_n$,
+    щоб вказати залежність оцінки від обсягу вибірки.
 \end{definition}
 Зрозуміло, що точкова оцінка $\theta^*$, на відміну від параметру $\theta$, є випадковою величиною, 
 яка залежить від закону розподілу $\xi$ та обсягу вибірки. Безумовно, можна ввести багато функцій від результатів спостережень, 
@@ -17,21 +18,21 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 неможливо, оскільки точкова оцінка --- випадкова величина. Таким чином, робити висновки про якість оцінки варто не по її конкретним значенням, 
 а по її розподілу. В зв'язку з цим розглянемо вимоги, що висувають до точкових оцінок.
 
-\subsection{Незміщені точкові оцінки}
+\subsection{Незміщені оцінки}
  \begin{definition}
     Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{незміщеною}, якщо
     \begin{gather}\label{estim_unbiased}
-        E\theta^*(\xi_1, ..., \xi_n) = \theta \text{ для всіх } n\in\mathbb{N}
+        E\theta^*_n = \theta \text{ для всіх } n\in\mathbb{N}
     \end{gather} 
-    і \emph{асимптотично незміщеною}, якщо $\underset{n\to\infty}{\lim} E\theta^*(\xi_1, ..., \xi_n) = \theta$.
+    і \emph{асимптотично незміщеною}, якщо $\underset{n\to\infty}{\lim} E\theta^*_n = \theta$. 
  \end{definition}
  \begin{example} 
     Розглянемо деякі важливі незміщені оцінки.
     \begin{enumerate}
-        \item Вибіркове середнє --- незміщена оцінка математичного сподівання:
+        \item \emph{Вибіркове середнє} --- незміщена оцінка математичного сподівання:
         $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, $E\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n E\xi_k = \frac{1}{n} \cdot{n} \cdot{E\xi} = E\xi$,
         оскільки всі $\xi_k$ однаково розподілені.
-        \item Вибіркова дисперсія --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $E\xi$:
+        \item \emph{Вибіркова дисперсія} --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $E\xi$:
         $D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2$, 
         $E\left( D^* \xi\right) = \frac{1}{n}\sum\limits_{k=1}^n E\left(\xi_k - E\xi \right)^2 = D\xi$ знову через однаковий розподіл $\xi_k$.
         \item Дослідимо вибіркову дисперсію, але у випадку невідомого математичного сподівання. 
@@ -52,21 +53,101 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
         тому ця оцінка є лише асимптотично незміщеною. Проте, оцінка $D^{**}\xi = \frac{n}{n-1} D^*\xi$ буде незміщеною.
         Таким чином, якщо $E\xi$ невідоме, то \emph{виправлена вибіркова дисперсія} 
         $D^{**}\xi = \frac{1}{n-1} \sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2$ є незміщеною оцінкою дисперсії.
-        \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, перевіримо незміщеність $a^* = \underset{1\leq k \leq n}{\min}\xi_k$.
-        Знайдемо $Ea^*$. Як відомо, 
+        \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, перевіримо незміщеність $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$.
+        Знайдемо $Ea^*_n$. Як відомо, 
         $f_{\min}(x) = n \left(1-F_{\xi}(x)\right)^{n-1} f_{\xi}(x) = n\left( 1- \frac{x-a}{b-a}\right)^{n-1}\frac{1}{b-a} = n\cdot\frac{(b-x)^{n-1}}{(b-a)^n}$, якщо
         $x \in \left< a; b\right>$, та $0$ інакше.
         \begin{gather*}
-            Ea^* = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
+            Ea^*_n = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
             \frac{n}{(b-a)^n} \int_0^{b-a} (b-t)t^{n-1} dt = \\
             = \frac{n}{(b-a)^n} \left.\left( \frac{bt^n}{n} - \frac{t^{n+1}}{n+1}\right)\right|_0^{b-a} = 
             \frac{n}{(b-a)^n} \left(\frac{b(b-a)^n}{n} - \frac{(b-a)^{n+1}}{n+1}\right) = \\
             = b - \frac{n(b-a)}{n+1} = \frac{bn + b - nb + na}{n+1} = a \cdot \frac{n}{n+1} + \frac{b}{n+1} \neq a
          \end{gather*}
-         Але $\underset{n\to\infty}{\lim} Ea^* = a$, тому $a^*$ є асимптотично незміщеною оцінкою.
+         Але $\underset{n\to\infty}{\lim} Ea^*_n = a$, тому $a^*_n$ є асимптотично незміщеною оцінкою.
     \end{enumerate}
  \end{example}
  \begin{exercise}
-     Перевірити, що $b^* = \underset{1\leq k \leq n}{\max}\xi_k$ є асимптотично незміщеною оцінкою для параметра $b$ у випадку $\xi \sim \mathrm{U}\left< a; b\right>$.
-     Користуючись вже дослідженими оцінками $a^*$ та $b^*$, знайти незміщені оцінки для параметрів $a$ і $b$ (підказка: це будуть деякі лінійні комбінації $a^*$ та $b^*$).
+     Перевірити, що $b^*_n = \underset{1\leq k \leq n}{\max}\xi_k$ є асимптотично незміщеною оцінкою для параметра $b$ у випадку $\xi \sim \mathrm{U}\left< a; b\right>$.
+     Користуючись вже дослідженими оцінками $a^*_n$ та $b^*_n$, знайти незміщені оцінки для параметрів $a$ і $b$ (підказка: це будуть деякі лінійні комбінації $a^*_n$ та $b^*_n$).
  \end{exercise}
+
+\subsection{Конзистентні оцінки}
+\begin{definition}
+    Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{конзистентною}, якщо
+    \begin{gather}\label{estim_consis}
+        \forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}= 0
+        \Leftrightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta, n \to \infty
+    \end{gather}
+\end{definition}
+Конзистентність оцінки можна перевіряти за означенням. Але для незміщених та асимптотично незміщених оцінок є
+\emph{достатня умова} конзистентності.
+\begin{proposition*}
+    Якщо $\theta^*_n$ --- незміщена чи асимптотично незміщена оцінка та $D\theta^*_n \to 0$, $n \to \infty$,
+    то ця оцінка є конзистентною.
+\end{proposition*}
+\begin{proof}
+    Якщо $\theta^*_n$ незміщена, то 
+    $P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}=P\left\{|\theta^*_n - E\theta^*_n| \geq \varepsilon\right\} 
+    \leq \frac{D\theta^*_n}{\varepsilon^2} \to 0$.
+    Якщо $\theta^*_n$ асимптотично незміщена, то $\underset{n\to\infty}{\lim} E\theta^*_n = \theta$,
+    звідки за критерієм збіжності в середньому квадратичному до константи маємо 
+    $\theta^*_n \overset{\text{СК}}{\longrightarrow} \theta \Rightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta$.
+\end{proof}
+\begin{remark}
+    Також є поняття \emph{сильно конзистентної оцінки}, де збіжність за ймовірностю замінюється збіжністю майже напевно.
+    Такі оцінки надалі розглядати не будемо через складність дослідження такої збіжності в загальному випадку. 
+\end{remark}
+\begin{example}
+    Перевіримо конзистентність оцінок, незміщеність чи асимптотичну незміщеність яких вже дослідили.
+    \begin{enumerate}
+        \item \emph{Вибіркове середнє} $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ є конзистентною оцінкою
+        за законом великих чисел (і навіть сильно конзистентною).
+        \item \emph{Вибіркова дисперсія} $D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2$
+        є незміщеною оцінкою дисперсії в разі відомого $E\xi$. 
+        $D\left(D^*\xi\right) = \frac{1}{n^2}\sum\limits_{k=1}^n D\left(\xi_k - E\xi \right)^2 =
+        \frac{1}{n} D\left(\xi - E\xi \right)^2 \to 0, n\to\infty$, тому ця оцінка конзистентна.
+        \item \emph{Виправлена вибіркова дисперсія} $D^{**}\xi = \frac{n}{n-1} D^*\xi$ є незміщеною оцінкою дисперсії в разі невідомого $E\xi$. 
+        $D\left(D^{**}\xi\right) = \left(\frac{n}{n-1} \right)^2 \cdot D\left(D^*\xi\right) \to 0, n\to\infty$, тому ця оцінка конзистентна.
+        \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$ --- асимптотично незміщена оцінка $a$.
+        Перевірятимемо конзистентність за означенням:
+        \begin{gather*}
+            \varepsilon > 0, \; P\left\{|a^*_n - a| > \varepsilon\right\} = 
+            P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} = \int_{a}^{a+\varepsilon} f_{\min}(x) dx = \\
+            = \frac{n}{(b-a)^n}\int_{a}^{a+\varepsilon} (b-x)^{n-1} dx =
+            -\frac{n}{(b-a)^n} \cdot \left. \frac{(b-x)^n}{n} \right|_{a}^{a+\varepsilon} = \\
+            = \frac{1}{(b-a)^n} \cdot \left( (b-a)^n  - (b-a-\varepsilon)^n\right) = 
+            1 - \left(1 - \frac{\varepsilon}{b-a}\right)^n \to 1, n\to\infty
+        \end{gather*} 
+        Отже, оцінка є конзистентною.
+    \end{enumerate}
+\end{example}
+\begin{exercise}
+    Перевірити конзистентність оцінки $b^*_n = \underset{1\leq k \leq n}{\max}\xi_k$ для $\xi \sim \mathrm{U}\left< a; b\right>$.
+\end{exercise}
+\begin{remark}
+    Конзистентність та незміщеність вибіркового середнього, виправленої та звичайної вибіркових дисперсій було встановлено для будь-якого розподілу $\xi$.
+\end{remark}
+
+\subsection{Ефективні оцінки}
+Основне питання задачі оцінювання параметрів розподілу --- наскільки великою є похибка. 
+Введені означення незміщеної та конзистентної оцінки показують, відповідно, чи правильні в середньому значення цієї оцінки,
+та чи покращується точність оцінювання зі збільшенням обсягу вибірки.
+Зрозуміло, що для оцінювання параметру $\theta$ можна запропонувати декілька незміщених оцінок, значення яких за визначенням
+зосереджені навколо справжнього значення $\theta$. Природно вимагати від <<найкращої>> такої оцінки найменшої можливої дисперсії.
+\begin{definition}
+    Нехай $\Theta_n$ --- множина усіх незміщених оцінок параметру $\theta$ за вибірками фіксованого обсягу $n$. 
+    Оцінка $\theta^*_{\text{еф}}$ називається
+    \emph{ефективною}, якщо 
+    \begin{gather}\label{estim_eff}
+        D\theta^*_{\text{еф}} = \underset{\theta^* \in \Theta_n}{\inf} D\theta^*
+    \end{gather}
+\end{definition}
+Означення ефективності не надто сприяє дослідженню оцінки. По-перше, не завжди
+легко обчислити дисперсію оцінки. По-друге, навіть якщо її вдасться обчислити, то немає гарантії, що ця дисперсія буде найменшою серед дисперсій усіх оцінок
+з $\Theta_n$. Перевіряти ефективність оцінок допомагає нерівність Рао-Крамера.
+
+\begin{theorem*}[нерівність Рао-Крамера]
+    Якщо $\theta^*$ --- незміщена оцінка, то $D\theta^* \geq \frac{1}{I(\theta)}$, 
+    де $I(\theta) = $
+\end{theorem*}
