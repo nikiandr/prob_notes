@@ -43,7 +43,7 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     характеристичних функцій.
 
     Нехай $\chi_k(t)$ --- характеристична функція $\mathring{\xi_k}$, а $F_k(x)$ --- 
-    функція розподілу $\xi_k$.
+    функція розподілу $\mathring{\xi_k}$.
     За властивостями характеристичних функцій $\chi_{\eta_n}(t) = 
     \prod\limits_{k=1}^n \chi_k(\frac{t}{B_n})$. 
     Доведемо, що $\chi_{\eta_n}(t)\to e^{-t^2/2} = 
@@ -68,7 +68,7 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     + \sum\limits_{k=1}^n \theta_k\frac{|t|^3}{6B_n^3}m_k \to -\frac{t^2}{2} 
     $ при $n \rightarrow \infty$.
     
-    Таким чином, $\xi_{\eta_n}(t) \sim e^{-\frac{t^2}{2}}$ при $n \rightarrow \infty$ і 
+    Таким чином, $\chi_{\eta_n}(t) \to e^{-\frac{t^2}{2}}$ при $n \rightarrow \infty$ і 
     з теореми Леві маємо, що $\eta_n \overset{\mathrm{F}}{\longrightarrow} \xi \sim \mathrm{N}(0, 1)$.
 \end{proof}
 \begin{remark}
@@ -76,7 +76,7 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     --- щільності розподілу $\mathrm{N}(0, 1)$.
 \end{remark}
 \noindent\textbf{Наслідок.} Нехай всі $\xi_n$ \emph{однаково розподілені}, $E\xi_k = a$, $D\xi_k = \sigma^2$,
-$m_k = E\left| \xi_k - a\right|^3$. Тоді умова Ляпунова виконується автоматично:
+$m_k = E\left| \xi_k - a\right|^3 = m$. Тоді умова Ляпунова виконується автоматично:
 $$\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n m_k}{\left(
     \sum\limits_{k=1}^n \sigma_k^2
 \right)^{3/2}} = \underset{n \rightarrow \infty}{\lim} \frac{n \cdot m}{(n\cdot \sigma^2)^{3/2}} = 0$$
@@ -94,7 +94,7 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
         \pgfmathsetmacro{\s}{0.57735}
         \draw [->] (-5, 0) -- (5, 0);
         \draw [->] (0, -0.2) -- (0, 0.75);
-        \draw [domain=-4.9:4.9, smooth, variable = \x, thick, lightgray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
+        \draw [domain=-4.9:4.9, smooth, variable = \x, thick, gray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
         \node [below] at (5, 0) {$x$};
         \node [below right] at (0, 0) {$_0$};
         \node [below right] at (2, 0) {$_2$};
@@ -119,7 +119,7 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
             \pgfmathsetmacro{\s}{0.8165}
             \draw [->] (-5, 0) -- (5, 0);
             \draw [->] (0, -0.2) -- (0, 0.55);
-            \draw [domain=-4.9:4.9, smooth, variable = \x, thick, lightgray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
+            \draw [domain=-4.9:4.9, smooth, variable = \x, thick, gray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
             \node [below] at (5, 0) {$x$};
             \node [below right] at (0, 0) {$_0$};
             \node [below right] at (2, 0) {$_2$};
@@ -137,7 +137,7 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
             \pgfmathsetmacro{\s}{1}
             \draw [->] (-5, 0) -- (5, 0);
             \draw [->] (0, -0.17) -- (0, 0.45);
-            \draw [domain=-4.9:4.9, smooth, variable = \x, thick, lightgray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
+            \draw [domain=-4.9:4.9, smooth, variable = \x, thick, gray] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
             \node [below] at (5, 0) {$x$};
             \node [below right] at (0, 0) {$_0$};
             \node [below right] at (2, 0) {$_2$};
