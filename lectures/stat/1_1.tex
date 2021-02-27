@@ -79,13 +79,14 @@ $\vec{x}$ ця функція фактично показує, як в зале�
     \end{gather*} 
     \item $\xi \sim \mathrm{Exp}(\lambda, b)$ --- експоненційний розподіл зі зсувом, $\forall \; k \in \mathbb{N} \; x_k \geq b$:
     \begin{gather*}
-        \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = \prod\limits_{k=1}^n \lambda e^{-\lambda (x_k-b)} = \lambda^n e^{-\lambda\left(\sum\limits_{k=1}^n x_k + n b\right)} \\
-        \ln \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = n \ln \lambda - \lambda\left(\sum\limits_{k=1}^n x_k + n b\right)
+        \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = \prod\limits_{k=1}^n \lambda e^{-\lambda (x_k-b)} = \lambda^n e^{-\lambda\left(\sum\limits_{k=1}^n x_k - n b\right)} \\
+        \ln \mathcal{L}_{\mathrm{Exp}}(\vec{x}, \lambda, b) = n \ln \lambda - \lambda\left(\sum\limits_{k=1}^n x_k - n b\right)
     \end{gather*}
     \item $\xi \sim \mathrm{N}(a, \sigma^2)$ --- нормальний розподіл, $\forall \; k \in \mathbb{N} \; x_k \in \mathbb{R}$:
     \begin{gather*}
-        \mathcal{L}_{\mathrm{Exp}}(\vec{x}, a, \sigma) = \prod\limits_{k=1}^n \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{-\frac{(x_k - a)^2}{2\sigma^2}\right\} \\
-        \ln \mathcal{L}_{\mathrm{Exp}}(\vec{x}, a, \sigma) = \frac{1}{(2\pi)^{\frac{n}{2}} \sigma^n} \cdot \exp\left\{-\frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a)^2\right\}
+        \mathcal{L}_{\mathrm{N}}(\vec{x}, a, \sigma) = \prod\limits_{k=1}^n \frac{1}{\sqrt{2\pi}\sigma} \exp\left\{-\frac{(x_k - a)^2}{2\sigma^2}\right\} =
+        \frac{1}{(2\pi)^{\frac{n}{2}} \sigma^n} \cdot \exp\left\{-\frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a)^2\right\}\\
+        \ln \mathcal{L}_{\mathrm{N}}(\vec{x}, a, \sigma) = -\frac{n}{2}\ln{2\pi} - n \ln{\sigma} - \frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a)^2
     \end{gather*}
 \end{enumerate}
 

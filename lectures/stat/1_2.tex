@@ -18,7 +18,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 неможливо, оскільки точкова оцінка --- випадкова величина. Таким чином, робити висновки про якість оцінки варто не по її конкретним значенням, 
 а по її розподілу. В зв'язку з цим розглянемо вимоги, що висувають до точкових оцінок.
 
-\subsection{Незміщені оцінки}
+\subsection{Незміщеність оцінки}
  \begin{definition}
     Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{незміщеною}, якщо
     \begin{gather}\label{estim_unbiased}
@@ -72,7 +72,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
      Користуючись вже дослідженими оцінками $a^*_n$ та $b^*_n$, знайти незміщені оцінки для параметрів $a$ і $b$ (підказка: це будуть деякі лінійні комбінації $a^*_n$ та $b^*_n$).
  \end{exercise}
 
-\subsection{Конзистентні оцінки}
+\subsection{Конзистентність оцінки}
 \begin{definition}
     Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{конзистентною}, якщо
     \begin{gather}\label{estim_consis}
@@ -129,7 +129,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     Конзистентність та незміщеність вибіркового середнього, виправленої та звичайної вибіркових дисперсій було встановлено для будь-якого розподілу $\xi$.
 \end{remark}
 
-\subsection{Ефективні оцінки}
+\subsection{Ефективність оцінки}
 Основне питання задачі оцінювання параметрів розподілу --- наскільки великою є похибка. 
 Введені означення незміщеної та конзистентної оцінки показують, відповідно, чи правильні в середньому значення цієї оцінки,
 та чи покращується точність оцінювання зі збільшенням обсягу вибірки.
@@ -148,6 +148,89 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 з $\Theta_n$. Перевіряти ефективність оцінок допомагає нерівність Рао-Крамера.
 
 \begin{theorem*}[нерівність Рао-Крамера]
-    Якщо $\theta^*$ --- незміщена оцінка, то $D\theta^* \geq \frac{1}{I(\theta)}$, 
-    де $I(\theta) = $
+    Якщо $\theta^*$ --- незміщена оцінка, то $D\theta^* \geq \frac{1}{\mathcal{I}(\theta)}$, 
+    де $\mathcal{I}(\theta) = E\left( \frac{\partial \ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}\right)^2$ --- 
+    {<<кількість інформації за Фішером>>}. Для ефективної оцінки досягається рівність. Тут
+    $\mathcal{L}(\vec{\xi}, \theta)$ --- функція правдоподібності, що залежить від випадкової вибірки $\vec{\xi}$ та 
+    невідомого параметру $\theta$. 
 \end{theorem*}
+\begin{proof}
+    Доведемо цю нерівність у випадку неперервної ГС. 
+    За припущенням про незміщеність $$E\theta^* = \int_{\mathbb{R}^n}\theta^*(\vec{x}) f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x} = \theta$$
+    З іншого боку, $$ \theta = \theta \cdot 1 = \theta \cdot \int_{\mathbb{R}^n}f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x}$$
+    Отже, маємо рівність, яку продиференціюємо по $\theta$: 
+    \begin{gather*}
+        \int_{\mathbb{R}^n}(\theta^*(\vec{x}) - \theta) f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x} = 0 \\
+        \frac{\partial}{\partial  \theta}\left(\int_{\mathbb{R}^n}(\theta^*(\vec{x}) - \theta) f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x}\right) =
+         -\underbrace{\int_{\mathbb{R}^n}f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x} }_1
+         + \int_{\mathbb{R}^n}(\theta^*(\vec{x}) -\theta) \frac{\partial f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta} d\vec{x} = 0 \\
+         \int_{\mathbb{R}^n}(\theta^*(\vec{x}) -\theta) \frac{\partial f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta} d\vec{x} = 
+         \int_{\mathbb{R}^n}(\theta^*(\vec{x}) -\theta) \frac{\partial f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta} \frac{f_{\vec{\xi}}(\vec{x}, \theta)}{f_{\vec{\xi}}(\vec{x}, \theta)} d\vec{x} = 1
+    \end{gather*}
+    Оскільки $\frac{\partial f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta} \frac{1}{f_{\vec{\xi}}(\vec{x}, \theta)} = \frac{\partial\ln f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta}$,
+    а у випадку неперервної ГС $\mathcal{L}(\vec{\xi}, \theta) = \prod\limits_{k=1}^n f_{\xi}(\xi_k, \theta) = f_{\vec{\xi}}(\vec{\xi}, \theta)$, останню рівність можна записати у вигляді 
+    $1 = E\eta_1 \eta_2$, де $\eta_1 = \theta^*(\vec{\xi}) -\theta$, $\eta_2 = \frac{\partial\ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}$.
+    Оскільки $\left( E\eta_1 \eta_2 \right)^2 \leq E\eta_1^2 \cdot E\eta_2^2$, маємо $1 \leq D\theta^* \cdot \mathcal{I}(\theta)$, що і треба було довести.
+\end{proof}
+\noindent\textbf{Наслідок.} В нерівності $\left( E\eta_1 \eta_2 \right)^2 \leq E\eta_1^2 \cdot E\eta_2^2$ рівність досягається
+тоді і тільки тоді, коли $\eta_1$ та $\eta_2$ лінійно залежні. Оскільки для ефективної оцінки досягається рівність, то маємо такий 
+\emph{критерій ефективності незміщеної оцінки}: незміщена оцінка $\theta^*$ є оптимальною тоді й тільки тоді, коли
+\begin{gather}
+    \frac{\partial\ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta} = C(n, \theta) \cdot\left(\theta^*(\vec{\xi}) - \theta\right)
+\end{gather}
+Тут $C(n, \theta)$ --- деяке значення, що залежить лише від $n$ та $\theta$.
+\begin{remark}
+    В умові теореми необхідно накладати деякі умови, виконання яких припускалися при доведенні: додатність та 
+    диференційовність функції правдоподібності на області визначення,
+    існування (скінченність) $\mathcal{I}(\theta)$ та можливість диференціювання відповідного інтегралу по параметру.
+\end{remark}
+\begin{example}
+    Нехай ГС $\xi \sim \mathrm{Poiss}(a)$. $E\xi = a$, тому $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ --- 
+    незміщена оцінка $a$. Перевіримо її ефективність.
+    \begin{gather*}
+        \ln \mathcal{L}(\vec{\xi}, a) = -n a + \ln a \cdot \sum\limits_{k=1}^n \xi_k - \sum\limits_{k=1}^n \ln{\xi_k!} \\
+        \frac{\partial  \ln \mathcal{L}(\vec{\xi}, a)}{\partial a} = -n + \frac{1}{a} \cdot \sum\limits_{k=1}^n \xi_k = 
+        -n + \frac{n}{a} \cdot \overline{\xi} = \frac{n}{a} \cdot(\overline{\xi} - a) = C(n, a) \cdot(a^* - a)
+    \end{gather*}
+    Отже, ця оцінка є ефективною.
+\end{example}
+
+Розглянемо ще одну важливу теорему, що стосується ефективних оцінок.
+\begin{theorem*}[єдиність ефективної незміщеної точкової оцінки]
+    Якщо $\theta^* = \theta^* (\vec{\xi})$ --- ефективна незміщена оцінка, то вона єдина.
+\end{theorem*}
+\begin{proof}
+    Нехай $\theta_1^*$ --- інша ефективна незміщена оцінка, $E\theta^* = E\theta_1^* = \theta$,
+    $D\theta^* = D\theta_1^* = \sigma^2$. Розглянемо оцінку $\theta_2^* = \frac{\theta^* + \theta_1^*}{2}$, яка теж є незміщеною.
+    $D\theta_2^* = \frac{1}{4}\left(D\theta^* + D\theta_1^* + 2{cov}(\theta^*, \theta_1^*) \right) = \frac{1}{2}\left( \sigma^2 + {cov}(\theta^*, \theta_1^*)\right)$.
+    $\left|{cov}(\theta^*, \theta_1^*) \right| \leq \sqrt{D\theta^* \cdot D\theta_1^*} = \sigma^2$.
+    Отже, $D\theta_2^* \leq \sigma^2$. Але за умовою дисперсія ефективної $\theta$ рівна $\sigma^2$, тому $D\theta_2^* = \sigma^2$.
+    Це означає, що в ${cov}(\theta^*, \theta_1^*) \leq \sigma^2$ досягається рівність, тому $\theta^*$ та $\theta_1^*$ є лінійно залежними, тобто
+    $\theta_1^* = k\cdot \theta^* + b$. Тепер $\theta = E\theta_1^* = k\cdot E\theta^* + b = k\cdot \theta + b$, звідки $b = (1-k)\theta$.
+    $\theta_1^* = k\cdot \theta^* + (1-k)\theta \Leftrightarrow \theta_1^* - \theta = k \cdot \left(\theta^* - \theta \right)$.
+    Скориставшись ${cov}(\theta^*, \theta_1^*) = \sigma^2$, отримаємо 
+    $\sigma^2 = E\left(\theta^* - \theta \right)\left(\theta_1^* - \theta \right) = k \cdot E\left(\theta^* - \theta \right)^2 = k \cdot \sigma^2$,
+    звідки $k = 1$, тому $b = 0$ і $\theta^*_1 = \theta^*$.
+\end{proof}
+
+Також вводитися поняття \emph{асимптотично ефективної оцінки.} Це означає, що 
+$D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$.
+
+\subsection{Асимптотична нормальність оцінки}
+\begin{definition}
+    Оцінка $\theta_n^* = \theta^* (\xi_1, ..., \xi_n)$ називається \emph{асимптотично нормальною}, якщо 
+    \begin{gather}
+        \frac{\theta_n^* - \theta}{\sqrt{D\theta_n^*}} \overset{\mathrm{F}}{\longrightarrow} \eta \sim \mathrm{N}(0, 1), \; n \to \infty
+    \end{gather}
+\end{definition}
+Це поняття в подальшому дозволить наближувати розподіл точкових оцінок нормальним розподілом.
+Наприклад, для вибіркового середнього $\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$ згідно ЦГТ маємо
+$$ 
+\frac{\overline{\xi} - E\xi}{\sqrt{D\overline{\xi}}} = \frac{\frac{1}{n} \sum\limits_{k=1}^n (\xi_k  -E\xi)}{\sqrt{D\xi/n}} = 
+\frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left(\frac{\xi_k - E\xi}{\sqrt{D\xi}} \right)
+\overset{\mathrm{F}}{\longrightarrow} \eta \sim \mathrm{N}(0, 1), \; n \to \infty
+$$
+
+Таким чином, при великих $n$ можна вважати розподіл $\overline{\xi}$ приблизно рівним $ \mathrm{N} \left(E\xi, \frac{D\xi}{n}\right)$.
+
+\section{Методи отримання точкових оцінок}
