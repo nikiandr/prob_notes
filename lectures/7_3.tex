@@ -2,13 +2,13 @@
 \section{Центральна гранична теорема}
 Як було показано вище, для послідовності незалежних ВВ 
 $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математичними сподіваннями та обмеженими в сукупності
-дисперсіями $\frac{1}{n}\sum\limits_{k=1}^n (\xi_k - E\xi_k) \overset{\mathrm{P}}{\longrightarrow} 0$.
+дисперсіями $\frac{1}{n}\sum\limits_{k=1}^n (\xi_k - \E\xi_k) \overset{\mathrm{P}}{\longrightarrow} 0$.
 Виявляється, що якщо знаменник цих сум буде прямувати до $0$ повільніше, то границя (хоча й в слабшому сенсі) вже не буде нульовою.
 \subsection{Теорема Ляпунова}
 \begin{theorem*}[теорема Ляпунова]
     Нехай $\left\{ \xi_n\right\}_{n=1}^\infty$ --- послідовність незалежних випадкових величин таких, 
-    що існують скінченні $E\xi_k = a_k$, $D\xi_k = \sigma_k^2$ та
-    $m_k = E\left|\xi_k - a_k\right|^3$ і виконується умова Ляпунова:
+    що існують скінченні $\E\xi_k = a_k$, $\D\xi_k = \sigma_k^2$ та
+    $m_k = \E\left|\xi_k - a_k\right|^3$ і виконується умова Ляпунова:
     \begin{gather*}
         \lim_{n \rightarrow \infty} \frac{\sum\limits_{k=1}^n m_k}{\left(
             \sum\limits_{k=1}^n \sigma_k^2
@@ -16,7 +16,7 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     \end{gather*}
     Тоді рівномірно відносно $x$:
     \begin{gather}
-        \lim_{n \rightarrow \infty} P \left\{
+        \lim_{n \rightarrow \infty} \P \left\{
             \frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
             {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}
             < x
@@ -32,11 +32,11 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
 \end{theorem*}
 \begin{proof}
     Позначимо $\eta_n = \frac{\sum\limits_{k=1}^n (\xi_k - a_k)}
-    {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}$, $\xi_k - a_k = \mathring{\xi_k}$ ($E\mathring{\xi_k} = 0)$, 
+    {\sqrt{\sum\limits_{k=1}^n \sigma_k^2}}$, $\xi_k - a_k = \mathring{\xi_k}$ ($\E\mathring{\xi_k} = 0)$, 
     $B_n = \sqrt{\sum\limits_{k=1}^n \sigma_k^2}$. 
     Тоді $\eta_n = \frac{1}{B_n}\sum\limits_{k=1}^n \mathring{\xi_k}$.
-    $E\eta_n = 0$, $D\eta_n = \frac{1}{B_n^2}\sum\limits_{k=1}^n D\mathring{\xi_k} = 
-    \left[D\xi_k = D\mathring{\xi_k}\right] = 1$.
+    $\E\eta_n = 0$, $\D\eta_n = \frac{1}{B_n^2}\sum\limits_{k=1}^n \D\mathring{\xi_k} = 
+    \left[\D\xi_k = \D\mathring{\xi_k}\right] = 1$.
 
     Доведення ґрунтується на теоремі Леві (\ref{levi_theor}): збіжність за розподілом послідовності 
     випадкових величин $\left\{ \xi_n\right\}_{n=1}^{\infty}$ еквівалентна поточковій збіжності їх
@@ -51,8 +51,8 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     \begin{gather*}\chi_k\left(\frac{t}{B_n}\right) = \int\limits_{-\infty}^{+\infty} e^{i\frac{t}{B_n}x} dF_k(x) = 
     \int\limits_{-\infty}^{+\infty} \left(1 + i\frac{t}{B_n}x - \frac{t^2}{2B_n^2}x^2 - 
     i\frac{t^3}{6B_n^3}x^3 + ...\right) dF_k(x) = \\ = \left[\theta_k \in (0; 1)\right]
-    = 1 + \frac{it}{B_n}E\mathring{\xi_k} - \frac{t^2}{2B_n^2}
-    E\mathring{\xi_k}^2 + \theta_k\frac{|t|^3}{6B_n^3}E|\mathring{\xi_k}|^3 = 
+    = 1 + \frac{it}{B_n}\E\mathring{\xi_k} - \frac{t^2}{2B_n^2}
+    \E\mathring{\xi_k}^2 + \theta_k\frac{|t|^3}{6B_n^3}\E|\mathring{\xi_k}|^3 = 
     1 - \frac{t^2}{2B_n^2}\sigma_k^2 + \theta_k\frac{|t|^3}{6B_n^3}m_k \\
     \ln\chi_{\eta_n}(t) = \sum\limits_{k=1}^n \ln \chi_k \left(\frac{t}{B_n}\right) = 
     \sum\limits_{k=1}^n \ln\left(1 - \frac{t^2}{2B_n^2}\sigma_k^2 + 
@@ -75,8 +75,8 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
     Можна довести, що для послідовності неперервних випадкових величин також має місце збіжність щільностей розподілу $\eta_n$ до $\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}$
     --- щільності розподілу $\mathrm{N}(0, 1)$.
 \end{remark}
-\noindent\textbf{Наслідок.} Нехай всі $\xi_n$ \emph{однаково розподілені}, $E\xi_k = a$, $D\xi_k = \sigma^2$,
-$m_k = E\left| \xi_k - a\right|^3 = m$. Тоді умова Ляпунова виконується автоматично:
+\noindent\textbf{Наслідок.} Нехай всі $\xi_n$ \emph{однаково розподілені}, $\E\xi_k = a$, $\D\xi_k = \sigma^2$,
+$m_k = \E\left| \xi_k - a\right|^3 = m$. Тоді умова Ляпунова виконується автоматично:
 $$\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n m_k}{\left(
     \sum\limits_{k=1}^n \sigma_k^2
 \right)^{3/2}} = \underset{n \rightarrow \infty}{\lim} \frac{n \cdot m}{(n\cdot \sigma^2)^{3/2}} = 0$$
@@ -160,8 +160,8 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
     Записати в явному вигляді щільності розподілу $\zeta_2 = \xi_1 + \xi_2$ та $\zeta_3 = \xi_1 + \xi_2 + \xi_3$, де
     $\xi_k \sim \mathrm{U}[-1; 1], k = 1,2,3$.
 \end{exercise}
-Варто пояснити практичне значення умови Ляпунова $\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n E\left| \xi_k - E\xi_k\right|^3}{\left(
-    \sum\limits_{k=1}^n D\xi_k
+Варто пояснити практичне значення умови Ляпунова $\underset{n \rightarrow \infty}{\lim} \frac{\sum\limits_{k=1}^n \E\left| \xi_k - \E\xi_k\right|^3}{\left(
+    \sum\limits_{k=1}^n \D\xi_k
 \right)^{3/2}} = 0$ в доведенні теореми. Вона означає, що дисперсії величин у послідовності мають бути приблизно однакового порядку. 
 Можна навести приклад з життя: якщо в багатоквартирному будинку не буде квартири, що використовує значно більше електроенергії, ніж інші,
 то сумарний розподіл кількості використаної електроенергії буде приблизно нормальним.
@@ -169,13 +169,13 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
 \subsection{Умова Ліндеберга}
     Замість умови Ляпунова в доведенні однойменної теореми можна вимагати виконання умови Ліндеберга:
     $$\forall \; \varepsilon > 0 : \underset{n\to\infty}{\lim} 
-    \frac{1}{B_n^2}\sum\limits_{k=1}^n E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) = 0$$
-    Тут $a_k = E\xi_k$, $B_n = \sqrt{\sum\limits_{k=1}^n D\xi_k}$, $1_A$ --- індикатор події $A$.
+    \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) = 0$$
+    Тут $a_k = \E\xi_k$, $B_n = \sqrt{\sum\limits_{k=1}^n \D\xi_k}$, $1_A$ --- індикатор події $A$.
     Ймовірнісний зміст цієї умови такий: нехай $A_k = \left\{ \left|\xi_k - a_k \right| > \varepsilon \cdot B_n \right\}$, тоді
     \begin{gather*}
-        P \left( \bigcup\limits_{k=1}^n A_k\right) \leq \sum\limits_{k=1}^n P(A_k) = \sum\limits_{k=1}^n \int_{|x-a_k| > \varepsilon \cdot B_n} dF_k(x) \leq
+        \P \left( \bigcup\limits_{k=1}^n A_k\right) \leq \sum\limits_{k=1}^n \P(A_k) = \sum\limits_{k=1}^n \int_{|x-a_k| > \varepsilon \cdot B_n} dF_k(x) \leq
     \sum\limits_{k=1}^n \int_{|x-a_k| > \varepsilon \cdot B_n} \frac{(x-a_k)^2}{\varepsilon^2 B_n^2} dF_k(x) = \\
-    = \frac{1}{\varepsilon^2} \cdot \frac{1}{B_n^2}\sum\limits_{k=1}^n E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) 
+    = \frac{1}{\varepsilon^2} \cdot \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) 
     \to 0, \; n\to\infty
     \end{gather*}
     Це означає, що кожний доданок $\frac{\xi_k - a_k}{B_n}$ має рівномірно малий внесок в суму $\frac{1}{B_n}\sum\limits_{k=1}^n (\xi_k - a_k)$.

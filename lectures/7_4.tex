@@ -6,7 +6,7 @@
     $q = 1-p$.
     Тоді рівномірно відносно $x$:
     \begin{gather}
-        \lim_{n \rightarrow \infty} P \left\{
+        \lim_{n \rightarrow \infty} \P \left\{
             \frac{\xi_n - np}{\sqrt{npq}}
             < x
         \right\} = F_{\mathrm{N}(0, 1)}(x) = \Phi(x) + \frac{1}{2} = 
@@ -15,25 +15,25 @@
 \end{theorem*}
 \begin{proof}
     $\xi_n = \sum\limits_{k=1}^n \eta_k$, де $\eta_k$ --- індикатор появи успіху в $k$-тому випробуванні,
-    $\eta_k \sim \mathrm{Bin}(1, p)$. $\eta_k$ --- незалежні та однаково розподілені, $E\eta_k = p$, $D\eta_k = pq$,
+    $\eta_k \sim \mathrm{Bin}(1, p)$. $\eta_k$ --- незалежні та однаково розподілені, $\E\eta_k = p$, $\D\eta_k = pq$,
     тому до них можна застосувати ЦГТ:
     \begin{gather*}
-        \sum\limits_{k=1}^n \left( \eta_k - E\eta_k\right) = \xi_n - np, \; \sum\limits_{k=1}^n D\eta_k = n p q \\
-        \frac{\sum\limits_{k=1}^n \left( \eta_k - E\eta_k\right)}{\sqrt{\sum\limits_{k=1}^n D\eta_k}} =
+        \sum\limits_{k=1}^n \left( \eta_k - \E\eta_k\right) = \xi_n - np, \; \sum\limits_{k=1}^n \D\eta_k = n p q \\
+        \frac{\sum\limits_{k=1}^n \left( \eta_k - \E\eta_k\right)}{\sqrt{\sum\limits_{k=1}^n \D\eta_k}} =
          \frac{\xi_n - np}{\sqrt{n p q}} \overset{\mathrm{F}}{\longrightarrow} \xi \sim \mathrm{N}(0, 1), \; n\to \infty
     \end{gather*}
 \end{proof}
 \noindent\textbf{Робочі формули.} При великих $n$:
 \begin{enumerate}
-    \item $P\left\{ \frac{\xi_n - np}{\sqrt{n p q}} < x\right\} \approx \Phi(x) + \frac{1}{2}$.
-    \item $\forall \; a, b \in \mathbb{R}, \; a<b : P\left\{a < \frac{\xi_n - np}{\sqrt{n p q}} < b\right\} \approx \Phi(b) - \Phi(a)$.
-    \item $\forall \; m_1, m_2 \in \mathbb{R}, m_1<m_2 : P\left\{ m_1 < \xi_n < m_2\right\} = 
-    P\left\{\frac{m_1 - np}{\sqrt{n p q}} < \frac{\xi_n - np}{\sqrt{n p q}} < \frac{m_2 - np}{\sqrt{n p q}}\right\} \approx$
+    \item $\P\left\{ \frac{\xi_n - np}{\sqrt{n p q}} < x\right\} \approx \Phi(x) + \frac{1}{2}$.
+    \item $\forall \; a, b \in \mathbb{R}, \; a<b : \P\left\{a < \frac{\xi_n - np}{\sqrt{n p q}} < b\right\} \approx \Phi(b) - \Phi(a)$.
+    \item $\forall \; m_1, m_2 \in \mathbb{R}, m_1<m_2 : \P\left\{ m_1 < \xi_n < m_2\right\} = 
+    \P\left\{\frac{m_1 - np}{\sqrt{n p q}} < \frac{\xi_n - np}{\sqrt{n p q}} < \frac{m_2 - np}{\sqrt{n p q}}\right\} \approx$
 
     $\approx \Phi\left(\frac{m_2 - np}{\sqrt{n p q}}\right) - \Phi\left(\frac{m_1 - np}{\sqrt{n p q}}\right)$.
-    \item $\forall \; \varepsilon > 0 : P\left\{ \left|\frac{\xi_n}{n} - p\right| < \varepsilon\right\} = 
-    P\left\{-\varepsilon < \frac{\xi_n - np}{n} < \varepsilon\right\} =
-    P\left\{-\varepsilon \sqrt{\frac{n}{pq}} < \frac{\xi_n - np}{\sqrt{n p q}} < \varepsilon \sqrt{\frac{n}{pq}}\right\} \approx$
+    \item $\forall \; \varepsilon > 0 : \P\left\{ \left|\frac{\xi_n}{n} - p\right| < \varepsilon\right\} = 
+    \P\left\{-\varepsilon < \frac{\xi_n - np}{n} < \varepsilon\right\} =
+    \P\left\{-\varepsilon \sqrt{\frac{n}{pq}} < \frac{\xi_n - np}{\sqrt{n p q}} < \varepsilon \sqrt{\frac{n}{pq}}\right\} \approx$
     $\approx \Phi\left( \varepsilon \sqrt{\frac{n}{pq}}\right) - \Phi\left( -\varepsilon \sqrt{\frac{n}{pq}}\right) = 2\Phi\left( \varepsilon \sqrt{\frac{n}{pq}}\right)$.
 \end{enumerate}
 \begin{remark}
@@ -44,12 +44,12 @@
 \end{remark}
 \begin{example}
     Стрілець робить 100 пострілів по мішені з ймовірністю влучення $0.7$, $\xi$ --- кількість влучень. Знайти наближено 
-    $P\left\{ 67 \leq \xi \leq 72\right\}$ та порівняти з точним значенням.
+    $\P\left\{ 67 \leq \xi \leq 72\right\}$ та порівняти з точним значенням.
     
-    \noindent Маємо $np = 70$, $npq = 100 \cdot 0.7 \cdot 0.3 = 21 \geq 10$, $P\left\{ 67 \leq \xi \leq 72\right\} \approx 
+    \noindent Маємо $np = 70$, $npq = 100 \cdot 0.7 \cdot 0.3 = 21 \geq 10$, $\P\left\{ 67 \leq \xi \leq 72\right\} \approx 
     \Phi\left( \frac{2}{\sqrt{21}}\right) - \Phi\left(-\frac{3}{\sqrt{21}}\right) \approx 0.4124$.
     З поправкою на неперервність отримаємо 
-    $P\left\{ 67 \leq \xi \leq 72\right\} \approx 
+    $\P\left\{ 67 \leq \xi \leq 72\right\} \approx 
     \Phi\left( \frac{2.5}{\sqrt{21}}\right) - \Phi\left(-\frac{3.5}{\sqrt{21}}\right) \approx 0.4848$.
     Підрахунок за точною формулою $\sum\limits_{k=67}^{72} C_{100}^{k} 0.7^k 0.3^{100-k}$ дає значення $0.4829$.
 \end{example}
@@ -59,12 +59,12 @@
     Нехай проводиться $n$ незалежних випробувань з ймовірністю успіху $p$, $q = 1-p$, причому $n$ досить велике.
     Тоді ймовірність отримання $m$ успіхів 
     \begin{gather}
-        P_n(m) \approx \frac{1}{\sqrt{2\pi n p q}} \exp \left\{ - \frac{(m - np)^2}{2npq}\right\}
+        \P_n(m) \approx \frac{1}{\sqrt{2\pi n p q}} \exp \left\{ - \frac{(m - np)^2}{2npq}\right\}
     \end{gather}
 \end{theorem*}
 \begin{proof}
     Нехай $\xi$ задає кількість успіхів у заданій схемі Бернуллі, тоді за інтегральною теоремою Муавра-Лапласа
-    $P_n(m) = P\left\{ m-\frac{1}{2} < \xi < m+\frac{1}{2}\right\} \approx 
+    $\P_n(m) = \P\left\{ m-\frac{1}{2} < \xi < m+\frac{1}{2}\right\} \approx 
     \Phi\left(\frac{m+\frac{1}{2}- np}{\sqrt{n p q}}\right) - \Phi\left(\frac{m-\frac{1}{2} - np}{\sqrt{n p q}}\right)$.
     За означенням похідної $\Phi(x + \varepsilon) - \Phi(x - \varepsilon) \approx 2 \varepsilon \Phi'(x)$ при малих $\varepsilon$,
     причому $\Phi'(x) = \frac{1}{\sqrt{2\pi}} \exp \left\{ - \frac{x^2}{2}\right\}$.
@@ -77,9 +77,9 @@
 \end{remark}
 \begin{example}
     Стрілець робить $100$ пострілів по мішені з ймовірністю влучення $0.7$, $\xi$ --- кількість влучень. Знайти наближено
-    $P\left\{ \xi = 69\right\}$ та порівняти з точним значенням.
+    $\P\left\{ \xi = 69\right\}$ та порівняти з точним значенням.
 
-    \noindent Маємо $npq = 21$, $P\left\{ \xi = 69\right\} \approx \frac{1}{\sqrt{42\pi}} \exp\left\{ -\frac{1}{42}\right\} \approx 0.085$.
+    \noindent Маємо $npq = 21$, $\P\left\{ \xi = 69\right\} \approx \frac{1}{\sqrt{42\pi}} \exp\left\{ -\frac{1}{42}\right\} \approx 0.085$.
     Підрахунок за точною формулою $C_{100}^{69} 0.7^{69} 0.3^{31}$ дає значення $0.084$.
 \end{example}
 
@@ -94,7 +94,7 @@
     Існує таке $a > 0$, що $\underset{n\to\infty}{\lim} n p_n = a$.
     Тоді для будь-якого цілого $m \geq 0$:
     \begin{gather}
-        P\left\{\xi_n = m\right\} \to \frac{a^m}{m!} e^{-a}, \; n\to \infty
+        \P\left\{\xi_n = m\right\} \to \frac{a^m}{m!} e^{-a}, \; n\to \infty
     \end{gather}
 \end{theorem*}
 \begin{proof}
@@ -112,10 +112,10 @@
     $$
     Отже, $\xi_n \overset{\mathrm{F}}{\longrightarrow} \xi, n\to\infty$. Функція розподілу $\xi$ неперервна в будь-якій нецілій точці, тому для цілих $m \geq 0$:
     \begin{gather*}
-        P\left\{ m - \frac{1}{2} \leq \xi_n < m + \frac{1}{2}\right\} = F_{\xi_n}\left( m + \frac{1}{2}\right) -
+        \P\left\{ m - \frac{1}{2} \leq \xi_n < m + \frac{1}{2}\right\} = F_{\xi_n}\left( m + \frac{1}{2}\right) -
         F_{\xi_n}\left( m - \frac{1}{2}\right) \to \\ \to F_{\xi}\left( m + \frac{1}{2}\right) -
-        F_{\xi}\left( m - \frac{1}{2}\right) = P\left\{ m - \frac{1}{2} \leq \xi < m + \frac{1}{2}\right\} =
-        P\left\{ \xi = m\right\} = \frac{a^m}{m!} e^{-a}, \; n\to \infty
+        F_{\xi}\left( m - \frac{1}{2}\right) = \P\left\{ m - \frac{1}{2} \leq \xi < m + \frac{1}{2}\right\} =
+        \P\left\{ \xi = m\right\} = \frac{a^m}{m!} e^{-a}, \; n\to \infty
     \end{gather*}
     що і треба було довести.
 \end{proof}
@@ -126,7 +126,7 @@
 На практиці цією теоремою користуються, якщо $n \geq 50$ та $np \leq 10$ 
 (або $n$ --- достатньо велике, $p$ --- достатньо мале, причому $1 < np < 20$):
 ймовірність отримати $m$ успіхів у схемі Бернуллі з $n$ випробуваннями та ймовірністю успіху $p$
-$P_n(m) \approx \frac{(np)^m}{m!} e^{-np}, \; m = 0, ..., n$.
+$\P_n(m) \approx \frac{(np)^m}{m!} e^{-np}, \; m = 0, ..., n$.
 \begin{example}
     Стрілець робить $100$ пострілів по мішені. 
     Ймовірність влучення при одному пострілі становить $0.98$. 
@@ -134,7 +134,7 @@ $P_n(m) \approx \frac{(np)^m}{m!} e^{-np}, \; m = 0, ..., n$.
     
     \noindentЩоб звести задачу до використання теореми Пуассона, шукатимемо ймовірність, що промахів буде щонайменше $3$ (ймовірність
     промаху --- $0.02$). $\xi$ --- кількість промахів,
-    $P\left\{ \xi \geq 3\right\} = 1 - P\left\{ \xi \leq 2\right\} = 
+    $\P\left\{ \xi \geq 3\right\} = 1 - \P\left\{ \xi \leq 2\right\} = 
     1 - p_{100}(0) - p_{100}(1) - p_{100}(2)
     \approx 1 - \left( \frac{2^0}{0!} + \frac{2^1}{1!} + \frac{2^2}{2!}\right)e^{-2} = 1 - 5e^{-2} \approx 0.32332$.
     Підрахунок за точною формулою $1 - \sum\limits_{k=0}^2 C_{100}^k 0.02^k 0.98^{100-k}$ дасть значення $0.32331$. Нескладно

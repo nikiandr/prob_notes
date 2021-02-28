@@ -14,9 +14,9 @@
 Можна розглядати випадкову величину $\eta = \varphi(\xi)$.
 
 Очевидно, що $\eta$ --- теж ДВВ, що приймає значення $y_k = \varphi(x_k)$, 
-$k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_k$.
+$k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k\} = p_k$.
 Однак, можливо, що $y_k = \varphi(x_k) = \varphi(x_s) = ... = \varphi(x_r)$.
-Тоді $P(\eta = y_k) = p_k + p_s + ... + p_r$.
+Тоді $\P\{\eta = y_k\} = p_k + p_s + ... + p_r$.
 
 \begin{example}
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -39,7 +39,7 @@ $k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_
 \end{example}
 
 З алгоритму побудови ряду розподілу функції від дискретного
-випадкового аргументу $E\eta^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) P(\xi = x_i)$.
+випадкового аргументу $\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i\}$.
 
 \subsection{Розподіл монотонної функції від неперервного випадкового аргументу}
 Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- монотонна неперервна числова функція.
@@ -56,7 +56,7 @@ $k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_
             \node [below] at (3, 0) {$x$};
             \node [left] at (0, 5.5) {$y$};
         \end{tikzpicture} &
-        $F_\eta (y) = P\left\{ \eta < y\right\} = P\left\{ \varphi(\xi) < y\right\}$.
+        $F_\eta (y) = \P\left\{ \eta < y\right\} = \P\left\{ \varphi(\xi) < y\right\}$.
 
         Нехай $y = \varphi(x)$, тоді з монотонності $\varphi$ маємо рівність подій $\left\{ \varphi(\xi) < y\right\} = \left\{ \xi < x\right\}$.
         Тому $F_\eta (y) = F_\xi (x) = \int\limits_{-\infty}^x f_\xi(t) dt$. $\varphi$ має обернену, $x = \varphi^{-1} (y)$.
@@ -74,7 +74,7 @@ $k = 1, 2, ...$ з ймовірностями $P(\eta = y_k) = P(\xi = x_k) = p_
             \node [below] at (3, 0) {$x$};
             \node [left] at (0, 5.5) {$y$};
         \end{tikzpicture} &
-        $F_\eta (y) = P\left\{ \eta < y\right\} = P\left\{ \varphi(\xi) < y\right\}$.
+        $F_\eta (y) = \P\left\{ \eta < y\right\} = \P\left\{ \varphi(\xi) < y\right\}$.
 
         Нехай $y = \varphi(x)$, тоді з монотонності $\varphi$ маємо рівність подій $\left\{ \varphi(\xi) < y\right\} = \left\{ \xi > x\right\}$.
         Тому $F_\eta (y) = 1 - F_\xi (x) = 1 - \int\limits_{-\infty}^x f_\xi(t) dt$. $\varphi$ має обернену, $x = \varphi^{-1} (y)$.
@@ -110,7 +110,7 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
     Нехай $\xi$ --- довільна НВВ, $F_\xi (x)$ --- її функція розподілу. 
     Знайти закон розподілу $\eta = F_\xi (\xi)$.
 
-    \noindent $F_\eta (y) = P\{\eta < y\} = P\{F_\xi(\xi) < y\} = P\{\xi < F_\xi^{-1}(y)\} = F_\xi(F_\xi^{-1}(y)) = \begin{cases}
+    \noindent $F_\eta (y) = \P\{\eta < y\} = \P\{F_\xi(\xi) < y\} = \P\{\xi < F_\xi^{-1}(y)\} = F_\xi(F_\xi^{-1}(y)) = \begin{cases}
         0, & y \leq 0 \\
         y, & 0 < y \leq 1 \\
         1, & y > 1
@@ -125,7 +125,7 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
         \item Нехай $\xi \sim \mathrm{Exp}(1)$. Знайдемо розподіл $\eta = \left[ \xi\right]$, де $\left[ \cdot\right]$ --- ціла частина.
         Ціла частина приймає значення $0, 1, 2, ...$, знайдемо відповідні ймовірності. 
         
-        $P\left\{ \left[ \xi\right] = n\right\} = P\left\{ \xi \in [n; n+1)\right\} = \int\limits_n^{n+1} e^{-x} dx = e^{-n} - e^{-(n+1)} = e^{-n}(1 - e^{-1})$, $n = 0, 1, 2, ...$
+        $\P\left\{ \left[ \xi\right] = n\right\} = \P\left\{ \xi \in [n; n+1)\right\} = \int\limits_n^{n+1} e^{-x} dx = e^{-n} - e^{-(n+1)} = e^{-n}(1 - e^{-1})$, $n = 0, 1, 2, ...$
 
         Отже, $\eta = \left[ \xi\right] \sim \mathrm{Geom}(1-e^{-1})$.
 
@@ -133,10 +133,10 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
         \item Нехай $\xi \sim \mathrm{Exp}(1)$. Знайдемо розподіл $\eta = \left\{ \xi\right\} = \xi - \left[ \xi\right]$. 
         В цьому випадку $\varphi$ є кусково неперервною функцією та приймає значення з інтервалу $[0; 1)$.
         
-        Для $0< y < 1$ $F_\eta (y) = P\left\{\eta < y\right\} = P\left\{\eta \in [0; y)\right\} = P\left\{\xi \in [n; n+y), n = 0, 1, 2, ...\right\}$.
+        Для $0< y < 1$ $F_\eta (y) = \P\left\{\eta < y\right\} = \P\left\{\eta \in [0; y)\right\} = \P\left\{\xi \in [n; n+y), n = 0, 1, 2, ...\right\}$.
 
-        Для фіксованого $n$ $P\left\{\xi \in [n; n+y)\right\} = \int\limits_n^{n+y} e^{-x} dx = e^{-n}(1 - e^{-y})$. 
-        Отже, $P\left\{\eta \in [0; y)\right\} = \sum\limits_{n=0}^{\infty} P\left\{\xi \in [n; n+y)\right\} = (1 - e^{-y}) \sum\limits_{n=0}^{\infty} e^{-n} = \frac{1 - e^{-y}}{1 - e^{-1}}$. Отримали функцію розподілу $\eta$:
+        Для фіксованого $n$ $\P\left\{\xi \in [n; n+y)\right\} = \int\limits_n^{n+y} e^{-x} dx = e^{-n}(1 - e^{-y})$. 
+        Отже, $\P\left\{\eta \in [0; y)\right\} = \sum\limits_{n=0}^{\infty} \P\left\{\xi \in [n; n+y)\right\} = (1 - e^{-y}) \sum\limits_{n=0}^{\infty} e^{-n} = \frac{1 - e^{-y}}{1 - e^{-1}}$. Отримали функцію розподілу $\eta$:
         $F_\eta (y) = \begin{cases}
             0, & y \leq 0 \\
             \frac{1 - e^{-y}}{1 - e^{-1}}, & 0 < y \leq 1 \\
@@ -184,12 +184,12 @@ $$ f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \
 
 \subsection{Числові характеристики функції неперервного випадкового аргументу}
 \begin{proposition*}
-    $E (\varphi(\xi))^k = \int\limits_{-\infty}^{+\infty} \varphi^k(x) f_\xi(x) dx$ для всіх $k \in \mathbb{N}$.
+    $\E (\varphi(\xi))^k = \int\limits_{-\infty}^{+\infty} \varphi^k(x) f_\xi(x) dx$ для всіх $k \in \mathbb{N}$.
 \end{proposition*}
 \begin{proof}
     Достатньо довести для монотонно зростаючої $\varphi$.
 
-    \noindent$\eta = \varphi(\xi)$, $E\eta^k = \int\limits_{-\infty}^{+\infty} y^k f_\eta(y) dy = \int\limits_{-\infty}^{+\infty} y^k f_\xi (\varphi^{-1} (y)) (\varphi^{-1} (y))^\prime dy =
+    \noindent$\eta = \varphi(\xi)$, $\E\eta^k = \int\limits_{-\infty}^{+\infty} y^k f_\eta(y) dy = \int\limits_{-\infty}^{+\infty} y^k f_\xi (\varphi^{-1} (y)) (\varphi^{-1} (y))^\prime dy =
     \int\limits_{-\infty}^{+\infty} y^k f_\xi(\varphi^{-1} (y)) d \varphi^{-1} (y) = \left[ \varphi^{-1} (y) = x, y = \varphi(x)\right] = \int\limits_{-\infty}^{+\infty} \varphi^k(x) f_\xi(x) dx$.
     У випадку монотонно спадної $\varphi$ під інтегралом отримаємо $-(\varphi^{-1} (y))^\prime$, а інтеграл після заміни змінної буде від $+\infty$ до $-\infty$.
     У випадку немонотонної $\varphi$ треба буде скористатися адитивністю інтеграла.

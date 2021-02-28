@@ -19,20 +19,20 @@
     \end{enumerate}
     \item Властивості ймовірності:
     \begin{enumerate}[label = \textbf{P\arabic*:}]
-        \item $\forall A \in \mathcal{F}: P(A)\geq 0$.
-        \item $P(\Omega) = 1$ --- аксіома нормування.
-        \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j = \varnothing \text{ при } i \neq j: P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \sum\limits_{n=1}^{\infty} P(A_n)$ ---
+        \item $\forall A \in \mathcal{F}: \P(A)\geq 0$.
+        \item $\P(\Omega) = 1$ --- аксіома нормування.
+        \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j = \varnothing \text{ при } i \neq j: \P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \sum\limits_{n=1}^{\infty} \P(A_n)$ ---
         аксіома зліченної адитивності.
         Іноді у випадках <<простої>> алгебри (а не $\sigma$-алгебри) достатньо
         аксіоми скінченної адитивності \textbf{P3$'$}: 
-        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j  = \varnothing \text{ при } i \neq j: P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} P(A_k)$.
+        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j  = \varnothing \text{ при } i \neq j: \P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} \P(A_k)$.
     \end{enumerate}
 \end{enumerate}
 \begin{definition}
-    Нормована міра $P$, що введена на вимірному просторі $\left\{ \Omega, \mathcal{F}\right\}$,
+    Нормована міра $\P$, що введена на вимірному просторі $\left\{ \Omega, \mathcal{F}\right\}$,
     називається \emph{ймовірністю}. Всі події беруться з $\sigma$-алгебри подій.
-    Трійка $\left\{ \Omega, \mathcal{F}, P\right\}$ називається 
-    \emph{ймовірнісний простором} стохастичного експерименту.
+    Трійка $\left\{ \Omega, \mathcal{F}, \P\right\}$ називається 
+    \emph{ймовірнісним простором} стохастичного експерименту.
 \end{definition}
 
 Ця система аксіом несуперечна, бо існують стохастичні експерименти,
@@ -42,16 +42,16 @@
 \subsection{Властивості ймовірності, що випливають з аксіом}
 \begin{enumerate}
     \item Якщо $A_1, A_2, ..., A_n, ... \in \mathcal{F}$ утворюють повну групу 
-    подій, то $P\left(\bigcup\limits_{k=1}^\infty A_k\right) = 1$.
+    подій, то $\P\left(\bigcup\limits_{k=1}^\infty A_k\right) = 1$.
     \begin{proof}
         Випливає з аксіоми \textbf{P2}.
     \end{proof}
-    \item $P(\overline{A}) = 1 - P(A)$.
+    \item $\P(\overline{A}) = 1 - \P(A)$.
     \begin{proof}
-        $A \cup \overline{A} = \Omega \Rightarrow 1 \overset{P2}{=} P(\Omega) 
-        = P(A \cup \overline{A}) \overset{P3'}{=} P(A) + P(\overline{A})$.
+        $A \cup \overline{A} = \Omega \Rightarrow 1 \overset{\text{\textbf{P2}}}{=} \P(\Omega) 
+        = \P(A \cup \overline{A}) \overset{\text{\textbf{P3}}'}{=} \P(A) + \P(\overline{A})$.
     \end{proof}
-    \item $P(\varnothing) = 0$.
+    \item $\P(\varnothing) = 0$.
     \begin{proof}
         Наслідок з властивості 2 $(\varnothing = \overline{\Omega})$.
     \end{proof}
@@ -60,38 +60,38 @@
     \end{remark}
     \begin{example}
         СЕ --- кидання точки на відрізок $[a; b]$. A = \{\text{точка потрапила в 
-        певну } $x \in [a; b]$\}. $A$ не є неможливою, проте $P(A) = 0$.
+        певну } $x \in [a; b]$\}. $A$ не є неможливою, проте $\P(A) = 0$.
     \end{example}
-    \item $A \subset B \Rightarrow P(A) \leq P(B)$.
+    \item $A \subset B \Rightarrow \P(A) \leq \P(B)$.
     \begin{proof}
         $A \subset B \Rightarrow B = A \cup (B \backslash A) 
-        \overset{P3'}{\Rightarrow} P(B) = P(A) + P(B \backslash A) 
-        \overset{P1}{\geq} P(A)$.
+        \overset{\text{\textbf{P3}}'}{\Rightarrow} \P(B) = \P(A) + \P(B \backslash A) 
+        \overset{\text{\textbf{P1}}}{\geq} \P(A)$.
     \end{proof}
-    \item $\forall A \in \mathcal{F}: P(A) \leq 1$.
+    \item $\forall A \in \mathcal{F}: \P(A) \leq 1$.
     \begin{proof}
         Наслідок з властивості 4, $A \subset \Omega$ та \textbf{P2}.
     \end{proof}
-    \item $A \subset B: P(B \backslash A) = P(B) - P(A)$.
+    \item $A \subset B: \P(B \backslash A) = \P(B) - \P(A)$.
     \begin{proof}
         Наслідок з доведення властивості 4.
     \end{proof}
-    \item $\forall A, B \in \mathcal{F}: P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+    \item $\forall A, B \in \mathcal{F}: \P(A \cup B) = \P(A) + \P(B) - \P(A \cap B)$.
     \begin{proof}
         $A \cup B = (A\backslash(A \cap B)) 
         \cup (A \cap B) 
         \cup (B\backslash(A \cap B))$ --- попарно несумісні події. 
         \newline
-        З аксіоми \textbf{P3$'$}: $P(A \cup B) = P(A\backslash(A \cap B)) 
-        + P(A \cap B) + P(B\backslash(A \cap B)) \overset{6}{=} P(A) - P(A \cap B) + P(A \cap B)
-        + P(B) - P(A \cap B) = P(A) + P(B) - P(A \cap B)$.
+        З аксіоми \textbf{P3$'$}: $\P(A \cup B) = \P(A\backslash(A \cap B)) 
+        + \P(A \cap B) + \P(B\backslash(A \cap B)) \overset{6}{=} \P(A) - \P(A \cap B) + \P(A \cap B)
+        + \P(B) - \P(A \cap B) = \P(A) + \P(B) - \P(A \cap B)$.
     \end{proof}
     \item Узагальнення властивості 7 --- формула включення-виключення для ймовірностей: 
     
     \begin{math}
         \forall A_1, A_2, \dots, A_n \in \mathcal{F} 
-    : P\left(\bigcup\limits_{i=1}^n A_i\right) = \sum\limits_{i=1}^n P(A_i) - \sum\limits_{i < j}^n P(A_i \cap A_j)
-    + \sum\limits_{i < j < k}^n P(A_i \cap A_j \cap A_k) - ... + (-1)^{n-1}P\left(\bigcap\limits_{i=1}^n A_i\right)
+    : \P\left(\bigcup\limits_{i=1}^n A_i\right) = \sum\limits_{i=1}^n \P(A_i) - \sum\limits_{i < j}^n \P(A_i \cap A_j)
+    + \sum\limits_{i < j < k}^n \P(A_i \cap A_j \cap A_k) - ... + (-1)^{n-1}\P\left(\bigcap\limits_{i=1}^n A_i\right)
     \end{math}.
     \nopagebreak
     \begin{exercise}
@@ -104,26 +104,26 @@
     за призначенням?
     \newline
     $A_i = \left\{i\text{-тий лист дійшов за призначенням}\right\}, i = 
-    1,...,n. \;P(A_i) = \frac{1}{n} = \frac{(n-1)!}{n!}$.
+    1,...,n. \;\P(A_i) = \frac{1}{n} = \frac{(n-1)!}{n!}$.
     \newline
     $A = \left\{\text{хоча б один із листів дійшов за призначенням}\right\}, 
     A = \bigcup\limits_{i=1}^n A_i$.
     \newline
-    $P(A_i \cap A_j) = \frac{(n-2)!}{n!} = \frac{1}{n(n-1)}, i \neq j$.
+    $\P(A_i \cap A_j) = \frac{(n-2)!}{n!} = \frac{1}{n(n-1)}, i \neq j$.
     \newline
-    $P(A_i \cap A_j \cap A_k) = \frac{1}{n(n-1)(n-2)}, i \neq j \neq k$.
+    $\P(A_i \cap A_j \cap A_k) = \frac{1}{n(n-1)(n-2)}, i \neq j \neq k$.
     \newline
     ...
     \newline
-    $P(A_1 \cap ... \cap A_n) = \frac{1}{n!}$.
+    $\P(A_1 \cap ... \cap A_n) = \frac{1}{n!}$.
     \newline
-    За формулою включення-виключення $P(A) = n\cdot \frac{1}{n} - C_n^2 \cdot \frac{1}{n(n-1)}- \dots + (-1)^{n-1}\frac{1}{n!}
+    За формулою включення-виключення $\P(A) = n\cdot \frac{1}{n} - C_n^2 \cdot \frac{1}{n(n-1)}- \dots + (-1)^{n-1}\frac{1}{n!}
     = 1 - \frac{1}{2!} + \frac{1}{3!} - \dots +(-1)^{n-1} \cdot \frac{1}{n!} \approx 
     1 - \frac{1}{e} \approx 0.63$.
 \end{example}
 \resume{enumerate}
     \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F}: 
-    P\left(\bigcup\limits_{k=1}^\infty A_k\right) \leq \sum\limits_{k=1}^\infty P(A_k)$
+    \P\left(\bigcup\limits_{k=1}^\infty A_k\right) \leq \sum\limits_{k=1}^\infty \P(A_k)$
     \begin{proof}
         Введемо події $B_1 = A_1, B_2 = \overline{A_1} \cap A_2, 
         B_3 = \overline{A_1} \cap \overline{A_2} \cap A_3, ..., B_n = 
@@ -132,51 +132,51 @@
         $... \cap \overline{A_{n-1}} \cap A_n, ...$. Ці події попарно несумісні, 
         $\bigcup\limits_{k=1}^\infty B_k = \bigcup\limits_{k=1}^\infty A_k,\;B_k \subset A_k $ для всіх $k \in \mathbb{N}$.
         \newline
-        $P\left(\bigcup\limits_{k=1}^\infty A_k\right) = P\left(\bigcup\limits_{k=1}^\infty B_k\right) 
-        \overset{P3}{=} \sum\limits_{k=1}^\infty P(B_k) \overset{4}{\leq} 
-        \sum\limits_{k=1}^\infty P(A_k)$.
+        $\P\left(\bigcup\limits_{k=1}^\infty A_k\right) = \P\left(\bigcup\limits_{k=1}^\infty B_k\right) 
+        \overset{P3}{=} \sum\limits_{k=1}^\infty \P(B_k) \overset{4}{\leq} 
+        \sum\limits_{k=1}^\infty \P(A_k)$.
     \end{proof}
-    \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F}: P\left(\bigcap\limits_{k=1}^\infty
-    A_k\right) = 1 - P\left(\overline{\bigcap\limits_{k=1}^\infty A_k}\right) = 1 - P\left(\bigcup\limits_{k=1}^\infty \overline{A_k}\right) \geq  
-    1 - \sum\limits_{k=1}^\infty P(\overline{A_k})$.
+    \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F}: \P\left(\bigcap\limits_{k=1}^\infty
+    A_k\right) = 1 - \P\left(\overline{\bigcap\limits_{k=1}^\infty A_k}\right) = 1 - \P\left(\bigcup\limits_{k=1}^\infty \overline{A_k}\right) \geq  
+    1 - \sum\limits_{k=1}^\infty \P(\overline{A_k})$.
 \end{enumerate}
 
 \subsection{Теореми неперервності ймовірності}
 \begin{theorem}\label{th:1}
     Нехай є монотонно неспадна послідовність подій $A_1 \subset A_2 \subset ... \subset A_n ... \in \mathcal{F}$.
-    Тоді $P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} P(A_n)$.
+    Тоді $\P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} \P(A_n)$.
 \end{theorem}
 \begin{proof}
     $\bigcup\limits_{n=1}^{\infty} A_n = A_1 \cup (A_2 \backslash A_1) \cup (A_3 \backslash A_2) \cup ... \cup (A_{n} \backslash A_{n-1}) \cup ...$ 
 
-    \noindent З аксіоми \textbf{P3}: $P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = P(A_1) + \sum\limits_{n=2}^{\infty} P(A_{n} \backslash A_{n-1})$.
+    \noindent З аксіоми \textbf{P3}: $\P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \P(A_1) + \sum\limits_{n=2}^{\infty} \P(A_{n} \backslash A_{n-1})$.
 
-    \noindent $S_n = P(A_1) + \sum\limits_{k=2}^{n} P(A_{k} \backslash A_{k-1}) = P(A_1) + P(A_2) - P(A_1) + P(A_3) - P(A_2) + ... + P(A_n) - P(A_{n-1}) = P(A_n)$.
-    Отже, $P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} S_n = \lim\limits_{n\rightarrow \infty} P(A_n)$.
+    \noindent $S_n = \P(A_1) + \sum\limits_{k=2}^{n} \P(A_{k} \backslash A_{k-1}) = \P(A_1) + \P(A_2) - \P(A_1) + \P(A_3) - \P(A_2) + ... + \P(A_n) - \P(A_{n-1}) = \P(A_n)$.
+    Отже, $\P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} S_n = \lim\limits_{n\rightarrow \infty} \P(A_n)$.
 \end{proof}
 \begin{theorem}\label{th:2}
     Нехай є монотонно спадна послідовність подій $A_1 \supset A_2 \supset ... \supset A_n ... \in \mathcal{F}$.
-    Тоді $P\left(\bigcap\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} P(A_n)$.
+    Тоді $\P\left(\bigcap\limits_{n=1}^{\infty} A_n\right) = \lim\limits_{n\rightarrow \infty} \P(A_n)$.
 \end{theorem}
 \begin{proof}
-    $P\left(\bigcap\limits_{n=1}^{\infty} A_n\right) = 1 - P\left(\bigcup\limits_{n=1}^{\infty} \overline{A_n}\right) \overset{\text{т. \refeq{th:1}}}{=} 1 -
-    \lim\limits_{n\rightarrow \infty} P(\overline{A_n}) = \lim\limits_{n\rightarrow \infty} (1-P(\overline{A_n})) = \lim\limits_{n\rightarrow \infty} P(A_n)$.
+    $\P\left(\bigcap\limits_{n=1}^{\infty} A_n\right) = 1 - \P\left(\bigcup\limits_{n=1}^{\infty} \overline{A_n}\right) \overset{\text{т. \refeq{th:1}}}{=} 1 -
+    \lim\limits_{n\rightarrow \infty} \P(\overline{A_n}) = \lim\limits_{n\rightarrow \infty} (1-\P(\overline{A_n})) = \lim\limits_{n\rightarrow \infty} \P(A_n)$.
 \end{proof}
 
 \subsection{Аксіома неперервності}
 \begin{theorem}
     Аксіома зліченної адитивності \textbf{P3} еквівалентна аксіомі неперервності
-    \textbf{P4}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap\limits_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} P(B_n) = 0$$
+    \textbf{P4}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap\limits_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} \P(B_n) = 0$$
     \begin{proof}
         За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}.
 
         Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j = \varnothing \text{ при } i \neq j$
         введемо події $B_n = \bigcup\limits_{k=n+1}^{\infty} A_k$. Для них виконується $B_1 \supset B_2 \supset ... \supset B_n \supset ...$ та $\bigcap\limits_{n=1}^{\infty} B_n = \varnothing$,
-        тому з аксіоми \textbf{P4} $\lim\limits_{n\rightarrow \infty} P(B_n) = 0$.
+        тому з аксіоми \textbf{P4} $\lim\limits_{n\rightarrow \infty} \P(B_n) = 0$.
 
         З іншого боку, маємо таку рівність:
-        $$P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = P\left(\bigcup\limits_{k=1}^{n} A_k\right) + P\left(\bigcup\limits_{k=n+1}^{\infty} A_k\right) = \sum\limits_{k=1}^{n} P(A_k) + P(B_n)$$
-        Перейшовши у правій частині до границі при $n \rightarrow \infty$, отримаємо $P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \sum\limits_{k=1}^{\infty} P(A_k)$, 
+        $$\P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \P\left(\bigcup\limits_{k=1}^{n} A_k\right) + \P\left(\bigcup\limits_{k=n+1}^{\infty} A_k\right) = \sum\limits_{k=1}^{n} \P(A_k) + \P(B_n)$$
+        Перейшовши у правій частині до границі при $n \rightarrow \infty$, отримаємо $\P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \sum\limits_{k=1}^{\infty} \P(A_k)$, 
         що є твердженням аксіоми зліченної адитивності.
     \end{proof}
 \end{theorem}

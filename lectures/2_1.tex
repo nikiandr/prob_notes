@@ -27,8 +27,8 @@
 
 \begin{definition}
     Дійснозначна функція дійсного аргументу $ F_\xi (x) = 
-    P\left\{\omega:\xi(\omega) < x\right\}$ або 
-    $P\left(\xi < x\right)$ називається \emph{функцією розподілу випадкової величини}.
+    \P\left\{\omega:\xi(\omega) < x\right\}$ або 
+    $\P\left(\xi < x\right)$ називається \emph{функцією розподілу випадкової величини}.
 \end{definition}
 
 \noindent \textbf{Властивості функції розподілу:}
@@ -39,19 +39,19 @@
     \begin{proof}
         Розглянемо події $A = \left\{\omega:\xi(\omega) < x_1\right\}$ та 
         $B = \left\{\omega:\xi(\omega) < x_2\right\}$, причому $x_1 > x_2$.
-        Отже, $B \subset A \Rightarrow P(B) \leq P(A) \Rightarrow 
+        Отже, $B \subset A \Rightarrow \P(B) \leq \P(A) \Rightarrow 
         F_\xi(x_1) \geq F_\xi(x_2)$.
     \end{proof}
-    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a)$.
+    \item $\P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a)$.
     \begin{proof}
         Розглянемо події $A = \left\{\omega:\xi(\omega) < a\right\}$,  
         $B = \left\{\omega:\xi(\omega) < b\right\}$, 
         \newline
         $C = \left\{\omega: a \leq \xi(\omega) < b\right\}$.
-        $B = A \cup C, A \cap C = \varnothing \Rightarrow P(B) = P(A) + P(C) \Rightarrow $
+        $B = A \cup C, A \cap C = \varnothing \Rightarrow \P(B) = \P(A) + \P(C) \Rightarrow $
         \newline
-        $\Rightarrow P(C) = P\left\{\omega: a \leq \xi(\omega) < b\right\} 
-        = P(B) - P(A) =  F_\xi(b) - F_\xi(a)$.
+        $\Rightarrow \P(C) = \P\left\{\omega: a \leq \xi(\omega) < b\right\} 
+        = \P(B) - \P(A) =  F_\xi(b) - F_\xi(a)$.
     \end{proof}
     \item $\lim\limits_{x \to -\infty} F_\xi(x) = 0, 
     \lim\limits_{x \to +\infty} F_\xi(x) = 1$.
@@ -62,14 +62,14 @@
         монотонно спадною, а $B_n$ --- монотонно зростаючою.
 
         $\lim\limits_{x \to -\infty} F_\xi(x) = \lim\limits_{x \to -\infty} 
-        P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < -n)
+        \P(\xi < x) = \lim\limits_{n \to \infty} \P(\xi < -n)
         = \left[\parbox{7.5em}{ теорема\\ неперервності \refeq{th:2}}\right] = 
-        P\left(\bigcap\limits_{n=1}^\infty A_n\right) = \\= P(\varnothing) = 0$.
+        \P\left(\bigcap\limits_{n=1}^\infty A_n\right) = \\= \P(\varnothing) = 0$.
 
         $\lim\limits_{x \to +\infty} F_\xi(x) = \lim\limits_{x \to +\infty} 
-        P(\xi < x) = \lim\limits_{n \to \infty} P(\xi < n)
+        \P(\xi < x) = \lim\limits_{n \to \infty} \P(\xi < n)
         = \left[\parbox{7.5em}{ теорема\\ неперервності \refeq{th:1}}\right] = 
-        P\left(\bigcup\limits_{n=1}^\infty B_n\right) = \\= P(\Omega) = 1$.
+        \P\left(\bigcup\limits_{n=1}^\infty B_n\right) = \\= \P(\Omega) = 1$.
     \end{proof}
     \item \label{2_1_con} Функція розподілу неперервна зліва: $\lim\limits_{x \to x_0 - 0} 
     F_\xi(x) = F_\xi(x_0)$.
@@ -78,21 +78,21 @@
         \lim\limits_{n \to \infty}x_n = x_0$, $x_n < x_0$.
         
         $\lim\limits_{x \to x_0 - 0} 
-        F_\xi(x) = \lim\limits_{n \to \infty}P(\xi < x_n) =
-        \left[\text{теорема неперервності \refeq{th:2}}\right] = P\left(\bigcup\limits_{n=1}^\infty A_n\right) = \\
-        = P(\xi < x_0) = F_\xi(x_0)$.
+        F_\xi(x) = \lim\limits_{n \to \infty}\P(\xi < x_n) =
+        \left[\text{теорема неперервності \refeq{th:2}}\right] = \P\left(\bigcup\limits_{n=1}^\infty A_n\right) = \\
+        = \P(\xi < x_0) = F_\xi(x_0)$.
     \end{proof}
 \end{enumerate}
 
 \begin{remark}
-    В американській літературі функція розподілу вводиться інакше,
-    як $F_\xi (x) = P\left\{\omega:\xi(\omega) \leq x\right\}$.
+    В зарубіжній літературі функція розподілу іноді вводиться інакше,
+    як $F_\xi (x) = \P\left\{\omega:\xi(\omega) \leq x\right\}$.
     За такого означення функція розподілу є неперервною справа.
 \end{remark}
 
-Розглянемо ймовірність $P\left\{x \leq \xi < x + \Delta x\right\} = F_\xi (x+\Delta x) - F_\xi (x)$.
+Розглянемо ймовірність $\P\left\{x \leq \xi < x + \Delta x\right\} = F_\xi (x+\Delta x) - F_\xi (x)$.
 Перейдемо до границі при $\Delta x \rightarrow 0$:
-$P\left\{ \xi = x\right\} = \begin{cases}
+$\P\left\{ \xi = x\right\} = \begin{cases}
     0, & \text{якщо } x \text{ --- точка неперервності} \\
     \Delta \text{-стрибок}, & \text{якщо } x \text{ --- точка розриву 1-го роду}
 \end{cases}$.
@@ -105,7 +105,7 @@ $P\left\{ \xi = x\right\} = \begin{cases}
 \end{definition}
 Для задання ДВВ, крім знання значень випадкової величини, необхідно знати ймовірності, 
 з якими ці значення приймаються.
-$$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
+$$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P(\xi = x_i), i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
 
 \begin{definition}
     \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
@@ -127,7 +127,7 @@ $$p_i = P\left\{\omega: \xi(\omega) = x_i\right\} = P(\xi = x_i), i = 1,2,... , 
     $\xi$ задає кількість влучень при чотирьох пострілах з імовірністю влучення 
     $p = \frac{1}{2}$. Скласти закон розподілу цієї випадкової величини.
 
-    З формули Бернуллі $P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
+    З формули Бернуллі $\P(\xi = k) = C_4^k \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{4-k} = 
     C_4^k \left(\frac{1}{2}\right)^4 = \frac{C_4^k}{2^4}, k = 0,1,2,3,4$.
 
     \begin{tabular}{|c|c|c|c|c|c|}
@@ -236,20 +236,20 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
     якщо її функція розподілу неперервна, диференційовна майже скрізь, можливо, за виключенням
     окремих ізольованих точок.
 \end{definition}
-З неперервності функції розподілу для довільної точки $x_0$ маємо $P\left\{\xi = x_0\right\} = 0$.
+З неперервності функції розподілу для довільної точки $x_0$ маємо $\P\left\{\xi = x_0\right\} = 0$.
 Замість ймовірності потрапляння НВВ у окрему точку розглядається щільність розподілу ймовірностей у цій точці.
 
 \begin{definition}
     \emph{Щільність розподілу ймовірностей} неперервної випадкової величини $\xi$
     дорівнює границі (якщо вона існує):
     \begin{equation}\label{eq:prob_dens}
-        \lim_{\Delta x\rightarrow 0} \frac{P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x}
+        \lim_{\Delta x\rightarrow 0} \frac{\P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x}
     \end{equation}
 \end{definition}
-Отже, закон розподілу НВВ можна задавати щільністю $f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x}$.
+Отже, закон розподілу НВВ можна задавати щільністю $f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{\P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x}$.
 Нескладно помітити \emph{зв'язок щільності з функцією розподілу}:
 \begin{equation}\label{eq:dens_pdf}
-    f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x} = 
+    f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{\P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x} = 
     \lim\limits_{\Delta x\rightarrow 0} \frac{F_\xi(x+\Delta x) - F_\xi(x)}{\Delta x} = F'_\xi(x)
 \end{equation}
 Графік щільності розподілу називається \emph{кривою розподілу}.
@@ -260,7 +260,7 @@ $x_1 < x_2 < ... < x_n,\; \sum\limits_{i=1}^n p_i = 1$
     \item $F_\xi(x)=\int\limits_{-\infty}^x f_\xi(t)dt$.
     \item \emph{Властивість нормування:} $\lim\limits_{x \to +\infty} F_\xi(x) = 1 \Rightarrow \int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
     Геометрична інтерпретація цієї властивості --- площа під кривою розподілу завжди рівна $1$.
-    \item $P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a) = \int\limits_a^b f_\xi(x)dx$.
+    \item $\P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a) = \int\limits_a^b f_\xi(x)dx$.
     Ця властивість справджується і для довільних проміжків $\left< a; b\right>$.
 \end{enumerate}
 

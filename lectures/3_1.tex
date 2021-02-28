@@ -2,7 +2,7 @@
 \section{Дискретні випадкові вектори}
 \begin{definition}
     Вимірна функція $\Omega \rightarrow \mathbb{R}^n$, задана на ймовірнісному 
-    просторі $\left\{\Omega, \mathcal{F}, P \right\}$, 
+    просторі $\left\{\Omega, \mathcal{F}, \P \right\}$, 
     називається \emph{випадковим вектором (системою випадкових величин)}.
     Позначається
 $\vec{\xi} = \vec{\xi}(\omega) = 
@@ -77,7 +77,7 @@ $\vec{\xi} = \vec{\xi}(\omega) =
     \end{tikzpicture}
 \end{tabular}
 }\hfil}
-$p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} = 1$.
+$p_{ij} = \P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} = 1$.
 
 З таблиці розподілу можна обчислити ряди розподілу $\xi_1$ та $\xi_2$:
 
@@ -107,7 +107,7 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
 \subsection{Сумісна функція розподілу двовимірного випадкового вектора}
 \begin{definition} 
     \emph{Сумісною функцією розподілу} двовимірного випадкового вектора $\vec{\xi}$ 
-    називається $F_{\vec{\xi}}(x, y) = P\left\{\omega: \xi_1 < x, \xi_2 < y\right\}$, $x, y \in \mathbb{R}$.
+    називається $F_{\vec{\xi}}(x, y) = \P\left\{\omega: \xi_1 < x, \xi_2 < y\right\}$, $x, y \in \mathbb{R}$.
 \end{definition}
 
 \noindent\textbf{Геометрична інтерпретація: }
@@ -138,11 +138,11 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
         $A = \left\{\xi_1 < x_2,\;\xi_2 < y \right\}$, 
         $B = \left\{x_2 \leq \xi_1 < x_1,\; \xi_2<y\right\}$, 
         $C = \left\{\xi_1 < x_1,\; \xi_2 < y\right\}$, $x_1 > x_2$.
-        $C = A \cup B \Rightarrow P(C) = P(A) + P(B)$,
-        $P(C) = F_{\vec{\xi}}(x_1, y)$,  
-        $P(A) = F_{\vec{\xi}}(x_2, y)$.
+        $C = A \cup B \Rightarrow \P(C) = \P(A) + \P(B)$,
+        $\P(C) = F_{\vec{\xi}}(x_1, y)$,  
+        $\P(A) = F_{\vec{\xi}}(x_2, y)$.
 
-        $F_{\vec{\xi}}(x_1, y) = F_{\vec{\xi}}(x_2, y) + P(B)
+        $F_{\vec{\xi}}(x_1, y) = F_{\vec{\xi}}(x_2, y) + \P(B)
         \Rightarrow F_{\vec{\xi}}(x_1, y) \geq  F_{\vec{\xi}}(x_2, y)$. 
         
         Для другої координати аналогічно.
@@ -155,10 +155,10 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
         ймовірності.
 
         $\lim\limits_{x \to -\infty} F_{\vec{\xi}}(x, y) = 
-        \lim\limits_{x \to -\infty} P\left\{\xi_1<x,\;\xi_2<y\right\} 
+        \lim\limits_{x \to -\infty} \P\left\{\xi_1<x,\;\xi_2<y\right\} 
         = [\text{використаємо теорему про неперервність}$ 
-        $\text{ймовірності}] = P(\varnothing \cap \{\xi_2 < y\})
-        = P(\varnothing) = 0$.
+        $\text{ймовірності}] = \P(\varnothing \cap \{\xi_2 < y\})
+        = \P(\varnothing) = 0$.
         Інші випадки --- аналогічно.
     \end{proof}
     \item \emph{<<Умови узгодженості>>}:
@@ -167,10 +167,10 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
     \begin{proof}
         $\lim\limits_{x \to +\infty} F_{\vec{\xi}}(x, y) = 
         \lim\limits_{x \to +\infty} 
-        P\left(\xi_1 < x,\; \xi_2 < y\right) = 
-        P\left(\xi_1 < +\infty,\;\xi_2<y\right) = $
+        \P\left(\xi_1 < x,\; \xi_2 < y\right) = 
+        \P\left(\xi_1 < +\infty,\;\xi_2<y\right) = $
         
-        $= P\left(\xi_2<y\right) = F_{\xi_2}(y)$. Інша --- аналогічно.
+        $= \P\left(\xi_2<y\right) = F_{\xi_2}(y)$. Інша --- аналогічно.
     \end{proof}
     \item $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
     \begin{proof}
@@ -184,7 +184,7 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
         Доведення аналогічне одновимірному випадку (твердж. \refeq{2_1_con}, 
         с. \pageref{2_1_con}).
     \end{proof}
-    \item $\Pi = [a; b)\times [c; d)$. $P\left\{\vec{\xi} \in \Pi \right\} = \text{?}$
+    \item $\Pi = [a; b)\times [c; d)$. $\P\left\{\vec{\xi} \in \Pi \right\} = \text{?}$
     
     \begin{tabular}{c p{9cm}}
         \begin{tikzpicture}[baseline={(current bounding box.north)}]
@@ -211,11 +211,11 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
         $D = \left\{\vec{\xi} \in \Pi\right\}$,
         $E = \left\{\xi_1 < b, \xi_2 < d\right\}$.
         $E = A \cup B \cup C \cup D$, причому $A$, $B$, $C$, $D$ --- попарно несумісні, тому
-        $P(E) = P(A) + P(B) + P(C) + P(D)$.
-        $P(E) = F(b, d)$, $P(A) = F(a, c)$, $P(B) = F(b,c) - F(a,c)$,
-        $P(C) = F(a, d) - F(a, c)$. 
+        $\P(E) = \P(A) + \P(B) + \P(C) + \P(D)$.
+        $\P(E) = F(b, d)$, $\P(A) = F(a, c)$, $\P(B) = F(b,c) - F(a,c)$,
+        $\P(C) = F(a, d) - F(a, c)$. 
         
-        Отже, $P\left\{\vec{\xi} \in \Pi\right\} = F(b,d) + F(a,c) - F(b,c) - F(a,d)$.
+        Отже, $\P\left\{\vec{\xi} \in \Pi\right\} = F(b,d) + F(a,c) - F(b,c) - F(a,d)$.
     \end{tabular}
 \end{enumerate}
 
@@ -252,7 +252,7 @@ $p_{ij} = P\left\{\xi_1 = x_i, \xi_2 = y_j\right\}$, $\sum\limits_{i,j} p_{ij} =
 \subsection{Сумісна функція розподілу \texorpdfstring{$n$}{n}-вимірного вектора}
 \begin{definition} 
     \emph{Сумісною функцією розподілу} $n$-вимірного випадкового вектора $\vec{\xi}$ 
-    називається $F_{\vec{\xi}}(\vec{x}) = P\left\{\omega: \xi_1 < x_1, \xi_2 < x_2, ..., \xi_n < x_n\right\}$, $\vec{x} \in \mathbb{R}^n$.
+    називається $F_{\vec{\xi}}(\vec{x}) = \P\left\{\omega: \xi_1 < x_1, \xi_2 < x_2, ..., \xi_n < x_n\right\}$, $\vec{x} \in \mathbb{R}^n$.
 \end{definition}
 \noindent\textbf{Властивості: }
 \begin{enumerate}

@@ -7,7 +7,7 @@
     неперервними випадковими величинами для $i = 1,...,n$.
 \end{definition}
 Функція розподілу $F_{\vec{\xi}}\left(\vec{x}\right) = 
-P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є неперервною по всім аргументам.
+\P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є неперервною по всім аргументам.
 
 \subsection{Щільність розподілу двовимірного неперервного випадкового вектора}
 \begin{definition}
@@ -15,25 +15,25 @@ P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є непере�
     подвійна границя
     \begin{equation}
         f_{\vec{\xi}}(x, y) = \lim_{\substack{\Delta x \to 0 \\ 
-        \Delta y \to 0}} \frac{P\left\{\vec{\xi} \in \Pi\right\}}
+        \Delta y \to 0}} \frac{\P\left\{\vec{\xi} \in \Pi\right\}}
         {\Delta x \Delta y}
     \end{equation}
     де $\Pi = \left[x; x+\Delta x\right] \times \left[y; y+\Delta y\right]$.
 \end{definition}
 \begin{remark}
-    В означенні замість прямокутника можна брати будь-яку обмежену замкнену область  
+    В означенні замість прямокутника можна брати будь-яку обмежену замкнену множину  
     $D$ і тоді
     \begin{equation*}
         f_{\vec{\xi}}(x, y) = \lim_{S(D) \to 0} 
-        \frac{P\left\{\vec{\xi} \in D\right\}}
-        {S(D)}\text{, де } S(D) \text{ --- площа області } D
+        \frac{\P\left\{\vec{\xi} \in D\right\}}
+        {S(D)}\text{, де } S(D) \text{ --- площа множини } D
     \end{equation*}
 \end{remark}
 
 \noindent\textbf{Зв'язок щільності розподілу з сумісною функцією розподілу: }
 \begin{gather*}
     \lim_{\substack{\Delta x \to 0 \\ 
-\Delta y \to 0}} \frac{P\left\{\vec{\xi} \in \Pi\right\}}
+\Delta y \to 0}} \frac{\P\left\{\vec{\xi} \in \Pi\right\}}
 {\Delta x \Delta y} = 
 \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} 
 \left(
@@ -97,7 +97,7 @@ y + \theta_4 \Delta y)\Delta y}
     = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, y) dx $.
     
     \item D --- замкнена обмежена область в $\mathbb{R}^2$.
-    $P\left\{ \vec{\xi} \in D \right\} = \iint\limits_D f_{\vec{\xi}}(x, y) 
+    $\P\left\{ \vec{\xi} \in D \right\} = \iint\limits_D f_{\vec{\xi}}(x, y) 
     dx dy$.
     \item Якщо координати випадкового вектора $\xi_1$ та $\xi_2$ незалежні, то
     $F_{\vec{\xi}}(x, y) = 
@@ -263,7 +263,7 @@ y + \theta_4 \Delta y)\Delta y}
     \begin{equation}
         f_{\vec{\xi}} (\vec{x}) = \lim_{\substack{\Delta x_i \to 0 \\
         \forall i = \overline{1,n}}} 
-        \frac{P\left\{\vec{\xi} \in \Pi\right\}}{\Delta x_1...\Delta x_n},
+        \frac{\P\left\{\vec{\xi} \in \Pi\right\}}{\Delta x_1...\Delta x_n},
     \end{equation}
     де $\Pi = 
     \left[x_1; x_1+\Delta x_1\right] \times ... \times 
@@ -301,7 +301,7 @@ y + \theta_4 \Delta y)\Delta y}
         \int\limits_{-\infty}^{+\infty}
     }_{n-k} f_{\vec{\xi}}(\vec{x}) dx_{k+1}..dx_n$.
     \item D --- замкнена обмежена область в $\mathbb{R}^n$,
-    $P\left\{\vec{\xi} \in D\right\} = {\int\int...\int}_D f_{\vec{\xi}}(\vec{x})
+    $\P\left\{\vec{\xi} \in D\right\} = {\int\int...\int}_D f_{\vec{\xi}}(\vec{x})
     dx_1 ... dx_n$.
     \item Якщо координати $\xi_1, ..., \xi_n$ незалежні у сукупності (тобто, події
     $\left\{\omega : \xi_{i_k}(\omega) < x_{i_k} \right\}$ незалежні для всіх $x_{i_k}$ та 

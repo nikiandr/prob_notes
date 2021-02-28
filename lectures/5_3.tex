@@ -3,70 +3,70 @@
 \subsection{Нерівність Єнсена}
 
 \noindent\textbf{Твердження.} Нехай $\xi$ --- деяка випадкова величина
-з $E|\xi| < \infty$, а $\varphi(x)$ --- опукла функція. Тоді $\varphi(E\xi) \leq E\varphi(\xi)$.
+з $\E|\xi| < \infty$, а $\varphi(x)$ --- опукла функція. Тоді $\varphi(\E\xi) \leq \E\varphi(\xi)$.
 \begin{proof}
     Оскільки $\varphi(x)$ --- опукла, то $\forall \; y \in \mathbb{R} \;\exists \; C(y): \forall \; x \in \mathbb{R}: \varphi(x) - \varphi(y) \geq c(y)(x-y)$.
-    Покладемо $y = E\xi$, $x = \xi$ (оскільки $\xi$ приймає дійсні значення), і, взявши з обох сторін нерівності математичне сподівання,
-    отримаємо $E\varphi(\xi) \geq \varphi(E\xi)$. 
+    Покладемо $y = \E\xi$, $x = \xi$ (оскільки $\xi$ приймає дійсні значення), і, взявши з обох сторін нерівності математичне сподівання,
+    отримаємо $\E\varphi(\xi) \geq \varphi(\E\xi)$. 
 \end{proof}
 \begin{remark}
-    Для увігнутої $\varphi(x)$ нерівність виконується в іншу сторону: $E\varphi(\xi) \leq \varphi(E\xi)$.
+    Для увігнутої $\varphi(x)$ нерівність виконується в іншу сторону: $\E\varphi(\xi) \leq \varphi(\E\xi)$.
 \end{remark}
 \begin{example}
     Нехай $0 < s < t$. Розглянемо $\varphi(x) = |x|^{\frac{t}{s}}$, яка є опуклою. Скористаємося нерівністю
     Єнсена для $\eta = \left| \xi\right|^s$:
-    $\varphi(E\eta) \leq E\varphi(\eta) \Leftrightarrow \left( E \left| \xi\right|^s\right)^{\frac{t}{s}} \leq E \left| \xi\right|^t 
-    \Leftrightarrow ( E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( E \left| \xi\right|^t)^{\frac{1}{t}}$.
+    $\varphi(\E\eta) \leq \E\varphi(\eta) \Leftrightarrow \left( \E \left| \xi\right|^s\right)^{\frac{t}{s}} \leq \E \left| \xi\right|^t 
+    \Leftrightarrow ( \E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( \E \left| \xi\right|^t)^{\frac{1}{t}}$.
 
-    Маємо важливий \textbf{наслідок}: якщо у випадкової величини $\xi$ існує скінченний абсолютний момент $E\left|\xi\right|^m$ ($m\in \mathbb{N}$), то
-    $$E \left| \xi\right| \leq (E \left| \xi\right|^2)^{\frac{1}{2}} \leq (E \left| \xi\right|^3)^{\frac{1}{3}} \leq ... \leq ( E \left| \xi\right|^m)^{\frac{1}{m}}$$
+    Маємо важливий \textbf{наслідок}: якщо у випадкової величини $\xi$ існує скінченний абсолютний момент $\E\left|\xi\right|^m$ ($m\in \mathbb{N}$), то
+    $$\E \left| \xi\right| \leq (\E \left| \xi\right|^2)^{\frac{1}{2}} \leq (\E \left| \xi\right|^3)^{\frac{1}{3}} \leq ... \leq ( \E \left| \xi\right|^m)^{\frac{1}{m}}$$
 
-    Тобто, існування скінченного моменту $E\left|\xi\right|^m$ гарантує існування як початкових, так і центральних моментів нижчих порядків
-    (оскільки $\left| E\xi \right|^k \leq E\left|\xi\right|^k$).
+    Тобто, існування скінченного моменту $\E\left|\xi\right|^m$ гарантує існування як початкових, так і центральних моментів нижчих порядків
+    (оскільки $\left| \E\xi \right|^k \leq \E\left|\xi\right|^k$).
 \end{example}
 
 \subsection{Нерівність Гельдера}
 \noindent\textbf{Твердження.} Нехай $1 < p < \infty$, $\frac{1}{p} + \frac{1}{q} = 1$. Якщо для випадкових величин $\xi$ та $\eta$ 
-$E\left| \xi\right|^p$ та $E\left| \eta\right|^q$ скінченні, то $E\left| \xi \eta\right|$ теж скінченне, причому
-$E\left| \xi \eta\right| \leq \left( E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
+$\E\left| \xi\right|^p$ та $\E\left| \eta\right|^q$ скінченні, то $\E\left| \xi \eta\right|$ теж скінченне, причому
+$\E\left| \xi \eta\right| \leq \left( \E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( \E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
 \begin{proof}
-    Якщо $E\left| \xi\right|^p = 0$ або $E\left| \eta\right|^q = 0$, то нерівність, очевидно, виконується.
-    Нехай $E\left| \xi\right|^p >0$ та $E\left| \eta\right|^q > 0$. Позначимо $\xi_0 = \frac{\left| \xi \right|}{\left( E\left| \xi\right|^p\right)^{\frac{1}{p}}}$,
-    $\eta_0 = \frac{\left| \eta \right|}{\left( E\left| \eta\right|^q\right)^{\frac{1}{q}}}$, причому $E\xi_0^p = E\eta_0^q = 1$.
+    Якщо $\E\left| \xi\right|^p = 0$ або $\E\left| \eta\right|^q = 0$, то нерівність, очевидно, виконується.
+    Нехай $\E\left| \xi\right|^p >0$ та $\E\left| \eta\right|^q > 0$. Позначимо $\xi_0 = \frac{\left| \xi \right|}{\left( \E\left| \xi\right|^p\right)^{\frac{1}{p}}}$,
+    $\eta_0 = \frac{\left| \eta \right|}{\left( \E\left| \eta\right|^q\right)^{\frac{1}{q}}}$, причому $\E\xi_0^p = \E\eta_0^q = 1$.
     З опуклості функції $f(x) = -\ln x$ маємо $xy = \exp\{\ln xy\}= \exp\{\frac{\ln x^p}{p} + \frac{\ln y^q}{q}\} \leq
     \exp\{ \ln \left( \frac{x^p}{p} + \frac{y^q}{q}\right)\} = \frac{x^p}{p} + \frac{y^q}{q}$, тому
-    $E\left( \xi_0 \eta_0 \right) \leq \frac{1}{p}E\xi_0^p + \frac{1}{q}E\eta_0^q = \frac{1}{p} + \frac{1}{q} = 1$,
-    звідки $E\left| \xi \eta\right| \leq \left( E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
+    $\E\left( \xi_0 \eta_0 \right) \leq \frac{1}{p}\E\xi_0^p + \frac{1}{q}\E\eta_0^q = \frac{1}{p} + \frac{1}{q} = 1$,
+    звідки $\E\left| \xi \eta\right| \leq \left( \E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( \E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
 \end{proof}
 \begin{remark}
     При $p = q = 2$ отримуємо вже знайому нерівність Коші-Буняковського:
     
-    \noindent$\left| E \xi \eta \right| \leq E\left| \xi \eta \right| \leq \sqrt{E\xi^2}\cdot\sqrt{E\eta^2}$.
+    \noindent$\left| \E \xi \eta \right| \leq \E\left| \xi \eta \right| \leq \sqrt{\E\xi^2}\cdot\sqrt{\E\eta^2}$.
 \end{remark}
 
 \subsection{Нерівність Мінковського}
 \noindent\textbf{Твердження.} Нехай для випадкових величин $\xi$ та $\eta$ і $1\leq p < \infty$ маємо скінченні
-$E\left| \xi\right|^p$ та $E\left| \eta\right|^p$. Тоді
-$\left(E\left| \xi + \eta\right|^p\right)^{\frac{1}{p}} \leq \left(E\left| \xi \right|^p\right)^{\frac{1}{p}}
-+\left(E\left| \eta \right|^p\right)^{\frac{1}{p}}$.
+$\E\left| \xi\right|^p$ та $\E\left| \eta\right|^p$. Тоді
+$\left(\E\left| \xi + \eta\right|^p\right)^{\frac{1}{p}} \leq \left(\E\left| \xi \right|^p\right)^{\frac{1}{p}}
++\left(\E\left| \eta \right|^p\right)^{\frac{1}{p}}$.
 \begin{proof}
     Для $p=1$ нерівність є наслідком нерівності $\left| x+y\right| \leq |x| + |y|$ для дійсних чисел.
     Нехай $p > 1$, тоді $\left| \xi + \eta\right|^p = |\xi + \eta| \cdot |\xi + \eta|^{p-1} \leq |\xi| \cdot |\xi + \eta|^{p-1} +
     |\eta| \cdot |\xi + \eta|^{p-1}$.
-    Покладемо $q = \frac{p}{p-1}$. Тоді $\frac{1}{p} + \frac{1}{q} = 1$, $E\left(|\xi + \eta|^{p-1} \right)^{q} = E|\xi+ \eta|^p$ скінченне, бо 
+    Покладемо $q = \frac{p}{p-1}$. Тоді $\frac{1}{p} + \frac{1}{q} = 1$, $\E\left(|\xi + \eta|^{p-1} \right)^{q} = \E|\xi+ \eta|^p$ скінченне, бо 
     для дійсних чисел виконується нерівність $|x+y|^p \leq C(p) \cdot (|x|^p + |y|^p)$.
-    Тоді з нерівності Гельдера: $E\left( |\xi|\cdot |\xi + \eta|^{p-1}\right) \leq
-    \left( E|\xi|^p\right)^{\frac{1}{p}} \cdot \left( E |\xi + \eta|^{(p-1)q}\right)^{\frac{1}{q}} = 
-    \left( E|\xi|^p\right)^{\frac{1}{p}} \cdot \left( E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$ і,
+    Тоді з нерівності Гельдера: $\E\left( |\xi|\cdot |\xi + \eta|^{p-1}\right) \leq
+    \left( \E|\xi|^p\right)^{\frac{1}{p}} \cdot \left( \E |\xi + \eta|^{(p-1)q}\right)^{\frac{1}{q}} = 
+    \left( \E|\xi|^p\right)^{\frac{1}{p}} \cdot \left( \E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$ і,
     аналогічно, 
-    $E\left( |\eta|\cdot |\xi + \eta|^{p-1}\right) \leq 
-    \left( E|\eta|^p\right)^{\frac{1}{p}} \cdot \left( E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$.
-    Отримуємо $E\left| \xi + \eta\right|^p \leq \left( E |\xi + \eta|^{p}\right)^{\frac{1}{q}} \cdot 
-    \left(\left(E|\xi|^p\right)^{\frac{1}{p}} + \left(E|\eta|^p\right)^{\frac{1}{p}}\right)$.
+    $\E\left( |\eta|\cdot |\xi + \eta|^{p-1}\right) \leq 
+    \left( \E|\eta|^p\right)^{\frac{1}{p}} \cdot \left( \E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$.
+    Отримуємо $\E\left| \xi + \eta\right|^p \leq \left( \E |\xi + \eta|^{p}\right)^{\frac{1}{q}} \cdot 
+    \left(\left(\E|\xi|^p\right)^{\frac{1}{p}} + \left(\E|\eta|^p\right)^{\frac{1}{p}}\right)$.
     
-    \noindentУ випадку $E\left| \xi + \eta\right|^p = 0$ виконання нерівності очевидне, а якщо $E\left| \xi + \eta\right|^p > 0$, то, поділивши на 
-    $\left( E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$, отримаємо
-    $\left(E\left| \xi + \eta\right|^p\right)^{1 - \frac{1}{q}} \leq  
-    \left(E|\xi|^p\right)^{\frac{1}{p}} + \left(E|\eta|^p\right)^{\frac{1}{p}}$.
+    \noindentУ випадку $\E\left| \xi + \eta\right|^p = 0$ виконання нерівності очевидне, а якщо $\E\left| \xi + \eta\right|^p > 0$, то, поділивши на 
+    $\left( \E |\xi + \eta|^{p}\right)^{\frac{1}{q}}$, отримаємо
+    $\left(\E\left| \xi + \eta\right|^p\right)^{1 - \frac{1}{q}} \leq  
+    \left(\E|\xi|^p\right)^{\frac{1}{p}} + \left(\E|\eta|^p\right)^{\frac{1}{p}}$.
     Залишилося зауважити, що $1 - \frac{1}{q} = \frac{1}{p}$.
 \end{proof}

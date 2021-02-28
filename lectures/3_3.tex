@@ -3,9 +3,9 @@
 
 \subsection{Математичне сподівання випадкових векторів}
 \begin{definition}
-    \emph{Математичним сподіванням $E{\vec{\xi}}$} 
+    \emph{Математичним сподіванням $\E{\vec{\xi}}$} 
     випадкового вектора $\vec{\xi}$ називається вектор 
-    $\left(E{\xi_1}, ..., E{\xi_n}\right)^T$.
+    $\left(\E{\xi_1}, ..., \E{\xi_n}\right)^T$.
 \end{definition}
 \begin{remark}
     Математичне сподівання випадкового вектора ще називають
@@ -18,18 +18,18 @@
     \item Знайти математичні сподівання координат одразу.
     Для $\vec{\xi} = (\xi_1, \xi_2)^T$:
     
-    $E\xi_1 = \begin{cases}
+    $\E\xi_1 = \begin{cases}
         \sum\limits_i \sum\limits_j x_i p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
         \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} x f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
     \end{cases}$,
-    $E\xi_2 = \begin{cases}
+    $\E\xi_2 = \begin{cases}
         \sum\limits_j \sum\limits_i y_j p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
         \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} y f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
     \end{cases}$.
     
-    В загальному випадку для ДВВ $E\xi_k = \sum\limits_{i_1, i_2, ..., i_n} (x_k)_{i_k} p_{i_1 i_2 ... i_n}$, де індекс $i_k$ пробігає кількість
+    В загальному випадку для ДВВ $\E\xi_k = \sum\limits_{i_1, i_2, ..., i_n} (x_k)_{i_k} p_{i_1 i_2 ... i_n}$, де індекс $i_k$ пробігає кількість
     значень, що приймає координата $x_k$,
-    для НВВ $E\xi_k = \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty} x_k f_{\vec{\xi}}(\vec{x}) dx_1 ... dx_n$.
+    для НВВ $\E\xi_k = \int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty} x_k f_{\vec{\xi}}(\vec{x}) dx_1 ... dx_n$.
 \end{enumerate}
 
 \subsection{Мішані початкові та центральні 
@@ -43,12 +43,12 @@
     називається число
     \begin{equation*}
         \alpha_{k_1+k_2+...+k_n} = 
-        E{\xi_1^{k_1}...\xi_n^{k_n}}
+        \E{\xi_1^{k_1}...\xi_n^{k_n}}
     \end{equation*}
 \end{definition}
 \begin{remark}
-    $E\xi_1 = \alpha_{1+0+...+0}, E\xi_2 = \alpha_{0+1+...+0},
-    ..., E\xi_n = \alpha_{0+0+...+1}$.
+    $\E\xi_1 = \alpha_{1+0+...+0}, \E\xi_2 = \alpha_{0+1+...+0},
+    ..., \E\xi_n = \alpha_{0+0+...+1}$.
 \end{remark}
 \begin{definition}
     \emph{Мішаним центральним моментом} порядку 
@@ -59,10 +59,10 @@
     називається число
     \begin{equation*}
         \beta_{k_1+k_2+...+k_n} = 
-        E{\mathring{\xi}_1^{k_1}
+        \E{\mathring{\xi}_1^{k_1}
         ...
         \mathring{\xi}_n^{k_n}},
-        \mathring{\xi_k} = \xi_k - E\xi_k
+        \mathring{\xi_k} = \xi_k - \E\xi_k
     \end{equation*}
 \end{definition}
 \begin{remark}
@@ -72,8 +72,8 @@
 Центральні моменти порядку $0+...+0+2+0+...+0$ --- дисперсії відповідних координат:
     $\forall k = \overline{1,n}$: 
     $\beta_{0+...+0+\underset{k}{2}
-    +0+...+0} = E\mathring{\xi}_k^2 = 
-    D\xi_k$
+    +0+...+0} = \E\mathring{\xi}_k^2 = 
+    \D\xi_k$
 
 Дисперсії координат задають розсіювання 
 вздовж відповідних координатних осей.
@@ -86,113 +86,113 @@
     порядку
     $0+...+0+\underset{i}{1}+0+...+0+\underset{j}{1}+0+....+0$:
     \begin{equation*}
-        {cov}(\xi_i,\xi_j) = K\xi_i\xi_j = \beta_{0+...+0+\underset{i}{1}+0+...
+        {cov}(\xi_i,\xi_j) = \K\xi_i\xi_j = \beta_{0+...+0+\underset{i}{1}+0+...
         +0+\underset{j}{1}+0+...+0}
         =
-        E(\xi_i-E\xi_i)(\xi_j-E\xi_j)
+        \E(\xi_i-\E\xi_i)(\xi_j-\E\xi_j)
     \end{equation*}
 \end{definition}
 \begin{remark}
-    ${cov}(\xi_k, \xi_k) = E(\xi_k-E\xi_k)^2 = D\xi_k$.
+    ${cov}(\xi_k, \xi_k) = \E(\xi_k-\E\xi_k)^2 = \D\xi_k$.
 \end{remark}
 \begin{definition}
    \emph{Кореляційною матрицею} випадкового 
    вектора $\vec{\xi}$ називається матриця, у яку зібрано усі 
    кореляційні моменти випадкового вектора
    \begin{equation*}
-       K = 
+       \K = 
        \begin{pmatrix}
-           D\xi_1 & K\xi_1\xi_2 & \cdots & K\xi_1\xi_n \\
-           K\xi_1\xi_2 & D\xi_2 & \cdots & K\xi_2\xi_n \\
+           \D\xi_1 & \K\xi_1\xi_2 & \cdots & \K\xi_1\xi_n \\
+           \K\xi_1\xi_2 & \D\xi_2 & \cdots & \K\xi_2\xi_n \\
            \vdots & \vdots & \ddots & \vdots \\
-           K\xi_1\xi_n & K\xi_2\xi_n & \cdots & D\xi_n
+           \K\xi_1\xi_n & \K\xi_2\xi_n & \cdots & \D\xi_n
        \end{pmatrix}
    \end{equation*} 
 \end{definition}
 \begin{remark}
     $\mathring{\vec{\xi}} = \left(\mathring{\xi_1}, ..., \mathring{\xi_n}
     \right)^T$.
-    Тоді $K = E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T$.
+    Тоді $\K = \E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T = \E \left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$.
 \end{remark}
 
 \noindent \textbf{Властивості кореляційного моменту випадкових 
 величин:}
 \begin{enumerate}
-    \item $K\xi_i\xi_j = K\xi_j\xi_i$.
+    \item $\K\xi_i\xi_j = \K\xi_j\xi_i$.
     \begin{proof}
         Випливає з означення кореляційного моменту.
     \end{proof}
     \item $\eta_1 = a_1\xi_1 + b_1$, $\eta_2 = a_2\xi_2 + b_2$.
-    Тоді $K\eta_1\eta_2 = a_1a_2K\xi_1\xi_2$.
+    Тоді $\K\eta_1\eta_2 = a_1a_2\K\xi_1\xi_2$.
     \begin{proof}
-        $K\eta_1\eta_2 = E(\eta_1 - E\eta_1)(\eta_2 - E\eta_2) = 
-        E(a_1\xi_1 + b_1 - E(a_1\xi_1 + b_1))
-        (a_2\xi_2 + b_2 - E(a_2\xi_2 + b_2)) = 
-        Ea_1(\xi_1 - E\xi_1)a_2(\xi_2 - E\xi_2) = 
-        a_1a_2E(\xi_1 - E\xi_1)(\xi_2 - E\xi_2) = 
-        a_1a_2K\xi_1\xi_2$.
+        $\K\eta_1\eta_2 = \E(\eta_1 - \E\eta_1)(\eta_2 - \E\eta_2) = 
+        \E(a_1\xi_1 + b_1 - \E(a_1\xi_1 + b_1))
+        (a_2\xi_2 + b_2 - \E(a_2\xi_2 + b_2)) = 
+        \E a_1(\xi_1 - \E\xi_1)a_2(\xi_2 - \E\xi_2) = 
+        a_1a_2\E(\xi_1 - \E\xi_1)(\xi_2 - \E\xi_2) = 
+        a_1a_2\K\xi_1\xi_2$.
     \end{proof}
 
     \item Зручна формула для обчислення кореляційного моменту.
     \begin{equation}
-        K\xi_1\xi_2 = E\xi_1\xi_2 - E\xi_1 E\xi_2
+        \K\xi_1\xi_2 = \E\xi_1\xi_2 - \E\xi_1 \E\xi_2
     \end{equation}
     \begin{proof}
-        $K\xi_1\xi_2 = E(\xi_1 - E\xi_1)(\xi_2 - E\xi_2) = 
-        E(\xi_1\xi_2 - \xi_1E\xi_2 - \xi_2E\xi_1 + E\xi_1E\xi_2) = 
-        E\xi_1\xi_2 - E\xi_1E\xi_2 - E\xi_2E\xi_1 + E\xi_1E\xi_2 = 
-        E\xi_1\xi_2 - E\xi_1E\xi_2$
+        $\K\xi_1\xi_2 = \E(\xi_1 - \E\xi_1)(\xi_2 - \E\xi_2) = 
+        \E(\xi_1\xi_2 - \xi_1\E\xi_2 - \xi_2\E\xi_1 + \E\xi_1\E\xi_2) = 
+        \E\xi_1\xi_2 - \E\xi_1\E\xi_2 - \E\xi_2\E\xi_1 + \E\xi_1\E\xi_2 = 
+        \E\xi_1\xi_2 - \E\xi_1\E\xi_2$
     \end{proof}
     
-    \item $D(a\xi_1 \pm b\xi_2) = a^2D\xi_1 \pm 2abK\xi_1\xi_2 + 
-    b^2D\xi_2$.
+    \item $\D(a\xi_1 \pm b\xi_2) = a^2\D\xi_1 \pm 2ab\K\xi_1\xi_2 + 
+    b^2\D\xi_2$.
 
     \begin{proof}
-        $D(a\xi_1 \pm b\xi_2) = 
-        E(a\xi_1 \pm b\xi_2 - E(a\xi_1 \pm b\xi_2))^2 =
-        E(a(\xi_1-E\xi_1)\pm b(\xi_2 - E\xi_2))^2 = 
-        a^2 E\mathring{\xi}_1^2 \pm 2abE\mathring{\xi}_1\mathring{\xi} _2 
-        + b^2 E\mathring{\xi}_2^2 = 
-        a^2D\xi_1 \pm 2abK\xi_1\xi_2 + b^2D\xi_2$.
+        $\D(a\xi_1 \pm b\xi_2) = 
+        \E(a\xi_1 \pm b\xi_2 - \E(a\xi_1 \pm b\xi_2))^2 =
+        \E(a(\xi_1-\E\xi_1)\pm b(\xi_2 - \E\xi_2))^2 = 
+        a^2 \E\mathring{\xi}_1^2 \pm 2ab\E\mathring{\xi}_1\mathring{\xi} _2 
+        + b^2 \E\mathring{\xi}_2^2 = 
+        a^2\D\xi_1 \pm 2ab\K\xi_1\xi_2 + b^2\D\xi_2$.
     \end{proof}
 
-    \item $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+    \item $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
     \begin{proof}
         Два способи: 
         \begin{enumerate}[label=\Roman*.]
-            \item $D(x\xi_1 \pm \xi_2) = x^2 D\xi_1 \pm 2xK\xi_1\xi_2 + D\xi_2 \geq 0 
-            \Rightarrow 4(K\xi_1\xi_2)^2 - 4D\xi_1D\xi_2 \leq 0 
+            \item $\D(x\xi_1 \pm \xi_2) = x^2 \D\xi_1 \pm 2x\K\xi_1\xi_2 + \D\xi_2 \geq 0 
+            \Rightarrow 4(\K\xi_1\xi_2)^2 - 4\D\xi_1\D\xi_2 \leq 0 
             \Rightarrow $
 
-            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+            $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
 
-            \item Введемо нормовані центровані випадкові величини $\xi_H = \frac{\xi - E\xi}
-            {\sigma_\xi}$, $E\xi_H =0$, $D\xi_H = 1$.
+            \item Введемо нормовані центровані випадкові величини $\xi_H = \frac{\xi - \E\xi}
+            {\sigma_\xi}$, $\E\xi_H =0$, $\D\xi_H = 1$.
 
-            $E(\xi_{1H} \pm \xi_{2H})^2 \geq 0 \Leftrightarrow 
-            E(\xi^2_{1H}\pm2\xi_{1H}\xi_{2H}+\xi^2_{2H}) \geq 0 
+            $\E(\xi_{1H} \pm \xi_{2H})^2 \geq 0 \Leftrightarrow 
+            \E(\xi^2_{1H}\pm2\xi_{1H}\xi_{2H}+\xi^2_{2H}) \geq 0 
             \Leftrightarrow 2 \pm 
-            2\frac{K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
+            2\frac{\K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
             \Leftrightarrow $
 
-            $\left|K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+            $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
         \end{enumerate}
     \end{proof}
-    \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $K\xi_1\xi_2 = 0$.
+    \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $\K\xi_1\xi_2 = 0$.
     \begin{proof}
         Нехай $\xi_1$ та $\xi_2$ --- незалежні.
 
-        $K\xi_1\xi_2 = E\xi_1\xi_2 - E\xi_1E\xi_2 = 
+        $\K\xi_1\xi_2 = \E\xi_1\xi_2 - \E\xi_1\E\xi_2 = 
         \iint\limits_{\mathbb{R}^2} xy f_{\vec{\xi}}(x,y)dx dy 
-        - E\xi_1E\xi_2
+        - \E\xi_1\E\xi_2
         = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx \cdot
         \int\limits_{-\infty}^{+\infty}yf_{\xi_2}(y)dy
-        - E\xi_1E\xi_2 = 
-        E\xi_1E\xi_2 - E\xi_1E\xi_2 = 0$.
+        - \E\xi_1\E\xi_2 = 
+        \E\xi_1\E\xi_2 - \E\xi_1\E\xi_2 = 0$.
     \end{proof}
 
     Обернене твердження, взагалі кажучи, не має місця. Тому випадкові 
-    величини, для яких $K\xi_1\xi_2 = 0$, називаються 
+    величини, для яких $\K\xi_1\xi_2 = 0$, називаються 
     \emph{некорельованими}.
 \end{enumerate}
 
@@ -233,28 +233,28 @@
     $
 \end{tabular}
 
-$E\xi_1 = E\xi_2 = \int\limits_{-R}^R t\cdot\frac{2\sqrt{R^2-t^2}}{\pi R^2} dt = 0$, бо інтегрується непарна функція по симетричному проміжку.
+$\E\xi_1 = \E\xi_2 = \int\limits_{-R}^R t\cdot\frac{2\sqrt{R^2-t^2}}{\pi R^2} dt = 0$, бо інтегрується непарна функція по симетричному проміжку.
 
-$K\xi_1\xi_2 = \iint\limits_S xy \frac{1}{\pi r^2} dx dy - E\xi_1E\xi_2 =
+$\K\xi_1\xi_2 = \iint\limits_S xy \frac{1}{\pi r^2} dx dy - \E\xi_1\E\xi_2 =
 \frac{1}{\pi R^2}\int\limits_0^{2\pi} d\varphi \int\limits_0^R r^2 \cos \varphi \sin \varphi r dr = 
 \frac{1}{2\pi R^2}\int\limits_0^{2\pi} \sin 2\varphi d\varphi \int\limits_0^R r^3 dr = 0$.
-Отже, $f_{\vec{\xi}}(x,y) \neq f_{\xi_1}(x)f_{\xi_2}(y)$ і координати вектора залежні, але $K\xi_1\xi_2 = 0$.
+Отже, $f_{\vec{\xi}}(x,y) \neq f_{\xi_1}(x)f_{\xi_2}(y)$ і координати вектора залежні, але $\K\xi_1\xi_2 = 0$.
 \end{example}
 
 \subsection{Коваріація як скалярний добуток випадкових величин}
-Зафіксуємо ймовірнісний простір $\left\{\Omega, \mathcal{F}, P\right\}$.
-Позначимо $\mathcal{L}^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi^2 < +\infty\right\}$.
-Оскільки $D\xi = E\xi^2 - (E\xi)^2 \geq 0$, то для $\xi \in \mathcal{L}^2(\Omega)$ $|E\xi| < +\infty$.
+Зафіксуємо ймовірнісний простір $\left\{\Omega, \mathcal{F}, \P\right\}$.
+Позначимо $\mathcal{L}^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\xi^2 < +\infty\right\}$.
+Оскільки $\D\xi = \E\xi^2 - (\E\xi)^2 \geq 0$, то для $\xi \in \mathcal{L}^2(\Omega)$ $|\E\xi| < +\infty$.
 Таким чином, для будь-яких $\xi, \eta \in \mathcal{L}^2(\Omega)$ 
-існує ${cov}(\xi,\eta)$, бо $|{cov}(\xi,\eta)| \leq \sqrt{D\xi} \cdot \sqrt{D\eta}$.
+існує ${cov}(\xi,\eta)$, бо $|{cov}(\xi,\eta)| \leq \sqrt{\D\xi} \cdot \sqrt{\D\eta}$.
 
 Для коваріації маємо 
-${cov}(a\xi_1 + b\xi_2,\eta) = E(a\xi_1+b\xi_2)\eta - E(a\xi_1 + b\xi_2)E\eta = 
-a E\xi_1\eta + b E\xi_2\eta - a E\xi_1 E\eta - b E\xi_2 E\eta = a\cdot{cov}(\xi_1,\eta) + b\cdot{cov}(\xi_2,\eta)$.
+${cov}(a\xi_1 + b\xi_2,\eta) = \E(a\xi_1+b\xi_2)\eta - \E(a\xi_1 + b\xi_2)\E\eta = 
+a \E\xi_1\eta + b \E\xi_2\eta - a \E\xi_1 \E\eta - b \E\xi_2 \E\eta = a\cdot{cov}(\xi_1,\eta) + b\cdot{cov}(\xi_2,\eta)$.
 Також було доведено ${cov}(\xi, \eta) = {cov}(\eta, \xi)$ та ${cov}(\xi, \xi) \geq 0$.
 Виконуються всі умови скалярного добутку, окрім ${cov}(\xi, \xi) = 0 \Rightarrow \xi = 0$.
 Ця умова буде виконуватися, якщо розглядати інший простір випадкових величин:
-$\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi = 0, E\xi^2 < +\infty\right\}$.
+$\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\xi = 0, \E\xi^2 < +\infty\right\}$.
 \begin{remark}
     Якщо $\xi \in \mathcal{L}^2(\Omega)$, то $\mathring{\xi} \in \mathcal{L}_0^2(\Omega)$.
 \end{remark}
@@ -264,17 +264,17 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi
 
 \noindent \textbf{Висновок:} ${cov}(\xi, \eta)$ задає \emph{скалярний добуток} на $\mathcal{L}_0^2(\Omega)$.
 
-Таким чином, властивість $|{cov}(\xi,\eta)| \leq \sqrt{D\xi} \cdot \sqrt{D\eta}$ ---
-це нерівність Коші-Буняковського, а кореляційна матриця $K$ --- це матриця Грама системи
+Таким чином, властивість $|{cov}(\xi,\eta)| \leq \sqrt{\D\xi} \cdot \sqrt{\D\eta}$ ---
+це нерівність Коші-Буняковського, а кореляційна матриця $\K$ --- це матриця Грама системи
 випадкових величин $\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
-З курсу лінійної алгебри відомо, що якщо ці випадкові величини лінійно незалежні, то матриця $K$ є додатно визначеною, 
+З курсу лінійної алгебри відомо, що якщо ці випадкові величини лінійно незалежні, то матриця $\K$ є додатно визначеною, 
 і невід'ємно визначеною в загальному випадку.
 
 \subsection{Коефіцієнт кореляції}
 \begin{definition}
     \emph{Коефіцієнтом кореляції} називають безрозмірну числову характеристику
     \begin{equation*}
-        \rho_{\xi_1\xi_2} = \frac{K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}}
+        \rho_{\xi_1\xi_2} = \frac{\K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}}
     \end{equation*}
 \end{definition}
 
@@ -309,27 +309,27 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; E\xi
     \exists \; a, b \in \mathbb{R}: \xi_2 = a\xi_1 + b$.
     \begin{proof}
         Нехай 
-        $\xi_2 = a\xi_1 + b$. $K\xi_1\xi_2 = 
-        aD\xi_1$
+        $\xi_2 = a\xi_1 + b$. $\K\xi_1\xi_2 = 
+        a\D\xi_1$
         , 
-        $\sigma_{\xi_2} = \sqrt{D\xi_2} = \sqrt{a^2D\xi_1} = 
-        |a|\sqrt{D\xi_1}$.
+        $\sigma_{\xi_2} = \sqrt{\D\xi_2} = \sqrt{a^2\D\xi_1} = 
+        |a|\sqrt{\D\xi_1}$.
 
-        Тоді $\rho_{\xi_1\xi_2} = \frac{aD\xi_1}{|a|(\sqrt{D\xi_1})^2} 
+        Тоді $\rho_{\xi_1\xi_2} = \frac{a\D\xi_1}{|a|(\sqrt{\D\xi_1})^2} 
         \Rightarrow
         \left|\rho_{\xi_1\xi_2}\right| = 1$.
 
         Нехай $\left|\rho_{\xi_1\xi_2}\right| = 1$.
-        $E\left(\frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
-        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}}\right)^2 = 
+        $\E\left(\frac{\xi_1 - \E\xi_1}{\sigma_{\xi_1}} 
+        \pm \frac{\xi_2 - \E\xi_2}{\sigma_{\xi_2}}\right)^2 = 
         2(1\pm\rho_{\xi_1\xi_2}) = 0$.
 
-        $E\xi^2 = 0 \Rightarrow D\xi = -(E\xi)^2 \geq 0 \Rightarrow \begin{cases}
-            E\xi = 0 \\ D\xi = 0
+        $\E\xi^2 = 0 \Rightarrow \D\xi = -(\E\xi)^2 \geq 0 \Rightarrow \begin{cases}
+            \E\xi = 0 \\ \D\xi = 0
         \end{cases} \Rightarrow \xi$ приймає значення $0$ з ймовірністю $1$.
 
-        Отже, $\frac{\xi_1 - E\xi_1}{\sigma_{\xi_1}} 
-        \pm \frac{\xi_2 - E\xi_2}{\sigma_{\xi_2}} = 0$ з ймовірністю $1$,
+        Отже, $\frac{\xi_1 - \E\xi_1}{\sigma_{\xi_1}} 
+        \pm \frac{\xi_2 - \E\xi_2}{\sigma_{\xi_2}} = 0$ з ймовірністю $1$,
         звідки отримуємо лінійний зв'язок.
     \end{proof}
 \end{enumerate}

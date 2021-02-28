@@ -26,28 +26,29 @@
 \end{equation*}
 
 \noindent \textbf{Крива розподілу:} графіки для різних значень $n$.
-
-\begin{tikzpicture}[yscale = 12, xscale = 0.5, baseline={(current bounding box.center)}]
-    \pgfmathsetmacro{\a}{2};
-    \pgfmathsetmacro{\b}{0.5};
-    \pgfmathsetmacro{\c}{3};
-    \pgfmathsetmacro{\d}{4};
-
-    \draw [->] (-2, 0) -- (18.3, 0);
-    \draw [->] (0, -0.05) -- (0, 0.2);
-    \draw [thick] (-2, 0) -- (0, 0);
-    \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\a)*\x^(\a-1)/factorial(\a-1) * e^(-\x*\b)});
-    \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\c)*\x^(\c-1)/factorial(\c-1) * e^(-\x*\b)});
-    \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\d)*\x^(\d-1)/factorial(\d-1) * e^(-\x*\b)});
-    \node [below] at (18.2, 0) {$x$};
-    \node [left] at (0, 0.2) {$f_{\chi_n^2}(x)$};
-    \node [below left] at (0, 0) {$0$};
-\end{tikzpicture}
+\begin{center}
+    \begin{tikzpicture}[yscale = 12, xscale = 0.5, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\a}{2};
+        \pgfmathsetmacro{\b}{0.5};
+        \pgfmathsetmacro{\c}{3};
+        \pgfmathsetmacro{\d}{4};
+    
+        \draw [->] (-2, 0) -- (18.3, 0);
+        \draw [->] (0, -0.05) -- (0, 0.2);
+        \draw [thick] (-2, 0) -- (0, 0);
+        \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\a)*\x^(\a-1)/factorial(\a-1) * e^(-\x*\b)});
+        \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\c)*\x^(\c-1)/factorial(\c-1) * e^(-\x*\b)});
+        \draw [domain=0:18, smooth, variable = \x, thick] plot ({\x}, {\b^(\d)*\x^(\d-1)/factorial(\d-1) * e^(-\x*\b)});
+        \node [below] at (18.2, 0) {$x$};
+        \node [left] at (0, 0.2) {$f_{\chi_n^2}(x)$};
+        \node [below left] at (0, 0) {$0$};
+    \end{tikzpicture}
+\end{center}
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\chi_n^2 = \frac{n/2}{1/2} = n$.
-    \item $D\chi_n^2 = \frac{n/2}{1/4} = 2n$.
+    \item $\E\chi_n^2 = \frac{n/2}{1/2} = n$.
+    \item $\D\chi_n^2 = \frac{n/2}{1/4} = 2n$.
 \end{enumerate}
 
 \section{Розподіл \texorpdfstring{$\chi$}{x}}
@@ -70,8 +71,8 @@ f_{\chi_n^2}(y^2) \cdot 2y =
 \end{equation*}
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\chi_n = \sqrt{2} \cdot \frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)}$.
-    \item $D\chi_n = n - \left( E\chi_n \right)^2$.
+    \item $\E\chi_n = \sqrt{2} \cdot \frac{\Gamma\left(\frac{n+1}{2}\right)}{\Gamma\left(\frac{n}{2}\right)}$.
+    \item $\D\chi_n = n - \left( \E\chi_n \right)^2$.
 \end{enumerate}
 
 \begin{remark}
@@ -118,26 +119,27 @@ f_{\chi_n}(z \sqrt{n}) \cdot \sqrt{n} =
 \end{gather*}
 \noindent \textbf{Крива розподілу:} графіки для різних значень $n$, називаються \emph{кривими Стьюдента}.
 Вони схожі на криву гауссівського розподілу, але повільніше прямують до 0 на нескінченності.
-
-\begin{tikzpicture}[yscale = 6, xscale = 1.3, baseline={(current bounding box.center)}]
-    \pgfmathsetmacro{\a}{1}; % n = 2
-    \pgfmathsetmacro{\b}{12}; % n = 4
-    \pgfmathsetmacro{\c}{0.318309886184}; % n = 1
-
-    \draw [->] (-5, 0) -- (5, 0);
-    \draw [->] (0, -0.05) -- (0, 0.4);
-    \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\a/((2+(\x)^2)^((2+1)/2))});
-    \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\b/((4+(\x)^2)^((4+1)/2))});
-    \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\c/((1+(\x)^2)^((1+1)/2))});
-    \node [below] at (5.2, 0) {$x$};
-    \node [left] at (0, 0.4) {$f_{\mathrm{St}_n}(x)$};
-    \node [below left] at (0, 0) {$0$};
-\end{tikzpicture}
+\begin{center}
+    \begin{tikzpicture}[yscale = 6, xscale = 1.3, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\a}{1}; % n = 2
+        \pgfmathsetmacro{\b}{12}; % n = 4
+        \pgfmathsetmacro{\c}{0.318309886184}; % n = 1
+    
+        \draw [->] (-5, 0) -- (5, 0);
+        \draw [->] (0, -0.05) -- (0, 0.4);
+        \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\a/((2+(\x)^2)^((2+1)/2))});
+        \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\b/((4+(\x)^2)^((4+1)/2))});
+        \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, {\c/((1+(\x)^2)^((1+1)/2))});
+        \node [below] at (5.2, 0) {$x$};
+        \node [left] at (0, 0.4) {$f_{\mathrm{St}_n}(x)$};
+        \node [below left] at (0, 0) {$0$};
+    \end{tikzpicture}
+\end{center}
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\mathrm{St}_n = 0$.
-    \item $D\mathrm{St}_n = \frac{n}{n-2}$, $n>2$.
+    \item $\E\mathrm{St}_n = 0$.
+    \item $\D\mathrm{St}_n = \frac{n}{n-2}$, $n>2$.
 \end{enumerate}
 
 \begin{remark}
@@ -199,8 +201,8 @@ $f_{\chi_n^2}(x) = \begin{cases}
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\mathrm{F}(n_1, n_2) = \frac{n_2}{n_2 - 2}$, $n_2 > 2$.
-    \item $D\mathrm{F}(n_1, n_2) = \frac{2 n_2^2 (n_1 + n_2 - 2)}{n_1 (n_2 - 2)^2 (n_2 -4)}$, $n_2>4$.
+    \item $\E\mathrm{F}(n_1, n_2) = \frac{n_2}{n_2 - 2}$, $n_2 > 2$.
+    \item $\D\mathrm{F}(n_1, n_2) = \frac{2 n_2^2 (n_1 + n_2 - 2)}{n_1 (n_2 - 2)^2 (n_2 -4)}$, $n_2>4$.
 \end{enumerate}
 
 \begin{remark}

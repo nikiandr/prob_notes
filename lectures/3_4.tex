@@ -14,9 +14,9 @@
     Універсальним умовним законом розподілу ВВ є \emph{умовна функція 
     розподілу}:
     \begin{equation*}
-        F_{\xi_1}(x/y) = P({\xi_1 < x}/{\xi_2 < y}) = 
-        \frac{P\left\{\xi_1 < x, \xi_2 < y\right\}}
-        {P\left\{\xi_2 < y\right\}} = 
+        F_{\xi_1}(x/y) = \P({\xi_1 < x}/{\xi_2 < y}) = 
+        \frac{\P\left\{\xi_1 < x, \xi_2 < y\right\}}
+        {\P\left\{\xi_2 < y\right\}} = 
         \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_2}(y)}, F_{\xi_2}(y/x) = \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_1}(x)}
     \end{equation*}
 \end{definition}
@@ -29,12 +29,12 @@
 \subsection{Умовний закон розподілу дискретного випадкового вектора}
 Знову розглядаємо випадок $n=2$ та $\vec{\xi} = (\xi_1, \xi_2)^T$.
 
-Умовні розподіли координат задаються $P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
-\frac{P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{P\left\{\xi_2 = y_j\right\}}$ та \\ 
-$P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} = 
-\frac{P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{P\left\{\xi_1 = x_i\right\}}$.
+Умовні розподіли координат задаються $\P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
+\frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
+{\P\left\{\xi_2 = y_j\right\}}$ та \\ 
+$\P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} = 
+\frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
+{\P\left\{\xi_1 = x_i\right\}}$.
 
 \begin{example}
     Дискретний випадковий вектор має закон розподілу:
@@ -72,10 +72,10 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \hline
     $\xi_1$ & $-1$ & $0$ & $1$ \\
     \hline
-    $P\left\{\xi_1 / \xi_2 = 0\right\}$ & $1/4$ 
+    $\P\left\{\xi_1 / \xi_2 = 0\right\}$ & $1/4$ 
     & $2/4$ & $1/4$ \\
     \hline
-    $P\left\{\xi_1 / \xi_2 = 1\right\}$ & $2/6$ 
+    $\P\left\{\xi_1 / \xi_2 = 1\right\}$ & $2/6$ 
     & $3/6$ & $1/6$ \\
     \hline
 \end{tabular}
@@ -85,13 +85,13 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \hline
     $\xi_2$ & $0$ & $1$ \\
     \hline
-    $P\left\{\xi_2 / \xi_1 = -1\right\}$ & $1/3$ 
+    $\P\left\{\xi_2 / \xi_1 = -1\right\}$ & $1/3$ 
     & $2/3$ \\
     \hline
-    $P\left\{\xi_2 / \xi_1 = 0\right\}$ & $2/5$ 
+    $\P\left\{\xi_2 / \xi_1 = 0\right\}$ & $2/5$ 
     & $3/5$\\
     \hline
-    $P\left\{\xi_2 / \xi_1 = 1\right\}$ & $1/2$ 
+    $\P\left\{\xi_2 / \xi_1 = 1\right\}$ & $1/2$ 
     & $1/2$\\
     \hline
 \end{tabular}
@@ -102,16 +102,16 @@ $P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
     \emph{Умовним математичним сподіванням} випадкової величини $\xi_1$ 
     є математичне сподівання цієї випадкової величини за умови, що 
     $\xi_2$ набула певного значення.
-    $$E(\xi_1 / \xi_2 = y_j) =
+    $$\E(\xi_1 / \xi_2 = y_j) =
 \sum\limits_{i=1}^{n(\infty)}x_i 
-P\left\{\xi_1 = x_i / \xi_2 = y_j\right\}, 
-E(\xi_2 / \xi_1 = x_i) = \sum\limits_{j=1}^{n(\infty)}y_j 
-P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
+\P\left\{\xi_1 = x_i / \xi_2 = y_j\right\}, 
+\E(\xi_2 / \xi_1 = x_i) = \sum\limits_{j=1}^{n(\infty)}y_j 
+\P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 \end{definition}
 
 \begin{remark}
-    Якщо $\xi_1$ та $\xi_2$ незалежні, то $E(\xi_1 / \xi_2 = y_j) 
-    = E\xi_1$, $E(\xi_2 / \xi_1 = x_i) = E\xi_2$.
+    Якщо $\xi_1$ та $\xi_2$ незалежні, то $\E(\xi_1 / \xi_2 = y_j) 
+    = \E\xi_1$, $\E(\xi_2 / \xi_1 = x_i) = \E\xi_2$.
 \end{remark}
 
 Умовні математичні сподівання координат дискретного випадкового вектора є дискретними випадковими величинами, оскільки 
@@ -123,7 +123,7 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
     \begin{tabular}{c c}
         \begin{tabular}{|c|c|c|}
             \hline
-            $E(\xi_1 / \xi_2)$ & $-1/6$ & $0$ \\
+            $\E(\xi_1 / \xi_2)$ & $-1/6$ & $0$ \\
             \hline
             $p$ & $0.6$ & $0.4$ \\
             \hline
@@ -131,7 +131,7 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
         &
         \begin{tabular}{|c|c|c|c|}
             \hline
-            $E(\xi_2 / \xi_1)$ & $1/2$ & $3/5$ & $2/3$ \\
+            $\E(\xi_2 / \xi_1)$ & $1/2$ & $3/5$ & $2/3$ \\
             \hline
             $p$ & $0.2$ & $0.5$ & $0.3$ \\
             \hline
@@ -143,8 +143,8 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 
 У випадку $n = 2$, $\vec{\xi} = (\xi_1, \xi_2)^T$: 
 \begin{equation*}
-    P\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\} = 
-    \frac{P\{\vec{\xi} \in \Pi\}}{P\{y \leq \xi_2 < y + \Delta y\}} = 
+    \P\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\} = 
+    \frac{\P\{\vec{\xi} \in \Pi\}}{\P\{y \leq \xi_2 < y + \Delta y\}} = 
     \frac{f_{\vec{\xi}}(x,y)\Delta x \Delta y + 
     o(\sqrt{\Delta x^2 + \Delta y^2})}{f_{\xi_2}(y)\Delta y + o(\Delta y)}
 \end{equation*}
@@ -181,12 +181,12 @@ P\left\{\xi_2 = y_j / \xi_1 = x_i\right\}$$
 \subsection{Умовне математичне сподівання неперервного випадкового вектора}
 \emph{Умовні математичні сподівання} координат НВВ визначаються через умовні щільності:
 
-$$E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
-E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
+$$\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
+\E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
 
 \begin{definition}
-    Функції $\varphi(y) = E(\xi_1 / \xi_2 = y)$ та 
-    $\psi(x) = E(\xi_2 / \xi_1 = x)$ називаються \emph{лініями регресії}.
+    Функції $\varphi(y) = \E(\xi_1 / \xi_2 = y)$ та 
+    $\psi(x) = \E(\xi_2 / \xi_1 = x)$ називаються \emph{лініями регресії}.
 \end{definition}
 \begin{example}
     \begin{tabular}{c m{4cm}}
@@ -237,35 +237,35 @@ E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
 
     Умовні розподіли обох координат є рівномірними з параметрами $\left< y, 1\right>$ та $\left<0, x\right>$ відповідно.
 
-    $E\xi_1 = \int\limits_0^1 2x^2 dx = \frac{2}{3}$,
-    $E\xi_2 = \int\limits_0^1 2y(1-y) dy = \frac{1}{3}$.
+    $\E\xi_1 = \int\limits_0^1 2x^2 dx = \frac{2}{3}$,
+    $\E\xi_2 = \int\limits_0^1 2y(1-y) dy = \frac{1}{3}$.
     Знайдемо умовні математичні сподівання.
 
-    $E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x/y)dx =
+    $\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x/y)dx =
     \frac{1}{1-y} \int\limits_y^1 x dx = \frac{1}{1-y} \cdot \frac{1-y^2}{2} = \frac{1+y}{2}$, $y \in \left[ 0; 1\right)$.
 
-    $E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} y f_{\xi_2}(y/x)dy = 
+    $\E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} y f_{\xi_2}(y/x)dy = 
     \frac{1}{x} \int\limits_0^x y dy = \frac{1}{x} \cdot \frac{x^2}{2} = \frac{x}{2}$, $x \in \left( 0; 1\right]$.
 \end{example}
 \subsection{Формули повного математичного сподівання та дисперсії}
 \noindent\textbf{Формула повного математичного сподівання.}
-    $E(E(\xi_1 / \xi_2)) = E\xi_1$, $E(E(\xi_2 / \xi_1)) = E\xi_2$.
+    $\E(\E(\xi_1 / \xi_2)) = \E\xi_1$, $\E(\E(\xi_2 / \xi_1)) = \E\xi_2$.
 \begin{proof}
     Дискретний випадок:
 
-    $E(E(\xi_1 / \xi_2)) = \sum\limits_{j = 1}^m 
+    $\E(\E(\xi_1 / \xi_2)) = \sum\limits_{j = 1}^m 
     \left(
-        \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i / \xi_2 = y_j\}
-    \right) P\{\xi_2 = y_j\} = 
-    \sum\limits_{i=1}^n x_i P\{\xi_1 = x_i\} = E\xi_1$.
+        \sum\limits_{i=1}^n x_i \P\{\xi_1 = x_i / \xi_2 = y_j\}
+    \right) \P\{\xi_2 = y_j\} = 
+    \sum\limits_{i=1}^n x_i \P\{\xi_1 = x_i\} = \E\xi_1$.
 
     Неперервний випадок:
 
-    $E(E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
+    $\E(\E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
     \left(
         \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x / y) dx
     \right) f_{\xi_2}(y) dy
-    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = E\xi_1$.
+    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = \E\xi_1$.
 
     Для $\xi_2$ --- аналогічно.
 \end{proof}
@@ -278,17 +278,17 @@ E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
     \begin{enumerate}
         \item Дискретний випадок:
         
-        $E\xi_1 = -0.3 + 0.2 = -0.1$, $E(E(\xi_1 / \xi_2)) = -\frac{1}{6}
+        $\E\xi_1 = -0.3 + 0.2 = -0.1$, $\E(\E(\xi_1 / \xi_2)) = -\frac{1}{6}
         \cdot0.6 = -0.1$.
     
-        $E\xi_2 = 0.6$, $E(E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
+        $\E\xi_2 = 0.6$, $\E(\E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
         \frac{1}{2}\cdot\frac{3}{5} + \frac{1}{2} \cdot\frac{2}{10} = 
         0.6$.
         \item Неперервний випадок:
 
-        $E(E(\xi_1 / \xi_2)) = \int\limits_0^1 \frac{1+y}{2} \cdot 2(1-y) dy = \int\limits_0^1 (1-y^2) dy = \frac{2}{3} = E\xi_1$,
+        $\E(\E(\xi_1 / \xi_2)) = \int\limits_0^1 \frac{1+y}{2} \cdot 2(1-y) dy = \int\limits_0^1 (1-y^2) dy = \frac{2}{3} = \E\xi_1$,
 
-        $E(E(\xi_2 / \xi_1)) = \int\limits_0^1 \frac{x}{2} \cdot 2x dx = \int\limits_0^1 x^2 dx = \frac{1}{3} = E\xi_2$.
+        $\E(\E(\xi_2 / \xi_1)) = \int\limits_0^1 \frac{x}{2} \cdot 2x dx = \int\limits_0^1 x^2 dx = \frac{1}{3} = \E\xi_2$.
     \end{enumerate}
 \end{example}
 
@@ -301,26 +301,26 @@ E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
     \emph{Умовною дисперсією} дискретної випадкової величини $\xi_1$ 
     є дисперсія цієї випадкової величини за умови, що 
     $\xi_2$ набула певного значення.
-    $$D(\xi_1 / \xi_2 = y_j) = 
-    E((\xi_1 - E(\xi_1 / \xi_2 = y_j))^2/\xi_2 = y_j)$$
+    $$\D(\xi_1 / \xi_2 = y_j) = 
+    \E((\xi_1 - \E(\xi_1 / \xi_2 = y_j))^2/\xi_2 = y_j)$$
 \end{definition}
 
 \noindent\textbf{Формула повної дисперсії.}
-    Нехай $\xi_1$, $\xi_2$ --- випадкові величини та $D\xi_1 < +\infty$. 
+    Нехай $\xi_1$, $\xi_2$ --- випадкові величини та $\D\xi_1 < +\infty$. 
     Тоді
-    $D\xi_1 = E(D(\xi_1/\xi_2)) + D(E(\xi_1 / \xi_2))$.
+    $\D\xi_1 = \E(\D(\xi_1/\xi_2)) + \D(\E(\xi_1 / \xi_2))$.
 
 \begin{proof}
-    $D\xi_1 = E\xi_1^2 - (E \xi_1)^2 = 
-    E(E(\xi_1^2 / \xi_2)) - (E(E(\xi_1/\xi_2)))^2 = 
-    E(D(\xi_1/\xi_2) + (E(\xi_1/\xi_2))^2) - (E(E(\xi_1/\xi_2)))^2 = 
-    E(D(\xi_1 / \xi_2)) + (E(E(\xi_1/\xi_2)^2) - 
-    (E(E(\xi_1 / \xi_2)))^2) = E(D(\xi_1/\xi_2)) + D(E(\xi_1/\xi_2))$.
+    $\D\xi_1 = \E\xi_1^2 - (\E \xi_1)^2 = 
+    \E(\E(\xi_1^2 / \xi_2)) - (\E(\E(\xi_1/\xi_2)))^2 = 
+    \E(\D(\xi_1/\xi_2) + (\E(\xi_1/\xi_2))^2) - (\E(\E(\xi_1/\xi_2)))^2 = 
+    \E(\D(\xi_1 / \xi_2)) + (\E(\E(\xi_1/\xi_2)^2) - 
+    (\E(\E(\xi_1 / \xi_2)))^2) = \E(\D(\xi_1/\xi_2)) + \D(\E(\xi_1/\xi_2))$.
 \end{proof}
 
 
 %\begin{remark}
-%    В англомовній літературі також використовується назва Eve's law».
+%    В англомовній літературі також використовується назва \Eve's law».
 %\end{remark}
 
 \subsection{Випадок незалежних координат випадкового вектора}
@@ -334,15 +334,15 @@ $F_{\xi_2}(y/x) = F_{\xi_2}(y)$.
 
 \noindent\textbf{Дискретний випадок: }
 
-$P\{\xi_1 = x_i, \xi_2 = y_j\} = P\{\xi_1 = x_i\}\cdot P\{\xi_2 = y_j\}$ 
+$\P\{\xi_1 = x_i, \xi_2 = y_j\} = \P\{\xi_1 = x_i\}\cdot \P\{\xi_2 = y_j\}$ 
 $\forall \; i,j$.
 З цього випливає, що:
 
 \begin{enumerate}
-    \item $P\{\xi_1 = x_i / \xi_2 = y_j\} = 
-    P\{\xi_1 = x_i\}$.
-    \item $E(\xi_1 / \xi_2 = y_j) = E\xi_1$,
-    $E(\xi_2 / \xi_1 = x_i) = E\xi_2$.
+    \item $\P\{\xi_1 = x_i / \xi_2 = y_j\} = 
+    \P\{\xi_1 = x_i\}$.
+    \item $\E(\xi_1 / \xi_2 = y_j) = \E\xi_1$,
+    $\E(\xi_2 / \xi_1 = x_i) = \E\xi_2$.
 \end{enumerate}
 
 \noindent\textbf{Неперервний випадок: }
@@ -353,8 +353,8 @@ $f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
 \begin{enumerate}
     \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$,    
     $f_{\xi_2}(y/x) = f_{\xi_2}(y)$.
-    \item $E(\xi_1 / \xi_2 = y) = E\xi_1$, 
-    $E(\xi_2 / \xi_1 = x) = E\xi_2$.
+    \item $\E(\xi_1 / \xi_2 = y) = \E\xi_1$, 
+    $\E(\xi_2 / \xi_1 = x) = \E\xi_2$.
 \end{enumerate}
 
 Для $n$-вимірного випадку ($n > 2$):

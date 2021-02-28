@@ -5,7 +5,7 @@
 \noindent\textbf{Означення:}
     ДВВ $\xi$ розподілена за \emph{біноміальним законом}, 
     якщо набуває значень $0,1,...,n$ з ймовірностями \begin{equation}
-        P\left\{\xi = k\right\} = C_n^k p^k q^{n-k}, q = 1 - p
+        \P\left\{\xi = k\right\} = C_n^k p^k q^{n-k}, q = 1 - p
     \end{equation}
 \textbf{Коротке позначення:} $\xi \sim \mathrm{Bin}(n, p)$.
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
@@ -13,7 +13,7 @@
 Окремим важливим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
 За законом Бернуллі розподілені випадкові величини-індикатори $I_A = \begin{cases}
     0, & \text{подія A не відбулась}\\ 1, & \text{подія А відбулась}
-\end{cases}$ при $P(A) = p$.
+\end{cases}$ при $\P(A) = p$.
 
 \noindent\textbf{Ряд розподілу:}
 
@@ -63,16 +63,16 @@
 
 Для дослідження числових характеристик скористаємося генератрисою розподілу:
 
-$\varphi_\xi(z) = \sum\limits_{k=0}^{n} P\left\{\xi = k\right\} z^k = \sum\limits_{k=0}^{n} C_n^k p^k q^{n-k} z^k = (pz+q)^n$.
-$\varphi'_\xi(z) = np(pz+q)^{n-1}$, $\varphi''_\xi(z) = n(n-1)p^2(pz+q)^{n-2}$.
+$G_\xi(z) = \sum\limits_{k=0}^{n} \P\left\{\xi = k\right\} z^k = \sum\limits_{k=0}^{n} C_n^k p^k q^{n-k} z^k = (pz+q)^n$.
+$G'_\xi(z) = np(pz+q)^{n-1}$, $G''_\xi(z) = n(n-1)p^2(pz+q)^{n-2}$.
 
-$\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $\varphi''_\xi(1) + \varphi'_\xi(1) - \left( \varphi'_\xi(1)\right)^2 = n^2p^2 - np^2 + np - n^2p^2 = np(1-p) = npq$.
+$G'_\xi(1) = np(p+q)^{n-1} = np$, $G''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\right)^2 = n^2p^2 - np^2 + np - n^2p^2 = np(1-p) = npq$.
 Отже, знайдено значення математичного сподівання та дисперсії.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = np$.
-    \item $D\xi = npq$, $\sigma_\xi = \sqrt{npq}$.
+    \item $\E\xi = np$.
+    \item $\D\xi = npq$, $\sigma_\xi = \sqrt{npq}$.
     \item ${Mo}\xi = \begin{cases}
         \left[np+p\right], & \text{якщо } np+p \text{ не ціле}\\
         np+p, np-q, & \text{якщо } np+p \text{ ціле}
@@ -87,7 +87,7 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
 \noindent\textbf{Означення:}
     ДВВ $\xi$ розподілена за \emph{геометричним законом}, 
     якщо набуває значень $1,2,3,..$ з ймовірностями \begin{equation}
-        P\left\{\xi = k\right\} = pq^{k-1}, q = 1 - p
+        \P\left\{\xi = k\right\} = pq^{k-1}, q = 1 - p
     \end{equation}
     \textbf{Коротке позначення:} $\xi \sim \mathrm{Geom}(p)$.
     $p$ --- параметр закону, $p\in (0;1)$.
@@ -137,15 +137,15 @@ $\varphi'_\xi(1) = np(p+q)^{n-1} = np$, $\varphi''_\xi(1) = n(n-1)p^2 = n^2p^2 -
 
 Для дослідження числових характеристик скористаємося генератрисою розподілу:
 
-$\varphi_\xi(z) = \sum\limits_{k=1}^{\infty} P\left\{\xi = k\right\} z^k = \sum\limits_{k=1}^{\infty} pq^{k-1} z^k = \frac{pz}{1-qz}$, якщо $\left| qz\right|<1$.
-$\varphi'_\xi(z) = \frac{p}{(1-qz)^2}$, $\varphi''_\xi(z) = \frac{2pq}{(1-qz)^3}$.
-$\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''_\xi(1) + \varphi'_\xi(1) - \left( \varphi'_\xi(1)\right)^2 = \frac{2q}{p^2} + \frac{1}{p} - \frac{1}{p^2} = \frac{2q+p-1}{p^2} = \frac{q}{p^2}$.
+$G_\xi(z) = \sum\limits_{k=1}^{\infty} \P\left\{\xi = k\right\} z^k = \sum\limits_{k=1}^{\infty} pq^{k-1} z^k = \frac{pz}{1-qz}$, якщо $\left| qz\right|<1$.
+$G'_\xi(z) = \frac{p}{(1-qz)^2}$, $G''_\xi(z) = \frac{2pq}{(1-qz)^3}$.
+$G'_\xi(1) = \frac{1}{p}$, $G''_\xi(1) = \frac{2q}{p^2}$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\right)^2 = \frac{2q}{p^2} + \frac{1}{p} - \frac{1}{p^2} = \frac{2q+p-1}{p^2} = \frac{q}{p^2}$.
 Отже, знайдено значення математичного сподівання та дисперсії.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = \frac{1}{p}$.
-    \item $D\xi = \frac{q}{p^2}$, $\sigma_\xi = \frac{\sqrt{q}}{p}$.
+    \item $\E\xi = \frac{1}{p}$.
+    \item $\D\xi = \frac{q}{p^2}$, $\sigma_\xi = \frac{\sqrt{q}}{p}$.
     \item ${Mo}\xi = 1$.
     \item ${Me}\xi = \left[ \frac{-1}{\log_2(1-p)}\right]$.
 \end{enumerate}
@@ -156,23 +156,23 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
 \begin{exercise}
     Записати ряд розподілу, функцію розподілу, генетратрису та обчислити
     числові характеристики для іншого означення геометричного розподілу, 
-    де $\xi$ приймає значення $0,1,2,...$ з ймовірностями $P\left\{\xi = k\right\} = pq^k$.
+    де $\xi$ приймає значення $0,1,2,...$ з ймовірностями $\P\left\{\xi = k\right\} = pq^k$.
 \end{exercise}
-Геометричний розподіл \textbf{<<не має пам'яті>>}: $P\left\{\xi = n+m / \xi \geq n\right\} = P\left\{\xi = m\right\}$.
+Геометричний розподіл \textbf{<<не має пам'яті>>}: $\P\left\{\xi = n+m / \xi \geq n\right\} = \P\left\{\xi = m\right\}$.
 Це означає, що кількість минулих <<невдач>> не впливає на кількість майбутніх <<невдач>>.
 \begin{exercise}
     Довести цю властивість і те, що геометричний розподіл --- 
     єдиний дискретний розподіл, що <<не має пам'яті>>.
 \end{exercise}
 До геометричного закону можна звести \emph{закон розподілу Паскаля} $\xi \sim \mathrm{Pas}(a)$,
-що задається $P\left\{\xi = k\right\} = \frac{a^k}{(1+a)^{k+1}}, k = 0,1,2,..., a>0$,
-заміною $p=\frac{1}{a+1}$. Для нього $E\xi = a$, $D\xi = a + a^2$.
+що задається $\P\left\{\xi = k\right\} = \frac{a^k}{(1+a)^{k+1}}, k = 0,1,2,..., a>0$,
+заміною $p=\frac{1}{a+1}$. Для нього $\E\xi = a$, $\D\xi = a + a^2$.
 
 \subsection{Розподіл Пуассона}
 \noindent\textbf{Означення:}
     ДВВ $\xi$ розподілена за \emph{законом Пуассона}, 
     якщо набуває значень $0,1,2,..$ з ймовірностями \begin{equation}
-        P\left\{\xi = k\right\} = \frac{a^k}{k!}e^{-a}
+        \P\left\{\xi = k\right\} = \frac{a^k}{k!}e^{-a}
     \end{equation}
     \textbf{Коротке позначення:} $\xi \sim \mathrm{Poiss}(a)$.
     $a$ --- параметр закону, $a > 0$.
@@ -225,15 +225,15 @@ $\varphi'_\xi(1) = \frac{1}{p}$, $\varphi''_\xi(1) = \frac{2q}{p^2}$, $\varphi''
 
 Для дослідження числових характеристик скористаємося генератрисою розподілу:
 
-$\varphi_\xi(z) = \sum\limits_{k=0}^{\infty} P\left\{\xi = k\right\} z^k = e^{-a} \sum\limits_{k=0}^{\infty} \frac{a^k}{k!}z^k = e^{-a(1-z)}$.
-$\varphi'_\xi(z) = ae^{az-a}$, $\varphi''_\xi(z) = a^2e^{az-a}$.
-$\varphi'_\xi(1) = a$, $\varphi''_\xi(1) = a^2$, $\varphi''_\xi(1) + \varphi'_\xi(1) - \left( \varphi'_\xi(1)\right)^2 = a^2 + a - a^2 = a$.
+$G_\xi(z) = \sum\limits_{k=0}^{\infty} \P\left\{\xi = k\right\} z^k = e^{-a} \sum\limits_{k=0}^{\infty} \frac{a^k}{k!}z^k = e^{-a(1-z)}$.
+$G'_\xi(z) = ae^{az-a}$, $G''_\xi(z) = a^2e^{az-a}$.
+$G'_\xi(1) = a$, $G''_\xi(1) = a^2$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\right)^2 = a^2 + a - a^2 = a$.
 Отже, знайдено значення математичного сподівання та дисперсії.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = a$.
-    \item $D\xi = a$, $\sigma_\xi = \sqrt{a}$.
+    \item $\E\xi = a$.
+    \item $\D\xi = a$, $\sigma_\xi = \sqrt{a}$.
     \item ${Mo}\xi = \left[a\right]$.
     \item ${Me}\xi \approx \left[a + 1/3 - 0.02/a\right]$.
 \end{enumerate}
@@ -242,7 +242,7 @@ $\varphi'_\xi(1) = a$, $\varphi''_\xi(1) = a^2$, $\varphi''_\xi(1) + \varphi'_\x
 \emph{Потоком} називають послідовність подій, які наступають в певні моменти часу одна за одною.
 Потік характеризується випадковою величиною $\xi(t)$ --- 
 кількістю подій, що наступили протягом проміжку часу $\left[ 0; t\right)$.
-Ймовірності $P\left\{\xi(t) = m\right\}$ позначаються $p_m(t)$.
+Ймовірності $\P\left\{\xi(t) = m\right\}$ позначаються $p_m(t)$.
 
 Накладемо на потік такі вимоги:
 \begin{enumerate}
@@ -252,16 +252,16 @@ $\varphi'_\xi(1) = a$, $\varphi''_\xi(1) = a^2$, $\varphi''_\xi(1) + \varphi'_\x
     \item \emph{Відсутність післядії} --- якщо проміжки часу не перетинаються, то кількості подій,
     які за ці проміжки відбулися, є незалежними подіями.
     \item \emph{Ординарність} --- події наступають поодинці, тобто
-    $P\left\{\xi(t+\Delta t) - \xi(t) = 1\right\} = \lambda\cdot\Delta t + o(\Delta t)$
+    $\P\left\{\xi(t+\Delta t) - \xi(t) = 1\right\} = \lambda\cdot\Delta t + o(\Delta t)$
     ($\lambda > 0$ --- параметр інтенсивності) і 
-    $P\left\{\xi(t+\Delta t) - \xi(t) \geq 2\right\} = o(\Delta t)$.
+    $\P\left\{\xi(t+\Delta t) - \xi(t) \geq 2\right\} = o(\Delta t)$.
 \end{enumerate}
 \begin{definition}
     Потік, що має перелічені властивості, називається \emph{потоком Пуассона}.
 \end{definition}
 Отримаємо явний вираз для ймовірностей $p_m(t)$ у потоці Пуассона.
 
-Позначимо $\tilde{p}_k(t+\Delta t) = P\left\{\xi(t+\Delta t) - \xi(t) = k\right\}$.
+Позначимо $\tilde{p}_k(t+\Delta t) = \P\left\{\xi(t+\Delta t) - \xi(t) = k\right\}$.
 Тоді $p_m(t+\Delta t) = p_m(t)\cdot \tilde{p}_0(t+\Delta t) + p_{m-1}(t)\cdot \tilde{p}_1(t+\Delta t) +
 p_{m-2}(t)\cdot \tilde{p}_2(t+\Delta t) + ... + p_0(t)\cdot \tilde{p}_m(t+\Delta t)$ для $m \geq 1$,
 для $m=0$ $p_0(t+\Delta t) = p_0(t)\cdot\tilde{p}_0(t+\Delta t)$. Застосуємо ординарність:
@@ -287,7 +287,7 @@ $\begin{cases}
 
 \noindent Щоб розв'язати цю систему, введемо генератрису ймовірностей $p_m(t)$:
 
-$\varphi_\xi(z, t) = \sum\limits_{m=0}^{\infty} P\left\{\xi(t) = m\right\} z^m = \sum\limits_{m=0}^{\infty} p_m(t) z^m$ 
+$G_\xi(z, t) = \sum\limits_{m=0}^{\infty} \P\left\{\xi(t) = m\right\} z^m = \sum\limits_{m=0}^{\infty} p_m(t) z^m$ 
 
 \noindent Помножимо кожне рівняння отриманої системи на $z$ у відповідному степені та складемо:
 
@@ -296,15 +296,15 @@ $\sum\limits_{m=0}^{\infty} p'_m(t) z^m = -\lambda \sum\limits_{m=0}^{\infty} p_
 
 \noindent Отримали диференціальне рівняння для генератриси:
 
-$\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \varphi_\xi = -\lambda(1-z) \varphi_\xi$
+$\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambda(1-z) G_\xi$
 
-\noindent Його розв'язком буде $\varphi_\xi(z, t) = C(z) \cdot e^{-\lambda(1-z)t}$.
-Оскільки $\varphi_\xi(z, 0) = 1$, то $C(z) = 1$.
+\noindent Його розв'язком буде $G_\xi(z, t) = C(z) \cdot e^{-\lambda(1-z)t}$.
+Оскільки $G_\xi(z, 0) = 1$, то $C(z) = 1$.
 
-Отже, генератриса рівна $\varphi_\xi(z, t) = e^{-\lambda(1-z)t}$ --- це генератриса закону Пуассона з параметром $a=\lambda t$.
+Отже, генератриса рівна $G_\xi(z, t) = e^{-\lambda(1-z)t}$ --- це генератриса закону Пуассона з параметром $a=\lambda t$.
 
 Таким чином, $p_m(t) = \frac{(\lambda t)^m}{m!}e^{-\lambda t}$. 
-Тепер зрозумілою стає назва параметру $\lambda$ (<<інтенсивність>>): $E\xi = \lambda t$, $\lambda = \frac{E\xi}{t}$ --- середня кількість подій за одиницю часу.
+Тепер зрозумілою стає назва параметру $\lambda$ (<<інтенсивність>>): $\E\xi = \lambda t$, $\lambda = \frac{\E\xi}{t}$ --- середня кількість подій за одиницю часу.
 
 \subsection{Рівномірний розподіл}
 \noindent\textbf{Означення:}
@@ -322,57 +322,60 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
 
 \noindent \textbf{Крива розподілу:}
 
-\begin{tikzpicture}[yscale = 2]
-    \pgfmathsetmacro{\a}{1};
-    \pgfmathsetmacro{\b}{3};
-    \draw [->] (-2, 0) -- (5, 0);
-    \draw [->] (0, -0.5) -- (0, 1);
-    \draw [ultra thick] (\a, {1/(\b -\a)}) -- (\b, {1/(\b -\a)});
-    \draw [dashed] (\a, 0) -- (\a, {1/(\b -\a)});
-    \draw [dashed] (\b, 0) -- (\b, {1/(\b -\a)});
-    \draw [ultra thick] [->] (-2, 0) -- (\a, 0);
-    \draw [ultra thick] [<-] (\b, 0) -- (4.9, 0);
-    \node [below] at (\a, -0.03) {$a$};
-    \node [below] at (\b, 0) {$b$};
-    \draw [dashed] (0, {1/(\b -\a)}) -- (\a, {1/(\b -\a)});
-    \node [left] at (0, {1/(\b -\a)}) {$\frac{1}{b-a}$};
-    \node [below] at (5, 0) {$x$};
-    \node [left] at (0, 0.9) {$f_\xi(x)$};
-\end{tikzpicture}
+\begin{center}
+    \begin{tikzpicture}[yscale = 2]
+        \pgfmathsetmacro{\a}{1};
+        \pgfmathsetmacro{\b}{3};
+        \draw [->] (-2, 0) -- (5, 0);
+        \draw [->] (0, -0.5) -- (0, 1);
+        \draw [ultra thick] (\a, {1/(\b -\a)}) -- (\b, {1/(\b -\a)});
+        \draw [dashed] (\a, 0) -- (\a, {1/(\b -\a)});
+        \draw [dashed] (\b, 0) -- (\b, {1/(\b -\a)});
+        \draw [ultra thick] [->] (-2, 0) -- (\a, 0);
+        \draw [ultra thick] [<-] (\b, 0) -- (4.9, 0);
+        \node [below] at (\a, -0.03) {$a$};
+        \node [below] at (\b, 0) {$b$};
+        \draw [dashed] (0, {1/(\b -\a)}) -- (\a, {1/(\b -\a)});
+        \node [left] at (0, {1/(\b -\a)}) {$\frac{1}{b-a}$};
+        \node [below] at (5, 0) {$x$};
+        \node [left] at (0, 0.9) {$f_\xi(x)$};
+    \end{tikzpicture}
+\end{center}
 
 \noindent \textbf{Функція розподілу:}
-
-\begin{tabular}{c c}
-    $
-        F_\xi(x) = \begin{cases}
-            0, & x \leq a \\
-            \frac{x-a}{b-a}, & a< x \leq b \\
-            1, & x > b
-        \end{cases}
-    $ &
-    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=1.5]
-        \pgfmathsetmacro{\a}{1};
-    \pgfmathsetmacro{\b}{3};
-    \draw [->] (-2, 0) -- (5, 0);
-    \draw [->] (0, -0.5) -- (0, 1.2);
-    \draw [ultra thick] (-2, 0) -- (\a, 0);
-    \draw [domain=\a:\b, smooth, variable = \x, ultra thick] plot ({\x}, {(\x-\a)/(\b-\a)});
-    \draw [ultra thick] (\b, 1) -- (5, 1);
-    \node [below] at (\a, -0.03) {$a$};
-    \node [below] at (\b, 0) {$b$};
-    \node [below] at (5, 0) {$x$};
-    \node [left] at (0, 1.2) {$F_\xi(x)$};
-    \draw [dashed] (0, 1) -- (\b, 1);
-    \draw [dashed] (\b, 0) -- (\b, 1);
-    \node [left] at (0, 1) {$1$};
-    %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
-    \end{tikzpicture}
-\end{tabular}
+\begin{center}
+    \begin{tabular}{c c}
+        $
+            F_\xi(x) = \begin{cases}
+                0, & x \leq a \\
+                \frac{x-a}{b-a}, & a< x \leq b \\
+                1, & x > b
+            \end{cases}
+        $ &
+        \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=1.5]
+            \pgfmathsetmacro{\a}{1};
+        \pgfmathsetmacro{\b}{3};
+        \draw [->] (-2, 0) -- (5, 0);
+        \draw [->] (0, -0.5) -- (0, 1.2);
+        \draw [ultra thick] (-2, 0) -- (\a, 0);
+        \draw [domain=\a:\b, smooth, variable = \x, ultra thick] plot ({\x}, {(\x-\a)/(\b-\a)});
+        \draw [ultra thick] (\b, 1) -- (5, 1);
+        \node [below] at (\a, -0.03) {$a$};
+        \node [below] at (\b, 0) {$b$};
+        \node [below] at (5, 0) {$x$};
+        \node [left] at (0, 1.2) {$F_\xi(x)$};
+        \draw [dashed] (0, 1) -- (\b, 1);
+        \draw [dashed] (\b, 0) -- (\b, 1);
+        \node [left] at (0, 1) {$1$};
+        %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
+        \end{tikzpicture}
+    \end{tabular}
+\end{center}
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = \int\limits_{-\infty}^{+\infty} x f_\xi(x)dx = \int\limits_{a}^{b} \frac{x}{b-a}dx = \frac{a+b}{2}$.
-    \item $D\xi = E\xi^2 - (E\xi)^2 = \int\limits_{a}^{b} \frac{x^2}{b-a}dx - \frac{(a+b)^2}{4} = \frac{(b-a)^2}{12}$, $\sigma_\xi = \frac{b-a}{2\sqrt{3}}$.
+    \item $\E\xi = \int\limits_{-\infty}^{+\infty} x f_\xi(x)dx = \int\limits_{a}^{b} \frac{x}{b-a}dx = \frac{a+b}{2}$.
+    \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \int\limits_{a}^{b} \frac{x^2}{b-a}dx - \frac{(a+b)^2}{4} = \frac{(b-a)^2}{12}$, $\sigma_\xi = \frac{b-a}{2\sqrt{3}}$.
     \item ${Mo}\xi$ --- будь-яка точка з $\left<a; b\right>$.
     \item ${Me}\xi = \frac{a+b}{2}$.
     \item ${As}\xi = 0$.
@@ -395,51 +398,53 @@ $\frac{\partial \varphi_\xi}{\partial t} = - \lambda \varphi_\xi + \lambda z \va
     $\lambda > 0$ --- параметр закону.
 
 \noindent \textbf{Крива розподілу:}
-
-\begin{tikzpicture}[yscale = 2]
-    \pgfmathsetmacro{\l}{1};
-    \draw [->] (-2, 0) -- (5, 0);
-    \draw [->] (0, -0.5) -- (0, 1.2);
-    \draw [ultra thick] [->] (-2, 0) -- (0, 0);
-    \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {\l*e^(-\l*\x)});
-    \node [below] at (5, 0) {$x$};
-    \node [left] at (0, 1.2) {$f_\xi(x)$};
-    \node [below right] at (0, 0) {$0$};
-    \node [left] at (0, \l) {$\lambda$};
-\end{tikzpicture}
-
-\noindent \textbf{Функція розподілу:}
-
-\begin{tabular}{c c}
-    $
-        F_\xi(x) = \begin{cases}
-            0, & x \leq 0 \\
-            \lambda \int\limits_0^x e^{-\lambda t} dt = 1 - e^{-\lambda x}, & x> 0
-        \end{cases}
-        $ &
-    \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=2]
+\begin{center}
+    \begin{tikzpicture}[yscale = 2]
         \pgfmathsetmacro{\l}{1};
         \draw [->] (-2, 0) -- (5, 0);
         \draw [->] (0, -0.5) -- (0, 1.2);
-        \draw [ultra thick] (-2, 0) -- (0, 0);
-        \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {1 - e^(-\l*\x)});
+        \draw [ultra thick] [->] (-2, 0) -- (0, 0);
+        \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {\l*e^(-\l*\x)});
         \node [below] at (5, 0) {$x$};
-        \node [left] at (0, 1.2) {$F_\xi(x)$};
+        \node [left] at (0, 1.2) {$f_\xi(x)$};
         \node [below right] at (0, 0) {$0$};
-        \node [left] at (0, 1) {$1$};
-        \draw [dashed] (0, 1) -- (5, 1);
+        \node [left] at (0, \l) {$\lambda$};
     \end{tikzpicture}
-\end{tabular}
+\end{center}
+
+\noindent \textbf{Функція розподілу:}
+\begin{center}
+    \begin{tabular}{c c}
+        $
+            F_\xi(x) = \begin{cases}
+                \lambda \int\limits_0^x e^{-\lambda t} dt = 1 - e^{-\lambda x}, & x> 0 \\
+                0, & x \leq 0
+            \end{cases}
+            $ &
+        \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=2]
+            \pgfmathsetmacro{\l}{1};
+            \draw [->] (-2, 0) -- (5, 0);
+            \draw [->] (0, -0.5) -- (0, 1.2);
+            \draw [ultra thick] (-2, 0) -- (0, 0);
+            \draw [domain=0:5, smooth, variable = \x, ultra thick] plot ({\x}, {1 - e^(-\l*\x)});
+            \node [below] at (5, 0) {$x$};
+            \node [left] at (0, 1.2) {$F_\xi(x)$};
+            \node [below right] at (0, 0) {$0$};
+            \node [left] at (0, 1) {$1$};
+            \draw [dashed] (0, 1) -- (5, 1);
+        \end{tikzpicture}
+    \end{tabular}
+\end{center}
 
 Знайдемо всі \emph{початкові моменти} експоненційного розподілу.
 
-$E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{0}^{+\infty} x^k e^{-\lambda x}dx = \left[ \lambda x = t, dx = \frac{dt}{\lambda}\right]=
+$\E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{0}^{+\infty} x^k e^{-\lambda x}dx = \left[ \lambda x = t, dx = \frac{dt}{\lambda}\right]=
 \frac{\lambda}{\lambda^k \cdot \lambda} \int\limits_{0}^{+\infty} t^k e^{-t} dt = \frac{\Gamma(k+1)}{\lambda^k} = \frac{k!}{\lambda^k}$.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = \frac{1}{\lambda}$.
-    \item $D\xi = E\xi^2 - (E\xi)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$, $\sigma_\xi = \frac{1}{\lambda}$.
+    \item $\E\xi = \frac{1}{\lambda}$.
+    \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$, $\sigma_\xi = \frac{1}{\lambda}$.
     \item ${Mo}\xi = 0$.
     \item ${Me}\xi = \frac{\ln2}{\lambda}$.
     \item ${As}\xi = 2$ --- не залежить від $\lambda$, бо $\beta_3 = \alpha_3 - 3\alpha_2 \alpha_1 + 2 \alpha_1^3 = \frac{2}{\lambda^3}$.
@@ -463,9 +468,9 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 тягнувся час $\tau$, то проміжок $T_1 = T - \tau$ розподілений так само --- 
 за експоненційним законом з тим самим параметром.
 \begin{gather*}
-    F_{T_1}(t) = P\left\{T_1 < t / T \geq \tau\right\} = 
-    \frac{P\left\{(T_1 < t) \cap (T \geq \tau)\right\}}{P\left\{ T \geq \tau \right\}} =
-    \frac{P{\left\{\tau \leq T < t +\tau\right\}}}{1 - P\left\{ T < \tau \right\}} = \\
+    F_{T_1}(t) = \P\left\{T_1 < t / T \geq \tau\right\} = 
+    \frac{\P\left\{(T_1 < t) \cap (T \geq \tau)\right\}}{\P\left\{ T \geq \tau \right\}} =
+    \frac{\P{\left\{\tau \leq T < t +\tau\right\}}}{1 - \P\left\{ T < \tau \right\}} = \\
     \frac{F_T(t+\tau) - F_T(\tau)}{1-F_T(\tau)} = 
     \frac{1-e^{-\lambda (t+\tau)} - (1 - e^{-\lambda \tau})}{1-(1-e^{-\lambda \tau})} =
     \frac{e^{-\lambda \tau}(1-e^{-\lambda t})}{e^{-\lambda \tau}} = 1-e^{-\lambda t}
@@ -483,15 +488,15 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     Нехай в момент часу $t=0$ увімкнули прилад. Припустимо, що умовна ймовірність виходу з ладу
     приладу в інтервалі часу $\left[ t; t+\Delta t\right)$ за умови, що до часу $t$ він працював,
     пропорційна $\Delta t$ і рівна $\lambda\cdot \Delta t + o(\Delta t)$. Нехай $\xi$ --- час безвідмовної роботи,
-    покладемо $Q(t) = P\left\{\xi \geq t\right\}$.
-    $Q(t+\Delta t) = P\left\{\xi \geq t + \Delta t\right\} = P\left\{\xi \geq t\right\} \cdot P\left\{\xi \geq t+\Delta t / \xi \geq t\right\} = 
+    покладемо $Q(t) = \P\left\{\xi \geq t\right\}$.
+    $Q(t+\Delta t) = \P\left\{\xi \geq t + \Delta t\right\} = \P\left\{\xi \geq t\right\} \cdot \P\left\{\xi \geq t+\Delta t / \xi \geq t\right\} = 
     Q(t) \cdot (1 - \lambda\cdot \Delta t + o(\Delta t))$.
     $\frac{Q(t+\Delta t) - Q(t)}{\Delta t} = -\lambda Q(t) + \frac{o(\Delta t)}{\Delta t} \cdot Q(t)$,
     при $\Delta t \rightarrow 0$ отримаємо $Q'(t) = -\lambda Q(t)$.
     Розв'язком цього диференціального рівняння буде $Q(t) = C\cdot e^{-\lambda t}$.
     Оскільки вважаємо, що в момент часу $t=0$ прилад працював, то $Q(0) = 1$ і $C=1$.
 
-    Тоді $F_\xi(t) = P\left\{ \xi < t\right\} = 1 - P\left\{ \xi \geq t\right\} = 1 - Q(t) = \begin{cases}
+    Тоді $F_\xi(t) = \P\left\{ \xi < t\right\} = 1 - \P\left\{ \xi \geq t\right\} = 1 - Q(t) = \begin{cases}
         1 - e^{-\lambda t}, & t \geq 0 \\
         0, & t < 0
     \end{cases}$. Отже, $\xi \sim \mathrm{Exp}(\lambda)$.
@@ -499,10 +504,10 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 \begin{example}
     Яка ймовірність того, що людина проживе 100 років? Нехай $\xi$ --- час життя людини.
-    Оскільки $P\left\{\xi = 100\right\} = 0$, знайдемо $P\left\{ \xi \geq 100\right\}$.
-    $P\left\{ \xi \geq 100\right\} = e^{-\lambda \cdot 100}$, $\lambda = \text{?}$.
-    Оскільки $\lambda = \frac{1}{E\xi}$, то, прийнявши $E\xi = 70$ (середня тривалість життя),
-    отримаємо $P\left\{ \xi \geq 100\right\} = e^{-100/70} \approx 0.24$.
+    Оскільки $\P\left\{\xi = 100\right\} = 0$, знайдемо $\P\left\{ \xi \geq 100\right\}$.
+    $\P\left\{ \xi \geq 100\right\} = e^{-\lambda \cdot 100}$, $\lambda = \text{?}$.
+    Оскільки $\lambda = \frac{1}{\E\xi}$, то, прийнявши $\E\xi = 70$ (середня тривалість життя),
+    отримаємо $\P\left\{ \xi \geq 100\right\} = e^{-100/70} \approx 0.24$.
 \end{example}
 
 \subsection{Гауссівський (нормальний) розподіл}
@@ -519,27 +524,28 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     Розподіл $\mathrm{N}(0, 1)$ називають стандартним гауссівським розподілом.
 
 \noindent \textbf{Крива розподілу:}
-
-\begin{tikzpicture}[yscale = 4, xscale = 2]
-    \pgfmathsetmacro{\a}{2.5};
-    \pgfmathsetmacro{\s}{1}
-    \draw [->] (-1, 0) -- (5, 0);
-    \draw [->] (0, -0.2) -- (0, 0.5);
-    \draw [dashed] (\a, 0) -- (\a, 0.398942280401/\s);
-    \draw [dashed] (\a-\s, 0) -- (\a-\s, 0.241970724519/\s);
-    \draw [dashed] (\a+\s, 0) -- (\a+\s, 0.241970724519/\s);
-    \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
-    \node [below] at (5, 0) {$x$};
-    \node [below] at (\a, -0.025) {$a$};
-    \node [below] at (\a-\s, 0) {$a - \sigma$};
-    \node [below] at (\a+\s, 0) {$a + \sigma$};
-    \node [below right] at (0, 0) {$0$};
-    \node [left] at (0, 0.5) {$f_\xi(x)$};
-\end{tikzpicture}
+\begin{center}
+    \begin{tikzpicture}[yscale = 4, xscale = 2]
+        \pgfmathsetmacro{\a}{2.5};
+        \pgfmathsetmacro{\s}{1}
+        \draw [->] (-1, 0) -- (5, 0);
+        \draw [->] (0, -0.2) -- (0, 0.5);
+        \draw [dashed] (\a, 0) -- (\a, 0.398942280401/\s);
+        \draw [dashed] (\a-\s, 0) -- (\a-\s, 0.241970724519/\s);
+        \draw [dashed] (\a+\s, 0) -- (\a+\s, 0.241970724519/\s);
+        \draw [domain=-1:5, smooth, variable = \x, ultra thick] plot ({\x}, {0.398942280401/\s * e^(-(\x-\a)^2/(2*\s^2))});
+        \node [below] at (5, 0) {$x$};
+        \node [below] at (\a, -0.025) {$a$};
+        \node [below] at (\a-\s, 0) {$a - \sigma$};
+        \node [below] at (\a+\s, 0) {$a + \sigma$};
+        \node [below right] at (0, 0) {$0$};
+        \node [left] at (0, 0.5) {$f_\xi(x)$};
+    \end{tikzpicture}
+\end{center}
 
 \noindent \textbf{Зміст параметрів $a$ та $\sigma^2$:}
 \begin{enumerate}
-    \item $E\xi = 
+    \item $\E\xi = 
     \frac{1}{\sqrt{2\pi}\sigma}
     \int\limits_{-\infty}^{+\infty}x e^{-\frac{(x-a)^2}{2\sigma^2}} dx 
     = \left[ \frac{x-a}{\sigma \sqrt{2}} = t, \; dx = \sigma\sqrt{2}dt \right] = 
@@ -550,7 +556,7 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
     \int\limits_{-\infty}^{+\infty}e^{-t^2}dt =
     \left[\text{інтеграл Ейлера-Пуассона}\right] = a$.
     \item Знайдемо всі центральні моменти:
-    $\beta_k = E(\xi - E\xi)^k = 
+    $\beta_k = \E(\xi - \E\xi)^k = 
     \frac{1}{\sigma\sqrt{2\pi}}
     \int\limits_{-\infty}^{+\infty}(x-a)^k 
     e^{-\frac{(x-a)^2}{2\sigma^2}} dx = \left[
@@ -583,8 +589,8 @@ $E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \lambda \int\limits_{
 
 \noindent \textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = Mo\xi = Me\xi = a$.
-    \item $D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\cdot\Gamma\left(\frac{3}{2}\right) 
+    \item $\E\xi = Mo\xi = Me\xi = a$.
+    \item $\D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\cdot\Gamma\left(\frac{3}{2}\right) 
     = \sigma^2$, $\sigma_\xi = \sigma$.
     \item $As\xi = 0$.
     \item $Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 
@@ -681,17 +687,17 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 
 \noindent \textbf{Робочі формули для розв'язання задач:}
 \begin{enumerate}
-    \item $P\left\{\xi \in \left<\alpha; \beta\right>\right\} 
+    \item $\P\left\{\xi \in \left<\alpha; \beta\right>\right\} 
     = F_\xi(\beta) - F_\xi(\alpha) = \Phi\left(\frac{\beta - a}{\sigma}\right)
     - \Phi\left(\frac{\alpha - a}{\sigma}\right)$.
-    \item $P\left\{\left| \xi - a \right| < \varepsilon\right\} = 
-    P\left\{\xi \in \left(a - \varepsilon, a + \varepsilon\right)\right\} = 
+    \item $\P\left\{\left| \xi - a \right| < \varepsilon\right\} = 
+    \P\left\{\xi \in \left(a - \varepsilon, a + \varepsilon\right)\right\} = 
     \Phi\left(\frac{a + \epsilon - a}{\sigma}\right)
     - \Phi\left(\frac{a - \epsilon - a}{\sigma}\right) = 
     2\Phi(\frac{\varepsilon}{\sigma})$.
     \item \emph{<<Правило $3\sigma$>>}: 
-    $P\left\{\left| \xi - a \right| < 3\sigma\right\} = 
-    P\left\{\xi \in \left( a-3\sigma; a+3\sigma\right)\right\} = 2\Phi\left(3\right)
+    $\P\left\{\left| \xi - a \right| < 3\sigma\right\} = 
+    \P\left\{\xi \in \left( a-3\sigma; a+3\sigma\right)\right\} = 2\Phi\left(3\right)
     \approx 0.9973$.
 
     Майже всі значення випадкової величини, розподіленої за 
@@ -716,7 +722,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 \end{remark}
 \noindent \textbf{Крива розподілу:}
 
-\begin{tabular}{c c}
+\begin{center}
     \begin{tikzpicture}[yscale = 7, xscale = 0.5, baseline={(current bounding box.center)}]
         \pgfmathsetmacro{\a}{2};
         \pgfmathsetmacro{\b}{1};
@@ -727,13 +733,12 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
         \node [below] at (20, 0) {$x$};
         \node [left] at (0, 0.4) {$f_\xi(x)$};
         \node [below left] at (0, 0) {$0$};
-    \end{tikzpicture} &
-    \begin{tabular}{c}
-        $\alpha = 2$ \\ $\beta = 1$
-    \end{tabular}
-\end{tabular}
+        \node at (18, 0.25) {$\alpha = 2$};
+        \node at (18, 0.19) {$\beta = 1$};
+    \end{tikzpicture} 
+\end{center}
 
-\begin{tabular}{c c}
+\begin{center}
     \begin{tikzpicture}[yscale = 5, xscale = 0.5, baseline={(current bounding box.center)}]
         \pgfmathsetmacro{\a}{1};
         \pgfmathsetmacro{\b}{0.5};
@@ -744,11 +749,10 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
         \node [below] at (20, 0) {$x$};
         \node [left] at (0, 0.6) {$f_\xi(x)$};
         \node [below right] at (0, 0) {$0$};
-    \end{tikzpicture} &
-    \begin{tabular}{c}
-        $\alpha = 1$ \\ $\beta = \frac{1}{2}$
-    \end{tabular}
-\end{tabular}
+        \node at (18, 0.375) {$\alpha = 1$};
+        \node at (18, 0.285) {$\beta = 1/2$};
+    \end{tikzpicture} 
+\end{center}
 
 \noindent \textbf{Функція розподілу:}
 \nopagebreak
@@ -796,16 +800,16 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ --- не береться в елемента
 
 Знайдемо всі \emph{початкові моменти} гамма-розподілу.
 
-$E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^k x^{\alpha-1} e^{-\beta x} dx = 
+$\E\xi^k = \int\limits_{-\infty}^{+\infty} x^k f_\xi(x)dx = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^k x^{\alpha-1} e^{-\beta x} dx = 
 \left[ \beta x = t\right] = \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{\beta^k\cdot \beta^{\alpha}} \int\limits_0^{+\infty} t^{k+\alpha-1} e^{-t} dt = 
 \frac{1}{\Gamma(\alpha) \cdot \beta^k} \int\limits_0^{+\infty} t^{k+\alpha-1} e^{-t} dt = \frac{\Gamma(\alpha+k)}{\Gamma(\alpha) \cdot \beta^k}$.
-Зокрема, $E\xi = \frac{\Gamma(\alpha+1)}{\Gamma(\alpha) \cdot \beta} = \frac{\alpha}{\beta}$,
-$E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alpha+1)\alpha}{\beta^2}$.
+Зокрема, $\E\xi = \frac{\Gamma(\alpha+1)}{\Gamma(\alpha) \cdot \beta} = \frac{\alpha}{\beta}$,
+$\E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alpha+1)\alpha}{\beta^2}$.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $E\xi = \frac{\alpha}{\beta}$.
-    \item $D\xi = E\xi^2 - (E\xi)^2 = \frac{(\alpha+1)\alpha}{\beta^2} - \frac{\alpha^2}{\beta^2} = \frac{\alpha}{\beta^2}$, $\sigma_\xi = \frac{\sqrt{\alpha}}{\beta}$.
+    \item $\E\xi = \frac{\alpha}{\beta}$.
+    \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \frac{(\alpha+1)\alpha}{\beta^2} - \frac{\alpha^2}{\beta^2} = \frac{\alpha}{\beta^2}$, $\sigma_\xi = \frac{\sqrt{\alpha}}{\beta}$.
     \item ${Mo}\xi = \frac{\alpha-1}{\beta}$.
     \item ${Me}\xi$ --- немає виразу у замкненій формі.
     \item ${As}\xi = \frac{2}{\sqrt{\alpha}}$.
