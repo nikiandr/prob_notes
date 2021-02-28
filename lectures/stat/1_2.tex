@@ -22,49 +22,49 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
  \begin{definition}
     Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{незміщеною}, якщо
     \begin{gather}\label{estim_unbiased}
-        E\theta^*_n = \theta \text{ для всіх } n\in\mathbb{N}
+        \E\theta^*_n = \theta \text{ для всіх } n\in\mathbb{N}
     \end{gather} 
-    і \emph{асимптотично незміщеною}, якщо $\underset{n\to\infty}{\lim} E\theta^*_n = \theta$. 
+    і \emph{асимптотично незміщеною}, якщо $\underset{n\to\infty}{\lim} \E\theta^*_n = \theta$. 
  \end{definition}
  \begin{example} 
     Розглянемо деякі важливі незміщені оцінки.
     \begin{enumerate}
         \item \emph{Вибіркове середнє} --- незміщена оцінка математичного сподівання:
-        $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, $E\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n E\xi_k = \frac{1}{n} \cdot{n} \cdot{E\xi} = E\xi$,
+        $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, $\E\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \E\xi_k = \frac{1}{n} \cdot{n} \cdot{\E\xi} = \E\xi$,
         оскільки всі $\xi_k$ однаково розподілені.
-        \item \emph{Вибіркова дисперсія} --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $E\xi$:
-        $D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2$, 
-        $E\left( D^* \xi\right) = \frac{1}{n}\sum\limits_{k=1}^n E\left(\xi_k - E\xi \right)^2 = D\xi$ знову через однаковий розподіл $\xi_k$.
+        \item \emph{Вибіркова дисперсія} --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $\E\xi$:
+        $\D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2$, 
+        $\E\left( \D^* \xi\right) = \frac{1}{n}\sum\limits_{k=1}^n \E\left(\xi_k - \E\xi \right)^2 = \D\xi$ знову через однаковий розподіл $\xi_k$.
         \item Дослідимо вибіркову дисперсію, але у випадку невідомого математичного сподівання. 
         \begin{gather*}
-            D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2 = 
-            \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - E\xi) + (\overline{\xi} - E\xi) \right)^2 =  \\
-            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2 - 2\left(\overline{\xi} - E\xi\right)\cdot 
-            \underbrace{\frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi\right)}_{\overline{\xi} - E\xi} + \left(\overline{\xi} - E\xi\right)^2 = \\
-            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2 - \left(\overline{\xi} - E\xi\right)^2
+            \D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2 = 
+            \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - \E\xi) + (\overline{\xi} - \E\xi) \right)^2 =  \\
+            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - 2\left(\overline{\xi} - \E\xi\right)\cdot 
+            \underbrace{\frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi\right)}_{\overline{\xi} - \E\xi} + \left(\overline{\xi} - \E\xi\right)^2 = \\
+            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - \left(\overline{\xi} - \E\xi\right)^2
         \end{gather*}
         Перший доданок --- це формула для вибіркової дисперсії при відомому математичному сподіванні, а 
-        $E\xi = E\overline{\xi}$, тому
+        $\E\xi = \E\overline{\xi}$, тому
         \begin{gather*}
-            E\left( D^* \xi\right) = D\xi - E\left(\overline{\xi} - E\xi\right)^2= D\xi - D\overline{\xi} \\
-            D\overline{\xi} = D\left(\frac{1}{n}\sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n D\xi_k = \frac{1}{n} D\xi
+            \E\left( \D^* \xi\right) = \D\xi - \E\left(\overline{\xi} - \E\xi\right)^2= \D\xi - \D\overline{\xi} \\
+            \D\overline{\xi} = \D\left(\frac{1}{n}\sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n \D\xi_k = \frac{1}{n} \D\xi
         \end{gather*}
-        Дві останні рівності одержані через незалежність та однаковий розподіл $\xi_k$. Отже, маємо $E\left( D^* \xi\right) = \left( 1- \frac{1}{n}\right) D\xi$,
-        тому ця оцінка є лише асимптотично незміщеною. Проте, оцінка $D^{**}\xi = \frac{n}{n-1} D^*\xi$ буде незміщеною.
-        Таким чином, якщо $E\xi$ невідоме, то \emph{виправлена вибіркова дисперсія} 
-        $D^{**}\xi = \frac{1}{n-1} \sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2$ є незміщеною оцінкою дисперсії.
+        Дві останні рівності одержані через незалежність та однаковий розподіл $\xi_k$. Отже, маємо $\E\left( \D^* \xi\right) = \left( 1- \frac{1}{n}\right) \D\xi$,
+        тому ця оцінка є лише асимптотично незміщеною. Проте, оцінка $\D^{**}\xi = \frac{n}{n-1} \D^*\xi$ буде незміщеною.
+        Таким чином, якщо $\E\xi$ невідоме, то \emph{виправлена вибіркова дисперсія} 
+        $\D^{**}\xi = \frac{1}{n-1} \sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2$ є незміщеною оцінкою дисперсії.
         \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, перевіримо незміщеність $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$.
-        Знайдемо $Ea^*_n$. Як відомо, 
+        Знайдемо $\E a^*_n$. Як відомо, 
         $f_{\min}(x) = n \left(1-F_{\xi}(x)\right)^{n-1} f_{\xi}(x) = n\left( 1- \frac{x-a}{b-a}\right)^{n-1}\frac{1}{b-a} = n\cdot\frac{(b-x)^{n-1}}{(b-a)^n}$, якщо
         $x \in \left< a; b\right>$, та $0$ інакше.
         \begin{gather*}
-            Ea^*_n = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
+            \E a^*_n = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
             \frac{n}{(b-a)^n} \int_0^{b-a} (b-t)t^{n-1} dt = \\
             = \frac{n}{(b-a)^n} \left.\left( \frac{bt^n}{n} - \frac{t^{n+1}}{n+1}\right)\right|_0^{b-a} = 
             \frac{n}{(b-a)^n} \left(\frac{b(b-a)^n}{n} - \frac{(b-a)^{n+1}}{n+1}\right) = \\
             = b - \frac{n(b-a)}{n+1} = \frac{bn + b - nb + na}{n+1} = a \cdot \frac{n}{n+1} + \frac{b}{n+1} \neq a
          \end{gather*}
-         Але $\underset{n\to\infty}{\lim} Ea^*_n = a$, тому $a^*_n$ є асимптотично незміщеною оцінкою.
+         Але $\underset{n\to\infty}{\lim} \E a^*_n = a$, тому $a^*_n$ є асимптотично незміщеною оцінкою.
     \end{enumerate}
  \end{example}
  \begin{exercise}
@@ -76,21 +76,21 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 \begin{definition}
     Точкова оцінка $\theta^*$ параметру $\theta$ називається \emph{конзистентною}, якщо
     \begin{gather}\label{estim_consis}
-        \forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}= 0
-        \Leftrightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta, n \to \infty
+        \forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} \P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}= 0
+        \Longleftrightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta, n \to \infty
     \end{gather}
 \end{definition}
 Конзистентність оцінки можна перевіряти за означенням. Але для незміщених та асимптотично незміщених оцінок є
 \emph{достатня умова} конзистентності.
 \begin{proposition*}
-    Якщо $\theta^*_n$ --- незміщена чи асимптотично незміщена оцінка та $D\theta^*_n \to 0$, $n \to \infty$,
+    Якщо $\theta^*_n$ --- незміщена чи асимптотично незміщена оцінка та $\D\theta^*_n \to 0$, $n \to \infty$,
     то ця оцінка є конзистентною.
 \end{proposition*}
 \begin{proof}
     Якщо $\theta^*_n$ незміщена, то 
-    $P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}=P\left\{|\theta^*_n - E\theta^*_n| \geq \varepsilon\right\} 
-    \leq \frac{D\theta^*_n}{\varepsilon^2} \to 0$.
-    Якщо $\theta^*_n$ асимптотично незміщена, то $\underset{n\to\infty}{\lim} E\theta^*_n = \theta$,
+    $\P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}=\P\left\{|\theta^*_n - \E\theta^*_n| \geq \varepsilon\right\} 
+    \leq \frac{\D\theta^*_n}{\varepsilon^2} \to 0$.
+    Якщо $\theta^*_n$ асимптотично незміщена, то $\underset{n\to\infty}{\lim} \E\theta^*_n = \theta$,
     звідки за критерієм збіжності в середньому квадратичному до константи маємо 
     $\theta^*_n \overset{\text{СК}}{\longrightarrow} \theta \Rightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta$.
 \end{proof}
@@ -103,17 +103,17 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     \begin{enumerate}
         \item \emph{Вибіркове середнє} $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ є конзистентною оцінкою
         за законом великих чисел (і навіть сильно конзистентною).
-        \item \emph{Вибіркова дисперсія} $D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - E\xi \right)^2$
-        є незміщеною оцінкою дисперсії в разі відомого $E\xi$. 
-        $D\left(D^*\xi\right) = \frac{1}{n^2}\sum\limits_{k=1}^n D\left(\xi_k - E\xi \right)^2 =
-        \frac{1}{n} D\left(\xi - E\xi \right)^2 \to 0, n\to\infty$, тому ця оцінка конзистентна.
-        \item \emph{Виправлена вибіркова дисперсія} $D^{**}\xi = \frac{n}{n-1} D^*\xi$ є незміщеною оцінкою дисперсії в разі невідомого $E\xi$. 
-        $D\left(D^{**}\xi\right) = \left(\frac{n}{n-1} \right)^2 \cdot D\left(D^*\xi\right) \to 0, n\to\infty$, тому ця оцінка конзистентна.
+        \item \emph{Вибіркова дисперсія} $\D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2$
+        є незміщеною оцінкою дисперсії в разі відомого $\E\xi$. 
+        $\D\left(\D^*\xi\right) = \frac{1}{n^2}\sum\limits_{k=1}^n \D\left(\xi_k - \E\xi \right)^2 =
+        \frac{1}{n} \D\left(\xi - \E\xi \right)^2 \to 0, n\to\infty$, тому ця оцінка конзистентна.
+        \item \emph{Виправлена вибіркова дисперсія} $\D^{**}\xi = \frac{n}{n-1} \D^*\xi$ є незміщеною оцінкою дисперсії в разі невідомого $\E\xi$. 
+        $\D\left(\D^{**}\xi\right) = \left(\frac{n}{n-1} \right)^2 \cdot \D\left(\D^*\xi\right) \to 0, n\to\infty$, тому ця оцінка конзистентна.
         \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$ --- асимптотично незміщена оцінка $a$.
         Перевірятимемо конзистентність за означенням:
         \begin{gather*}
-            \varepsilon > 0, \; P\left\{|a^*_n - a| > \varepsilon\right\} = 
-            P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} = \int_{a}^{a+\varepsilon} f_{\min}(x) dx = \\
+            \varepsilon > 0, \; \P\left\{|a^*_n - a| > \varepsilon\right\} = 
+            \P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} = \int_{a}^{a+\varepsilon} f_{\min}(x) dx = \\
             = \frac{n}{(b-a)^n}\int_{a}^{a+\varepsilon} (b-x)^{n-1} dx =
             -\frac{n}{(b-a)^n} \cdot \left. \frac{(b-x)^n}{n} \right|_{a}^{a+\varepsilon} = \\
             = \frac{1}{(b-a)^n} \cdot \left( (b-a)^n  - (b-a-\varepsilon)^n\right) = 
@@ -140,7 +140,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     Оцінка $\theta^*_{\text{еф}}$ називається
     \emph{ефективною}, якщо 
     \begin{gather}\label{estim_eff}
-        D\theta^*_{\text{еф}} = \underset{\theta^* \in \Theta_n}{\inf} D\theta^*
+        \D\theta^*_{\text{еф}} = \underset{\theta^* \in \Theta_n}{\inf} \D\theta^*
     \end{gather}
 \end{definition}
 Означення ефективності не надто сприяє дослідженню оцінки. По-перше, не завжди
@@ -148,15 +148,15 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 з $\Theta_n$. Перевіряти ефективність оцінок допомагає нерівність Рао-Крамера.
 
 \begin{theorem*}[нерівність Рао-Крамера]
-    Якщо $\theta^*$ --- незміщена оцінка, то $D\theta^* \geq \frac{1}{\mathcal{I}(\theta)}$, 
-    де $\mathcal{I}(\theta) = E\left( \frac{\partial \ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}\right)^2$ --- 
+    Якщо $\theta^*$ --- незміщена оцінка, то $\D\theta^* \geq \frac{1}{\mathcal{I}(\theta)}$, 
+    де $\mathcal{I}(\theta) = \E\left( \frac{\partial \ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}\right)^2$ --- 
     {<<кількість інформації за Фішером>>}. Для ефективної оцінки досягається рівність. Тут
     $\mathcal{L}(\vec{\xi}, \theta)$ --- функція правдоподібності, що залежить від випадкової вибірки $\vec{\xi}$ та 
     невідомого параметру $\theta$. 
 \end{theorem*}
 \begin{proof}
     Доведемо цю нерівність у випадку неперервної ГС. 
-    За припущенням про незміщеність $$E\theta^* = \int_{\mathbb{R}^n}\theta^*(\vec{x}) f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x} = \theta$$
+    За припущенням про незміщеність $$\E\theta^* = \int_{\mathbb{R}^n}\theta^*(\vec{x}) f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x} = \theta$$
     З іншого боку, $$ \theta = \theta \cdot 1 = \theta \cdot \int_{\mathbb{R}^n}f_{\vec{\xi}}(\vec{x}, \theta) d\vec{x}$$
     Отже, маємо рівність, яку продиференціюємо по $\theta$: 
     \begin{gather*}
@@ -169,10 +169,10 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     \end{gather*}
     Оскільки $\frac{\partial f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta} \frac{1}{f_{\vec{\xi}}(\vec{x}, \theta)} = \frac{\partial\ln f_{\vec{\xi}}(\vec{x}, \theta)}{\partial \theta}$,
     а у випадку неперервної ГС $\mathcal{L}(\vec{\xi}, \theta) = \prod\limits_{k=1}^n f_{\xi}(\xi_k, \theta) = f_{\vec{\xi}}(\vec{\xi}, \theta)$, останню рівність можна записати у вигляді 
-    $1 = E\eta_1 \eta_2$, де $\eta_1 = \theta^*(\vec{\xi}) -\theta$, $\eta_2 = \frac{\partial\ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}$.
-    Оскільки $\left( E\eta_1 \eta_2 \right)^2 \leq E\eta_1^2 \cdot E\eta_2^2$, маємо $1 \leq D\theta^* \cdot \mathcal{I}(\theta)$, що і треба було довести.
+    $1 = \E\eta_1 \eta_2$, де $\eta_1 = \theta^*(\vec{\xi}) -\theta$, $\eta_2 = \frac{\partial\ln \mathcal{L}(\vec{\xi}, \theta)}{\partial \theta}$.
+    Оскільки $\left( \E\eta_1 \eta_2 \right)^2 \leq \E\eta_1^2 \cdot \E\eta_2^2$, маємо $1 \leq \D\theta^* \cdot \mathcal{I}(\theta)$, що і треба було довести.
 \end{proof}
-\noindent\textbf{Наслідок.} В нерівності $\left( E\eta_1 \eta_2 \right)^2 \leq E\eta_1^2 \cdot E\eta_2^2$ рівність досягається
+\noindent\textbf{Наслідок.} В нерівності $\left( \E\eta_1 \eta_2 \right)^2 \leq \E\eta_1^2 \cdot \E\eta_2^2$ рівність досягається
 тоді і тільки тоді, коли $\eta_1$ та $\eta_2$ лінійно залежні. Оскільки для ефективної оцінки досягається рівність, то маємо такий 
 \emph{критерій ефективності незміщеної оцінки}: незміщена оцінка $\theta^*$ є оптимальною тоді й тільки тоді, коли
 \begin{gather}
@@ -185,7 +185,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     існування (скінченність) $\mathcal{I}(\theta)$ та можливість диференціювання відповідного інтегралу по параметру.
 \end{remark}
 \begin{example}
-    Нехай ГС $\xi \sim \mathrm{Poiss}(a)$. $E\xi = a$, тому $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ --- 
+    Нехай ГС $\xi \sim \mathrm{Poiss}(a)$. $\E\xi = a$, тому $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ --- 
     незміщена оцінка $a$. Перевіримо її ефективність.
     \begin{gather*}
         \ln \mathcal{L}(\vec{\xi}, a) = -n a + \ln a \cdot \sum\limits_{k=1}^n \xi_k - \sum\limits_{k=1}^n \ln{\xi_k!} \\
@@ -200,37 +200,125 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     Якщо $\theta^* = \theta^* (\vec{\xi})$ --- ефективна незміщена оцінка, то вона єдина.
 \end{theorem*}
 \begin{proof}
-    Нехай $\theta_1^*$ --- інша ефективна незміщена оцінка, $E\theta^* = E\theta_1^* = \theta$,
-    $D\theta^* = D\theta_1^* = \sigma^2$. Розглянемо оцінку $\theta_2^* = \frac{\theta^* + \theta_1^*}{2}$, яка теж є незміщеною.
-    $D\theta_2^* = \frac{1}{4}\left(D\theta^* + D\theta_1^* + 2{cov}(\theta^*, \theta_1^*) \right) = \frac{1}{2}\left( \sigma^2 + {cov}(\theta^*, \theta_1^*)\right)$.
-    $\left|{cov}(\theta^*, \theta_1^*) \right| \leq \sqrt{D\theta^* \cdot D\theta_1^*} = \sigma^2$.
-    Отже, $D\theta_2^* \leq \sigma^2$. Але за умовою дисперсія ефективної $\theta$ рівна $\sigma^2$, тому $D\theta_2^* = \sigma^2$.
+    Нехай $\theta_1^*$ --- інша ефективна незміщена оцінка, $\E\theta^* = \E\theta_1^* = \theta$,
+    $\D\theta^* = \D\theta_1^* = \sigma^2$. Розглянемо оцінку $\theta_2^* = \frac{\theta^* + \theta_1^*}{2}$, яка теж є незміщеною.
+    $\D\theta_2^* = \frac{1}{4}\left(\D\theta^* + \D\theta_1^* + 2{cov}(\theta^*, \theta_1^*) \right) = \frac{1}{2}\left( \sigma^2 + {cov}(\theta^*, \theta_1^*)\right)$.
+    $\left|{cov}(\theta^*, \theta_1^*) \right| \leq \sqrt{\D\theta^* \cdot \D\theta_1^*} = \sigma^2$.
+    Отже, $\D\theta_2^* \leq \sigma^2$. Але за умовою дисперсія ефективної $\theta$ рівна $\sigma^2$, тому $\D\theta_2^* = \sigma^2$.
     Це означає, що в ${cov}(\theta^*, \theta_1^*) \leq \sigma^2$ досягається рівність, тому $\theta^*$ та $\theta_1^*$ є лінійно залежними, тобто
-    $\theta_1^* = k\cdot \theta^* + b$. Тепер $\theta = E\theta_1^* = k\cdot E\theta^* + b = k\cdot \theta + b$, звідки $b = (1-k)\theta$.
+    $\theta_1^* = k\cdot \theta^* + b$. Тепер $\theta = \E\theta_1^* = k\cdot \E\theta^* + b = k\cdot \theta + b$, звідки $b = (1-k)\theta$.
     $\theta_1^* = k\cdot \theta^* + (1-k)\theta \Leftrightarrow \theta_1^* - \theta = k \cdot \left(\theta^* - \theta \right)$.
     Скориставшись ${cov}(\theta^*, \theta_1^*) = \sigma^2$, отримаємо 
-    $\sigma^2 = E\left(\theta^* - \theta \right)\left(\theta_1^* - \theta \right) = k \cdot E\left(\theta^* - \theta \right)^2 = k \cdot \sigma^2$,
+    $\sigma^2 = \E\left(\theta^* - \theta \right)\left(\theta_1^* - \theta \right) = k \cdot \E\left(\theta^* - \theta \right)^2 = k \cdot \sigma^2$,
     звідки $k = 1$, тому $b = 0$ і $\theta^*_1 = \theta^*$.
 \end{proof}
 
 Також вводитися поняття \emph{асимптотично ефективної оцінки.} Це означає, що 
-$D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$.
+$\D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$.
 
 \subsection{Асимптотична нормальність оцінки}
 \begin{definition}
     Оцінка $\theta_n^* = \theta^* (\xi_1, ..., \xi_n)$ називається \emph{асимптотично нормальною}, якщо 
     \begin{gather}
-        \frac{\theta_n^* - \theta}{\sqrt{D\theta_n^*}} \overset{\mathrm{F}}{\longrightarrow} \eta \sim \mathrm{N}(0, 1), \; n \to \infty
+        \frac{\theta_n^* - \theta}{\sqrt{\D\theta_n^*}} \overset{\mathrm{F}}{\longrightarrow} \eta \sim \mathrm{N}(0, 1), \; n \to \infty
     \end{gather}
 \end{definition}
 Це поняття в подальшому дозволить наближувати розподіл точкових оцінок нормальним розподілом.
 Наприклад, для вибіркового середнього $\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$ згідно ЦГТ маємо
 $$ 
-\frac{\overline{\xi} - E\xi}{\sqrt{D\overline{\xi}}} = \frac{\frac{1}{n} \sum\limits_{k=1}^n (\xi_k  -E\xi)}{\sqrt{D\xi/n}} = 
-\frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left(\frac{\xi_k - E\xi}{\sqrt{D\xi}} \right)
+\frac{\overline{\xi} - \E\xi}{\sqrt{\D\overline{\xi}}} = \frac{\frac{1}{n} \sum\limits_{k=1}^n (\xi_k  -\E\xi)}{\sqrt{\D\xi/n}} = 
+\frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left(\frac{\xi_k - \E\xi}{\sqrt{\D\xi}} \right)
 \overset{\mathrm{F}}{\longrightarrow} \eta \sim \mathrm{N}(0, 1), \; n \to \infty
 $$
 
-Таким чином, при великих $n$ можна вважати розподіл $\overline{\xi}$ приблизно рівним $ \mathrm{N} \left(E\xi, \frac{D\xi}{n}\right)$.
+Таким чином, при великих $n$ можна вважати розподіл $\overline{\xi}$ приблизно рівним $ \mathrm{N} \left(\E\xi, \frac{\D\xi}{n}\right)$.
 
 \section{Методи отримання точкових оцінок}
+Розглянемо  методи, які допомагають знаходити точкові оцінки параметрів розподілу ГС.
+\subsection{Метод моментів}
+\emph{Метод моментів} базується на тому, що часто деякі моменти $\xi$ функціонально залежать від параметрів розподілу.
+В такому випадку, в разі <<хорошої>> залежності можна виразити параметри розподілу як функції від моментів і отримати точкові оцінки параметрів,
+замінивши в отриманих вираз моменти на їх вибіркові аналоги.
+\begin{example}
+    Знайдемо декілька оцінок методом моментів.
+    \begin{enumerate}
+        \item $\xi \sim \mathrm{U}\left< a; b\right>$. Відомо, що $\E \xi = \frac{a+b}{2}$, але щоб виразити через моменти обидва параметри, необхідне ще одне рівняння:
+        $\D \xi = \frac{(b-a)^2}{12}$. Отримали систему:
+        $$ \begin{cases}
+            a^* + b^* = 2\overline{\xi} \\
+            b^* - a^* = 2\sqrt{3 \D^{**} \xi}
+        \end{cases} \Rightarrow
+        \begin{cases}
+            b^* = \overline{\xi} + \sqrt{3 \D^{**} \xi} \\
+            a^* = \overline{\xi} - \sqrt{3 \D^{**} \xi}
+        \end{cases}$$
+        \item Нехай тепер $\xi \sim \mathrm{U}\left< -a; a\right>$. Оскільки $\E\xi = 0$, скористаємося моментом $\E\xi^2 = \frac{a^2}{3}$. В такому випадку
+        отримаємо оцінку $a^* = \sqrt{3 \E^{*}\xi^2}$.
+        \item $\xi \sim \mathrm{Bin}(N, p)$. Відомо, що $\E \xi = Np$, $\D \xi = Np(1-p)$. В цьому випадку маємо систему 
+        $$\begin{cases}
+            N^* p^* = \overline{\xi} \\
+            N^* p^* (1-p^*) = \D^{**} \xi 
+        \end{cases} \Rightarrow
+        \begin{cases}
+            N^* = \frac{(\overline{\xi})^2}{\overline{\xi} - \D^{**}\xi} \\
+            p^* = \frac{\overline{\xi}}{N^*} = \frac{\overline{\xi} - \D^{**}\xi}{\overline{\xi}}
+        \end{cases}$$
+        Незважаючи на формально правильний результат, застосовувати ці оцінки недоречно: немає жодної гарантії, що $N^*$ прийматиме лише натуральні значення.
+        Якщо параметр $N$ відомий, то можна користуватися оцінкою $p^* = \frac{\overline{\xi}}{N}$.
+        \item $\xi \sim \mathrm{Exp}(\lambda)$. Оскільки $\E \xi = \frac{1}{\lambda}$ і $\D \xi = \frac{1}{\lambda^2}$, за допомогою методу моментів можна отримати дві оцінки $\lambda^*$:
+        $\lambda_1^* = 1/{\overline{\xi}}$ та $\lambda_2^* = 1/{\sqrt{\D^{**}\xi}}$. В такому випадку порівнюють властивості отриманих оцінок та обирають кращу.
+    \end{enumerate}
+\end{example}
+\begin{exercise}
+    Перевірити, що оцінка $\lambda_1^*$ є асимптотично незміщеною. Чи можна зробити з неї незміщену оцінку, і, якщо так, що можна сказати про її ефективність?
+\end{exercise}
+Як видно з цих прикладів, розподіл оцінок, отриманих за допомогою методу моментів, може бути досить складним. Це, в свою чергу, ускладнює дослідження таких оцінок.
+Єдина характеристика, з якою майже не виникає складнощів --- конзистентність. Оскільки оцінки з методу моментів є функціями від вибіркових моментів, які є
+конзистентними, то за властивостями збіжності за ймовірністю оцінки також є конзистентними.
+\begin{remark}
+    В подальшому будемо позначати оцінки, отримані за допомогою методу моментів, через $\theta^*_{\text{ММ}}$, якщо це матиме значення.
+\end{remark}
+\subsection{Метод максимальної правдоподібності}
+\emph{Метод максимальної правдоподібності} полягає в знаходженні таких параметрів розподілу ГС, що максимізують значення функції правдоподібності.
+Тобто, в якості оцінки $\theta^*$ береться значення $\theta^*(\xi_1, ..., \xi_n) = \underset{\theta}{\mathrm{argmax}} \;{\mathcal{L}(\vec{\xi}, \theta)}$, або ж, у випадку
+двох або більше параметрів, $\underset{\theta_1, ..., \theta_k}{\mathrm{argmax}} \; {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$. Оскільки логарифм --- монотонна функція,
+то $\ln {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$ досягає максимуму по $\theta_1, ..., \theta_k$ одночасно з ${\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$.
+Таким чином, в методі максимальної правдоподібності шукають $\underset{\theta_1, ..., \theta_k}{\mathrm{argmax}} \ln{\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$.
+\begin{example}
+    Знайдемо декілька оцінок методом максимальної правдоподібності.
+    \begin{enumerate}
+        \item $\xi \sim \mathrm{N}(a, \sigma^2)$. Відомо, що $\ln \mathcal{L}(\vec{\xi}, a, \sigma^2) = -\frac{n}{2}\ln{2\pi} - \frac{n}{2} \ln{\sigma^2} - \frac{1}{2\sigma^2}\sum\limits_{k=1}^n (\xi_k - a)^2$. 
+        Позначимо для зручності $s = \sigma^2$ та шукатимемо максимум функції двох змінних:
+        $$\begin{cases}
+            \frac{\partial \ln \mathcal{L}}{\partial a} = \frac{1}{s} \sum\limits_{k=1}^n (\xi_k - a) = \frac{n}{s}(\overline{\xi} - a) = 0 \\
+            \frac{\partial \ln \mathcal{L}}{\partial s} = -\frac{n}{2s} + \frac{1}{2s^2} \sum\limits_{k=1}^n (\xi_k - \overline{\xi})^2 = 0
+        \end{cases} \Rightarrow
+        \begin{cases}
+            a^* = \overline{\xi} \\
+            s^* =  \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 = \D^* \xi
+        \end{cases}$$
+        $$\begin{pmatrix}
+            \frac{\partial^2 \ln \mathcal{L}}{\partial a^2} & \frac{\partial^2 \ln \mathcal{L}}{\partial a \partial s} \\
+            \frac{\partial^2 \ln \mathcal{L}}{\partial a \partial s} & \frac{\partial^2 \ln \mathcal{L}}{\partial s^2}
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            -\frac{n}{s} & -\frac{n}{s^2}(\overline{\xi} - a) \\
+            -\frac{n}{s^2}(\overline{\xi} - a) & \frac{n}{2s^2} - \frac{1}{s^3}\sum\limits_{k=1}^n (\xi_k - a)^2
+        \end{pmatrix}$$
+        При $a = a^*$ та $s = s^*$ матриця других похідних дорівнює 
+        $$\begin{pmatrix}
+            -\frac{n}{s^*} & 0 \\
+            0 & \frac{n}{(s^*)^3} \left( 2s^* - \frac{1}{n}\sum\limits_{k=1}^n (\xi_k - a^*)^2\right)
+        \end{pmatrix} =
+        \begin{pmatrix}
+            -\frac{n}{s^*}  & 0 \\
+            0 & \frac{n}{(s^*)^3}\cdot s^*
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            -\frac{n}{s^*}  & 0 \\
+            0 & \frac{n}{(s^*)^2}
+        \end{pmatrix}$$
+        Ця матриця є від'ємно визначеною, тому $\ln \mathcal{L}(\vec{\xi}, a, \sigma^2)$ дійсно досягає максимуму при
+        $a = \overline{\xi}$ та $\sigma^2 = \D^* \xi$.
+    \end{enumerate}
+\end{example}

@@ -34,12 +34,12 @@
 \subsection{Розподіл випадкової вибірки}
 Нехай $\vec{\xi} = \left( \xi_1, ..., \xi_n\right)$ --- випадкова вибірка, а $F_{\xi}(x)$ --- функція розподілу ГС. Тоді для 
 $\vec{x} \in \mathbb{R}^n$ визначено функцію розподілу 
-$F_{\vec{\xi}}(\vec{x}) = P\left\{\xi_1 < x_1, ..., \xi_n < x_n \right\} = \prod\limits_{k=1}^n F_{\xi}(x_k)$. Для досліджень вибірок, однак,
+$F_{\vec{\xi}}(\vec{x}) = \P\left\{\xi_1 < x_1, ..., \xi_n < x_n \right\} = \prod\limits_{k=1}^n F_{\xi}(x_k)$. Для досліджень вибірок, однак,
 зручно користуватися іншою функцією.
 \begin{definition}
     \emph{Функцією правдоподібності} випадкової вибірки обсягу $n$ з ГС $\xi$ називається 
     \begin{gather}
-        \mathcal{L}(\vec{x}) = \prod\limits_{k=1}^n P\left\{ \xi = x_k\right\}, \text{ якщо } \xi \text{ --- ДВВ} \\
+        \mathcal{L}(\vec{x}) = \prod\limits_{k=1}^n \P\left\{ \xi = x_k\right\}, \text{ якщо } \xi \text{ --- ДВВ} \\
         \mathcal{L}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi}(x_k) \text{ якщо } \xi \text{ --- НВВ}
     \end{gather}
 \end{definition}
@@ -226,7 +226,7 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     \begin{gather}
         F_n(x) = \frac{1}{n} \sum\limits_{k=1}^n 1{\left\{ \xi_k < x\right\}}
     \end{gather}
-    Тут $1{\left\{ \xi_k < x\right\}}$ --- індикатор події $\left\{ \xi_k < x\right\}$, що дорівнює $1$ з ймовірністю $p = P\left\{ \xi_k < x\right\} = F_{\xi}(x)$ та
+    Тут $1{\left\{ \xi_k < x\right\}}$ --- індикатор події $\left\{ \xi_k < x\right\}$, що дорівнює $1$ з ймовірністю $p = \P\left\{ \xi_k < x\right\} = F_{\xi}(x)$ та
     $0$ з ймовірністю $1-p$.       
 \end{definition}
 \begin{remark}
@@ -240,15 +240,15 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     $$
 \end{theorem*}
 \begin{proof}
-    Для всіх $k \in \mathbb{N} \text{ та } x \in\mathbb{R} :  E1{\left\{ \xi_k < x\right\}} = F_{\xi}(x)$, причому при будь-якому $x \in \mathbb{R}$ ці індикатори
+    Для всіх $k \in \mathbb{N} \text{ та } x \in\mathbb{R} :  \E1{\left\{ \xi_k < x\right\}} = F_{\xi}(x)$, причому при будь-якому $x \in \mathbb{R}$ ці індикатори
     є незалежними випадковими величинами. Тому згідно посиленого закону великих чисел отримуємо бажану збіжність з ймовірністю 1 до $F_{\xi}(x)$.
 \end{proof}
 \begin{exercise}
     Довести теорему Глівенко-Кантеллі безпосередньо, скориставшись достатньою ознакою збіжності з ймовірністю 1:
     якщо для будь-якого $\varepsilon >0$ ряд
-    $\sum\limits_{n=1}^{\infty} P\left\{\left| \xi_n - \xi\right| > \varepsilon\right\}$ збігається, то 
+    $\sum\limits_{n=1}^{\infty} \P\left\{\left| \xi_n - \xi\right| > \varepsilon\right\}$ збігається, то 
     $\xi_n \overset{\mathrm{P1}}{\longrightarrow} \xi, n \to \infty$. Підказка: треба оцінити 
-    $P\left\{\left|F_n (x) - F_{\xi}(x)\right| > \varepsilon\right\}$ членами збіжного ряду.
+    $\P\left\{\left|F_n (x) - F_{\xi}(x)\right| > \varepsilon\right\}$ членами збіжного ряду.
 \end{exercise}
 
 \subsection{Вибіркові характеристики ГС}
@@ -259,8 +259,8 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
 Пізніше буде розглянуто застосування цих статистик для висування та перевірки припущень про розподіл ГС.
 \begin{enumerate}
     \item \emph{Емпіричні початкові моменти $k$-того порядку}
-    $E^* \xi^k = \frac{1}{n}\sum\limits_{i=1}^n \xi_i^k$. Значення на конкретній реалізації вибірки позначається як
-    $(E^* \xi^k)_{\text{зн}} = \frac{1}{n}\sum\limits_{i=1}^n x_i^k$. Окремим випадком емпіричних початкових моментів
+    $\E^* \xi^k = \frac{1}{n}\sum\limits_{i=1}^n \xi_i^k$. Значення на конкретній реалізації вибірки позначається як
+    $(\E^* \xi^k)_{\text{зн}} = \frac{1}{n}\sum\limits_{i=1}^n x_i^k$. Окремим випадком емпіричних початкових моментів
     є \emph{вибіркове середнє} $\overline{\xi} = \frac{1}{n}\sum\limits_{i=1}^n \xi_i$, значення якого позначається як
     $\overline{x} = \frac{1}{n}\sum\limits_{i=1}^n x_i$. Після складання варіаційного ряду можна записати значення
     вибіркового середнього як $$\overline{x} = \begin{cases}
@@ -269,23 +269,23 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     \end{cases}$$
     У випадку ІВР за $x_i^*$ береться довільний представник $i$-того інтервалу.
     \item \emph{Емпіричні центральні моменти $k$-того порядку} можуть вводитися двома способами: як 
-    $\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - E\xi \right)^k$, якщо $E\xi$ відоме, або як 
-    $\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^k$, якщо якщо $E\xi$ невідоме.
-    Окремим випадком є \emph{вибіркова дисперсія} $D^* \xi$ при $k=2$. Її значення позначається як 
-    $(D^* \xi)_{\text{зн}} = \frac{1}{n}\sum\limits_{i=1}^n \left(x_i - E\xi \right)^2$ або 
+    $\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \E\xi \right)^k$, якщо $\E\xi$ відоме, або як 
+    $\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^k$, якщо якщо $\E\xi$ невідоме.
+    Окремим випадком є \emph{вибіркова дисперсія} $\D^* \xi$ при $k=2$. Її значення позначається як 
+    $(\D^* \xi)_{\text{зн}} = \frac{1}{n}\sum\limits_{i=1}^n \left(x_i - \E\xi \right)^2$ або 
     $\frac{1}{n}\sum\limits_{i=1}^n \left(x_i - \overline{x} \right)^2$.
     \item \emph{Вибіркова мода} ${Mo}^* \xi$ у випадку побудови ДВР визначається як варіанта з найбільшою частістю, а у випадку
-    ІВР --- за формулою $(Mo^* \xi)_{\text{зн}} = y_i + h_i \cdot \frac{n_i - n{i-1}}{(n_i - n_{i-1}) + (n_i - n_{i+1})}$, де $y_i$ --- початок інтервалу,
+    ІВР --- за формулою $({Mo}^* \xi)_{\text{зн}} = y_i + h_i \cdot \frac{n_i - n{i-1}}{(n_i - n_{i-1}) + (n_i - n_{i+1})}$, де $y_i$ --- початок інтервалу,
     якому відповідає найбільша частість (модальний інтервал), а $h_i$ --- довжина цього інтервалу, а $n_i$ --- частоти.
     \item \emph{Вибіркова медіана} ${Me}^* \xi$ у випадку побудови ДВР визначається як середня за розташуванням варіанта (або середнє арифметичне 
     таких варіант, якщо їх парна кількість), а у випадку ІВР --- за формулою 
-    $(Me^* \xi)_{\text{зн}} = y_i + \frac{h_i}{n_i} \cdot \left(\frac{n}{2} - \sum\limits_{k=1}^{i-1} n_k \right)$, де 
+    $({Me}^* \xi)_{\text{зн}} = y_i + \frac{h_i}{n_i} \cdot \left(\frac{n}{2} - \sum\limits_{k=1}^{i-1} n_k \right)$, де 
     $y_i$ --- початок інтервалу, на якому накопичена частість перевищила $0.5$ (медіанний інтервал), $h_i$ --- його довжина,
     $n_i$ --- частоти.
     \item \emph{Вибіркова асиметрія та вибірковий ексцес} визначаються як 
-    ${As}^* \xi = \frac{\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^3}{(D^*\xi)^{3/2}}$ та
-    ${Ex}^* \xi = \frac{\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^4}{(D^*\xi)^{2}} - 3$ з заміною
-    $\overline{\xi}$ на $E\xi$, якщо воно відоме.
+    ${As}^* \xi = \frac{\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^3}{(\D^*\xi)^{3/2}}$ та
+    ${Ex}^* \xi = \frac{\frac{1}{n}\sum\limits_{i=1}^n \left(\xi_i - \overline{\xi} \right)^4}{(\D^*\xi)^{2}} - 3$ з заміною
+    $\overline{\xi}$ на $\E\xi$, якщо воно відоме.
 \end{enumerate}
 
 \subsection{Діаграми розмаху}
