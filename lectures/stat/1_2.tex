@@ -284,31 +284,34 @@ $$
 двох або більше параметрів, $\underset{\theta_1, ..., \theta_k}{\mathrm{argmax}} \; {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$. Оскільки логарифм --- монотонна функція,
 то $\ln {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$ досягає максимуму по $\theta_1, ..., \theta_k$ одночасно з ${\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$.
 Таким чином, в методі максимальної правдоподібності шукають $\underset{\theta_1, ..., \theta_k}{\mathrm{argmax}} \ln{\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$.
+
+Надалі для спрощення сприйняття випадкову вибірку в аргументі функції правдоподібності замінимо на реалізацію вибірки. В такому випадку спочатку отримаємо точки максимуму,
+що залежать від $x_1, x_2, ..., x_n$ (і це фактично буде значенням оцінки), а саму оцінку, як функцію від випадкової вибірки, отримаємо зворотною заміною $x_k$ на $\xi_k$.
 \begin{example}
     Знайдемо декілька оцінок методом максимальної правдоподібності.
     \begin{enumerate}
-        \item $\xi \sim \mathrm{N}(a, \sigma^2)$. Відомо, що $\ln \mathcal{L}(\vec{\xi}, a, \sigma^2) = -\frac{n}{2}\ln{2\pi} - \frac{n}{2} \ln{\sigma^2} - \frac{1}{2\sigma^2}\sum\limits_{k=1}^n (\xi_k - a)^2$. 
+        \item $\xi \sim \mathrm{N}(a, \sigma^2)$. Відомо, що $\ln \mathcal{L}(\vec{x}, a, \sigma^2) = -\frac{n}{2}\ln{2\pi} - \frac{n}{2} \ln{\sigma^2} - \frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a)^2$. 
         Позначимо для зручності $s = \sigma^2$ та шукатимемо максимум функції двох змінних:
         $$\begin{cases}
-            \frac{\partial \ln \mathcal{L}}{\partial a} = \frac{1}{s} \sum\limits_{k=1}^n (\xi_k - a) = \frac{n}{s}(\overline{\xi} - a) = 0 \\
-            \frac{\partial \ln \mathcal{L}}{\partial s} = -\frac{n}{2s} + \frac{1}{2s^2} \sum\limits_{k=1}^n (\xi_k - \overline{\xi})^2 = 0
+            \frac{\partial \ln \mathcal{L}}{\partial a} = \frac{1}{s} \sum\limits_{k=1}^n (x_k - a) = \frac{n}{s}(\overline{x} - a) = 0 \\
+            \frac{\partial \ln \mathcal{L}}{\partial s} = -\frac{n}{2s} + \frac{1}{2s^2} \sum\limits_{k=1}^n (x_k - \overline{x})^2 = 0
         \end{cases} \Rightarrow
         \begin{cases}
-            a^* = \overline{\xi} \\
-            s^* =  \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 = \D^* \xi
+            a^* = \overline{x} \\
+            s^* =  \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 = (\D^* \xi)_{\text{зн}}
         \end{cases}$$
         $$\begin{pmatrix}
             \frac{\partial^2 \ln \mathcal{L}}{\partial a^2} & \frac{\partial^2 \ln \mathcal{L}}{\partial a \partial s} \\
             \frac{\partial^2 \ln \mathcal{L}}{\partial a \partial s} & \frac{\partial^2 \ln \mathcal{L}}{\partial s^2}
         \end{pmatrix} = 
         \begin{pmatrix}
-            -\frac{n}{s} & -\frac{n}{s^2}(\overline{\xi} - a) \\
-            -\frac{n}{s^2}(\overline{\xi} - a) & \frac{n}{2s^2} - \frac{1}{s^3}\sum\limits_{k=1}^n (\xi_k - a)^2
+            -\frac{n}{s} & -\frac{n}{s^2}(\overline{x} - a) \\
+            -\frac{n}{s^2}(\overline{x} - a) & \frac{n}{2s^2} - \frac{1}{s^3}\sum\limits_{k=1}^n (x_k - a)^2
         \end{pmatrix}$$
         При $a = a^*$ та $s = s^*$ матриця других похідних дорівнює 
         $$\begin{pmatrix}
             -\frac{n}{s^*} & 0 \\
-            0 & \frac{n}{(s^*)^3} \left( 2s^* - \frac{1}{n}\sum\limits_{k=1}^n (\xi_k - a^*)^2\right)
+            0 & \frac{n}{(s^*)^3} \left( 2s^* - \frac{1}{n}\sum\limits_{k=1}^n (x_k - a^*)^2\right)
         \end{pmatrix} =
         \begin{pmatrix}
             -\frac{n}{s^*}  & 0 \\
@@ -318,7 +321,48 @@ $$
             -\frac{n}{s^*}  & 0 \\
             0 & \frac{n}{(s^*)^2}
         \end{pmatrix}$$
-        Ця матриця є від'ємно визначеною, тому $\ln \mathcal{L}(\vec{\xi}, a, \sigma^2)$ дійсно досягає максимуму при
-        $a = \overline{\xi}$ та $\sigma^2 = \D^* \xi$.
+        Ця матриця є від'ємно визначеною, тому $\ln \mathcal{L}(\vec{x}, a, \sigma^2)$ дійсно досягає максимуму при
+        $a = \overline{x}$ та $\sigma^2 = (\D^* \xi)_{\text{зн}}$. Отже, отримали оцінки $a^* = \overline{\xi}$ та $(\sigma^2)^* = \D^*\xi$.
+        \item $\xi \sim \mathrm{Exp}(\lambda, b)$, вважатимемо $\lambda$ відомим.
+        $ \ln \mathcal{L}(\vec{x}, b) = n \ln \lambda - \lambda\left(\sum\limits_{k=1}^n x_k - n b\right)$, але сама функція правдоподібності приймає нульові значення при $x_k < b$.
+        Якщо просто продиференціювати функцію правдоподібності, отримаємо 
+        $\frac{\partial \ln \mathcal{L}(\vec{x}, b)}{\partial b} = \lambda n$ --- цей вираз завжди більше $0$ та не залежить від вибірки. Отже, 
+        $\ln \mathcal{L}(\vec{x}, b)$ монотонно зростає відносно $b$. За змістом самого параметру $x_k \geq b$ для всіх $k = 1, ..., n$. Таким чином,
+        максимальне можливе значення $b$ --- це $\underset{1\leq k \leq n}{\min}x_k$. Отже, $b^* = \underset{1\leq k \leq n}{\min}\xi_k$.
+        \item $\xi \sim \mathrm{U}[\theta; \theta+1]$, $\theta \in \mathbb{R}$. Спочатку запишемо щільність:
+        $f_{\xi}(x) = \begin{cases}
+            1, & x\in[\theta; \theta+1] \\
+            0, & x\notin[\theta; \theta+1]
+        \end{cases}$. Отже, функція правдоподібності має вигляд 
+        $\mathcal{L}(\vec{x}, \theta) = \begin{cases}
+            1, & x_k \in[\theta; \theta+1], k =1, ..., n \\
+            0, & \text{інакше}
+        \end{cases} = 
+        \begin{cases}
+            1, & \theta \leq \underset{1\leq k \leq n}{\min}x_k \leq \underset{1\leq k \leq n}{\max}x_k  \leq \theta +1 \\
+            0, & \text{інакше}
+        \end{cases} = 
+        \begin{cases}
+            1, & \underset{1\leq k \leq n}{\max}x_k -1 \leq \theta \leq \underset{1\leq k \leq n}{\min}x_k \\
+            0, & \text{інакше}
+        \end{cases}$. Вона досягає максимуму по $\theta$ в кожній точці з відрізка 
+        $\left[\underset{1\leq k \leq n}{\max}x_k -1; \underset{1\leq k \leq n}{\min}x_k\right]$. Таким чином, в даному випадку отримуємо незліченну множину
+        оцінок виду $\theta^*_{\alpha} = (1-\alpha)\cdot \left(\underset{1\leq k \leq n}{\max}\xi_k -1\right) + \alpha\cdot\underset{1\leq k \leq n}{\min}\xi_k$, де
+        $\alpha \in [0;1]$.
     \end{enumerate}
 \end{example}
+\begin{exercise} 
+    \begin{enumerate}
+        \item Знайти значення $\alpha$, за якого $\theta_{\alpha}^*$ з останнього прикладу буде незміщеною.
+        \item Показати, що оцінки $a^* = \underset{1\leq k \leq n}{\min}\xi_k$ та $b^* = \underset{1\leq k \leq n}{\max}\xi_k$ для $\xi \sim \mathrm{U}\left< a; b\right>$
+        можна знайти за допомогою методу максимальної правдоподібності.
+    \end{enumerate}
+\end{exercise}
+
+З розглянутих прикладів видно, що на відміну від методу моментів, метод максимальної правдоподібності може дати оцінки не тільки у вигляді емпіричних моментів,
+а кількість оцінок може бути навіть незліченною. Іноді застосовування методу моментів є досить складним: наприклад, якщо розглядати $\xi \sim \mathrm{Bin}(N,p)$
+з обома невідомими параметрами, то треба буде шукати максимум функції правдоподібності за параметром $N$, що приймає лише скінченну кількість значень та
+входить в саму функцію у складі біноміальних коефіцієнтів.
+\begin{remark}
+    В подальшому будемо позначати оцінки, отримані за допомогою методу максимальної правдоподібності, через $\theta^*_{\text{ММП}}$, якщо це матиме значення.
+\end{remark}
