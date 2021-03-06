@@ -222,9 +222,9 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
 Існує й інше означення, більш коректне з теоретичної точки зору та універсальне.
 \begin{definition}
     \emph{Емпіричною функцією розподілу (ЕФР)}, побудованою за випадковою вибіркою $\vec{\xi} = \left( \xi_1, ..., \xi_n\right)$, називається випадкова функція 
-    $F_n : \mathbb{R}\times \Omega \to [0; 1]$, що задана як
+    $F_n^* : \mathbb{R}\times \Omega \to [0; 1]$, що задана як
     \begin{gather}
-        F_n(x) = \frac{1}{n} \sum\limits_{k=1}^n 1{\left\{ \xi_k < x\right\}}
+        F_n^*(x) = \frac{1}{n} \sum\limits_{k=1}^n 1{\left\{ \xi_k < x\right\}}
     \end{gather}
     Тут $1{\left\{ \xi_k < x\right\}}$ --- індикатор події $\left\{ \xi_k < x\right\}$, що дорівнює $1$ з ймовірністю $p = \P\left\{ \xi_k < x\right\} = F_{\xi}(x)$ та
     $0$ з ймовірністю $1-p$.       
@@ -236,7 +236,7 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
 Наступна теорема ілюструє важливість означення ЕФР саме як випадкової функції.
 \begin{theorem*}[теорема Глівенко-Кантеллі]
     $$
-    \forall \; x\in\mathbb{R}: F_n (x) \overset{\mathrm{P1}}{\longrightarrow} F_{\xi}(x), \; n\to\infty
+    \forall \; x\in\mathbb{R}: F_n^* (x) \overset{\mathrm{P1}}{\longrightarrow} F_{\xi}(x), \; n\to\infty
     $$
 \end{theorem*}
 \begin{proof}
@@ -275,7 +275,7 @@ $\sum\limits_{k=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     $(\D^* \xi)_{\text{зн}} = \frac{1}{n}\sum\limits_{i=1}^n \left(x_i - \E\xi \right)^2$ або 
     $\frac{1}{n}\sum\limits_{i=1}^n \left(x_i - \overline{x} \right)^2$.
     \item \emph{Вибіркова мода} ${Mo}^* \xi$ у випадку побудови ДВР визначається як варіанта з найбільшою частістю, а у випадку
-    ІВР --- за формулою $({Mo}^* \xi)_{\text{зн}} = y_i + h_i \cdot \frac{n_i - n{i-1}}{(n_i - n_{i-1}) + (n_i - n_{i+1})}$, де $y_i$ --- початок інтервалу,
+    ІВР --- за формулою $({Mo}^* \xi)_{\text{зн}} = y_i + h_i \cdot \frac{n_i - n_{i-1}}{(n_i - n_{i-1}) + (n_i - n_{i+1})}$, де $y_i$ --- початок інтервалу,
     якому відповідає найбільша частість (модальний інтервал), а $h_i$ --- довжина цього інтервалу, а $n_i$ --- частоти.
     \item \emph{Вибіркова медіана} ${Me}^* \xi$ у випадку побудови ДВР визначається як середня за розташуванням варіанта (або середнє арифметичне 
     таких варіант, якщо їх парна кількість), а у випадку ІВР --- за формулою 

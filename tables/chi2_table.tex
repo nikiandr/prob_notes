@@ -1,0 +1,32 @@
+% !TEX root = ../main.tex
+
+Значення функції $\chi^2_{\alpha,n}$ визначаються з рівняння 
+$ \int\limits_{\chi^2_{\alpha,n}}^{+\infty} f(x) dx = \alpha$
+де $f(x)$ --- щільність розподілу $\chi^2_{n}$ (хі-квадрат з $n$ ступенями вільності).
+
+\begin{center}
+    \begin{tikzpicture}[yscale = 14, xscale = 0.5, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\b}{0.5};
+        \pgfmathsetmacro{\c}{3};
+        \pgfmathsetmacro{\p}{7};
+    
+        \fill [lightgray, domain=\p:18.3, smooth, variable = \x] plot ({\x}, 
+        {
+            \b^(\c)*\x^(\c-1)/factorial(\c-1) * e^(-\x*\b)
+        }) -- (18.3, 0) -- (\p, 0) -- (\p, {\b^(\c)*\p^(\c-1)/factorial(\c-1) * e^(-\p*\b)});
+        \draw [->] (-2, 0) -- (18.3, 0);
+        \draw [->] (0, -0.05) -- (0, 0.15);
+        \draw [ultra thick] (-2, 0) -- (0, 0);
+        \draw [domain=0:18, smooth, variable = \x, ultra thick] plot ({\x}, {\b^(\c)*\x^(\c-1)/factorial(\c-1) * e^(-\x*\b)});
+        \node [below] at (18.2, 0) {$x$};
+        \node [left] at (0, 0.15) {$f(x)$};
+        \node [below left] at (0, 0) {$0$};
+        \node [below] at (\p, 0) {$\chi^2_{\alpha,n}$};
+        \draw [dashed] (\p, 0) -- (\p, {\b^(\c)*\p^(\c-1)/factorial(\c-1) * e^(-\p*\b)});
+        \draw [->, thick] (\p+3, 0.1) -- (\p+1, 0.03);
+        \node [right] at (\p+3, 0.1) {площа дорівнює $\alpha$};
+    \end{tikzpicture}
+\end{center}
+\begin{center}
+    \input{tables/chi2_table_raw.tex}
+\end{center}

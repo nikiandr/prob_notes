@@ -38,7 +38,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
         \item Дослідимо вибіркову дисперсію, але у випадку невідомого математичного сподівання. 
         \begin{gather*}
             \D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2 = 
-            \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - \E\xi) + (\overline{\xi} - \E\xi) \right)^2 =  \\
+            \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - \E\xi) - (\overline{\xi} - \E\xi) \right)^2 =  \\
             = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - 2\left(\overline{\xi} - \E\xi\right)\cdot 
             \underbrace{\frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi\right)}_{\overline{\xi} - \E\xi} + \left(\overline{\xi} - \E\xi\right)^2 = \\
             = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - \left(\overline{\xi} - \E\xi\right)^2
@@ -346,8 +346,8 @@ $$
             1, & \underset{1\leq k \leq n}{\max}x_k -1 \leq \theta \leq \underset{1\leq k \leq n}{\min}x_k \\
             0, & \text{інакше}
         \end{cases}$. Вона досягає максимуму по $\theta$ в кожній точці з відрізка 
-        $\left[\underset{1\leq k \leq n}{\max}x_k -1; \underset{1\leq k \leq n}{\min}x_k\right]$. Таким чином, в даному випадку отримуємо незліченну множину
-        оцінок виду $\theta^*_{\alpha} = (1-\alpha)\cdot \left(\underset{1\leq k \leq n}{\max}\xi_k -1\right) + \alpha\cdot\underset{1\leq k \leq n}{\min}\xi_k$, де
+        $\left[\underset{1\leq k \leq n}{\max}x_k -1; \underset{1\leq k \leq n}{\min}x_k\right]$. Таким чином, отримуємо незліченну множину
+        оцінок $\theta^*_{\alpha} = (1-\alpha)\cdot \left(\underset{1\leq k \leq n}{\max}\xi_k -1\right) + \alpha\cdot\underset{1\leq k \leq n}{\min}\xi_k$, де
         $\alpha \in [0;1]$.
     \end{enumerate}
 \end{example}
@@ -359,8 +359,8 @@ $$
     \end{enumerate}
 \end{exercise}
 
-З розглянутих прикладів видно, що на відміну від методу моментів, метод максимальної правдоподібності може дати оцінки не тільки у вигляді емпіричних моментів,
-а кількість оцінок може бути навіть незліченною. Іноді застосовування методу моментів є досить складним: наприклад, якщо розглядати $\xi \sim \mathrm{Bin}(N,p)$
+З розглянутих прикладів видно, що на відміну від методу моментів, метод максимальної правдоподібності може дати оцінки не тільки у вигляді функцій від емпіричних моментів,
+а кількість оцінок може бути навіть незліченною. Іноді застосовування методу максимальної правдоподібності є досить складним: наприклад, якщо розглядати $\xi \sim \mathrm{Bin}(N,p)$
 з обома невідомими параметрами, то треба буде шукати максимум функції правдоподібності за параметром $N$, що приймає лише скінченну кількість значень та
 входить в саму функцію у складі біноміальних коефіцієнтів.
 \begin{remark}

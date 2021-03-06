@@ -44,11 +44,23 @@
     \part{Математична статистика}
     \chapter{Вибірка та точкові оцінки}
         \input{lectures/stat/1_1.tex}
-        %\input{lectures/stat/1_2.tex}
+        \input{lectures/stat/1_2.tex}
     \chapter{Інтервальне оцінювання}
     \chapter{Перевірка статистичних гіпотез}
     \chapter{Елементи регресійного аналізу}
-    %\chapter*{Таблиця значень функції Лапласа}
-    %\addcontentsline{toc}{chapter}{Таблиця значень функції Лапласа} 
-    %    \input{lectures/laplace_table.tex}
+    \chapter*{Таблиці значень деяких функцій}
+    \markboth{Таблиці значень деяких функцій}{Таблиці значень деяких функцій}
+    \addcontentsline{toc}{chapter}{Таблиці значень деяких функцій}
+    \section*{Таблиця значень функції Лапласа}
+        \addcontentsline{toc}{section}{Функція Лапласа}
+        \input{tables/laplace_table.tex}\newpage
+    \section*{Деякі квантилі розподілу $\chi^2_{n}$}
+        \addcontentsline{toc}{section}{Деякі квантилі розподілу \texorpdfstring{$\chi^2_n$}{x2n}}
+        \input{tables/chi2_table.tex}\newpage
+    \section*{Деякі квантилі розподілу $\mathrm{St}_n$}
+        \addcontentsline{toc}{section}{Деякі квантилі розподілу \texorpdfstring{$\mathrm{St}_n$}{Stn}}
+        \input{tables/stud_table.tex}\newpage
+    \section*{Квантилі рівня 0.95 розподілу $\mathrm{F}(n_1, n_2)$}
+        \addcontentsline{toc}{section}{Квантилі рівня 0.95 розподілу \texorpdfstring{$\mathrm{F}(n_1, n_2)$}{Fn1n2}}
+        \input{tables/fisher_table.tex}\newpage
 \end{document}
