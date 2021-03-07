@@ -3,7 +3,12 @@
 Значення функції $t_{\alpha,n}$ визначаються з рівняння 
 $ \int\limits_{t_{\alpha,n}}^{+\infty} f(x) dx = \alpha$
 де $f(x)$ --- щільність розподілу $\mathrm{St}_n$ (Стьюдента з $n$ ступенями вільності).
+Це значення є квантилем рівня $q=1-\alpha$.
 
+
+Якщо для $\xi \sim \mathrm{St}_n$ необхідно знайти таке значення $t$, що
+$\P\left\{ |\xi| \geq t\right\} = \beta$, то, внаслідок симетричності розподілу відносно нуля, можна шукати 
+за таблицею значення $t = t_{\beta/2,n}$.
 \begin{center}
     \begin{tikzpicture}[yscale = 6, xscale = 1.3, baseline={(current bounding box.center)}]
         \pgfmathsetmacro{\b}{12}; % n = 4

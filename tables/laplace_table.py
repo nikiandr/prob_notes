@@ -8,8 +8,7 @@ def F(x):
 
 ncol = 10
 nrow = 10
-s = "% !TEX root = ../main.tex\n\n"
-s += "\\noindent \\begin{tabular}" + "{|" + "c|"*(ncol) + "c|}" + "\n\\hline"
+s = "\\noindent \\begin{tabular}" + "{|" + "c|"*(ncol) + "c|}" + "\n\\hline"
 s += "\n$\\pmb{x}$ & "
 
 for i in range(ncol-1):
@@ -19,22 +18,22 @@ s += f"\\textbf{{ 0.0{i+1} }} \\\\ \n \\hline \n"
 for j in range(nrow):
     s += f"\\textbf{{ 0.{j}0 }} & "
     for i in range(ncol-1):
-        s += f"{F(round(0.1*j + 0.01*i, 2)):.5f}" + " & "
-    s += f"{F(round(0.1*j + 0.01*(i+1), 2)):.5f}"
+        s += f"{F(round(0.1*j + 0.01*i, 2)):.5f}"[1:] + " & "
+    s += f"{F(round(0.1*j + 0.01*(i+1), 2)):.5f}"[1:]
     s += "\\\\ \n\\hline\n"
 
 for j in range(nrow):
     s += f"\\textbf{{ 1.{j}0 }} & "
     for i in range(ncol-1):
-        s += f"{F(round(1 + 0.1*j + 0.01*i, 2)):.5f}" + " & "
-    s += f"{F(round(1 + 0.1*j + 0.01*(i+1), 2)):.5f}"
+        s += f"{F(round(1 + 0.1*j + 0.01*i, 2)):.5f}"[1:] + " & "
+    s += f"{F(round(1 + 0.1*j + 0.01*(i+1), 2)):.5f}"[1:]
     s += "\\\\ \n\\hline\n"
 
 for j in range(nrow):
     s += f"\\textbf{{ 2.{j}0 }} & "
     for i in range(ncol-1):
-        s += f"{F(round(2 + 0.1*j + 0.01*i, 2)):.5f}" + " & "
-    s += f"{F(round(2 + 0.1*j + 0.01*(i+1), 2)):.5f}"
+        s += f"{F(round(2 + 0.1*j + 0.01*i, 2)):.5f}"[1:] + " & "
+    s += f"{F(round(2 + 0.1*j + 0.01*(i+1), 2)):.5f}"[1:]
     s += "\\\\ \n\\hline\n"
 
 s += "\\end{tabular} \n\n"
@@ -49,18 +48,18 @@ s += f"\\textbf{{ 0.0{i+1} }} \\\\ \n \\hline \n"
 for j in range(nrow):
     s += f"\\textbf{{ 3.{j}0 }} & "
     for i in range(ncol-1):
-        s += f"{F(round(3 + 0.1*j + 0.01*i, 2)):.5f}" + " & "
-    s += f"{F(round(3 + 0.1*j + 0.01*(i+1), 2)):.5f}"
+        s += f"{F(round(3 + 0.1*j + 0.01*i, 2)):.5f}"[1:] + " & "
+    s += f"{F(round(3 + 0.1*j + 0.01*(i+1), 2)):.5f}"[1:]
     s += "\\\\ \n\\hline\n"
 
 for j in range(nrow):
     s += f"\\textbf{{ 4.{j}0 }} & "
     for i in range(ncol-1):
-        s += f"{F(round(4 + 0.1*j + 0.01*i, 2)):.5f}" + " & "
-    s += f"{F(round(4 + 0.1*j + 0.01*(i+1), 2)):.5f}"
+        s += f"{F(round(4 + 0.1*j + 0.01*i, 2)):.5f}"[1:] + " & "
+    s += f"{F(round(4 + 0.1*j + 0.01*(i+1), 2)):.5f}"[1:]
     s += "\\\\ \n\\hline\n"
 
-s += "\\end{tabular} \n\n"
+s += "\\end{tabular}"
 
-with open(".\\prob_notes\\tables\\laplace_table.tex", "w") as fin:
+with open(".\\tables\\laplace_table_raw.tex", "w") as fin:
     fin.write(s)
