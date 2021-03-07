@@ -1,0 +1,65 @@
+% !TEX root = ../../main.tex
+\section{Інтервальне оцінювання невідомих параметрів ГС}
+Нехай $\xi$ --- ГС, $F_{\xi}(x, \theta_1, \theta_2, ..., \theta_k)$ --- її функція 
+розподілу, $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. 
+
+При інтервальному оцінюванні деякого параметра ГС ми шукаємо статистики 
+$\theta^*_1(\vec{\xi})$, $\theta^*_2(\vec{\xi})$ такі, що:
+\begin{gather*}
+    \P\{\theta \in (\theta^*_1, \theta^*_2)\} = \gamma \text{ (або }
+    \geq \gamma \text{ )}
+\end{gather*}
+
+Фактично шукається інтервал, в який з наперед заданою ймовірністю потрапляє 
+оцінюваний параметр $\theta$.
+
+\begin{definition}
+    Інтервал $(\theta^*_1, \theta^*_2)$ називається довірчим інтервалом для параметра 
+    $\theta$, $\gamma$ називається надійністю довірчого інтервалу.
+\end{definition}
+
+Довірчі інтервали можуть бути симетричними відносно $\theta$, тобто:
+\begin{gather*}
+    \P\{|\theta - \theta^*| < \varepsilon\} = \gamma
+\end{gather*}
+
+Тоді сам довірчий інтервал матиме вигляд 
+$(\theta^* - \varepsilon, \theta^* + \varepsilon)$, $\varepsilon$ --- точність 
+довірчого інтервалу.
+
+Таким же чином довірчі інтервали можуть бути односторонніми:
+\begin{gather*}
+    \P\{\theta > \theta_1^*\} = \gamma \\
+    \text{або} \\
+    \P\{\theta < \theta_2^*\} = \gamma
+\end{gather*}
+
+\section{Побудова довірчого інтервалу для гаусcівської ГС при відомій дисперсії}
+Маємо ГС $\xi \sim N(a, \sigma^2)$. Будемо оцінювати параметр $a$ ГС. Довірчий 
+інтервал будемо будувати у симетричній формі:
+\begin{gather*}
+    \P\{|a - a^*| < \varepsilon\} = \gamma
+\end{gather*}
+В якості оцінки параметра $a = \E\xi$ беремо вибіркове середнє: $a^* = 
+\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$. Вибіркове середнє гаусcівської 
+випадкової вибірки матиме гаусcівський розподіл (т.я. це є афінне перетворення 
+гауссівського випадкового вектору) з матсподіванням $a$ (в силу незміщенності 
+оцінки) та дисперсією $\frac{\sigma^2}{n}$:
+\begin{gather*}
+    \D \overline{\xi} = \D \left( 
+        \frac{1}{n} \sum\limits_{k=1}^n \xi_k
+    \right) = \frac{1}{n^2} \D \left( 
+        \sum\limits_{k=1}^n \xi_k
+    \right) = \left[\xi_k\text{ --- незалежні}\right] = 
+    \frac{1}{n^2}\sum\limits_{k=1}^n \D\xi_k = \frac{1}{n^2}n\sigma^2 = 
+    \frac{\sigma^2}{n}
+\end{gather*}
+Таким чином матимемо, що:
+\begin{gather*}
+    \P\{|a - a^*| < \varepsilon\} = \P \{a - \varepsilon < a^* < a + \varepsilon\} = 
+    2\Phi\left(\frac{\varepsilon\sqrt{n}}{\sigma}\right) = \gamma
+\end{gather*}
+
+Знайдемо значення $\varepsilon$ з таблиці значень функції $\Phi(x)$. Тоді матимемо, 
+що з ймовірністю $\gamma$ параметр $a$ належить інтервалу $(a^*_{\text{знач.}} - 
+\varepsilon, a^*_{\text{знач.}} + \varepsilon)$.
