@@ -1,0 +1,38 @@
+% !TEX root = ../main.tex
+Значення функції $F_{\alpha,n_1,n_2}$ визначаються з рівняння 
+$ \int\limits_{F_{\alpha,n_1,n_2}}^{+\infty} f(x) dx = \alpha$
+де $f(x)$ --- щільність розподілу $\mathrm{F}(n_1, n_2)$ (Фішера-Снедекора з $n_1$, $n_2$ ступенями вільності).
+Це значення є квантилем рівня $q=1-\alpha$.
+Нагадаємо, що даний розподіл --- це розподіл частки $\frac{\chi_{n_1}^2/n_1}{\chi_{n_2}^2/n_2}$ з незалежними чисельником і знаменником.
+\begin{center}
+    \begin{tikzpicture}[yscale = 6, xscale = 3, baseline={(current bounding box.center)}]
+        \pgfmathsetmacro{\b}{64}; % n1 = 4, n2 = 2
+        \pgfmathsetmacro{\p}{1};
+        
+        \fill [lightgray, domain=\p:4, smooth, variable = \x] plot ({\x}, 
+        {
+            \b*((\x)^(4/2 - 1))/(4*\x + 2)^((4+2)/2)
+        }) -- (4, 0) -- (\p, 0) -- (\p, {\b*((\p)^(4/2 - 1))/(4*\p + 2)^((4+2)/2)});
+        \draw [->] (-0.5, 0) -- (4, 0);
+        \draw [->] (0, -0.05) -- (0, 0.7);
+        \draw [domain=0:4, smooth, variable = \x, ultra thick, samples = 400] plot ({\x}, {\b*((\x)^(4/2 - 1))/(4*\x + 2)^((4+2)/2)});
+        \node [below] at (4, 0) {$x$};
+        \draw [ultra thick] (-0.5, 0) -- (0, 0);
+        \node [left] at (0, 0.7) {$f(x)$};
+        \node [below left] at (0, 0) {$0$};
+        \node [below] at (\p, 0) {$F_{\alpha,n_1,n_2}$};
+        \draw [dashed] (\p, 0) -- (\p, {
+            \b*((\p)^(4/2 - 1))/(4*\p + 2)^((4+2)/2)
+        });
+        \draw [->, thick] (\p+0.7, 0.3) -- (\p+0.3, 0.1);
+        \node [right] at (\p+0.7, 0.3) {площа дорівнює $\alpha$};
+    \end{tikzpicture} 
+\end{center}
+Для наведеної таблиці $\alpha = 0.05$.
+\begin{center}
+    \input{tables/fisher_table_raw_p1.tex}
+\end{center}
+\newpage
+\begin{center}
+    \input{tables/fisher_table_raw_p2.tex}
+\end{center}
