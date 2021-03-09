@@ -1,65 +1,119 @@
 % !TEX root = ../../main.tex
-\section{Інтервальне оцінювання невідомих параметрів ГС}
-Нехай $\xi$ --- ГС, $F_{\xi}(x, \theta_1, \theta_2, ..., \theta_k)$ --- її функція 
-розподілу, $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. 
-
-При інтервальному оцінюванні деякого параметра ГС ми шукаємо статистики 
-$\theta^*_1(\vec{\xi})$, $\theta^*_2(\vec{\xi})$ такі, що:
+\section{Інтервальне оцінювання}
+Нехай $\xi$ --- ГС, $\theta$ --- якийсь параметр її
+розподілу.
+Задача \emph{інтервального оцінювання} $\theta$ --- це пошук за заданим \emph{рівнем надійності} 
+$\gamma$ статистик
+$\theta^*_1(\vec{\xi})$, $\theta^*_2(\vec{\xi})$ таких, що:
 \begin{gather*}
-    \P\{\theta \in (\theta^*_1, \theta^*_2)\} = \gamma \text{ (або }
-    \geq \gamma \text{ )}
+    \P\left\{\theta \in (\theta^*_1, \theta^*_2)\right\} = \gamma \Leftrightarrow
+    \P\left\{ \theta^*_1 < \theta < \theta^*_2\right\} = \gamma
 \end{gather*}
-
-Фактично шукається інтервал, в який з наперед заданою ймовірністю потрапляє 
-оцінюваний параметр $\theta$.
+Іноді в цих співвідношеннях пишуть $\geq \gamma$, оскільки у випадку дискретного розподілу цих статистик рівності можуть не мати сенсу.
 
 \begin{definition}
-    Інтервал $(\theta^*_1, \theta^*_2)$ називається довірчим інтервалом для параметра 
-    $\theta$, $\gamma$ називається надійністю довірчого інтервалу.
+    $(\theta^*_1, \theta^*_2)$ називається \emph{довірчим інтервалом з рівнем надійності $\gamma$}.
+    Більш точно --- маємо справу з послідовністю таких інтервалів, що залежать від обсягу вибірки.
 \end{definition}
+\begin{remark}
+    Оскільки межі інтервалу є випадковими, то запис $\theta \in (\theta^*_1, \theta^*_2)$ правильно читати не як
+    <<$\theta$ потрапляє в інтервал $(\theta^*_1, \theta^*_2)$>>, а як
+    <<інтервал $(\theta^*_1, \theta^*_2)$ накриває $\theta$>>.
+\end{remark}
+Зручно шукати довірчі інтервали конкретного вигляду, наприклад,
+\emph{симетричні} відносно $\theta$ з умови $\P\left\{|\theta - \theta^*| < \varepsilon\right\} = \gamma$, де $\varepsilon$ --- \emph{точність} 
+довірчого інтервалу, або \emph{однобічні} з умов $\P\{\theta > \theta^*\} = \gamma$ чи $\P\{\theta < \theta^*\} = \gamma$.
+У випадку симетричного довірчого інтервалу зазвичай одразу обирається сама статистика $\theta^*$ (наприклад, якась <<хороша>> точкова оцінка).
+В такому разі пошук $\varepsilon$ --- це пошук ширини довірчого інтервалу, що забезпечує заданий рівень надійності.
 
-Довірчі інтервали можуть бути симетричними відносно $\theta$, тобто:
-\begin{gather*}
-    \P\{|\theta - \theta^*| < \varepsilon\} = \gamma
-\end{gather*}
+Якщо розглядається конкретна реалізація вибірки, то можна обчислити межі знайденого інтервалу як значення відповідних статистик.
 
-Тоді сам довірчий інтервал матиме вигляд 
-$(\theta^* - \varepsilon, \theta^* + \varepsilon)$, $\varepsilon$ --- точність 
-довірчого інтервалу.
+\subsection{Побудова довірчих інтервалів для гаусcівської ГС}
+Нехай ГС $\xi \sim \mathrm{N}(a, \sigma^2)$. Розглянемо чотири випадки побудови довірчих інтервалів
+для параметрів $a$ та $\sigma^2$ (нагадаємо, що це математичне сподівання та дисперсія).
 
-Таким же чином довірчі інтервали можуть бути односторонніми:
-\begin{gather*}
-    \P\{\theta > \theta_1^*\} = \gamma \\
-    \text{або} \\
-    \P\{\theta < \theta_2^*\} = \gamma
-\end{gather*}
+\noindent\textbf{Довірчий інтервал для математичного сподівання при відомій дисперсії.}
 
-\section{Побудова довірчого інтервалу для гаусcівської ГС при відомій дисперсії}
-Маємо ГС $\xi \sim N(a, \sigma^2)$. Будемо оцінювати параметр $a$ ГС. Довірчий 
-інтервал будемо будувати у симетричній формі:
-\begin{gather*}
-    \P\{|a - a^*| < \varepsilon\} = \gamma
-\end{gather*}
-В якості оцінки параметра $a = \E\xi$ беремо вибіркове середнє: $a^* = 
-\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$. Вибіркове середнє гаусcівської 
-випадкової вибірки матиме гаусcівський розподіл (т.я. це є афінне перетворення 
-гауссівського випадкового вектору) з матсподіванням $a$ (в силу незміщенності 
-оцінки) та дисперсією $\frac{\sigma^2}{n}$:
-\begin{gather*}
-    \D \overline{\xi} = \D \left( 
-        \frac{1}{n} \sum\limits_{k=1}^n \xi_k
-    \right) = \frac{1}{n^2} \D \left( 
-        \sum\limits_{k=1}^n \xi_k
-    \right) = \left[\xi_k\text{ --- незалежні}\right] = 
-    \frac{1}{n^2}\sum\limits_{k=1}^n \D\xi_k = \frac{1}{n^2}n\sigma^2 = 
-    \frac{\sigma^2}{n}
-\end{gather*}
-Таким чином матимемо, що:
-\begin{gather*}
-    \P\{|a - a^*| < \varepsilon\} = \P \{a - \varepsilon < a^* < a + \varepsilon\} = 
+Шукатимемо симетричний довірчий інтервал $\P\left\{|a - a^*| < \varepsilon\right\} = \gamma$, де в якості
+оцінки $a^*$ буде вибіркове середнє $\overline{\xi}$. З властивостей незалежних гаусcівських ВВ
+маємо $\sum\limits_{k=1}^n \xi_k \sim \mathrm{N}(na, n\sigma^2)$, тому $\overline{\xi} \sim \mathrm{N}\left(a, \frac{\sigma^2}{n}\right)$.
+Отже,
+$
+    \P\{|a - a^*| < \varepsilon\} = \P \{a - \varepsilon < \overline{\xi} < a + \varepsilon\} = 
     2\Phi\left(\frac{\varepsilon\sqrt{n}}{\sigma}\right) = \gamma
-\end{gather*}
+$, де $\Phi(x)$ --- функція Лапласа. З таблиці її значень знайдемо відповідне значення $\varepsilon$ і отримаємо шуканий
+довірчий інтервал $\left(\overline{\xi}-\varepsilon, \overline{\xi}+\varepsilon \right)$.
 
-Знайдемо значення $\varepsilon$ з таблиці значень функції $\Phi(x)$. Тоді матимемо, 
-що з ймовірністю $\gamma$ параметр $a$ належить інтервалу $(a^*_{\text{знач.}} - 
-\varepsilon, a^*_{\text{знач.}} + \varepsilon)$.
+\noindent\textbf{Довірчий інтервал для математичного сподівання при невідомій дисперсії.}
+
+Шукатимемо симетричний довірчий інтервал $\P\left\{|a - a^*| < \varepsilon\right\} = \gamma$. В умовах попереднього прикладу
+$\sqrt{n} \cdot \frac{\overline{\xi} - a}{\sigma} \sim \mathrm{N}(0, 1)$, але $\sigma$ тепер невідоме. Розглянемо статистику
+$\D^* \xi = \frac{1}{n}\sum\limits_{k=1}^n (\xi_k - \overline{\xi})^2 = \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 - (\overline{\xi} - a)^2$.
+$\frac{n \D^* \xi}{\sigma^2} = \sum\limits_{k=1}^n \left(\frac{\xi_k - a}{\sigma} \right)^2 - 
+\left(\sqrt{n} \cdot \frac{\overline{\xi} - a}{\sigma} \right)^2$. В теоремі нижче буде доведено незалежність доданків,
+що дасть право сказати, що $\frac{n \D^* \xi}{\sigma^2} \sim \chi_{n-1}^2$. Як наслідок,
+$$ 
+\frac{\sqrt{n}\cdot\frac{\overline{\xi} - a}{\sigma}}{\sqrt{\frac{1}{n-1} \cdot \frac{n \D^* \xi}{\sigma^2} }} = 
+\frac{\sqrt{n}\cdot(\overline{\xi} - a)}{\sqrt{\D^{**}\xi}} \sim \mathrm{St}_{n-1}
+$$
+
+Тепер з рівності $\P\left\{ \frac{\sqrt{n}\cdot|\overline{\xi} - a|}{\sqrt{\D^{**}\xi}} < t_{\gamma}\right\} = \gamma$ знайдемо
+значення $t_{\gamma}$. Шуканим значенням $\varepsilon$ буде $\varepsilon = \frac{t_{\gamma}}{\sqrt{n}} \cdot \sqrt{(\D^{**}\xi)_{\text{зн}}}$.
+\begin{theorem*}[теорема Фішера]
+    Статистики стандартної гаусcівської ГС $\overline{\xi}$ та $\D^*\xi$ --- незалежні випадкові величини.
+\end{theorem*}
+\begin{proof}
+    $\vec{\xi}$ --- випадкова вибірка, $\vec{\xi} \sim \mathrm{N}(\vec{0}, I)$. Нехай $C$ --- деяка ортогональна матриця,
+    тоді $\vec{\eta} = C \vec{\xi}$ теж має розподіл $\mathrm{N}(\vec{0}, I)$, причому 
+    $\Vert \vec{\eta} \Vert = \Vert \vec{\xi} \Vert$. Розглянемо матрицю 
+    $$
+    C = \begin{pmatrix}
+        c_{1,1} & c_{1,2} & \ldots & c_{1,n} \\
+        c_{2,1} & c_{2,2} & \ldots & c_{2,n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c_{n-1,1} & c_{n-1,2} & \ldots & c_{n-1,n} \\
+        1/\sqrt{n} & 1/\sqrt{n} & \ldots & 1/\sqrt{n}
+    \end{pmatrix}
+    $$
+    перші $n-1$ рядків якої --- це елементи ортонормованого базису $\text{л.о.}\left\{
+    \begin{pmatrix}
+        \frac{1}{\sqrt{n}} & ... & \frac{1}{\sqrt{n}}
+    \end{pmatrix}^{T}\right\}^{\perp}$.
+    $\vec{\eta} = C\vec{\xi}$, $\eta_n = \frac{1}{\sqrt{n}} \left(\xi_1 + \xi_2 + ... + \xi_n \right) = \sqrt{n} \cdot \overline{\xi}$.
+    Вище у прикладі побудови довірчого інтервалу було показано, що
+    $\D^* \xi = \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 - (\overline{\xi} - a)^2$. В умовах теореми ця рівність спрощується до
+    $\D^* \xi = \frac{1}{n} \sum\limits_{k=1}^n \xi_k^2 - \overline{\xi}^2 = \frac{1}{n} \Vert \vec{\xi} \Vert - \frac{1}{n}\eta_n^2 = 
+    \frac{1}{n} \Vert \vec{\eta} \Vert - \frac{1}{n}\eta_n^2 = \frac{1}{n} \sum\limits_{k=1}^n \eta_k^2 - \frac{1}{n}\eta_n^2 = 
+    \frac{1}{n} \sum\limits_{k=1}^{n-1} \eta_k^2$. Таким чином, $\D^* \xi$ залежить від перших $n-1$ координат $\vec{\eta}$, а отже ---
+    не залежить від $\overline{\xi} = \frac{1}{\sqrt{n}} \eta_n$.
+\end{proof}
+\begin{example}
+    Побудувати 95\% довірчий інтервал для математичного сподівання гаусcівської ГС, якщо $\overline{x} = 2$, $n=25$,
+    а дисперсія відома і рівна $6$, а потім --- якщо невідома і $(\D^{**}\xi)_{\text{зн}} = 5.78$.
+    \begin{enumerate}
+        \item $\D\xi = 6$. За умовою $\gamma = 0.95$, тому $\varepsilon$ шукаємо з 
+        $2\Phi\left(\frac{\varepsilon\sqrt{n}}{\sigma}\right) = \gamma$. $\Phi\left(\varepsilon\cdot\frac{5}{\sqrt{6}}\right) = 0.475$, звідки
+        $\varepsilon = \frac{\sqrt{6}}{5} \cdot 1.96 \approx 0.96$. Отже, шуканий довірчий інтервал --- $(1.04, 2.96)$.
+        \item $(\D^{**}\xi)_{\text{зн}} = 5.78$. Спочатку знайдемо $t_{\gamma} = 2.064$, звідки $\varepsilon = \frac{2.064}{\sqrt{25}}\cdot \sqrt{5.78} \approx 2.386$.
+        Отже, шуканий довірчий інтервал --- $(-0.064, 4.064)$.
+    \end{enumerate}
+\end{example}
+
+\noindent\textbf{Довірчий інтервал для дисперсії при відомому математичному сподіванні.}
+
+В якості точкової оцінки дисперсії візьмемо $\D^* \xi = \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2$, тоді
+$\frac{n \D^* \xi}{\sigma^2} = \sum\limits_{k=1}^n \left(\frac{\xi_k - a}{\sigma} \right)^2 \sim \chi^2_n$.
+Шукатимемо довірчий інтервал з умови $\P\left\{ t_1 < \frac{n \D^* \xi}{\sigma^2} < t_2\right\} = \gamma$, де $t_1$ та 
+$t_2$ задовольняють $\P\left\{\frac{n \D^* \xi}{\sigma^2} > t_1 \right\} = \frac{1 + \gamma}{2}$ та
+$\P\left\{\frac{n \D^* \xi}{\sigma^2}\geq t_2 \right\} = \frac{1 - \gamma}{2}$. Шуканим довірчим інтервалом буде
+$\left( \frac{n}{t_2}(\D^{*}\xi)_{\text{зн}}, \frac{n}{t_1}(\D^{*}\xi)_{\text{зн}} \right)$.
+
+\noindent\textbf{Довірчий інтервал для дисперсії при невідомому математичному сподіванні.}
+
+Як було показано раніше, для $\D^* \xi = \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - \overline{\xi})^2$ статистика 
+$\frac{n \D^* \xi}{\sigma^2} \sim \chi^2_{n-1}$, тому $\frac{(n-1) \D^{**} \xi}{\sigma^2} \sim \chi^2_{n-1}$.
+Аналогічно попереднього випадку шукаємо $t_1$ та $t_2$ з умов 
+$\P\left\{\frac{(n-1) \D^{**} \xi}{\sigma^2} > t_1 \right\} = \frac{1 + \gamma}{2}$ та
+$\P\left\{\frac{(n-1) \D^{**} \xi}{\sigma^2}\geq t_2 \right\} = \frac{1 - \gamma}{2}$.
+Шуканим довірчим інтервалом буде
+$\left( \frac{n-1}{t_2}(\D^{**}\xi)_{\text{зн}}, \frac{n-1}{t_1}(\D^{**}\xi)_{\text{зн}} \right)$.
