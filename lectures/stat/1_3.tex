@@ -111,9 +111,182 @@ $\left( \frac{n}{t_2}(\D^{*}\xi)_{\text{зн}}, \frac{n}{t_1}(\D^{*}\xi)_{\text{
 \noindent\textbf{Довірчий інтервал для дисперсії при невідомому математичному сподіванні.}
 
 Як було показано раніше, для $\D^* \xi = \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - \overline{\xi})^2$ статистика 
-$\frac{n \D^* \xi}{\sigma^2} \sim \chi^2_{n-1}$, тому $\frac{(n-1) \D^{**} \xi}{\sigma^2} \sim \chi^2_{n-1}$.
-Аналогічно попереднього випадку шукаємо $t_1$ та $t_2$ з умов 
+$\frac{n \D^* \xi}{\sigma^2}$ має розподіл $\chi^2_{n-1}$, тому $\frac{(n-1) \D^{**} \xi}{\sigma^2} \sim \chi^2_{n-1}$.
+Як і в попередньому випадку, шукаємо $t_1$ та $t_2$ з умов 
 $\P\left\{\frac{(n-1) \D^{**} \xi}{\sigma^2} > t_1 \right\} = \frac{1 + \gamma}{2}$ та
 $\P\left\{\frac{(n-1) \D^{**} \xi}{\sigma^2}\geq t_2 \right\} = \frac{1 - \gamma}{2}$.
-Шуканим довірчим інтервалом буде
+Шуканий довірчий інтервал ---
 $\left( \frac{n-1}{t_2}(\D^{**}\xi)_{\text{зн}}, \frac{n-1}{t_1}(\D^{**}\xi)_{\text{зн}} \right)$.
+
+\subsection{Наближені довірчі інтервали}
+Якщо статистика $\theta^*$, що оцінює невідомий параметр, є асимптотично нормальною, то розподіл 
+$\frac{\theta^* - \theta}{\sqrt{\D\theta^*}}$ можна вважати приблизно рівним $\mathrm{N}(0, 1)$ (звісно, при достатньо великих $n$).
+В такому випадку довірчий інтервал можна будувати з рівності
+$\P\left\{\frac{|\theta^* - \theta|}{\sqrt{\D\theta^*}} < t_{\gamma}\right\} = \gamma$, де $t_{\gamma}$
+знаходимо з таблиці значень функції Лапласа. Щоб тепер отримати довірчий інтервал, треба розв'язати відносно
+$\theta$ нерівність $\frac{|\theta^* - \theta|}{\sqrt{\D\theta^*}} < t_{\gamma}$.
+\begin{example}
+    Побудуємо наближений довірчий інтервал для $a$ у випадку $\xi \sim \mathrm{Poiss}(a)$. Вважатимемо, що значення $t_\gamma$
+    вже знайдемо з рівності 
+    $\P\left\{\frac{|a^* - a|}{\sqrt{\D a^*}} < t_{\gamma}\right\} = \gamma$, де $a^* = \overline{\xi}$. Розв'яжемо нерівність:
+    \begin{gather*}
+        \frac{|a^* - a|}{\sqrt{\D a^*}} < t_{\gamma} \Leftrightarrow
+        \frac{(a^* - a)^2}{\D a^*} < t_{\gamma}^2, \; \D a^* = \D \overline{\xi} = \frac{1}{n}\D\xi = \frac{1}{n}{a} \\
+        (a^* - a)^2 < a \cdot \frac{t_{\gamma}}{n} \Leftrightarrow (a^*)^2 - 2a^* a + a^2 < a \cdot \frac{t_{\gamma}}{n}
+        \Leftrightarrow a^2 - 2a \left( a^* + \frac{t_{\gamma}^2}{2n}\right) + (a^*)^2 < 0
+    \end{gather*}
+    Позначимо $a^* + \frac{t_{\gamma}^2}{2n} = b$:
+    \begin{gather*}
+        a^2 - 2ab + (a^*)^2 < 0, \; D/4 = b^2 - a^2 (a^*)^2 \Rightarrow
+        a \in \left(b - \sqrt{D/4}, b + \sqrt{D/4} \right) \\
+        b \pm \sqrt{D/4} =  a^* + \frac{t_{\gamma}^2}{2n} \pm 
+        \sqrt{\left( a^* + \frac{t_{\gamma}^2}{2n}\right)^2  - (a^*)^2} = 
+        a^* + \frac{t_{\gamma}^2}{2n} \pm 
+        \sqrt{a^* \cdot\frac{t_{\gamma}^2}{n} + \frac{t_{\gamma}^4}{4n^2}}
+    \end{gather*}
+    Отже, шуканий довірчий інтервал:
+    $$ 
+    \left(\overline{\xi} + \frac{t_{\gamma}^2}{2n} -
+    \sqrt{\overline{\xi} \cdot\frac{t_{\gamma}^2}{n} + \frac{t_{\gamma}^4}{4n^2}},
+    \overline{\xi} + \frac{t_{\gamma}^2}{2n} +
+    \sqrt{\overline{\xi} \cdot\frac{t_{\gamma}^2}{n} + \frac{t_{\gamma}^4}{4n^2}}
+    \right)
+    $$
+\end{example}
+
+\subsection{Довірчий інтервал для ймовірності появи події}
+За точкову оцінку ймовірності $p$ появи події $A$
+в схемі Бернуллі беруть частість $p^* = \frac{m}{n}$, де $n$ ---
+загальна кількість незалежних випробувань,
+$m$ --- кількість появ події $A$ в цих випробуваннях
+Задамо рівень надійності $\gamma$
+і знайдемо такі величини $p_1$ та $p_2$, щоб
+виконувалось співвідношення $\P\left\{ p_1 < p < p_2\right\} = \gamma$.
+Інтервал $(p_1, p_2)$ буде шуканим довірчим інтервалом. Розглянемо два випадки.
+
+\noindent\textbf{Кількість випробувань досить велика.} 
+
+В цьому випадку розподіл величини $m$ в силу граничної теореми Муавра-Лапласа 
+можна наближено замінити $\mathrm{N}(np, \sqrt{npq})$, тому
+розподіл $p^* = \frac{m}{n}$ приблизно рівний $\mathrm{N}\left(n, \sqrt{\frac{pq}{n}} \right)$.
+Таким чином, статистика $\frac{(p^* - p)\sqrt{n}}{\sqrt{pq}}$ має наближено розподіл $\mathrm{N}(0, 1)$.
+Користуючись таблицею значень функції Лапласа, для заданої довірчої ймовірності $\gamma$ знайдемо таке $t_{\gamma}$,
+при якому 
+$\P\left\{\frac{|p^* - p|\sqrt{n}}{\sqrt{pq}} < t_{\gamma}\right\} = \gamma$. Розв'яжемо відносно $p$ нерівність під знаком ймовірності:
+\begin{gather*}
+    \frac{|p^* - p|\sqrt{n}}{\sqrt{pq}} < t_{\gamma} \Leftrightarrow
+    \frac{(p^* - p)^2 n}{p(1-p)} < t^2_{\gamma} \Leftrightarrow
+    (p^*)^2 - 2p^* p + p^2 < \left(p - p^2\right)\cdot \frac{t^2_{\gamma}}{n} \Leftrightarrow \\
+    \Leftrightarrow
+    \left(1 + \frac{t^2_{\gamma}}{n}\right)p^2 - \left(2p^* + \frac{t^2_{\gamma}}{n}\right)p + (p^*)^2 < 0 \Leftrightarrow \\
+    \Leftrightarrow
+    p \in (p_1, p_2), \; p_{1, 2} = \frac{\left(p^* + \frac{t^2_{\gamma}}{2n}\right) \pm t_{\gamma} \cdot \sqrt{\frac{p^*(1-p^*)}{n} + \frac{t^2_{\gamma}}{4n^2}}}{1 + \frac{t^2_{\gamma}}{n}}
+\end{gather*}
+
+Цей результат має геометричну інтерпретацію. Розглянемо систему координат, по осі абсцис якої відкладаємо частість $p^*$, а по осі ординат ---
+ймовірність $p$. Повернемося до нерівності, яку вже розв'язали:
+\begin{gather*}
+    \left(1 + \frac{t^2_{\gamma}}{n}\right)p^2 - 2p^* p + (p^*)^2 - \frac{t^2_{\gamma}}{n}p < 0
+\end{gather*}
+\begin{tabular}{c p{10.4cm}}
+    \begin{tikzpicture}[xscale=2.5, yscale=2.5, baseline={(current bounding box.north)}]
+        \fill [gray!20] (0.47, 0.475) circle [x radius=0.7, y radius=0.2, rotate=40];
+        \draw [thick] (0.47, 0.475) circle [x radius=0.7, y radius=0.2, rotate=40];
+        \draw [->] (0, 0) -- (1.2, 0);
+        \draw [->] (0, 0) -- (0, 1.2);
+        \draw [dashed] (0, 0.95) -- (0.95, 0.95);
+        \draw [dashed] (0.95, 0) -- (0.95, 0.95);
+        \node [below] at (1, 0) {$1$};
+        \node [left] at (0, 1) {$1$};
+        \node [below] at (1.2, 0) {$p^*$};
+        \node [left] at (0, 1.2) {$p$};
+        \node [below left] at (0, 0) {$0$};
+        \draw [dashed] (0.6, 0) -- (0.6, 0.82);
+        \draw [dashed] (0.6, 0.82) -- (0, 0.82);
+        \draw [dashed] (0.6, 0.325) -- (0, 0.325);
+        \node [left] at (0, 0.325) {$p_1$};
+        \node [left] at (0, 0.82) {$p_2$};
+        \node [below] at (0.6, 0) {$p^*_{\text{зн.}}$};
+    \end{tikzpicture} &
+    Ця нерівність задає внутрішню частину деякого еліпса.
+    Таким чином, довірчим інтервалом для $p$ при відомому значенні частості $p^*_{\text{зн.}}$ буде множина точок всередині цього еліпса з абсцисою,
+    що дорівнює $p^*_{\text{зн.}}$. Важливо зауважити, що навіть якщо $p^*_{\text{зн.}} = 1$, то немає підстав казати, що справжнє значення $p$ дорівнює 1.
+    В цьому випадку отримаємо довірчий інтервал
+    $\left(\frac{1}{1+t_{\gamma}^2/n}, 1\right)$. Аналогічно, при $p^*_{\text{зн.}} = 0$ отримаємо довірчий інтервал
+    $\left(0, \frac{t_{\gamma}^2/n}{1+t_{\gamma}^2/n}\right)$.
+\end{tabular}
+Якщо обсяг вибірки $n$ доволі великий, то величиною $\frac{t_{\gamma}^2}{n}$ можна знехтувати. 
+Тоді межі довірчого інтервалу набувають наближених значень 
+$$p_{1, 2} \approx p^* \pm t_{\gamma} \sqrt{\frac{p^*(1-p^*)}{n}}$$
+\begin{example}
+    Деяка подія в серії з $n=100$ незалежних випробувань відбулась $m=78$ разів. Побудувати довірчий інтервал для
+    ймовірності $p$ появи цієї події з надійністю $\gamma = 0.9$.
+    
+    За умовою $p^*_{\text{зн.}} = 0.78$, а відповідне значення $t_{\gamma}$ з таблиці функції Лапласа дорівнює $1.65$.
+    Отже,
+    \begin{gather*}
+        p_{1, 2} = \frac{0.78 + \frac{1.65^2}{200} \pm 1.65 \sqrt{\frac{0.78\cdot 0.22}{100} + \frac{1.65^2}{4\cdot 100^2}}}{1+\frac{1.65^2}{100}} \Rightarrow
+        p_1 \approx 0.7047, \; p_2 \approx 0.8404
+    \end{gather*}
+    Якщо обчислити межі довірчого інтервалу за наближеними формулами для великих $n$, отримаємо
+    \begin{gather*}
+        p_{1, 2} \approx 0.78 \pm 1.65\sqrt{\frac{0.78\cdot 0.22}{100}} \Rightarrow p_1 \approx 0.7116, \; p_2 \approx 0.8483
+    \end{gather*}
+\end{example}
+
+\noindent\textbf{Кількість випробувань мала.} 
+В цьому випадку граничними теоремами скористатися не вийде. Згадаємо формулу для ймовірності появи події $A$ в схемі Бернуллі
+з $n$ іспитами $k$ разів: 
+$\P\left\{ \xi = k\right\} = C_n^k p^k (1-p)^{n-k}$, де $\xi\sim \mathrm{Bin}(n, p)$. 
+Задамо рівень надійності $\gamma$ та знайдемо такі $p_1$ та $p_2$, що $\P\left\{p_1 < p < p_2 \right\} = \gamma$.
+Приймемо без доведення, що $p_1$ --- розв'язок рівняння 
+$\sum\limits_{k=0}^{m-1} C_n^k p_1^k (1-p_1)^{n-k} = \frac{1+\gamma}{2}$, а $p_2$ --- розв'язок рівняння
+$\sum\limits_{k=0}^{m} C_n^k p_2^k (1-p_2)^{n-k} = \frac{1-\gamma}{2}$.
+В цих формулах $m$ є конкретним числом (а не випадковою величиною), кількістю випробувань, в яких сталася подія $A$.
+Існують спеціальні таблиці для знаходження значень $p_1$ та $p_2$, що задовольняють цим рівнянням.
+
+\subsection{Довірчі інтервали для параметрів рівномірної ГС}
+Як відомо,  асимптотично незміщеними та конзистентними оцінками параметрів $a$ та $b$ рівномірної ГС є, відповідно,
+$a^* = \underset{1\leq k \leq n}{\min}\xi_k$ та $b^* = \underset{1\leq k \leq n}{\max}\xi_k$. З огляду на характер цих параметрів,
+шукатимемо довірчі інтервали з рівностей
+$\P\left\{a\leq a^* \leq a+\varepsilon_1 \right\} \geq \gamma$ та $\P\left\{b-\varepsilon_2\leq b^* \leq b\right\} \geq \gamma$,
+де $\gamma$ --- заданий рівень надійності.
+Користуючись щільностями розподілу $a^*$ та $b^*$, обчислимо ці ймовірності:
+\begin{gather*}
+    \P\left\{a\leq a^* \leq a+\varepsilon_1 \right\} = \int_{a}^{a+\varepsilon_1} \frac{n}{(b-a)^n} (b-x)^{n-1} dx = 1 - \left(1 - \frac{\varepsilon_1}{b-a}\right)^n \\
+    \P\left\{b-\varepsilon_2\leq b^* \leq b\right\} = \int_{b-\varepsilon_2}^b \frac{n}{(b-a)^n} (x-a)^{n-1} dx = 1 - \left(1 - \frac{\varepsilon_2}{b-a}\right)^n
+\end{gather*}
+Для різниці $b-a$ з умов $a^* \leq a+\varepsilon_1$ та $b^* \geq b-\varepsilon_2$ маємо оцінку
+$b-a \leq \underset{1\leq k \leq n}{\max}\xi_k + \varepsilon_2 - \underset{1\leq k \leq n}{\min}\xi_k + \varepsilon_1$.
+Далі для зручності позначатимемо $\underset{1\leq k \leq n}{\max}\xi_k = M$, $\underset{1\leq k \leq n}{\min}\xi_k = m$.
+Отримуємо систему:
+\begin{gather*}
+    \begin{cases}
+        1 - \left(1 - \frac{\varepsilon_1}{b-a}\right)^n \geq 1 - \left(1 - \frac{\varepsilon_1}{M - m + \varepsilon_2 + \varepsilon_1}\right)^n = \gamma \\
+        1 - \left(1 - \frac{\varepsilon_2}{b-a}\right)^n \geq 1 - \left(1 - \frac{\varepsilon_2}{M - m + \varepsilon_2 + \varepsilon_1}\right)^n = \gamma
+    \end{cases}
+\end{gather*}
+Розв'яжемо її відносно $\varepsilon_1$ та $\varepsilon_2$.
+\begin{gather*}
+    \begin{cases}
+        \left(1 - \frac{\varepsilon_1}{M - m + \varepsilon_2 + \varepsilon_1}\right)^n = 1 - \gamma \\
+        \left(1 - \frac{\varepsilon_2}{M - m + \varepsilon_2 + \varepsilon_1}\right)^n = 1 - \gamma
+    \end{cases} \Leftrightarrow
+    \begin{cases}
+        1 - \frac{\varepsilon_1}{M - m + \varepsilon_2 + \varepsilon_1} = \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma} \\
+        1 - \frac{\varepsilon_2}{M - m + \varepsilon_2 + \varepsilon_1} = \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}
+    \end{cases} \Leftrightarrow \\
+    \Leftrightarrow
+    \begin{cases}
+        \varepsilon_1 = \left(M - m + \varepsilon_2 + \varepsilon_1\right)\left(1 - \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}\right) \\
+        \varepsilon_2 = \left(M - m + \varepsilon_2 + \varepsilon_1\right)\left(1 - \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}\right)
+    \end{cases}
+\end{gather*}
+Отже, $\varepsilon_1 = \varepsilon_2$, тому далі розв'язуємо лише одне рівняння:
+\begin{gather*}
+    \varepsilon_1 = \left(M - m + 2\varepsilon_1\right) \left(1 - \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}\right) \Leftrightarrow
+    \left( 2\sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma} - 2 + 1\right)\varepsilon_1 = \left(M - m\right)\left(1 - \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}\right)
+\end{gather*}
+Таким чином, $\varepsilon_1 = \varepsilon_2 = \frac{\left(M - m\right)\left(1 - \sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma}\right)}{2\sqrt[\leftroot{-3}\uproot{3}n]{1-\gamma} - 1}$.
+Оскільки $\varepsilon_1, \varepsilon_2 > 0$, то на $\gamma$ треба накладати вимогу $\gamma < 1 - 2^{-n}$.
+Шукані довірчі інтервали матимуть вигляд $\left(a^* - \varepsilon_1, a^*\right)$ та $\left(b^*, b^* + \varepsilon_2\right)$.

@@ -1,7 +1,7 @@
 % !TEX root = ../../main.tex
 \section{Точкові оцінки}
 Нехай $\xi$ --- ГС, а $F_{\xi}(x, \theta_1, \theta_2, ..., \theta_k)$ --- її функція розподілу, де
-$\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип самої функцію розподілу у випадку точкового оцінювання
+$\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип самої функції розподілу у випадку точкового оцінювання
 вважається відомим, невідомими є параметри: наприклад, $\lambda$ в експоненційному законі чи $a$ та $\sigma$ в нормальному.
 \begin{definition}
     \emph{Точковою оцінкою} $\theta^*$ невідомого параметру $\theta$ називається деяка статистика
@@ -14,7 +14,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 які можна брати в якості $\theta^*$. Наприклад, якщо параметр $\theta$ є математичним сподіванням $\xi$, 
 то за оцінку математичного сподівання за результатами спостережень можна взяти середнє арифметичне, моду, медіану, 
 півсуму найбільшого та найменшого значень вибірки тощо. 
-Отже, яку статистику краще обрати? Назвати <<найкращою>> оцінку ту, яка найбільш близька до істинного значення оцінюваного параметру, 
+Отже, яку статистику краще обрати? Назвати <<найкращою>> оцінкою ту, яка найбільш близька до істинного значення оцінюваного параметру, 
 неможливо, оскільки точкова оцінка --- випадкова величина. Таким чином, робити висновки про якість оцінки варто не по її конкретним значенням, 
 а по її розподілу. В зв'язку з цим розглянемо вимоги, що висувають до точкових оцінок.
 
@@ -89,10 +89,10 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 \begin{proof}
     Якщо $\theta^*_n$ незміщена, то 
     $\P\left\{|\theta^*_n - \theta| \geq \varepsilon\right\}=\P\left\{|\theta^*_n - \E\theta^*_n| \geq \varepsilon\right\} 
-    \leq \frac{\D\theta^*_n}{\varepsilon^2} \to 0$.
+    \leq \frac{\D\theta^*_n}{\varepsilon^2} \to 0, n\to \infty$.
     Якщо $\theta^*_n$ асимптотично незміщена, то $\underset{n\to\infty}{\lim} \E\theta^*_n = \theta$,
     звідки за критерієм збіжності в середньому квадратичному до константи маємо 
-    $\theta^*_n \overset{\text{СК}}{\longrightarrow} \theta \Rightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta$.
+    $\theta^*_n \overset{\text{СК}}{\longrightarrow} \theta \Rightarrow \theta^*_n \overset{\mathrm{P}}{\longrightarrow} \theta, n\to\infty$.
 \end{proof}
 \begin{remark}
     Також є поняття \emph{сильно конзистентної оцінки}, де збіжність за ймовірністю замінюється збіжністю майже напевно.
@@ -112,7 +112,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
         \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$ --- асимптотично незміщена оцінка $a$.
         Перевірятимемо конзистентність за означенням:
         \begin{gather*}
-            \varepsilon > 0, \; \P\left\{|a^*_n - a| > \varepsilon\right\} = 
+            \varepsilon > 0, \; \P\left\{|a^*_n - a| < \varepsilon\right\} = 
             \P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} = \int_{a}^{a+\varepsilon} f_{\min}(x) dx = \\
             = \frac{n}{(b-a)^n}\int_{a}^{a+\varepsilon} (b-x)^{n-1} dx =
             -\frac{n}{(b-a)^n} \cdot \left. \frac{(b-x)^n}{n} \right|_{a}^{a+\varepsilon} = \\
@@ -188,10 +188,11 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     Нехай ГС $\xi \sim \mathrm{Poiss}(a)$. $\E\xi = a$, тому $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ --- 
     незміщена оцінка $a$. Перевіримо її ефективність.
     \begin{gather*}
-        \ln \mathcal{L}(\vec{\xi}, a) = -n a + \ln a \cdot \sum\limits_{k=1}^n \xi_k - \sum\limits_{k=1}^n \ln{\xi_k!} \\
-        \frac{\partial  \ln \mathcal{L}(\vec{\xi}, a)}{\partial a} = -n + \frac{1}{a} \cdot \sum\limits_{k=1}^n \xi_k = 
-        -n + \frac{n}{a} \cdot \overline{\xi} = \frac{n}{a} \cdot(\overline{\xi} - a) = C(n, a) \cdot(a^* - a)
+        \ln \mathcal{L}(\vec{x}, a) = -n a + \ln a \cdot \sum\limits_{k=1}^n x_k - \sum\limits_{k=1}^n \ln{x_k!} \\
+        \frac{\partial  \ln \mathcal{L}(\vec{x}, a)}{\partial a} = -n + \frac{1}{a} \cdot \sum\limits_{k=1}^n x_k = 
+        -n + \frac{n}{a} \cdot \overline{x} = \frac{n}{a} \cdot(\overline{x} - a)
     \end{gather*}
+    Перейдемо до випадкової вибірки: $\frac{\partial  \ln \mathcal{L}(\vec{\xi}, a)}{\partial a} = C(n, a) \cdot(a^* - a)$.
     Отже, ця оцінка є ефективною.
 \end{example}
 
@@ -214,7 +215,9 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 \end{proof}
 
 Також вводитися поняття \emph{асимптотично ефективної оцінки.} Це означає, що 
-$\D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$.
+$\D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$. Оскільки за нерівністю Рао-Крамера для незміщених оцінок
+виконується $\D\theta^* \cdot \mathcal{I}(\theta) \leq 1$, то, якщо треба порівняти декілька незміщених оцінок,
+ які не є ефективними, кращою обирається та, у якої добуток $\D\theta^* \cdot \mathcal{I}(\theta)$ більше.
 
 \subsection{Асимптотична нормальність оцінки}
 \begin{definition}
@@ -264,7 +267,7 @@ $$
             p^* = \frac{\overline{\xi}}{N^*} = \frac{\overline{\xi} - \D^{**}\xi}{\overline{\xi}}
         \end{cases}$$
         Незважаючи на формально правильний результат, застосовувати ці оцінки недоречно: немає жодної гарантії, що $N^*$ прийматиме лише натуральні значення.
-        Якщо параметр $N$ відомий, то можна користуватися оцінкою $p^* = \frac{\overline{\xi}}{N}$.
+        Але якщо параметр $N$ відомий, то можна користуватися оцінкою $p^* = \frac{\overline{\xi}}{N}$.
         \item $\xi \sim \mathrm{Exp}(\lambda)$. Оскільки $\E \xi = \frac{1}{\lambda}$ і $\D \xi = \frac{1}{\lambda^2}$, за допомогою методу моментів можна отримати дві оцінки $\lambda^*$:
         $\lambda_1^* = 1/{\overline{\xi}}$ та $\lambda_2^* = 1/{\sqrt{\D^{**}\xi}}$. В такому випадку порівнюють властивості отриманих оцінок та обирають кращу.
     \end{enumerate}
