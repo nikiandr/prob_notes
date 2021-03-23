@@ -1,0 +1,65 @@
+% !TEX root = ../../main.tex
+\section{Перевірка простих параметричних гіпотез}
+\subsection{Оптимальний критерій Неймана-Пірсона}
+
+Часто розподіл генеральної сукупності відомий і за вибіркою треба перевірити 
+припущення щодо значень параметрів цього розподілу. Такі гіпотези називають 
+\emph{параметричними}. Методика перевірки простої параметричної гіпотези $H_0$
+проти простої альтернативної гіпотези $H_1$ ґрунтується на тому, що критичну область $W$
+слід вибирати таким чином, щоб ймовірність попадання в неї статистики критерію була мінімальною і 
+дорівнювала рівню значущості $\alpha$, якщо дослідні дані не суперечать нульовій гіпотезі $H_0$ та 
+максимальною у протилежному випадку. 
+Тобто критична область повинна бути такою, щоб при заданому рівні значущості $\alpha$ потужність критерію
+$1-\beta$ була максимальною. Назвемо \emph{найкращою критичною областю (НКО)} таку множину, що забезпечує максимальну 
+потужність критерію. Побудова такої області ґрунтується на \emph{лемі Неймана-Пірсона}.
+\begin{theorem*}[лема Неймана-Пірсона]
+    Серед усіх критеріїв заданого рівня значущості $\alpha$, які 
+    перевіряють просту параметричну гіпотезу $H_0 : \theta = \theta_0$ проти простої альтернативної гіпотези 
+    $H_1: \theta = \theta_1$ \textbf{критерій відношення правдоподібності} є найбільш потужним, тобто, найкраща критична область
+    має вигляд
+    \begin{gather}
+        W_{C_\alpha} = \left\{
+            \vec{x} \in \mathbb{R}^n : \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq C_{\alpha}
+         \right\}
+    \end{gather}
+    де у чисельнику стоїть функція правдоподібності в припущенні, що справджується 
+    гіпотеза $H_1$, а у знаменнику --- якщо справджується $H_1$. Стала $C_{\alpha}$ вибирається з умови
+    \begin{gather}
+        \P \left\{ \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq C_{\alpha}\right\} = 
+        \P \left\{ \ln\frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq \ln C_{\alpha}\right\} = \alpha
+    \end{gather}
+\end{theorem*}
+\begin{remark}
+    Функція $\frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})}$ називається
+    \emph{відношенням правдоподібності}, а $\ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})}$ ---
+    \emph{логарифмічним відношенням правдоподібності}.
+\end{remark}
+\begin{proof}
+    Як було зазначено на початку розділу, ймовірність помилки першого роду при заданій критичній множині $W_{C_\alpha}$ можна знайти як
+    $\alpha = \P\left\{ \vec{\xi} \in W_{C_\alpha} / H_0\right\} = \int_{W_{C_\alpha}} \mathcal{L}_{H_0}(\vec{x}) d\vec{x}$.
+    Нехай $W$ --- деяка інша критична множина рівня значущості $\alpha$, 
+    $\P\left\{ \vec{\xi} \in W / H_0\right\} \leq \alpha$. Позначимо $I_W(\vec{x})$ та $I_{W_{C_\alpha}}(\vec{x})$ індикатори цих множин і
+    розглянемо функцію 
+    $$f(\vec{x}) = \left(I_{W_{C_\alpha}}(\vec{x}) - I_W(\vec{x})\right)\cdot \left(\mathcal{L}_{H_1}(\vec{x}) - C_{\alpha} \cdot \mathcal{L}_{H_0}(\vec{x})\right)$$
+    Якщо $\vec{x} \in W_{C_\alpha}$, то $I_{W_{C_\alpha}}(\vec{x}) - I_W(\vec{x}) = 1$ і 
+    $\mathcal{L}_{H_1}(\vec{x}) - C_{\alpha} \cdot \mathcal{L}_{H_0}(\vec{x}) \geq 0$ за побудовою.
+    Якщо $\vec{x} \in W$, то $I_{W_{C_\alpha}}(\vec{x}) - I_W(\vec{x}) = -1$ і 
+    $\mathcal{L}_{H_1}(\vec{x}) - C_{\alpha} \cdot \mathcal{L}_{H_0}(\vec{x}) \leq 0$ за побудовою.
+    В інших випадках ($\vec{x}$ належить обом множинам одночасно або не належить жодній) перший множник дорівнює $0$.
+    Отже, $f(\vec{x}) \geq 0$ для всіх $\vec{x} \in \mathbb{R}^n$.
+    \begin{gather*}
+        0 \leq \int_{\mathbb{R}^n} f(\vec{x}) d\vec{x} = 
+        \int_{\mathbb{R}^n} \left(I_{W_{C_\alpha}}(\vec{x}) - I_W(\vec{x})\right)\cdot \left(\mathcal{L}_{H_1}(\vec{x}) - C_{\alpha} \cdot \mathcal{L}_{H_0}(\vec{x})\right) d\vec{x} =\\
+        = \int_{W_{C_\alpha}} \mathcal{L}_{H_1}(\vec{x}) d\vec{x} - \int_{W} \mathcal{L}_{H_1}(\vec{x}) d\vec{x}
+        - C_{\alpha} \cdot \int_{W_{C_\alpha}} \mathcal{L}_{H_0}(\vec{x}) d\vec{x} +
+        C_{\alpha} \cdot \int_{W} \mathcal{L}_{H_0}(\vec{x}) d\vec{x} = \\
+        = \P\left\{ \vec{\xi} \in W_{C_\alpha} / H_1\right\} - \P\left\{ \vec{\xi} \in W / H_1\right\} -
+        C_{\alpha}\cdot\left(\P\left\{ \vec{\xi} \in W_{C_\alpha} / H_0\right\} - \P\left\{ \vec{\xi} \in W / H_0\right\}\right)
+    \end{gather*}
+    $\P\left\{ \vec{\xi} \in W_{C_\alpha} / H_0\right\} - \P\left\{ \vec{\xi} \in W / H_0\right\} \geq 0$, тому
+    $\P\left\{ \vec{\xi} \in W_{C_\alpha} / H_1\right\} - \P\left\{ \vec{\xi} \in W / H_1\right\} \geq 0$. 
+    Це й означає, що вибір критичної множини $W_{C_\alpha}$ дає більшу потужність критерію, ніж $W$.
+\end{proof}
+
+\subsection{Приклади побудови найкращої критичної області}
+\noindent\textbf{Приклад 1.}
