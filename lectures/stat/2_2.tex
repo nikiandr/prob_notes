@@ -25,8 +25,8 @@ $1-\beta$ була максимальною. Назвемо \emph{найкращ
     де у чисельнику стоїть функція правдоподібності в припущенні, що справджується 
     гіпотеза $H_1$, а у знаменнику --- якщо справджується $H_1$. Стала $C_{\alpha}$ вибирається з умови
     \begin{gather}
-        \P \left\{ \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq C_{\alpha}\right\} = 
-        \P \left\{ \ln\frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq \ln C_{\alpha}\right\} = \alpha
+        \P \left\{ \frac{\mathcal{L}_{H_1}(\vec{\xi})}{\mathcal{L}_{H_0}(\vec{\xi})} \geq C_{\alpha}\right\} = 
+        \P \left\{ \ln\frac{\mathcal{L}_{H_1}(\vec{\xi})}{\mathcal{L}_{H_0}(\vec{\xi})} \geq \ln C_{\alpha}\right\} = \alpha
     \end{gather}
 \end{theorem*}
 \begin{remark}
@@ -60,6 +60,19 @@ $1-\beta$ була максимальною. Назвемо \emph{найкращ
     $\P\left\{ \vec{\xi} \in W_{C_\alpha} / H_1\right\} - \P\left\{ \vec{\xi} \in W / H_1\right\} \geq 0$. 
     Це й означає, що вибір критичної множини $W_{C_\alpha}$ дає більшу потужність критерію, ніж $W$.
 \end{proof}
+Твердження леми Неймана-Пірсона можна застосовувати для знаходження потужності критерію та обсягу вибірки, що забезпечує заданий рівень значущості та ймовірність помилки другого роду.
+Знаючи $C_{\alpha}$, можна знайти ймовірність помилки другого роду $\beta$ як
+\begin{gather*}
+    \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} < \ln C_{\alpha}\right\} = \beta
+\end{gather*}
+Для визначення мінімального обсягу вибірки, при якому досягаються наперед задані ймовірності помилок першого $\alpha$ та другого роду $\beta$,
+треба розв'язати систему
+\begin{gather*}
+    \begin{cases}
+        \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq \ln C_{\alpha}\right\} = \alpha \\
+        \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} < \ln C_{\alpha}\right\} = \beta
+    \end{cases}
+\end{gather*}
 
 \subsection{Приклади побудови найкращої критичної області}
 \noindent\textbf{Приклад 1.}\label{nko:ex1} Побудувати найкращу критичну область за лемою Неймана-Пірсона

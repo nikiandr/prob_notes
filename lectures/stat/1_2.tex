@@ -205,7 +205,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     $\D\theta^* = \D\theta_1^* = \sigma^2$. Розглянемо оцінку $\theta_2^* = \frac{\theta^* + \theta_1^*}{2}$, яка теж є незміщеною.
     $\D\theta_2^* = \frac{1}{4}\left(\D\theta^* + \D\theta_1^* + 2{cov}(\theta^*, \theta_1^*) \right) = \frac{1}{2}\left( \sigma^2 + {cov}(\theta^*, \theta_1^*)\right)$.
     $\left|{cov}(\theta^*, \theta_1^*) \right| \leq \sqrt{\D\theta^* \cdot \D\theta_1^*} = \sigma^2$.
-    Отже, $\D\theta_2^* \leq \sigma^2$. Але за умовою дисперсія ефективної $\theta$ рівна $\sigma^2$, тому $\D\theta_2^* = \sigma^2$.
+    Отже, $\D\theta_2^* \leq \sigma^2$. Але за умовою дисперсія ефективної оцінки $\theta$ рівна $\sigma^2$, тому $\D\theta_2^* = \sigma^2$.
     Це означає, що в ${cov}(\theta^*, \theta_1^*) \leq \sigma^2$ досягається рівність, тому $\theta^*$ та $\theta_1^*$ є лінійно залежними, тобто
     $\theta_1^* = k\cdot \theta^* + b$. Тепер $\theta = \E\theta_1^* = k\cdot \E\theta^* + b = k\cdot \theta + b$, звідки $b = (1-k)\theta$.
     $\theta_1^* = k\cdot \theta^* + (1-k)\theta \Leftrightarrow \theta_1^* - \theta = k \cdot \left(\theta^* - \theta \right)$.
@@ -241,7 +241,7 @@ $$
 \subsection{Метод моментів}
 \emph{Метод моментів} базується на тому, що часто деякі моменти $\xi$ функціонально залежать від параметрів розподілу.
 В такому випадку, в разі <<хорошої>> залежності можна виразити параметри розподілу як функції від моментів і отримати точкові оцінки параметрів,
-замінивши в отриманих вираз моменти на їх вибіркові аналоги.
+замінивши в отриманих виразах моменти на їх вибіркові аналоги.
 \begin{example}
     Знайдемо декілька оцінок методом моментів.
     \begin{enumerate}
@@ -283,6 +283,9 @@ $$
 \end{remark}
 \subsection{Метод максимальної правдоподібності}
 \emph{Метод максимальної правдоподібності} полягає в знаходженні таких оцінок невідомих параметрів розподілу ГС, що максимізують значення функції правдоподібності.
+Пояснення цього методу таке: якщо провести декілька спостережень однієї ГС, то найчастіше будемо спостерігати ті значення, при яких щільність розподілу близька до свого максимуму
+(у випадку неперервної ГС) або ж яким відповідає найбільша ймовірність появи (у випадки дискретної ГС). Тому й шукаються такі статистики для оцінки невідомих параметрів, 
+за яких функція правдоподібності набуватиме максимального значення.
 Тобто, в якості оцінки $\theta^*$ береться значення $\theta^*(\xi_1, ..., \xi_n) = \underset{\theta}{\mathrm{argmax}} \;{\mathcal{L}(\vec{\xi}, \theta)}$, або ж, у випадку
 двох або більше параметрів, $\underset{\theta_1, ..., \theta_k}{\mathrm{argmax}} \; {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$. Оскільки логарифм --- монотонна функція,
 то $\ln {\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$ досягає максимуму по $\theta_1, ..., \theta_k$ одночасно з ${\mathcal{L}(\vec{\xi}, \theta_1, ..., \theta_k)}$.
@@ -297,11 +300,11 @@ $$
         Позначимо для зручності $s = \sigma^2$ та шукатимемо максимум функції двох змінних:
         $$\begin{cases}
             \frac{\partial \ln \mathcal{L}}{\partial a} = \frac{1}{s} \sum\limits_{k=1}^n (x_k - a) = \frac{n}{s}(\overline{x} - a) = 0 \\
-            \frac{\partial \ln \mathcal{L}}{\partial s} = -\frac{n}{2s} + \frac{1}{2s^2} \sum\limits_{k=1}^n (x_k - \overline{x})^2 = 0
+            \frac{\partial \ln \mathcal{L}}{\partial s} = -\frac{n}{2s} + \frac{1}{2s^2} \sum\limits_{k=1}^n (x_k - a)^2 = 0
         \end{cases} \Rightarrow
         \begin{cases}
-            a^* = \overline{x} \\
-            s^* =  \frac{1}{n} \sum\limits_{k=1}^n (\xi_k - a)^2 = (\D^* \xi)_{\text{зн}}
+            a_{\text{кр.}} = \overline{x} \\
+            s_{\text{кр.}} =  \frac{1}{n} \sum\limits_{k=1}^n (x_k - a)^2 = (\D^* \xi)_{\text{зн}}
         \end{cases}$$
         $$\begin{pmatrix}
             \frac{\partial^2 \ln \mathcal{L}}{\partial a^2} & \frac{\partial^2 \ln \mathcal{L}}{\partial a \partial s} \\
@@ -311,18 +314,18 @@ $$
             -\frac{n}{s} & -\frac{n}{s^2}(\overline{x} - a) \\
             -\frac{n}{s^2}(\overline{x} - a) & \frac{n}{2s^2} - \frac{1}{s^3}\sum\limits_{k=1}^n (x_k - a)^2
         \end{pmatrix}$$
-        При $a = a^*$ та $s = s^*$ матриця других похідних дорівнює 
+        При $a = a_{\text{кр.}}$ та $s = s_{\text{кр.}}$ матриця других похідних дорівнює 
         $$\begin{pmatrix}
-            -\frac{n}{s^*} & 0 \\
-            0 & \frac{n}{(s^*)^3} \left( 2s^* - \frac{1}{n}\sum\limits_{k=1}^n (x_k - a^*)^2\right)
+            -\frac{n}{s_{\text{кр.}}} & 0 \\
+            0 & \frac{n}{(s_{\text{кр.}})^3} \left( \frac{s_{\text{кр.}}}{2} - \frac{1}{n}\sum\limits_{k=1}^n (x_k - a^*)^2\right)
         \end{pmatrix} =
         \begin{pmatrix}
-            -\frac{n}{s^*}  & 0 \\
-            0 & \frac{n}{(s^*)^3}\cdot s^*
+            -\frac{n}{s_{\text{кр.}}}  & 0 \\
+            0 & -\frac{n s_{\text{кр.}}}{2(s_{\text{кр.}})^3}
         \end{pmatrix} = 
         \begin{pmatrix}
-            -\frac{n}{s^*}  & 0 \\
-            0 & \frac{n}{(s^*)^2}
+            -\frac{n}{s_{\text{кр.}}}  & 0 \\
+            0 & -\frac{n}{2(s_{\text{кр.}})^2}
         \end{pmatrix}$$
         Ця матриця є від'ємно визначеною, тому $\ln \mathcal{L}(\vec{x}, a, \sigma^2)$ дійсно досягає максимуму при
         $a = \overline{x}$ та $\sigma^2 = (\D^* \xi)_{\text{зн}}$. Отже, отримали оцінки $a^* = \overline{\xi}$ та $(\sigma^2)^* = \D^*\xi$.

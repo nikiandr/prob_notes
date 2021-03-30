@@ -13,7 +13,7 @@ for n in range(1, 31):
     res += f"{chi2.ppf(1-q_list[-1], df=n):.2f} \\\\"
     res += "\n\\hline \n"
 
-for n in [30, 40, 50, 60, 70, 80, 90, 100]:
+for n in [40, 50, 60, 70, 80, 90, 100]:
     res += f"\\textbf{{{n}}} & "
     for q in q_list[:-1]:
         res += f"{chi2.ppf(1-q, df=n):.2f} &"
