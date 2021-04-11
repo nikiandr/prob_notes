@@ -1,6 +1,6 @@
 % !TEX root = ../../main.tex
-\section{Перевірка простих параметричних гіпотез}
-\subsection{Оптимальний критерій Неймана-Пірсона}
+\section{Перевірка параметричних гіпотез}
+\subsection{Прості гіпотези. Критерій Неймана-Пірсона}
 
 Часто розподіл генеральної сукупності відомий і за вибіркою треба перевірити 
 припущення щодо значень параметрів цього розподілу. Такі гіпотези називають 
@@ -137,10 +137,10 @@ $4(t-10) = 1.65 \Leftrightarrow t = 10.4125$. Отже, $\overline{x} = 10.3 < t
 \vspace{3mm}
 \noindent\textbf{Приклад 2.} Побудувати найкращу критичну область за лемою Неймана-Пірсона 
 для параметра $\sigma^2$ нормального закону розподілу з відомим математичним сподіванням $a$.
-Введемо дві прості гіпотези (основну та альтернативну): $H_0 : \D\xi = \sigma_0^2$ та $H_1 : \D\xi = \sigma_1^2$, де $\sigma_0^2 < \sigma_1^2$.
+Введемо дві прості гіпотези (основну та альтернативну): $H_0 : \D\xi = \sigma_0^2$ та $H_1 : \D\xi = \sigma_1^2$, де $\sigma_0^2 > \sigma_1^2$.
 Як і у прикладі \hyperref[nko:ex1]{1}, запишемо логарифмічне відношення правдоподібності:
 \begin{gather*}
-    \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} = \ln\left(\frac{\sigma_0}{\sigma_1}\right)^2
+    \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} = \ln\left(\frac{\sigma_0}{\sigma_1}\right)^n
     -\frac{1}{2\sigma_1^2}\sum\limits_{k=1}^n (x_k - a)^2 + \frac{1}{2\sigma_0^2}\sum\limits_{k=1}^n (x_k - a)^2 = \\
     = n\cdot \ln \frac{\sigma_0}{\sigma_1} + \frac{n}{2}\cdot\frac{1}{n}\cdot \sum\limits_{k=1}^n (x_k - a)^2
     \cdot \frac{\sigma_1^2 - \sigma_0^2}{\sigma_1^2 \cdot\sigma_0^2} = 
@@ -150,19 +150,19 @@ $4(t-10) = 1.65 \Leftrightarrow t = 10.4125$. Отже, $\overline{x} = 10.3 < t
 Розв'яжемо відносно $\left(\D^*\xi\right)_{\text{зн.}}$ нерівність $\ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq \ln C_{\alpha}$:
 \begin{gather*}
     \frac{n}{2}\cdot \left(\D^*\xi\right)_{\text{зн.}}
-    \cdot \frac{\sigma_1^2 - \sigma_0^2}{\sigma_1^2 \cdot\sigma_0^2} \leq C_{\alpha} - n\cdot \ln \frac{\sigma_0}{\sigma_1} \Leftrightarrow
+    \cdot \frac{\sigma_1^2 - \sigma_0^2}{\sigma_1^2 \cdot\sigma_0^2} \geq \ln C_{\alpha} - n\cdot \ln \frac{\sigma_0}{\sigma_1} \Leftrightarrow
     \left(\D^*\xi\right)_{\text{зн.}} \leq
-    \frac{C_{\alpha} - n\cdot \ln \frac{\sigma_0}{\sigma_1}}{\frac{n}{2}\cdot\frac{\sigma_1^2 - \sigma_0^2}{\sigma_1^2 \cdot\sigma_0^2} }
+    \frac{\ln C_{\alpha} - n\cdot \ln \frac{\sigma_0}{\sigma_1}}{\frac{n}{2}\cdot\frac{\sigma_1^2 - \sigma_0^2}{\sigma_1^2 \cdot\sigma_0^2} }
 \end{gather*}
-Зауважимо, що знак нерівності тут не змінюється, оскільки $\sigma_1^2 > \sigma_0^2$.
+Зауважимо, що знак нерівності тут змінюється, оскільки $\sigma_1^2 < \sigma_0^2$.
 Знайдемо $t$ з рівності
-$\P \left\{\frac{n\D^*\xi}{\sigma_0^2} \geq t / H_0 \right\} = \alpha$, користуючись тим, що $\eta = \frac{n\D^*\xi}{\sigma_0^2} \sim \chi^2_n$,
-якщо $H_0$ справджується. Знайдене значення $t$ буде межею критичної області, яка в цьому випадку буде \emph{правосторонньою}.
+$\P \left\{\frac{n\D^*\xi}{\sigma_0^2} \leq t / H_0 \right\} = \alpha$, користуючись тим, що $\eta = \frac{n\D^*\xi}{\sigma_0^2} \sim \chi^2_n$,
+якщо $H_0$ справджується. Знайдене значення $t$ буде межею критичної області, яка в цьому випадку буде \emph{лівосторонньою}.
 Якщо значення статистики $\eta$, обчисленої за конкретною 
-реалізацією, буде більше за $t$, то гіпотезу $H_0 : \D\xi = \sigma_0^2$ треба відхиляти, бо дослідні дані суперечать цій 
+реалізацією, буде менше за $t$, то гіпотезу $H_0 : \D\xi = \sigma_0^2$ треба відхиляти, бо дослідні дані суперечать цій 
 гіпотезі на рівні значущості $\alpha$. В іншому випадку гіпотезу $H_0$ приймаємо.
 
-У випадку $\sigma_1^2 < \sigma_0^2$ при розв'язанні нерівності відносно $\left(\D^*\xi\right)_{\text{зн.}}$ зміниться її знак, тому критична область буде \emph{лівосторонньою}.
+У випадку $\sigma_1^2 > \sigma_0^2$ при розв'язанні нерівності відносно $\left(\D^*\xi\right)_{\text{зн.}}$ її знак не зміниться, тому критична область буде \emph{правосторонньою}.
 
 \begin{remark}
     Якщо математичне сподівання ГС є невідомим, то треба користуватися статистикою $\eta = \frac{(n-1)\D^{**}\xi}{\sigma_0^2}$, 
