@@ -73,6 +73,7 @@ $1-\beta$ була максимальною. Назвемо \emph{найкращ
         \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} < \ln C_{\alpha} \middle/ H_1 \right\} = \beta
     \end{cases}
 \end{gather*}
+Відповідні приклади будуть розглянуті нижче (ст. \pageref{np_lemma_examples}).
 
 \subsection{Приклади побудови найкращої критичної області}
 \noindent\textbf{Приклад 1.}\label{nko:ex1} Побудувати найкращу критичну область за лемою Неймана-Пірсона
@@ -133,6 +134,46 @@ $4(t-10) = 1.65 \Leftrightarrow t = 10.4125$. Отже, $\overline{x} = 10.3 < t
 Якщо дисперсія є невідомою, то межу критичної області знайдемо з $\P\left\{\eta > t_{\text{кр}}\right\} = \alpha$ для $\eta \sim \mathrm{St}_{15}$,
 вона дорівнює $1.753$. $\eta_{\text{зн}} = \frac{(10.3 - 10)\cdot 4}{1} = 1.2 < t_{\text{кр}}$. Отже, і в цьому випадку дані не суперечать основній 
 гіпотезі на рівні значущості $0.05$. 
+
+\label{np_lemma_examples}
+В умовах цієї задачі знайдемо також ймовірність помилки другого роду з рівності
+$\beta = \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} < \ln C_{\alpha} \middle/ H_1\right\}$.
+Повторюючи міркування при знаходженні межі критичної області, отримаємо 
+$\beta = \P\left\{ \overline{\xi} < t_\text{кр} \middle/ H_1\right\} = 
+0.5 + \Phi\left(\frac{(t_\text{кр} - 10.3)\sqrt{16}}{1}\right) = 
+0.5 + \Phi\left(\frac{(10.41 - 10.3)\cdot 4}{1}\right) \approx 0.617$.
+Відповідно, потужність критерію дорівнює $1-\beta \approx 0.383$.
+
+Якщо ймовірність помилки другого роду при заданому рівні значущості треба зменшити,
+необхідно збільшити обсяг вибірки. Нехай $\beta = 0.1$, а $\alpha = 0.05$, як і було в задачі.
+Розв'яжемо систему:
+\begin{gather*}
+    \begin{cases}
+        \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} \geq \ln C_{\alpha} \middle/ H_0\right\} = \alpha \\
+        \P \left\{ \ln \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} < \ln C_{\alpha} \middle/ H_1 \right\} = \beta
+    \end{cases} \Leftrightarrow
+    \begin{cases}
+        0.5 - \Phi\left(\frac{(t- 10)\sqrt{n}}{1}\right) = 0.05 \\
+        0.5 + \Phi\left(\frac{(t - 10.3)\sqrt{n}}{1}\right) = 0.1
+    \end{cases} \Leftrightarrow \\
+    \Leftrightarrow
+    \begin{cases}
+        \Phi\left(t - 10)\sqrt{n}\right) = 0.45 \\
+        \Phi\left(t - 10.3)\sqrt{n}\right) = -0.4
+    \end{cases}
+    \Leftrightarrow
+    \begin{cases}
+        (t-10) \sqrt{n} \approx 1.64 \\
+        (t - 10.3) \sqrt{n} \approx -1.28
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \sqrt{n} \approx 9.733 \\
+        t \approx 10.17
+    \end{cases}
+\end{gather*}
+Отже, обсяг вибірки $n \geq 95$ забезпечить ймовірність помилки другого роду, рівну $0.1$.
+
 
 \vspace{3mm}
 \noindent\textbf{Приклад 2.} Побудувати найкращу критичну область за лемою Неймана-Пірсона 
@@ -211,7 +252,7 @@ $\P \left\{\frac{n\D^*\xi}{\sigma_0^2} \leq t / H_0 \right\} = \alpha$, кори
 
 У випадку $a_1 < a_0$ при розв'язанні нерівності відносно $\overline{x}$ зміниться її знак, тому критична область буде \emph{лівосторонньою}.
 
-Зрозуміло, шо аналогічні міркування можна застосовувати і для інших розподілів ГС, якщо у логарифмічному відношенні правдоподібності вдається
+Зрозуміло, що аналогічні міркування можна застосовувати і для інших розподілів ГС, якщо у логарифмічному відношенні правдоподібності вдається
 виділити вибіркове середнє чи іншу статистику, для якої справджується ЦГТ.
 
 \begin{exercise}
