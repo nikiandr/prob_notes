@@ -57,13 +57,20 @@
 \newcommand{\D}{\mathbb{D}}
 \newcommand{\K}{\mathbb{K}}
 
+\newcommand\centerarc{} % just for safety
+\def\centerarc[#1]#2(#3)#4(#5:#6:#7)% [draw options] (center) (initial angle:final angle:radius)
+  {\draw[#1]($(#3)+({#7*cos(#5)},{#7*sin(#5)})$)arc(#5:#6:#7);}
+
+
 %%%% Картинки
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 \pgfplotsset{compat=1.17}
+\usepackage{pgfplotstable}
 
+\usetikzlibrary{calc}
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows.meta}
