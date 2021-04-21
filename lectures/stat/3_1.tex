@@ -54,7 +54,7 @@ $f(x) = \sum\limits_{k=0}^m \beta_k x^k$. Задача регресійного 
 \end{remark}
 
 \subsection{Метод найменших квадратів}
-Оцінки $\vec{\beta} = (\beta_1, \beta_2, ..., \beta_n)^T$ можна знайти за допомогою методу максимальної правдоподібності,
+Оцінки $\vec{\beta} = (\beta_1, \beta_2, ..., \beta_m)^T$ можна знайти за допомогою методу максимальної правдоподібності,
 застосованого до вектору $\eta = \left(\eta_1, \eta_2, ..., \eta_n\right)^T$.
 Оскільки $\eta_i = \varepsilon_i + f(x_i)$, то розподіл $\eta_i$ буде таким самим, як 
 $\varepsilon_i$, але з математичним сподіванням $f(x_i)$.
@@ -71,10 +71,10 @@ $\mathbb{I}$ --- одинична матриця $n\times n$. Тоді
 при найменшому значенні $\sum\limits_{i=1}^n (\eta_i - f(x_i))^2 = \sum\limits_{i=1}^n \varepsilon_i^2$.
 Цей окремий випадок ММП називається \emph{методом найменших квадратів (МНК)}.
 \begin{definition}
-    \emph{Оцінкою методу найменших квадратів (ОМНК)} для параметрів $\vec{\beta} = (\beta_1, \beta_2, ..., \beta_n)^T$
+    \emph{Оцінкою методу найменших квадратів (ОМНК)} для параметрів $\vec{\beta} = (\beta_1, \beta_2, ..., \beta_m)^T$
     називається такий набір цих параметрів, при яких досягається мінімум $\sum\limits_{i=1}^n \varepsilon_i^2$.
 \end{definition}
-Якщо ми знайдемо оцінки $\vec{\beta}^* = (\beta_1^*, \beta_2^*, ..., \beta_n^*)^T$,
+Якщо ми знайдемо оцінки $\vec{\beta}^* = (\beta_1^*, \beta_2^*, ..., \beta_m^*)^T$,
 то також знайдемо оцінку функції $f^*(x)$.
 \begin{remark}
     На практиці іноді можуть припускати, що координати $\vec{\varepsilon}$ мають 
@@ -235,7 +235,7 @@ $F^T F \vec{x} = \vec{0}$, тоді $\vec{x}^T F^T F \vec{x} = (F\vec{x})^T F\ve
         \end{pmatrix}
     \end{gather*}
     Якщо позначити $\sum\limits_{k=1}^n x_k = n\cdot \overline{x}$, $\sum\limits_{k=1}^n y_k = n\cdot \overline{y}$,
-    $\sum\limits_{k=1}^n x_k x_k = n\cdot \overline{x y}$, $\sum\limits_{k=1}^n x_k^2 = n\cdot \overline{x^2}$, то
+    $\sum\limits_{k=1}^n x_k y_k = n\cdot \overline{x y}$, $\sum\limits_{k=1}^n x_k^2 = n\cdot \overline{x^2}$, то
     \begin{gather*}
         \vec{\beta}^*_\text{зн} = \frac{1}{n^2 \cdot \left(\D^* \xi\right)_\text{зн}} \begin{pmatrix}
             n^2 \cdot \overline{y} \cdot \overline{x^2} - n^2 \cdot \overline{x} \cdot \overline{x y} \\
