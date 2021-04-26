@@ -23,7 +23,7 @@ $1-\beta$ була максимальною. Назвемо \emph{найкращ
          \right\}
     \end{gather}
     де у чисельнику стоїть функція правдоподібності в припущенні, що справджується 
-    гіпотеза $H_1$, а у знаменнику --- якщо справджується $H_1$. Стала $C_{\alpha}$ вибирається з умови
+    гіпотеза $H_1$, а у знаменнику --- якщо справджується $H_0$. Стала $C_{\alpha}$ вибирається з умови
     \begin{gather}
         \P \left\{ \frac{\mathcal{L}_{H_1}(\vec{\xi})}{\mathcal{L}_{H_0}(\vec{\xi})} \geq C_{\alpha} \middle/ H_0\right\} = 
         \P \left\{ \ln\frac{\mathcal{L}_{H_1}(\vec{\xi})}{\mathcal{L}_{H_0}(\vec{\xi})} \geq \ln C_{\alpha} \middle/ H_0\right\} = \alpha
@@ -86,7 +86,7 @@ $$ \mathcal{L}(x_1, ..., x_n, a) =
     \frac{\mathcal{L}_{H_1}(\vec{x})}{\mathcal{L}_{H_0}(\vec{x})} = 
     \exp\left\{ -\frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a_1)^2 + \frac{1}{2\sigma^2}\sum\limits_{k=1}^n (x_k - a_0)^2\right\} = \\
     = \exp\left\{ -\frac{1}{2\sigma^2}\sum\limits_{k=1}^n \left(x_k^2 - 2x_k a_1 + a_1^2 - x_k^2 + 2x_k a_0 - a_0^2\right)\right\} = \\
-    = \exp\left\{ -\frac{1}{2\sigma^2} \left( 2(a_1 - a_0) \sum\limits_{k=1}^n x_k + n(a_1^2 - a_0^2)\right)\right\} = 
+    = \exp\left\{ -\frac{1}{2\sigma^2} \left( 2(a_0 - a_1) \sum\limits_{k=1}^n x_k + n(a_1^2 - a_0^2)\right)\right\} = 
     \exp\left\{\frac{a_1 - a_0}{\sigma^2}\sum\limits_{k=1}^n x_k \right\}
     \exp\left\{-\frac{n(a_1^2 - a_0^2)}{2\sigma^2}\right\}
 \end{gather*}
@@ -158,8 +158,8 @@ $\beta = \P\left\{ \overline{\xi} < t_\text{кр} \middle/ H_1\right\} =
     \end{cases} \Leftrightarrow \\
     \Leftrightarrow
     \begin{cases}
-        \Phi\left(t - 10)\sqrt{n}\right) = 0.45 \\
-        \Phi\left(t - 10.3)\sqrt{n}\right) = -0.4
+        \Phi\left((t - 10)\sqrt{n}\right) = 0.45 \\
+        \Phi\left((t - 10.3)\sqrt{n}\right) = -0.4
     \end{cases}
     \Leftrightarrow
     \begin{cases}
@@ -243,7 +243,7 @@ $\P \left\{\frac{n\D^*\xi}{\sigma_0^2} \leq t / H_0 \right\} = \alpha$, кори
 Зауважимо, що знак нерівності тут не змінюється, оскільки $a_1 > a_0$ і тому $\ln\left(\frac{a_1}{a_0}\right) > 0$.
 Якщо обсяг вибірки великий, то $\overline{\xi}$ наближено має розподіл $\mathrm{N}\left(a_0, \frac{a_0}{n}\right)$, якщо $H_0$ справджується:
 \begin{gather*}
-    \P \left\{\overline{\xi} \geq t / H_0 \right\} = \alpha \Rightarrow \alpha \approx 0.5 - \Phi\left(\frac{(t - a_0)\sqrt{n}}{a_0}\right)
+    \P \left\{\overline{\xi} \geq t / H_0 \right\} = \alpha \Rightarrow \alpha \approx 0.5 - \Phi\left(\frac{(t - a_0)\sqrt{n}}{\sqrt{a_0}}\right)
 \end{gather*}
 Знайдене значення $t$ буде межею критичної області, яка в цьому випадку буде \emph{правосторонньою}.
 Якщо значення вибіркового середнього, обчисленого за конкретною 
