@@ -147,23 +147,23 @@ $$
 \subsection{Асимптотичні наближення формули Бернуллі}
 Формула Бернуллі не є зручною для великих значень $m$ та $n$. Існують формули, якими можна 
 скористатись для наближення результатів формули Бернуллі.
-\begin{proposition}[асимптотична формула Пуассона]
+\begin{proposition*}[асимптотична формула Пуассона]
     Нехай $n$ --- достатньо велике натуральне число, а p --- достатньо мале, так що 
     $a = np \in (1, 20)$. Тоді для наближення формули Бернуллі можна використати 
     асимптотичну формулу Пуассона:
     $$\P_n(m) \approx \frac{(np)^m}{m!}e^{-np}$$
-\end{proposition}
+\end{proposition*}
 \begin{proof}[Доведення (нестроге)]
     $\P_n(m) = \frac{n(n-1)...(n-m+1)}{m!} \left(\frac{a}{n}\right)^m 
     (1-\frac{a}{n})^{n-m} = \frac{a^m}{m!} 1(1 - \frac{1}{n})(1 - \frac{2}{n})
     ...(1 - \frac{m+1}{n})(1-\frac{a}{n})^n (1-\frac{a}{n})^{-m} 
     \underset{n \rightarrow \infty}{\longrightarrow} \frac{a^m}{m!}e^{-a} = \frac{(np)^m}{m!}e^{-np}$.
 \end{proof}
-\begin{proposition}[формула Муавра-Лапласа]
+\begin{proposition*}[формула Муавра-Лапласа]
     Нехай $npq \geq 20$. Тоді для наближення формули Бернуллі можна використати 
     формулу Муавра-Лапласа:
     $$\P_n(m) \approx \frac{1}{\sqrt{2\pi npq}} e^{-\frac{(m-np)^2}{2npq}}$$
-\end{proposition}
+\end{proposition*}
 \begin{proof}
     Ґрунтується на локальній теоремі Муавра-Лапласа.
 \end{proof}
