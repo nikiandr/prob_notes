@@ -124,9 +124,9 @@
     $\P\left\{ \left| \frac{\xi_{10000}}{10000} - \frac{1}{2}\right| \geq 0.01\right\} \leq \frac{1}{4\cdot 10^4 \cdot 0.01^2} = \frac{1}{4}$.
 \end{example}
 Наведемо узагальнення теореми Бернуллі.
-\begin{theorem*}
-    Нехай $\xi_n$ задає кількість успіхів в схемі Бернуллі з $n$ випробуваннями та ймовірністю успіху $p_n$, $\xi_n \sim \mathrm{Bin}(n, p_n)$.
-    Тоді 
+\begin{theorem*}[теорема Пуассона]
+    Нехай $\xi_n$ задає кількість успіхів в перших $n$ випробуваннях з послідовності незалежних випробувань, в $k$-тому з яких ймовірність 
+    успіху дорівнює $p_k$. Тоді
     $\frac{\xi_n}{n} - \frac{1}{n}\sum\limits_{k=1}^n p_k \overset{\mathrm{P}}{\longrightarrow} 0, \; n \to \infty$.
 \end{theorem*}
 \begin{exercise}
