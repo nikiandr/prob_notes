@@ -1,15 +1,15 @@
 % !TEX root = ../main.tex
-\section{Умовні ймовірності. Незалежність подій. Формула Баєса.}
+\section{Умовна ймовірність та її застосування}
 
-\subsection{Умовні ймовірності}
+\subsection{Поняття умовної ймовірності}
 Припустимо, що спостерігається деякий експеримент, що описується класичною моделлю, а для події $B$ $\P(B)>0$.
-Умовна ймовірність $\P(A/B)$ --- це ймовірність події $A$ за умови, що відбулась подія $B$.
+\emph{Умовна ймовірність} $\P(A/B)$ --- це ймовірність події $A$ за умови, що відбулась подія $B$.
 Наприклад, експеримент --- витягання карт з колоди, $A=\left\{\text{витягнуто даму пік}\right\}$, $B=\left\{\text{витягнуто карту чорної масті}\right\}$.
 
 Оскільки експеримент описується класичною моделлю, то можемо позначити $m_B$ та $m_{A\cap B}$ кількості елементарних подій, що сприяють появами подій $B$ та $A \cap B$ відповідно.
 Тоді $\P(A/B) = \frac{m_{A\cap B}}{m_B} = \frac{m_{A\cap B}/n}{m_B/n} = \frac{\P(A\cap B)}{\P(B)}$, де $n = \mathrm{card}(\Omega)$.
 
-Ця формула справджується й для довільних ймовірнісних просторів.
+Для довільних ймовірнісних просторів ця формула вводиться як означення умовної ймовірності.
 \begin{definition}
     Якщо подія $B$ має додатну ймовірність $\P(B)>0$, то \emph{умовна ймовірність} події $A$ за умови, що відбулась подія $B$,
     обчислюється за формулою 
@@ -24,45 +24,27 @@
     \item $ \forall A_1, A_2, ... , A_n, ... \in \mathcal{F}: A_i \cap A_j = \varnothing \text{ при } i \neq j : \\
     \P\left(\left(\bigcup\limits_{n=1}^{\infty} A_n\right)/B\right) = \frac{\P\left(\left(\bigcup\limits_{n=1}^{\infty} A_n\right)\cap B\right)}{\P(B)} = \frac{\P\left(\bigcup\limits_{n=1}^{\infty} (A_n\cap B)\right)}{\P(B)} \overset{\text{\textbf{P3}}}{=} \frac{\sum\limits_{n=1}^{\infty} \P(A_n \cap B)}{\P(B)} = \sum\limits_{n=1}^{\infty} \P(A_n/B)$.
 \end{enumerate}
-Таким чином, для умовної ймовірності діють всі аксіоми ТЙ. Фактично, розглядається звуження ймовірнісного простору
-$\left\{ B, \mathcal{F}_B, \P(\cdot/B)\right\}$, в якому $B$ стає вірогідною подією.
-
-\noindent \textbf{Теореми множення}
-
-З формули \eqref{eq:cond_prob} випливає, що
-\begin{equation}\label{eq:mult_for_2}
-    \P(A\cap B) = \P(A)\cdot \P(B/A) = \P(B) \cdot \P(A/B)
-\end{equation}
-Для трьох подій: $\P(A \cap B \cap C) = \P(A\cap B) \cdot \P(C/(A\cap B)) = \P(A)\cdot \P(B/A) \cdot \P(C/(A\cap B))$.
-За методом математичної індукції неважко довести, що
-\begin{equation}\label{eq:mult_for_n}
-    \P\left( \bigcap\limits_{k=1}^{n} A_k\right) = \P\left(A_1\right) \cdot \P\left(A_2/A_1\right) \cdot \P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot \P\left( A_n / \left( \bigcap\limits_{k=1}^{n-1} A_k\right) \right)
-\end{equation}
-
-\begin{example}
-    На 10 картках написано по одній букві так, що можна скласти слово <<математика>>.
-    Дитина навмання витягує без повернення по одній картці. Яка ймовірність того, що після витягання 4 карток
-    утвориться слово <<мама>>?
-
-    Треба обчислити ймовірність $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)})$,
-    де верхній індекс означає крок, на якому витягнуто літеру.
-    $\P(M^{(1)}) = \frac{2}{10}$, $\P(A^{(2)} / M^{(1)}) = \frac{3}{9}$,
-    $\P(M^{(3)}/(M^{(1)} \cap A^{(2)})) = \frac{1}{8}$, $\P(A^{(4)} / (M^{(1)} \cap A^{(2)} \cap M^{(3)})) = \frac{2}{7}$.
-    Тому за формулою \eqref{eq:mult_for_n} $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7}$.
-\end{example}
+\vspace{1em}
+Таким чином, для умовної ймовірності виконуються аксіоми \textbf{P1}, \textbf{P2} та \textbf{P3}. 
+\begin{exercise}
+    Нехай $\left\{ \Omega, \mathcal{F}, \P\right\}$ --- деякий ймовірнісний простір, а $B\in\mathcal{F}$ --- деяка
+    подія з $\P(B) > 0$. Перевірити, що для простору елементарних подій $\Omega_B$, що складається
+    з усіх елементарних подій, які містить $B$, $\mathcal{F}_B = \left\{ A\cap B : A \in \mathcal{F} \right\}$ є $\sigma$-алгеброю.
+    Разом з вже доведеними властивостями умовної ймовірності $\P(\cdot / B)$ це означає, що $\left\{ \Omega_B, \mathcal{F}_B, \P(\cdot / B)\right\}$
+    також є ймовірнісним простором, в якому $B$ є вірогідною подією.
+\end{exercise}
 
 \subsection{Незалежність подій}
 \begin{definition}
     Дві події $A$ та $B$ називаються \emph{незалежними}, якщо
-    \begin{equation}
-        \P(A\cap B) = \P(A)\cdot \P(B)
+    \begin{equation}\label{eq:indep_events}
+        \P(A/B) = \P(A) \text{ або } \P(B/A) = \P(B)
     \end{equation}
+    Це означає, що на появу однієї події не впливає поява іншої.
 \end{definition}
 \noindent \textbf{Властивості незалежних подій:}
 \begin{enumerate}
-    \item Якщо події $A$ та $B$ незалежні, то $\P(A/B) = \frac{\P(A\cap B)}{\P(B)} = \frac{\P(A)\cdot \P(B)}{\P(B)} = \P(A)$.
-    
-    Аналогічно $\P(B/A) = \P(B)$.
+    \item Якщо події $A$ та $B$ незалежні, то $\P(A\cap B) = \P(A)\cdot \P(B)$. Це випливає з (\ref{eq:cond_prob}) та (\ref{eq:indep_events}).
     \begin{remark}
         Несумісні події залежні, якщо їх ймовірності не нульові.
     \end{remark}
@@ -70,7 +52,7 @@ $\left\{ B, \mathcal{F}_B, \P(\cdot/B)\right\}$, в якому $B$ стає ві
     \item Якщо події $A$ та $B$ незалежні, то пари $A$ та $\overline{B}$, 
     $\overline{A}$ та $B$, $\overline{A}$ та $\overline{B}$ --- теж незалежні.
     \begin{proof}
-        Доведемо спочатку для пари $A$ та $\overline{B}$. $\P(A\cap \overline{B}) = \P(A\backslash (A\cap B)) = \P(A) - \P(A\cap B) = \P(A) - \P(A)\cdot \P(B) = \P(A)\cdot (1 - \P(B)) = \P(A)\cdot \P(\overline{B})$.
+        Доведемо спочатку для пари $A$ та $\overline{B}$. $\P(A\cap \overline{B}) = \P(A\setminus (A\cap B)) = \P(A) - \P(A\cap B) = \P(A) - \P(A)\cdot \P(B) = \P(A)\cdot (1 - \P(B)) = \P(A)\cdot \P(\overline{B})$.
         Отже, $A$ та $\overline{B}$ --- незалежні. Доведення для інших пар аналогічне.
     \end{proof}
     \item Якщо $A$ та $B$, $A$ та $C$ незалежні, а $B$ та $C$ несумісні, то $A$ та $B\cup C$ --- незалежні події.
@@ -82,7 +64,7 @@ $\left\{ B, \mathcal{F}_B, \P(\cdot/B)\right\}$, в якому $B$ стає ві
 \begin{definition}
     Події $A_1, A_2, ..., A_n \in \mathcal{F}$ називаються \emph{незалежними у сукупності}, якщо
     \begin{equation}\label{eq:indep}
-        \forall i_1, i_2, ... i_r \in \{1,...,n\}: \P\left(\bigcap\limits_{k=1}^r A_{i_k}\right) = \prod\limits_{k=1}^r \P\left(A_{i_k}\right)
+        \forall i_1, i_2, ..., i_r \in \{1,...,n\}: \P\left(\bigcap\limits_{k=1}^r A_{i_k}\right) = \prod\limits_{k=1}^r \P\left(A_{i_k}\right)
     \end{equation}
     Зокрема:
     \nopagebreak
@@ -107,20 +89,46 @@ $\left\{ B, \mathcal{F}_B, \P(\cdot/B)\right\}$, в якому $B$ стає ві
     тому незалежності у сукупності немає.
 \end{example}
 
-\noindent \textbf{Теорема додавання для незалежних у сукупності подій.}
-$A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
-$\P\left(\bigcup\limits_{k=1}^n A_k\right) = \text{?}$
+\subsection{Теореми додавання та множення}
+\noindent\textbf{Теорема множення.} 
+З формули \eqref{eq:cond_prob} випливає, що
+\begin{equation}\label{eq:mult_for_2}
+    \P(A\cap B) = \P(A)\cdot \P(B/A) = \P(B) \cdot \P(A/B)
+\end{equation}
+Для трьох подій: $\P(A \cap B \cap C) = \P(A\cap B) \cdot \P(C/(A\cap B)) = \P(A)\cdot \P(B/A) \cdot \P(C/(A\cap B))$.
+За методом математичної індукції неважко довести, що
+\begin{equation}\label{eq:mult_for_n}
+    \P\left( \bigcap\limits_{k=1}^{n} A_k\right) = \P\left(A_1\right) \cdot \P\left(A_2/A_1\right) \cdot \P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot \P\left( A_n / \left( \bigcap\limits_{k=1}^{n-1} A_k\right) \right)
+\end{equation}
 
-$\P\left(\bigcup\limits_{k=1}^n A_k\right) = 1 - \P\left(\overline{\bigcup\limits_{k=1}^n A_k}\right) = 1 - \P\left(\bigcap\limits_{k=1}^n \overline{A_k}\right) = 1 - \prod\limits_{k=1}^n \P(\overline{A_k})$.
+Якщо $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності, то, як було зазначено, з (\ref{eq:indep}) випливає, що
+формула (\ref{eq:mult_for_n}) спрощується до $\P\left(\bigcap\limits_{k=1}^n A_k\right) = \prod\limits_{k=1}^n \P(A_k) = \prod\limits_{k=1}^n \left(1-\P(\overline{A_k})\right)$.
 
-\noindent Зокрема, для двох незалежних подій $A$ і $B$: $\P(A\bigcup B) = 1 - \P(\overline{A}) \cdot \P(\overline{B})$
+\begin{example}
+    На 10 картках написано по одній букві так, що можна скласти слово <<математика>>.
+    Дитина навмання витягує без повернення по одній картці. Яка ймовірність того, що після витягання 4 карток
+    утвориться слово <<мама>>?
+
+    Треба обчислити ймовірність $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)})$,
+    де верхній індекс означає крок, на якому витягнуто літеру.
+    $\P(M^{(1)}) = \frac{2}{10}$, $\P(A^{(2)} / M^{(1)}) = \frac{3}{9}$,
+    $\P(M^{(3)}/(M^{(1)} \cap A^{(2)})) = \frac{1}{8}$, $\P(A^{(4)} / (M^{(1)} \cap A^{(2)} \cap M^{(3)})) = \frac{2}{7}$.
+    Тому за формулою \eqref{eq:mult_for_n} $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7}$.
+\end{example}
+
+\noindent\textbf{Теорема додавання.} Нехай $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
+Тоді з рівностей $\P\left(\bigcup\limits_{k=1}^n A_k\right) = 1 - \P\left(\overline{\bigcup\limits_{k=1}^n A_k}\right) = 1 - \P\left(\bigcap\limits_{k=1}^n \overline{A_k}\right)$
+випливає формула
+\begin{equation}
+    \P\left(\bigcup\limits_{k=1}^n A_k\right) = 1 - \prod\limits_{k=1}^n \P(\overline{A_k})
+\end{equation}
+Зокрема, для двох незалежних подій $A$ і $B$: $\P(A\bigcup B) = 1 - \P(\overline{A}) \cdot \P(\overline{B})$.
 
 \subsection{Формула повної ймовірності}
-Нехай деякому СЕ поставлено у відповідність простір елементарних подій $\Omega$.
+Розглядаємо деякий ймовірнісний простір $\left\{ \Omega, \mathcal{F}, \P\right\}$.
 
-$H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кількість) --- повна група подій,
-які називаємо \emph{гіпотезами (припущеннями)}.
-Нехай подія $A$ відбувається разом з якоюсь гіпотезою. Тоді має місце
+Нехай $H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кількість) --- деяка повна група подій,
+які називаємо \emph{гіпотезами (припущеннями)}, а подія $A$ відбувається разом з якоюсь гіпотезою. Тоді має місце
 \emph{формула повної ймовірності}:
 \begin{equation}\label{eq:total_prob}
     \P\left( A \right) = \sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)
@@ -128,6 +136,8 @@ $H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кі
 \begin{proof}
     $\P(A) = \P(A \cap \Omega) = \P\left(A \cap \left(\bigcup\limits_{k=1}^n H_k\right)\right) = \P\left(\bigcup\limits_{k=1}^n (A\cap H_k)\right) = \sum\limits_{k=1}^n \P(A\cap H_k) = \sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)$.
 \end{proof}
+У випадку зліченної кількості гіпотез формула (\ref{eq:total_prob}) доводиться аналогічно та перетворюється
+на $\P\left( A \right) = \sum\limits_{k=1}^{\infty} \P(H_k)\cdot \P(A/H_k)$.
 
 \begin{example}
     \begin{enumerate}
@@ -156,7 +166,7 @@ $H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кі
 перед проведенням експерименту відомі їх \emph{апріорні} ймовірності $\P(H_1), \P(H_2), ..., \P(H_n)$.
 В результаті проведення експерименту відбулась деяка подія $A$.
 Постає питання: чому рівні \emph{апостеріорні} ймовірності $\P(H_1/A), \P(H_2/A), ..., \P(H_n/A)$?
-Тобто, чому дорівнюють ймовірності, що мала місце кожна з гіпотез за умови, що подія $A$ відбулась? На це дає відповідь \emph{формула Баєса}:
+Тобто, чому дорівнюють ймовірності, що мала місце кожна з гіпотез за умови, що подія $A$ відбулась? На це питання дає відповідь \emph{формула Баєса}:
 \begin{equation}\label{eq:bayes}
     \P(H_i/A) = \frac{\P(H_i \cap A)}{\P(A)} = \frac{\P(H_i) \cdot \P(A/H_i)}{\sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)}, i = 1,...,n
 \end{equation}
