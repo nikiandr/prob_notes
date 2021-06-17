@@ -44,7 +44,7 @@
 \end{definition}
 \noindent \textbf{Властивості незалежних подій:}
 \begin{enumerate}
-    \item Якщо події $A$ та $B$ незалежні, то $\P(A\cap B) = \P(A)\cdot \P(B)$. Це випливає з (\ref{eq:cond_prob}) та (\ref{eq:indep_events}).
+    \item Якщо події $A$ та $B$ незалежні, то $\P(A\cap B) = \P(A)\cdot \P(B)$. Це випливає з \eqref{eq:cond_prob} та \eqref{eq:indep_events}.
     \begin{remark}
         Несумісні події залежні, якщо їх ймовірності не нульові.
     \end{remark}
@@ -101,8 +101,8 @@
     \P\left( \bigcap\limits_{k=1}^{n} A_k\right) = \P\left(A_1\right) \cdot \P\left(A_2/A_1\right) \cdot \P\left( A_3 / \left( A_1 \cap A_2\right)\right) \cdot ... \cdot \P\left( A_n / \left( \bigcap\limits_{k=1}^{n-1} A_k\right) \right)
 \end{equation}
 
-Якщо $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності, то, як було зазначено, з (\ref{eq:indep}) випливає, що
-формула (\ref{eq:mult_for_n}) спрощується до $\P\left(\bigcap\limits_{k=1}^n A_k\right) = \prod\limits_{k=1}^n \P(A_k) = \prod\limits_{k=1}^n \left(1-\P(\overline{A_k})\right)$.
+Якщо $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності, то, як було зазначено, з \eqref{eq:indep} випливає, що
+формула \eqref{eq:mult_for_n} спрощується до $\P\left(\bigcap\limits_{k=1}^n A_k\right) = \prod\limits_{k=1}^n \P(A_k) = \prod\limits_{k=1}^n \left(1-\P(\overline{A_k})\right)$.
 
 \begin{example}
     На 10 картках написано по одній букві так, що можна скласти слово <<математика>>.
@@ -136,7 +136,7 @@
 \begin{proof}
     $\P(A) = \P(A \cap \Omega) = \P\left(A \cap \left(\bigcup\limits_{k=1}^n H_k\right)\right) = \P\left(\bigcup\limits_{k=1}^n (A\cap H_k)\right) = \sum\limits_{k=1}^n \P(A\cap H_k) = \sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)$.
 \end{proof}
-У випадку зліченної кількості гіпотез формула (\ref{eq:total_prob}) доводиться аналогічно та перетворюється
+У випадку зліченної кількості гіпотез формула \eqref{eq:total_prob} доводиться аналогічно та перетворюється
 на $\P\left( A \right) = \sum\limits_{k=1}^{\infty} \P(H_k)\cdot \P(A/H_k)$.
 
 \begin{example}
