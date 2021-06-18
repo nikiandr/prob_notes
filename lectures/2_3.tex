@@ -10,22 +10,50 @@
 \textbf{Коротке позначення:} $\xi \sim \mathrm{Bin}(n, p)$.
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
 
-Окремим важливим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
-За законом Бернуллі розподілені випадкові величини-індикатори $I_A = \begin{cases}
-    0, & \text{подія A не відбулась}\\ 1, & \text{подія А відбулась}
+Окремим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
+За законом Бернуллі розподілені випадкові величини-індикатори $1_A = \begin{cases}
+    0, & \text{подія }A\text{ не відбулась}\\ 1, & \text{подія }A\text{ відбулась}
 \end{cases}$ при $\P(A) = p$.
 
 \noindent\textbf{Ряд розподілу:}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        $\xi$ & $0$ & $1$ & $2$ & $...$ & $n-1$ & $n$ \\
+        \hline
+        $p$ & $q^n$ & $C_n^1 pq^{n-1}$ & $C_n^2 p^2 q^{n-2}$ & $...$ & $C_n^{n-1}p^{n-1}q$ & $p^n$ \\
+        \hline
+    \end{tabular}
+\end{center}
 
-\begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    $\xi$ & $0$ & $1$ & $2$ & $..$. & $n$ \\
-    \hline
-    $p$ & $q^n$ & $npq^{n-1}$ & $C_n^2 p^2 q^{n-2}$ & $...$ & $p^n$ \\
-    \hline
-\end{tabular}
+\noindent\textbf{Полігон розподілу:} приклад для $n=5$, $p=0.6$.
+\begin{center}
+    \begin{tikzpicture}
+        \pgfmathsetmacro{\s}{4};
+        \pgfmathsetmacro{\p}{0.6};
+        \pgfmathsetmacro{\q}{1-\p};
+        \pgfmathsetmacro{\n}{5};
+        \draw [->] (-1,0) -- (\n+1, 0);
+        \draw [->] (0, -0.1*\s) -- (0, 0.4*\s);
+        \draw [thick] (0,\q^\n*\s) -- (1, {\n*\p*\q^(\n-1)*\s}) -- (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s});
+        \draw [thick] (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s}) -- (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s});
+        \draw [thick] (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s}) -- (4, {\n*\p^4*\q^(\n-4)*\s});
+        \draw [thick] (4, {\n*\p^4*\q^(\n-4)*\s}) -- (5, \p^\n*\s);
+        \draw [fill] (0,\q^\n) circle [radius = 0.05];
+        \draw [fill] (1, {\n*\p*\q^(\n-1)*\s}) circle [radius = 0.05];
+        \draw [fill] (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s}) circle [radius = 0.05];
+        \draw [fill] (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s}) circle [radius = 0.05];
+        \draw [fill] (4, {\n*\p^4*\q^(\n-4)*\s}) circle [radius = 0.05];
+        \draw [fill] (5, \p^\n*\s) circle [radius = 0.05];
+        \node [below left] at (0, 0) {0};
+        \foreach \k in {1,...,\n}:
+            \node [below] at (\k, 0) {\k};
+        \node [below] at (\n+1, 0) {$x$};
+        \node [left] at (0, 0.4*\s) {$p$};
+    \end{tikzpicture}
+\end{center}
 
-\noindent\textbf{Функція розподілу:}
+\noindent\textbf{Функція розподілу:} приклад для $n=5$, $p=0.6$.
 
 \begin{tabular}{c c}
     $
@@ -50,12 +78,17 @@
         \draw [ultra thick] [<-] (3, {1 - (\q^\n + \n*\p*\q^(\n-1) + (\n*(\n-1)/2)*\p^2*\q^(\n-2))}) -- (4, {1 - (\q^\n + \n*\p*\q^(\n-1) + (\n*(\n-1)/2)*\p^2*\q^(\n-2))});
         \draw [ultra thick] [<-] (4, {1 - (\q^\n + \n*\p*\q^(\n-1))}) -- (5, {1 - (\q^\n + \n*\p*\q^(\n-1))});
         \draw [ultra thick] [<-] (5, 1) -- (6, 1);
+        \draw [dashed] (1, 0) -- (1, {\q^\n + \n*\p*\q^(\n-1)});
+        \draw [dashed] (2, 0) -- (2, {\q^\n + \n*\p*\q^(\n-1) + (\n*(\n-1)/2)*\p^2*\q^(\n-2)});
+        \draw [dashed] (3, 0) -- (3, {1 - (\q^\n + \n*\p*\q^(\n-1) + (\n*(\n-1)/2)*\p^2*\q^(\n-2))});
+        \draw [dashed] (4, 0) -- (4, {1 - (\q^\n + \n*\p*\q^(\n-1))});
+        \draw [dashed] (5, 0) -- (5, 1);
         \node [below left] at (0, 0) {0};
         \foreach \k in {1,...,\n}:
             \node [below] at (\k, 0) {\k};
         \draw [dashed] (0, 1) -- (\n, 1);
         \node [left] at (0, 1) {1};
-        \node [right] [align=center] at (3.5, 0.2) {Приклад для \\ $n = \n, p = \p$};
+        % \node [right] [align=center] at (3.5, 0.2) {Приклад для \\ $n = \n, p = \p$};
         \node [below] at (\n+1, 0) {$x$};
         \node [left] at (0, 1.2) {$F_\xi(x)$};
     \end{tikzpicture}
@@ -63,21 +96,22 @@
 
 Для дослідження числових характеристик скористаємося генератрисою розподілу:
 
-$G_\xi(z) = \sum\limits_{k=0}^{n} \P\left\{\xi = k\right\} z^k = \sum\limits_{k=0}^{n} C_n^k p^k q^{n-k} z^k = (pz+q)^n$.
+$G_\xi(z) = \sum\limits_{k=0}^{n} \P\left\{\xi = k\right\} z^k = \sum\limits_{k=0}^{n} C_n^k p^k q^{n-k} z^k = (pz+q)^n$,
+звідки 
 $G'_\xi(z) = np(pz+q)^{n-1}$, $G''_\xi(z) = n(n-1)p^2(pz+q)^{n-2}$.
-
+Тому 
 $G'_\xi(1) = np(p+q)^{n-1} = np$, $G''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\right)^2 = n^2p^2 - np^2 + np - n^2p^2 = np(1-p) = npq$.
-Отже, знайдено значення математичного сподівання та дисперсії.
+% Отже, знайдено значення математичного сподівання та дисперсії.
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
     \item $\E\xi = np$.
     \item $\D\xi = npq$, $\sigma_\xi = \sqrt{npq}$.
-    \item ${Mo}\xi = \begin{cases}
+    \item $\mathrm{Mo}\xi = \begin{cases}
         \left[np+p\right], & \text{якщо } np+p \text{ не ціле}\\
         np+p, np-q, & \text{якщо } np+p \text{ ціле}
     \end{cases}$ --- як найбільш ймовірна кількість успіхів у схемі Бернуллі.
-    \item ${Me}\xi$ --- одне зі значень $\left[np\right] - 1$, $\left[np\right]$, $\left[np\right] + 1$.
+    \item $\mathrm{Me}\xi$ --- одне зі значень $\left[np\right] - 1$, $\left[np\right]$, $\left[np\right] + 1$.
 \end{enumerate}
 
 \noindent\textbf{Застосування:} якщо проводиться $n$ незалежних випробувань з ймовірністю успіху $p$, 
@@ -93,14 +127,15 @@ $G'_\xi(1) = np(p+q)^{n-1} = np$, $G''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $G''
     $p$ --- параметр закону, $p\in (0;1)$.
 
 \noindent\textbf{Ряд розподілу:}
-
-\begin{tabular}{|c|c|c|c|c|c|c|}
-    \hline
-    $\xi$ & $1$ & $2$ & $3$ & $...$ & $k$ & $...$ \\
-    \hline
-    $p$ & $p$ & $pq$ & $pq^2$ & $...$ & $pq^{k-1}$ & $...$ \\
-    \hline
-\end{tabular}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        $\xi$ & $1$ & $2$ & $3$ & $...$ & $k$ & $...$ \\
+        \hline
+        $p$ & $p$ & $pq$ & $pq^2$ & $...$ & $pq^{k-1}$ & $...$ \\
+        \hline
+    \end{tabular}
+\end{center}
 
 \noindent\textbf{Функція розподілу:}
 
