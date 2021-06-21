@@ -109,11 +109,11 @@
     Дитина навмання витягує без повернення по одній картці. Яка ймовірність того, що після витягання 4 карток
     утвориться слово <<мама>>?
 
-    Треба обчислити ймовірність $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)})$,
+    Треба обчислити ймовірність $\P\left(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}\right)$,
     де верхній індекс означає крок, на якому витягнуто літеру.
-    $\P(M^{(1)}) = \frac{2}{10}$, $\P(A^{(2)} / M^{(1)}) = \frac{3}{9}$,
-    $\P(M^{(3)}/(M^{(1)} \cap A^{(2)})) = \frac{1}{8}$, $\P(A^{(4)} / (M^{(1)} \cap A^{(2)} \cap M^{(3)})) = \frac{2}{7}$.
-    Тому за формулою \eqref{eq:mult_for_n} $\P(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7}$.
+    $\P\left(M^{(1)}\right) = \frac{2}{10}$, $\P\left(A^{(2)} / M^{(1)}\right) = \frac{3}{9}$,
+    $\P\left(M^{(3)}/\left(M^{(1)} \cap A^{(2)}\right)\right) = \frac{1}{8}$, $\P\left(A^{(4)} / \left(M^{(1)} \cap A^{(2)} \cap M^{(3)}\right)\right) = \frac{2}{7}$.
+    Тому за формулою \eqref{eq:mult_for_n} $\P\left(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}\right) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7} = \frac{1}{420}$.
 \end{example}
 
 \noindent\textbf{Теорема додавання.} Нехай $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
@@ -122,7 +122,7 @@
 \begin{equation}
     \P\left(\bigcup\limits_{k=1}^n A_k\right) = 1 - \prod\limits_{k=1}^n \P(\overline{A_k})
 \end{equation}
-Зокрема, для двох незалежних подій $A$ і $B$: $\P(A\bigcup B) = 1 - \P(\overline{A}) \cdot \P(\overline{B})$.
+Зокрема, для двох незалежних подій $A$ і $B$: $\P(A\cup B) = 1 - \P(\overline{A}) \cdot \P(\overline{B})$.
 
 \subsection{Формула повної ймовірності}
 Розглядаємо деякий ймовірнісний простір $\left\{ \Omega, \mathcal{F}, \P\right\}$.
