@@ -89,13 +89,13 @@
     \begin{proof}
         Наслідок з властивості 2 $(\varnothing = \overline{\Omega})$.
     \end{proof}
+    \suspend{enumerate}
     \begin{remark}
-        Якщо ймовірність події дорівнює нулю, то це не означає, що подія неможлива.
+        Якщо ймовірність події дорівнює нулю, то це не означає, що подія неможлива. Наприклад,
+        якщо СЕ --- кидання точки на відрізок $[a; b]$, а подія $A$ полягає в тому, що точка потрапила в 
+        певну точку $x \in [a; b]$, то $A$ не є неможливою, проте $\P(A) = 0$.
     \end{remark}
-    \begin{example}
-        СЕ --- кидання точки на відрізок $[a; b]$. A = \{\text{точка потрапила в 
-        певну } $x \in [a; b]$\}. $A$ не є неможливою, проте $\P(A) = 0$.
-    \end{example}
+    \resume{enumerate}
     \item $A \subset B \Rightarrow \P(A) \leq \P(B)$.
     \begin{proof}
         $A \subset B \Rightarrow B = A \cup (B \setminus A) 
@@ -128,10 +128,11 @@
     + \sum\limits_{i < j < k}^n \P(A_i \cap A_j \cap A_k) - ... + (-1)^{n-1}\P\left(\bigcap\limits_{i=1}^n A_i\right)
     \end{math}.
     \nopagebreak
+    \suspend{enumerate}
     \begin{exercise}
         Довести властивість 8.
     \end{exercise}
-\suspend{enumerate}
+
 \begin{example}[задача про неуважну секретарку]
     Секретарка поклала $n$ листів в $n$ чистих конвертів, заклеїла ці конверти і тільки 
     після цього написала адреси. Яка ймовірність того, що хоча б один з листів дійде 

@@ -1,20 +1,20 @@
 % !TEX root = ../main.tex
 
-\section{Умовні закони розподілу ВВ}
-
+\section{Умовні закони розподілу}
+З поняттям умовної ймовірності пов'язано поняття умовного закону розподілу випадкової величини.
 Розглядаємо випадок $n = 2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$.
 
 \begin{definition}
-    \emph{Умовним законом розподілу} $\xi_1$ називається закон розподілу 
-    $\xi_1$ за умови того, що $\xi_2$ набула відповідного значення (ДВВ) 
-    або потрапила в деякий проміжок (НВВ) (для $\xi_2$ аналогічно).
+    \emph{Умовним законом розподілу} $\xi_1$ ($\xi_2$) називається закон розподілу 
+    $\xi_1$ ($\xi_2$) за умови того, що $\xi_2$ ($\xi_1$) набула відповідного значення (для дискретного випадку) 
+    або потрапила в деякий проміжок (для неперервного).
 \end{definition}
 
 \begin{definition}
     Універсальним умовним законом розподілу ВВ є \emph{умовна функція 
     розподілу}:
     \begin{equation*}
-        F_{\xi_1}(x/y) = \P({\xi_1 < x}/{\xi_2 < y}) = 
+        F_{\xi_1}(x/y) = \P\left\{{\xi_1 < x}/{\xi_2 < y}\right\} = 
         \frac{\P\left\{\xi_1 < x, \xi_2 < y\right\}}
         {\P\left\{\xi_2 < y\right\}} = 
         \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_2}(y)}, F_{\xi_2}(y/x) = \frac{F_{\vec{\xi}}(x, y)}{F_{\xi_1}(x)}
@@ -26,78 +26,86 @@
     та 
     $F_{\vec{\xi}}(x,y) = F_{\xi_2}(y)F_{\xi_1}(x/y)$.
 \end{remark}
-\subsection{Умовний закон розподілу дискретного випадкового вектора}
-Знову розглядаємо випадок $n=2$ та $\vec{\xi} = (\xi_1, \xi_2)^T$.
 
-Умовні розподіли координат задаються $\P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
-\frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{\P\left\{\xi_2 = y_j\right\}}$ та \\ 
-$\P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} = 
-\frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
-{\P\left\{\xi_1 = x_i\right\}}$.
+\subsection{Умовний закон розподілу ДВВ}
+Для дискретного випадкового вектора умовні розподіли координат також можна задати умовними ймовірностями
+\begin{gather}
+    \label{eq:discr_cond_x}
+    \P\left\{\xi_1 = x_i / \xi_2 = y_j\right\} = 
+    \frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
+    {\P\left\{\xi_2 = y_j\right\}} \\
+    \label{eq:discr_cond_y}
+    \P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} = 
+    \frac{\P\left\{\xi_1 = x_i , \xi_2 = y_j\right\}}
+    {\P\left\{\xi_1 = x_i\right\}}
+\end{gather}
+Всі ці ймовірності вносяться до \emph{умовного ряду розподілу}.
 
-\begin{example}
+\begin{example}\label{ex:discr_cond_distr}
     Дискретний випадковий вектор має закон розподілу:
-
-    \begin{tabular}{ccc}
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            \diagbox{$\xi_2$}{$\xi_1$} & $-1$ & $0$ & $1$\\
-            \hline
-            0 & $0.1$ & $0.2$ & $0.1$ \\
-            \hline
-            $1$ & $0.2$ & $0.3$ & $0.1$ \\
-            \hline
+    \begin{center}
+        \begin{tabular}{ccc}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \diagbox{$\xi_2$}{$\xi_1$} & $-1$ & $0$ & $1$\\
+                \hline
+                0 & $0.1$ & $0.2$ & $0.1$ \\
+                \hline
+                $1$ & $0.2$ & $0.3$ & $0.1$ \\
+                \hline
+            \end{tabular}
+            &
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $\xi_1$ & $-1$ & $0$ & $1$ \\
+                \hline
+                $p$ & $0.3$ & $0.5$ & $0.2$ \\
+                \hline
+            \end{tabular}
+            &
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $\xi_2$ & $0$ & $1$ \\
+                \hline
+                $p$ & $0.4$ & $0.6$ \\
+                \hline
+            \end{tabular}
         \end{tabular}
-        &
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            $\xi_1$ & $-1$ & $0$ & $1$ \\
-            \hline
-            $p$ & $0.3$ & $0.5$ & $0.2$ \\
-            \hline
+    \end{center}
+    За формулами \eqref{eq:discr_cond_x} та \eqref{eq:discr_cond_y} умовні ряди розподілу мають вигляд
+    \begin{center}
+        \begin{tabular}{c c}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $\xi_1$ & $-1$ & $0$ & $1$ \\
+                \hline
+                $\P\left\{\xi_1 / \xi_2 = 0\right\}$ & $1/4$ 
+                & $2/4$ & $1/4$ \\
+                \hline
+                $\P\left\{\xi_1 / \xi_2 = 1\right\}$ & $2/6$ 
+                & $3/6$ & $1/6$ \\
+                \hline
+            \end{tabular}
+            &
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $\xi_2$ & $0$ & $1$ \\
+                \hline
+                $\P\left\{\xi_2 / \xi_1 = -1\right\}$ & $1/3$ 
+                & $2/3$ \\
+                \hline
+                $\P\left\{\xi_2 / \xi_1 = 0\right\}$ & $2/5$ 
+                & $3/5$\\
+                \hline
+                $\P\left\{\xi_2 / \xi_1 = 1\right\}$ & $1/2$ 
+                & $1/2$\\
+                \hline
+            \end{tabular}
         \end{tabular}
-        &
-        \begin{tabular}{|c|c|c|}
-            \hline
-            $\xi_2$ & $0$ & $1$ \\
-            \hline
-            $p$ & $0.4$ & $0.6$ \\
-            \hline
-        \end{tabular}
-    \end{tabular}
+    \end{center}  
 \end{example}
 
-\begin{tabular}{|c|c|c|c|}
-    \hline
-    $\xi_1$ & $-1$ & $0$ & $1$ \\
-    \hline
-    $\P\left\{\xi_1 / \xi_2 = 0\right\}$ & $1/4$ 
-    & $2/4$ & $1/4$ \\
-    \hline
-    $\P\left\{\xi_1 / \xi_2 = 1\right\}$ & $2/6$ 
-    & $3/6$ & $1/6$ \\
-    \hline
-\end{tabular}
---- умовний закон розподілу (умовний ряд розподілу) $\xi_1$.
-
-\begin{tabular}{|c|c|c|}
-    \hline
-    $\xi_2$ & $0$ & $1$ \\
-    \hline
-    $\P\left\{\xi_2 / \xi_1 = -1\right\}$ & $1/3$ 
-    & $2/3$ \\
-    \hline
-    $\P\left\{\xi_2 / \xi_1 = 0\right\}$ & $2/5$ 
-    & $3/5$\\
-    \hline
-    $\P\left\{\xi_2 / \xi_1 = 1\right\}$ & $1/2$ 
-    & $1/2$\\
-    \hline
-\end{tabular}
---- умовний закон розподілу (умовний ряд розподілу) $\xi_2$.
-
-\subsection{Умовне математичне сподівання дискретного випадкового вектора}
+\subsection{Умовне математичне сподівання ДВВ}
 \begin{definition}
     \emph{Умовним математичним сподіванням} випадкової величини $\xi_1$ 
     є математичне сподівання цієї випадкової величини за умови, що 
@@ -117,43 +125,55 @@ $\P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
 Умовні математичні сподівання координат дискретного випадкового вектора є дискретними випадковими величинами, оскільки 
 приймають декілька значень з певними ймовірностями, тому можна скласти 
 їх закон розподілу.
-\begin{example}
-    Продовження попереднього прикладу:
-
-    \begin{tabular}{c c}
-        \begin{tabular}{|c|c|c|}
-            \hline
-            $\E(\xi_1 / \xi_2)$ & $-1/6$ & $0$ \\
-            \hline
-            $p$ & $0.6$ & $0.4$ \\
-            \hline
+\begin{example}\label{ex:discr_cond_distr_2}
+    Знайдемо умовні математичні сподівання для величин з прикладу \ref{ex:discr_cond_distr}.
+    З умовного ряду розподілу $\xi_1$ маємо $\E(\xi_1 / \xi_2 = 0) = -\frac{1}{4} + \frac{1}{4}$ та
+    $\E(\xi_1 / \xi_2 = 1) = -\frac{2}{6} + \frac{1}{6} = -\frac{1}{6}$. Для побудови ряду розподілу $\E(\xi_1 / \xi_2)$
+    залишилося зауважити, що $\P\left\{\xi_2 = 0\right\} = 0.4$ та $\P\left\{\xi_2 = 1\right\} = 0.6$.
+    Аналогічно будується ряд розподілу $\E(\xi_2 / \xi_1)$:
+    \begin{center}
+        \begin{tabular}{c c}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $\E(\xi_1 / \xi_2)$ & $-1/6$ & $0$ \\
+                \hline
+                $p$ & $0.6$ & $0.4$ \\
+                \hline
+            \end{tabular}
+            &
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $\E(\xi_2 / \xi_1)$ & $1/2$ & $3/5$ & $2/3$ \\
+                \hline
+                $p$ & $0.2$ & $0.5$ & $0.3$ \\
+                \hline
+            \end{tabular}
         \end{tabular}
-        &
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            $\E(\xi_2 / \xi_1)$ & $1/2$ & $3/5$ & $2/3$ \\
-            \hline
-            $p$ & $0.2$ & $0.5$ & $0.3$ \\
-            \hline
-        \end{tabular}
-    \end{tabular}
+    \end{center}
 \end{example}
 
-\subsection{Умовні закони розподілу неперервних випадкових величин}
-
-У випадку $n = 2$, $\vec{\xi} = (\xi_1, \xi_2)^T$: 
-\begin{equation*}
-    \P\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\} = 
-    \frac{\P\{\vec{\xi} \in \Pi\}}{\P\{y \leq \xi_2 < y + \Delta y\}} = 
+\subsection{Умовний закон розподілу НВВ}
+Спробуємо визначити умовну щільність розподілу за аналогією до звичайної:
+\begin{gather*}
+    \P\left\{x \leq \xi_1 < x + \Delta x / y \leq \xi_2 < y + \Delta y\right\} = 
+    \frac{
+        \P\left\{\vec{\xi} \in \left[x; x+\Delta x\right) \times \left[y; y+\Delta y\right)\right\}
+    }{
+        \P\left\{y \leq \xi_2 < y + \Delta y \right\}
+    }
+    = \\ =
     \frac{f_{\vec{\xi}}(x,y)\Delta x \Delta y + 
-    o(\sqrt{\Delta x^2 + \Delta y^2})}{f_{\xi_2}(y)\Delta y + o(\Delta y)}
-\end{equation*}
+    o\left(\sqrt{\Delta x^2 + \Delta y^2}\right)}{f_{\xi_2}(y)\Delta y + o(\Delta y)} = 
+    \frac{f_{\vec{\xi}}(x,y)\Delta x  + 
+    o\left(\sqrt{\Delta x^2 + \Delta y^2}\right)/\Delta y}{f_{\xi_2}(y) + o(1)}
+\end{gather*}
+Цей вираз приводить до наступного означення:
 \begin{definition}
     \emph{Умовною щільністю розподілу} називається функція 
     вигляду:
-    \begin{equation*}
+    \begin{equation}
         f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)}, f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_1}(x)}
-    \end{equation*}
+    \end{equation}
 \end{definition}
 
 \begin{remark}
@@ -178,124 +198,127 @@ $\P\left\{\xi_2 = y_j / \xi_1 = x_i\right\} =
 \end{enumerate}
 Властивості умовної щільності аналогічні властивостям звичайної (безумовної) щільності.
 
-\subsection{Умовне математичне сподівання неперервного випадкового вектора}
+\subsection{Умовне математичне сподівання НВВ}
 \emph{Умовні математичні сподівання} координат НВВ визначаються через умовні щільності:
 
-$$\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
-\E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy$$
+\begin{equation}\label{eq:cond_dens}
+    \E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
+    \E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} yf_{\xi_2}(y/x)dy
+\end{equation}
 
 \begin{definition}
-    Функції $\varphi(y) = \E(\xi_1 / \xi_2 = y)$ та 
-    $\psi(x) = \E(\xi_2 / \xi_1 = x)$ називаються \emph{лініями регресії}.
+    Графіки функцій $\varphi(y) = \E(\xi_1 / \xi_2 = y)$ та 
+    $\psi(x) = \E(\xi_2 / \xi_1 = x)$ називаються \emph{лініями регресії}
+    $\xi_1$ на $\xi_2$ та $\xi_2$ на $\xi_1$ відповідно.
 \end{definition}
-\begin{example}
-    \begin{tabular}{c m{4cm}}
-        $f_{\vec{\xi}}(x, y) = 
-        \begin{cases}
-            2, & (x, y) \in D \\
-            0, & (x, y) \notin D
+\begin{example}\label{ex:cont_cond_prob}
+    Знайти умовні розподіли та математичні сподівання координат вектора $\vec{\xi}$, що рівномірно розподілений в трикутнику $D$ з вершинами в точках
+    $(0, 0)$, $(1, 0)$ та $(1, 1)$.
+    \begin{center}
+        \begin{tabular}{c m{4cm}}
+            $f_{\vec{\xi}}(x, y) = 
+            \begin{cases}
+                2, & (x, y) \in D \\
+                0, & (x, y) \notin D
+            \end{cases}
+            $
+            &
+            \begin{tikzpicture}[scale = 1.5]
+                \draw [->] (0, -0.5) -- (0, 1.5);
+                \draw [->] (-0.5, 0) -- (1.5, 0);
+                \draw (0, 0) -- (1, 0) -- (1, 1) -- cycle;
+                \draw [dashed] (0, 1) -- (1, 1);
+                \fill [lightgray] (0, 0) -- (1, 0) -- (1, 1);
+                \node [below] at (1.5, 0) {$x$};
+                \node [left] at (0, 1.5) {$y$};
+                \node [above right] at (0.45, 0.15) {$D$};
+                \node [right] at (0, 0.75) {$y = x$};
+                \node [below] at (1, 0) {$1$};
+                \node [left] at (0, 1) {$1$};
+                \node [below left] at (0, 0) {$0$};  
+            \end{tikzpicture}
+        \end{tabular}
+    \end{center}
+    Знайдемо маргінальні щільності розподілу:
+    \begin{gather*}
+        f_{\xi_1}(x) = \begin{cases}
+            \int\limits_0^x 2 dy = 2x, & x \in \left[ 0; 1\right] \\
+            0, & x \notin \left[ 0; 1\right]
+        \end{cases}, 
+        \;
+        f_{\xi_2}(y) = \begin{cases}
+            \int\limits_y^1 2 dx = 2(1-y), & y \in \left[ 0; 1\right] \\
+            0, & y \notin \left[ 0; 1\right]
         \end{cases}
-        $
-        &
-        \begin{tikzpicture}[scale = 1.5]
-            \draw [->] (0, -0.5) -- (0, 1.5);
-            \draw [->] (-0.5, 0) -- (1.5, 0);
-            \draw (0, 0) -- (1, 0) -- (1, 1) -- cycle;
-            \draw [dashed] (0, 1) -- (1, 1);
-            \fill [lightgray] (0, 0) -- (1, 0) -- (1, 1);
-            \node [below] at (1.5, 0) {$x$};
-            \node [left] at (0, 1.5) {$y$};
-            \node [above right] at (0.45, 0.15) {$D$};
-            \node [right] at (0, 0.75) {$y = x$};
-            \node [below] at (1, 0) {$1$};
-            \node [left] at (0, 1) {$1$};
-            \node [below left] at (0, 0) {$0$};  
-        \end{tikzpicture}
-    \end{tabular}
-
-    $f_{\xi_1}(x) = \begin{cases}
-        \int\limits_0^x 2 dy = 2x, & x \in \left[ 0; 1\right] \\
-        0, & x \notin \left[ 0; 1\right]
-    \end{cases}$, 
-    $f_{\xi_2}(y) = \begin{cases}
-        \int\limits_y^1 2 dx = 2(1-y), & y \in \left[ 0; 1\right] \\
-        0, & y \notin \left[ 0; 1\right]
-    \end{cases}$.
-
-    Запишемо умовні щільності: 
-
-    $f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)} = \begin{cases}
-        \frac{1}{1-y}, & x \in \left[ y; 1\right], \\
-        & y \in \left[ 0; 1\right)\\
-        0, & \text{інакше}
-    \end{cases}$,
-    $f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_1}(x)} = \begin{cases}
-        \frac{1}{x}, & y \in \left[ 0; x\right], \\
-        & x \in \left( 0; 1\right] \\
-        0, & \text{інакше}
-    \end{cases}$.
-
-    Умовні розподіли обох координат є рівномірними з параметрами $\left< y, 1\right>$ та $\left<0, x\right>$ відповідно.
-
-    $\E\xi_1 = \int\limits_0^1 2x^2 dx = \frac{2}{3}$,
-    $\E\xi_2 = \int\limits_0^1 2y(1-y) dy = \frac{1}{3}$.
-    Знайдемо умовні математичні сподівання.
-
-    $\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x/y)dx =
-    \frac{1}{1-y} \int\limits_y^1 x dx = \frac{1}{1-y} \cdot \frac{1-y^2}{2} = \frac{1+y}{2}$, $y \in \left[ 0; 1\right)$.
-
-    $\E(\xi_2 / \xi_1 = x) = \int\limits_{-\infty}^{+\infty} y f_{\xi_2}(y/x)dy = 
-    \frac{1}{x} \int\limits_0^x y dy = \frac{1}{x} \cdot \frac{x^2}{2} = \frac{x}{2}$, $x \in \left( 0; 1\right]$.
+    \end{gather*}
+    Запишемо умовні щільності за формулами \eqref{eq:cond_dens}: 
+    \begin{gather*}
+        f_{\xi_1}(x/y) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_2}(y)} = \begin{cases}
+            \frac{1}{1-y}, & x \in \left[ y; 1\right], \\
+            & y \in \left[ 0; 1\right)\\
+            0, & \text{інакше}
+        \end{cases}\;
+        f_{\xi_2}(y/x) = \frac{f_{\vec{\xi}}(x, y)}{f_{\xi_1}(x)} = \begin{cases}
+            \frac{1}{x}, & y \in \left[ 0; x\right], \\
+            & x \in \left( 0; 1\right] \\
+            0, & \text{інакше}
+        \end{cases}
+    \end{gather*}
+    Отже, умовні розподіли обох координат є рівномірними з параметрами $\left< y, 1\right>$ та $\left<0, x\right>$ відповідно,
+    тому 
+    $\E(\xi_1 / \xi_2 = y) = \frac{1+y}{2}$, $y \in \left[ 0; 1\right)$ та
+    $\E(\xi_2 / \xi_1 = x) = \frac{x}{2}$, $x \in \left( 0; 1\right]$.
 \end{example}
 \subsection{Формули повного математичного сподівання та дисперсії}
-\noindent\textbf{Формула повного математичного сподівання.}
-    $\E(\E(\xi_1 / \xi_2)) = \E\xi_1$, $\E(\E(\xi_2 / \xi_1)) = \E\xi_2$.
-\begin{proof}
+\begin{proposition*}[формула повного математичного сподівання]
+    Оскільки умовні математичні сподівання є випадковими величинами, то можна знайти їх власне математичне сподівання,
+    причому 
+    \begin{equation}
+        \E(\E(\xi_1 / \xi_2)) = \E\xi_1, \E(\E(\xi_2 / \xi_1)) = \E\xi_2
+    \end{equation}
+\end{proposition*}
+\begin{proof} Достатньо довести лише одну з формул.
     Дискретний випадок:
-
-    $\E(\E(\xi_1 / \xi_2)) = \sum\limits_{j = 1}^m 
+    $$\E(\E(\xi_1 / \xi_2)) = \sum\limits_{j = 1}^m 
     \left(
         \sum\limits_{i=1}^n x_i \P\{\xi_1 = x_i / \xi_2 = y_j\}
     \right) \P\{\xi_2 = y_j\} = 
-    \sum\limits_{i=1}^n x_i \P\{\xi_1 = x_i\} = \E\xi_1$.
-
+    \sum\limits_{i=1}^n x_i \P\{\xi_1 = x_i\} = \E\xi_1$$
     Неперервний випадок:
-
-    $\E(\E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
-    \left(
-        \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x / y) dx
-    \right) f_{\xi_2}(y) dy
-    = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = \E\xi_1$.
-
-    Для $\xi_2$ --- аналогічно.
+    \begin{gather*}
+        \E(\E(\xi_1 / \xi_2)) = \int\limits_{-\infty}^{+\infty} 
+        \left(
+            \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x / y) dx
+        \right) f_{\xi_2}(y) dy = 
+        \int\limits_{-\infty}^{+\infty} x \left(\int\limits_{-\infty}^{+\infty} 
+        \underbrace{f_{\xi_1}(x / y) f_{\xi_2}(y)}_{f_{\vec{\xi}}(x, y)}
+        dy\right) dx = \\
+        = \int\limits_{-\infty}^{+\infty} x f_{\xi_1}(x) dx = \E\xi_1
+    \end{gather*}
 \end{proof}
 
 %\begin{remark}
 %    В англомовній літературі також використовується назва «Adam's law».
 %\end{remark}
 \begin{example}
-    Продовження попередніх прикладів.
-    \begin{enumerate}
-        \item Дискретний випадок:
-        
+    Застосуємо формулу повного математичного сподівання до попередніх прикладів.
+
+    \noindent Приклади \ref{ex:discr_cond_distr} та \ref{ex:discr_cond_distr_2}:
         $\E\xi_1 = -0.3 + 0.2 = -0.1$, $\E(\E(\xi_1 / \xi_2)) = -\frac{1}{6}
         \cdot0.6 = -0.1$.
-    
         $\E\xi_2 = 0.6$, $\E(\E(\xi_2 / \xi_1)) = 0.3\cdot\frac{2}{3} + 
         \frac{1}{2}\cdot\frac{3}{5} + \frac{1}{2} \cdot\frac{2}{10} = 
         0.6$.
-        \item Неперервний випадок:
 
-        $\E(\E(\xi_1 / \xi_2)) = \int\limits_0^1 \frac{1+y}{2} \cdot 2(1-y) dy = \int\limits_0^1 (1-y^2) dy = \frac{2}{3} = \E\xi_1$,
-
-        $\E(\E(\xi_2 / \xi_1)) = \int\limits_0^1 \frac{x}{2} \cdot 2x dx = \int\limits_0^1 x^2 dx = \frac{1}{3} = \E\xi_2$.
-    \end{enumerate}
+    \noindent Приклад \ref{ex:cont_cond_prob}:
+        $\E\xi_1 = \int\limits_0^1 2x^2 dx = \frac{2}{3}$, $\E(\E(\xi_1 / \xi_2)) = \int\limits_0^1 \frac{1+y}{2} \cdot 2(1-y) dy = \int\limits_0^1 (1-y^2) dy = \frac{2}{3}$.
+        $\E\xi_2 = \int\limits_0^1 2y(1-y) dy = \frac{1}{3}$, $\E(\E(\xi_2 / \xi_1)) = \int\limits_0^1 \frac{x}{2} \cdot 2x dx = \int\limits_0^1 x^2 dx = \frac{1}{3}$. 
 \end{example}
 
 
 Крім умовного математичного сподівання розглядають
-\emph{умовні дисперсії} --- міра розсіювання однієї випадкової величини 
-за умови того, що інша набула певне значення.
+\emph{умовну дисперсію} --- міру розсіювання однієї випадкової величини 
+за умови того, що інша набула певного значення.
 
 \begin{definition}
     \emph{Умовною дисперсією} дискретної випадкової величини $\xi_1$ 
@@ -305,10 +328,12 @@ $$\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
     \E((\xi_1 - \E(\xi_1 / \xi_2 = y_j))^2/\xi_2 = y_j)$$
 \end{definition}
 
-\noindent\textbf{Формула повної дисперсії.}
-    Нехай $\xi_1$, $\xi_2$ --- випадкові величини та $\D\xi_1 < +\infty$. 
-    Тоді
-    $\D\xi_1 = \E(\D(\xi_1/\xi_2)) + \D(\E(\xi_1 / \xi_2))$.
+\begin{proposition*}[формула повної дисперсії]
+    Нехай $\D\xi_1 < +\infty$. Тоді
+    \begin{equation}
+        \D\xi_1 = \E(\D(\xi_1/\xi_2)) + \D(\E(\xi_1 / \xi_2))
+    \end{equation}
+\end{proposition*}
 
 \begin{proof}
     $\D\xi_1 = \E\xi_1^2 - (\E \xi_1)^2 = 
@@ -323,44 +348,20 @@ $$\E(\xi_1 / \xi_2 = y) = \int\limits_{-\infty}^{+\infty} xf_{\xi_1}(x/y)dx, \;
 %    В англомовній літературі також використовується назва \Eve's law».
 %\end{remark}
 
-\subsection{Випадок незалежних координат випадкового вектора}
-
-Розглядаємо випадок $n=2$, $\vec{\xi} = \left(\xi_1, \xi_2\right)^T$.
+\subsection{Випадок незалежних координат}
 Необхідною і достатньою умовою незалежності координат, як вже було розглянуто, є 
-$F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)\cdot F_{\xi_2}(y)$.
-
-З цього випливає, що в разі незалежності координат $F_{\xi_1}(x/y) = F_{\xi_1}(x)$, 
-$F_{\xi_2}(y/x) = F_{\xi_2}(y)$.
-
-\noindent\textbf{Дискретний випадок: }
-
-$\P\{\xi_1 = x_i, \xi_2 = y_j\} = \P\{\xi_1 = x_i\}\cdot \P\{\xi_2 = y_j\}$ 
-$\forall \; i,j$.
-З цього випливає, що:
-
+$F_{\vec{\xi}}(x, y) = F_{\xi_1}(x)\cdot F_{\xi_2}(y)$. З цього випливає,
+що у випадку незалежності координат всі умовні характеристики дорівнюють безумовним: в першу чергу, 
+$F_{\xi_1}(x/y) = F_{\xi_1}(x)$, $F_{\xi_2}(y/x) = F_{\xi_2}(y)$.
+Зокрема, для ДВВ:
 \begin{enumerate}
-    \item $\P\{\xi_1 = x_i / \xi_2 = y_j\} = 
-    \P\{\xi_1 = x_i\}$.
-    \item $\E(\xi_1 / \xi_2 = y_j) = \E\xi_1$,
-    $\E(\xi_2 / \xi_1 = x_i) = \E\xi_2$.
+    \item $\P\{\xi_1 = x_i, \xi_2 = y_j\} = \P\{\xi_1 = x_i\}\cdot \P\{\xi_2 = y_j\}$.
+    \item $\P\{\xi_1 = x_i / \xi_2 = y_j\} = \P\{\xi_1 = x_i\}$, $\P\{\xi_2 = y_j / \xi_1 = x_i\} = \P\{\xi_2 = y_j\}$.
+    \item $\E(\xi_1 / \xi_2 = y_j) = \E\xi_1$, $\E(\xi_2 / \xi_1 = x_i) = \E\xi_2$.
 \end{enumerate}
-
-\noindent\textbf{Неперервний випадок: }
-
-$f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
-З цього випливає, що:
-
+Для НВВ:
 \begin{enumerate}
-    \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$,    
-    $f_{\xi_2}(y/x) = f_{\xi_2}(y)$.
-    \item $\E(\xi_1 / \xi_2 = y) = \E\xi_1$, 
-    $\E(\xi_2 / \xi_1 = x) = \E\xi_2$.
+    \item $f_{\vec{\xi}}(x, y) = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
+    \item $f_{\xi_1}(x/y) = f_{\xi_1}(x)$, $f_{\xi_2}(y/x) = f_{\xi_2}(y)$.
+    \item $\E(\xi_1 / \xi_2 = y) = \E\xi_1$, $\E(\xi_2 / \xi_1 = x) = \E\xi_2$.
 \end{enumerate}
-
-Для $n$-вимірного випадку ($n > 2$):
-$\forall i,j$: $F_{\xi_i\xi_j}(x_i, x_j) = F_{\xi_i}(x_i)\cdot F_{\xi_j}(x_j)$ --- лише
-попарна незалежність.
-Нагадаємо, що координати $\xi_1, \xi_2, ..., \xi_n$ є \emph{незалежними у сукупності} 
-    тоді і тільки тоді, коли $F_{\vec{\xi}}(\vec{x}) = 
-    \prod\limits_{k=1}^n F_{\xi_k}(x_k)$.
-    З незалежності у сукупності випливає незалежність, а отже, некорельованість будь-якої пари координат.

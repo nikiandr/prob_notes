@@ -8,7 +8,7 @@
     $\left(\E{\xi_1}, ..., \E{\xi_n}\right)^T$.
 \end{definition}
 \begin{remark}
-    Математичне сподівання випадкового вектора ще називають
+    Математичне сподівання випадкового вектора інколи називають
      \emph{центром розсіювання}.
 \end{remark}
 
@@ -25,7 +25,8 @@
     $\E\xi_2 = \begin{cases}
         \sum\limits_j \sum\limits_i y_j p_{ij}, & \vec{\xi} \text{ --- ДВВ} \\
         \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{+\infty} y f_{\vec{\xi}}(x,y) dx dy, & \vec{\xi} \text{ --- НВВ}
-    \end{cases}$.
+    \end{cases}$
+    \vspace{0.5em}
     
     В загальному випадку для ДВВ $\E\xi_k = \sum\limits_{i_1, i_2, ..., i_n} (x_k)_{i_k} p_{i_1 i_2 ... i_n}$, де індекс $i_k$ пробігає кількість
     значень, що приймає координата $x_k$,
@@ -41,10 +42,10 @@
     випадкового вектора 
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
-    \begin{equation*}
+    \begin{equation}
         \alpha_{k_1+k_2+...+k_n} = 
-        \E{\xi_1^{k_1}...\xi_n^{k_n}}
-    \end{equation*}
+        \E{\xi_1^{k_1} \xi_2^{k_2} ... \xi_n^{k_n}}
+    \end{equation}
 \end{definition}
 \begin{remark}
     $\E\xi_1 = \alpha_{1+0+...+0}, \E\xi_2 = \alpha_{0+1+...+0},
@@ -57,23 +58,24 @@
     випадкового вектора
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
-    \begin{equation*}
+    \begin{equation}
         \beta_{k_1+k_2+...+k_n} = 
         \E{\mathring{\xi}_1^{k_1}
+        \mathring{\xi}_2^{k_2}
         ...
-        \mathring{\xi}_n^{k_n}},
+        \mathring{\xi}_n^{k_n}}, \text{ де }
         \mathring{\xi_k} = \xi_k - \E\xi_k
-    \end{equation*}
+    \end{equation}
 \end{definition}
 \begin{remark}
     Всі центральні моменти 1-го порядку --- 
     нульові.
 \end{remark}
-Центральні моменти порядку $0+...+0+2+0+...+0$ --- дисперсії відповідних координат:
-    $\forall k = \overline{1,n}$: 
-    $\beta_{0+...+0+\underset{k}{2}
+Центральні моменти порядку $0+...+0+2+0+...+0$ --- це дисперсії відповідних координат:
+    $$\forall k = \overline{1,n}: 
+    \beta_{0+...+0+\underset{k}{2}
     +0+...+0} = \E\mathring{\xi}_k^2 = 
-    \D\xi_k$
+    \D\xi_k$$
 
 Дисперсії координат задають розсіювання 
 вздовж відповідних координатних осей.
@@ -112,17 +114,17 @@
 \begin{remark}
     $\mathring{\vec{\xi}} = \left(\mathring{\xi_1}, ..., \mathring{\xi_n}
     \right)^T$.
-    Тоді $\K\vec{\xi} = \E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T = \E \left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$.
+    Тоді $\K\vec{\xi} = \E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T = \E \left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$,
+    де математичне сподівання від матриці $\left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$ визначається поелементно.
 \end{remark}
 
-\noindent \textbf{Властивості кореляційного моменту випадкових 
-величин:}
+\noindent \textbf{Властивості кореляційного моменту:}
 \begin{enumerate}
     \item $\K\xi_i\xi_j = \K\xi_j\xi_i$.
     \begin{proof}
         Випливає з означення кореляційного моменту.
     \end{proof}
-    \item $\eta_1 = a_1\xi_1 + b_1$, $\eta_2 = a_2\xi_2 + b_2$.
+    \item Нехай $\eta_1 = a_1\xi_1 + b_1$, $\eta_2 = a_2\xi_2 + b_2$.
     Тоді $\K\eta_1\eta_2 = a_1a_2\K\xi_1\xi_2$.
     \begin{proof}
         $\K\eta_1\eta_2 = \E(\eta_1 - \E\eta_1)(\eta_2 - \E\eta_2) = 
@@ -156,7 +158,7 @@
         a^2\D\xi_1 \pm 2ab\K\xi_1\xi_2 + b^2\D\xi_2$.
     \end{proof}
 
-    \item $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+    \item\label{cov_ineq} $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
     \begin{proof}
         Два способи: 
         \begin{enumerate}[label=\Roman*.]
@@ -196,24 +198,27 @@
     \emph{некорельованими}.
 \end{enumerate}
 
-\begin{example} Взагалі кажучи, з некорельованості не випливає незалежність.
+\begin{example} З некорельованості не випливає незалежність.
     
-    \begin{tabular}{c p{7cm}}
-        \begin{tikzpicture}[baseline={(current bounding box.center)}]
-            \draw [fill = black!10] (0, 0) circle [radius = 1];
+    \begin{tabular}{c p{10cm}}
+        \begin{tikzpicture}[baseline={(current bounding box.north)}]
+            \draw [fill = lightgray] (0, 0) circle [radius = 1];
             \draw [->] (-1.5, 0) -- (1.5, 0);
             \draw [->] (0, -1.5) -- (0, 1.5);
             \node [below right] at (0.95, 0) {$R$};
             \node [below] at (1.5, 0) {$x$};
             \node [left] at (0, 1.5) {$y$};
         \end{tikzpicture} &
-        $S = \left\{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq R^2\right\}$, $\vec{\xi} \sim \mathrm{U}(S)$.
-
-        $f_{\vec{\xi}}(x, y) = 
+        Нехай $S = \left\{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq R^2\right\}$ і $\vec{\xi} \sim \mathrm{U}(S)$.
+        Щільність розподілу дорівнює
+        \begin{center}
+            $f_{\vec{\xi}}(x, y) = 
             \begin{cases}
             \frac{1}{\pi R^2}, & (x, y) \in S \\
             0, & (x, y) \notin S
         \end{cases}$
+        \end{center}
+        Знайдемо маргінальні щільності розподілу та відповідні математичні сподівання.
     \end{tabular}
 
 \begin{tabular}{c c}
@@ -259,11 +264,12 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\x
     Якщо $\xi \in \mathcal{L}^2(\Omega)$, то $\mathring{\xi} \in \mathcal{L}_0^2(\Omega)$.
 \end{remark}
 \begin{exercise}
-    Перевірити, що $\mathcal{L}_0^2(\Omega)$ є лінійним простором.
+    Перевірити, що $\mathcal{L}_0^2(\Omega)$ є лінійним підпростором $\mathcal{L}^2(\Omega)$.
 \end{exercise}
 
 \noindent \textbf{Висновок:} ${cov}(\xi, \eta)$ задає \emph{скалярний добуток} на $\mathcal{L}_0^2(\Omega)$.
 
+\vspace{0.5em}
 Таким чином, властивість $|{cov}(\xi,\eta)| \leq \sqrt{\D\xi} \cdot \sqrt{\D\eta}$ ---
 це нерівність Коші-Буняковського, а кореляційна матриця $\K$ --- це матриця Грама системи
 випадкових величин $\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
@@ -303,7 +309,7 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\x
     \end{proof}
     \item $\left|\rho_{\xi_1\xi_2}\right| \leq 1$.
     \begin{proof}
-        Випливає з властивості кореляційного моменту.
+        Випливає з властивості \refeq{cov_ineq} кореляційного моменту.
     \end{proof}
     \item $\left|\rho_{\xi_1\xi_2}\right| = 1 \Leftrightarrow 
     \exists \; a, b \in \mathbb{R}: \xi_2 = a\xi_1 + b$.
@@ -333,3 +339,43 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\x
         звідки отримуємо лінійний зв'язок.
     \end{proof}
 \end{enumerate}
+\begin{example}
+    Скласти кореляційну та нормовану кореляційні матриці випадкового вектора $\vec{\xi} = (\xi, \eta)^T$,
+    який рівномірно розподілений в еліпсі $D = \left\{(x, y) : \frac{x^2}{4} + \frac{y^2}{9} \leq 1 \right\}$.
+
+    Оскільки площа цього еліпса дорівнює $6\pi$, то щільність розподілу має вигляд
+    \begin{gather*}
+        f_{\vec{\xi}}(x, y) = \begin{cases}
+            \frac{1}{6\pi}, & (x, y) \in D \\
+            0, & (x, y) \notin D
+        \end{cases}
+    \end{gather*}
+    Внаслідок симетрії області $D$ відносно початку координат $\E\xi = \E\eta = 0$.
+    Знайдемо дисперсії обох координат:
+    \begin{gather*}
+        \D\xi = \frac{1}{6\pi} \iint_D x^2 dx dy =
+        \left[ \begin{gathered}x = 2 r\cos\varphi \\ y = 3 r\sin\varphi \\ |\mathcal{J}| = 6r\end{gathered}\right] =
+        \frac{1}{\pi} \int_0^{2\pi}\cos^2 \varphi d\varphi \int_0^1 4 r^3 dr =
+        \frac{1}{\pi} \cdot \pi \cdot 1 = 1
+    \end{gather*}
+    Аналогічно
+    \begin{gather*}
+        \D\eta = \frac{1}{6\pi} \iint_D y^2 dx dy =
+        \frac{1}{\pi} \int_0^{2\pi}\sin^2 \varphi d\varphi \int_0^1 9 r^3 dr =
+        \frac{1}{\pi} \cdot \pi \cdot \frac{9}{4} = \frac{9}{4} 
+        \\
+        \K\xi\eta = \frac{1}{6\pi}\iint_D xy dx dy = 
+        \frac{1}{\pi} \int_0^{2\pi} \cos\varphi \sin\varphi d\varphi \int_0^1 6 r^3 dr = 0
+    \end{gather*}
+    Отже, кореляційна та нормована кореляційна матриці мають вигляд
+    \begin{gather*}
+        \K = \begin{pmatrix}
+            1 & 0 \\
+            0 & 2.25
+        \end{pmatrix}, \;
+        R = \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{gather*}
+\end{example}
