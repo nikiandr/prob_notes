@@ -3,10 +3,9 @@
 \section{Багатовимірний нормальний розподіл}
 \subsection{Виведення характеристичної функції та щільності}
 
-Розглянемо випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)^T$, $\xi_k \sim \mathrm{N}(a_k^o, \sigma_k)$ для $k=1,...,n$, координати незалежні у сукупності.
+Розглянемо випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)^T$, $\xi_k \sim \mathrm{N}(a_k^o, \sigma_k)$ для $k=1,...,n$, координати якого незалежні у сукупності.
 За властивостями характеристичної функції та щільності $\chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$,
-$f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$.
-
+$f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$. Розпишемо детальніше:
 \begin{gather*}
     \chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n e^{i a_k^o t_k - \frac{\sigma_k^2 t_k^2}{2}} = \exp\left\{i(\vec{a^o}, \vec{t}) - \frac{1}{2}\sum\limits_{k=1}^n \sigma_k^2 t_k^2\right\}
     \\
@@ -31,7 +30,7 @@ $f_{\vec{\xi}}(\vec{x}) = \prod\limits_{k=1}^n f_{\xi_k}(x_k)$.
     \\
     f_{\vec{\xi}}(\vec{x}) = \frac{1}{(2\pi)^{n/2} \sqrt{{\det{D}}}} \exp \left\{ -\frac{1}{2} \left( D^{-1}(\vec{x} - \vec{a^o}), (\vec{x} - \vec{a^o})\right)\right\}
 \end{gather}
-Причому в такому випадку $D$ --- кореляційна матриця.
+Зауважимо, що $D$ є кореляційною матрицею.
 
 Тепер розглянемо вектор $\vec{\eta} = A\vec{\xi}$, де $A$ --- невироджена матриця. За властивістю 
 $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
@@ -70,7 +69,7 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
     \P\left\{\vec{\xi}\in U^{-1}C\right\} = 
     \int\limits_{U^{-1}C} f_{\vec{\xi}}(\vec{x}) d\vec{x} = \\
     \int\limits_{U^{-1}C} \frac{1}{(2\pi)^{n/2} \sqrt{{\det{D}}}} \exp \left\{ -\frac{1}{2} \left( D^{-1}(\vec{x} - \vec{a^o}), (\vec{x} - \vec{a^o})\right)\right\} d\vec{x} =
-    \left[ \vec{x} - \vec{a^o} = U^{-1}(\vec{y} - \vec{a}) = \right. \\ \left. = U^{*}(\vec{y} - \vec{a}), d\vec{x} = d\vec{y}\right] = 
+    \left[ \vec{x} - \vec{a^o} = U^{-1}(\vec{y} - \vec{a}) = \right. \\ \left. = U^{*}(\vec{y} - \vec{a}), d\vec{x} = d\vec{y}\;\right] = 
     \frac{1}{(2\pi)^{n/2} \sqrt{{\det{D}}}} \int\limits_{C} \exp \left\{ -\frac{1}{2} \left( D^{-1}(U^{*}\vec{y} - U^{*}\vec{a}), (U^{*}\vec{y} - U^{*}\vec{a})\right)\right\} d\vec{y} = \\
     = \left[ UD^{-1}U^{*} = K^{-1}\right] =
     \frac{1}{(2\pi)^{n/2} \sqrt{{\det{K}}}} \int\limits_{C} \exp \left\{ -\frac{1}{2} \left( K^{-1}(\vec{y} - \vec{a}), (\vec{y} - \vec{a})\right)\right\} d\vec{y}
@@ -80,6 +79,9 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 \begin{equation}
     f_{\vec{\xi}}(\vec{x}) = \frac{1}{(2\pi)^{n/2} \sqrt{{\det{K}}}} \exp \left\{ -\frac{1}{2} \left( K^{-1}(\vec{x} - \vec{a}), (\vec{x} - \vec{a})\right)\right\}
 \end{equation}
+\begin{remark}
+    Щільність розподілу існує тоді і лише тоді, коли $K$ невироджена, тобто є додатно визначеною.
+\end{remark}
 
 \subsection{Властивості гауссівських векторів}
 \begin{enumerate}
@@ -91,8 +93,9 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 
         Аналогічно для будь-якої підсистеми $\vec{\eta} = (\xi_{k_1}, \xi_{k_2}, ..., \xi_{k_n})^T$.
     \end{proof}
+    \suspend{enumerate}
     \begin{remark}
-        Обернене твердження, взагалі кажучи, не є вірним.
+        Обернене твердження, взагалі кажучи, не має місця.
 
         Розглянемо випадковий вектор із щільністю
         $$ f_{\vec{\xi}}(x, y) = \frac{1}{2\pi} \left( 
@@ -111,8 +114,10 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
             \frac{1}{\sqrt{2\pi}}e^{-x^2/2} - \frac{1}{2\sqrt{\pi}}e^{-x^2} + \frac{1}{\sqrt{\pi}}e^{-x^2} - \frac{1}{2\sqrt{\pi}}e^{-x^2} \; = \\ 
             \\ = \; \frac{1}{\sqrt{2\pi}}e^{-x^2/2} \Rightarrow \xi_1 \sim \mathrm{N}(0, 1).
         \end{gather*}
-        Аналогічно $\xi_2 \sim \mathrm{N}(0, 1)$. Отже, координати вектора мають нормальний розподіл, а сам вектор --- ні.
+        Аналогічно $\xi_2 \sim \mathrm{N}(0, 1)$. Отже, координати вектора мають нормальний розподіл, а сам вектор --- ні,
+        оскільки його щільність не є гауссівською.
     \end{remark}
+    \resume{enumerate}
     \item Для гауссівського випадкового вектора поняття незалежності та некорельованості координат є еквівалентними.
     \begin{proof}
         Було доведено, що з незалежності координат випливає ії некорельованість.
@@ -221,7 +226,7 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 
 \subsection{Вироджені гауссівські вектори}
 Розглянемо випадок $n$-вимірного нормального розподілу $\vec{\xi} \sim \mathrm{N}(\vec{a}, K)$ з виродженою матрицею $K$,
-у якої $\mathrm{rang}K = m < n$. Існує ортогональне перетворення $U$ таке, що $K = UDU^{*}$,
+у якої $\mathrm{rang}K = m < n$. Як вже було сказано, щільності у такого розподілу не існує. Існує ортогональне перетворення $U$ таке, що $K = UDU^{*}$,
 $D = \mathrm{diag}(\lambda_1, \lambda_2, ..., \lambda_m, 0, ..., 0)$. 
 Знайдемо розподіл вектора $\vec{\eta} = U^{*}\vec{\xi}$ за властивістю характеристичної функції:
 \begin{gather*}
@@ -257,9 +262,9 @@ $\Lambda = \mathrm{diag}(\sqrt{\lambda_1}, \sqrt{\lambda_2}, ..., \sqrt{\lambda_
 
 Усі значення $n$-вимірного гауссівського вектора $\vec{\xi} \sim \mathrm{N}(\vec{a}, K)$ з виродженою кореляційною матрицею, що має ранг $m<n$,
 зосереджені на $m$-вимірному підпросторі $\mathbb{R}^n$ --- $\mathrm{Im}K + \vec{a}$.
+
 \subsection{Нормальний розподіл на площині} 
 Розглянемо двовимірний гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)^T \sim \mathrm{N}(\vec{a}, K)$.
-
 Нехай $\vec{a} = \begin{pmatrix}
     a_1 \\ a_2
 \end{pmatrix}$, $K = \begin{pmatrix}
@@ -286,6 +291,7 @@ $K^{-1} = \frac{1}{(1-\rho^2)\sigma_1^2\sigma_2^2}\begin{pmatrix}
     \end{gathered}
 \end{equation}
 При $\rho = 0$ отримуємо $f_{\vec{\xi}}(x,y) = \frac{1}{\sqrt{2\pi}\sigma_1} e^{-\frac{(x-a_1)^2}{2\sigma_1^2}} \cdot \frac{1}{\sqrt{2\pi}\sigma_2} e^{-\frac{(y-a_2)^2}{2\sigma_2^2}} = f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
+\vspace{0.5em}
 
 Поверхня, утворена графіком щільності,
 називається \emph{поверхнею} або \emph{палаткою Гаусса}.
@@ -367,11 +373,11 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
 Для нього $F_{\vec{\xi}}(x,y) = F_{\xi_1}(x) F_{\xi_2}(y) = 
 \left(\frac{1}{2} + \Phi\left( \frac{x-a_1}{\sigma_1}\right) \right)
 \left(\frac{1}{2} + \Phi\left( \frac{y-a_2}{\sigma_2}\right) \right)$.
-Тоді ймовірність потрапляння в прямокутник $\\Pi = \left\{(x;y)\in\mathbb{R}^2 : \alpha \leq x < \beta, \gamma \leq y < \delta\right\}$
+Тоді ймовірність потрапляння в прямокутник $\Pi = \left\{(x;y)\in\mathbb{R}^2 : \alpha \leq x < \beta, \gamma \leq y < \delta\right\}$
 дорівнює $$\left( \Phi\left( \frac{\beta-a_1}{\sigma_1}\right) - \Phi\left( \frac{\alpha-a_1}{\sigma_1}\right)\right) \cdot
 \left( \Phi\left( \frac{\delta-a_2}{\sigma_2}\right) - \Phi\left( \frac{\gamma-a_2}{\sigma_2}\right)\right)$$
 \begin{exercise}
-    Довести формулу для $\P\left\{\vec{\xi}\in\\Pi\right\}$.
+    Довести формулу для $\P\left\{\vec{\xi}\in\Pi\right\}$.
 \end{exercise}
 Для гауссівського вектору з незалежними координатами також має місце <<правило $3\sigma$>>:
 \begin{gather*}
@@ -405,7 +411,7 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
 для якої $F_{\eta}(R) = \P\left\{\Vert \vec{\xi} \Vert < R\right\} = \begin{cases}
     1 - e^{-\frac{R^2}{2\sigma^2}}, & R > 0 \\
     0, & R \leq 0
-\end{cases}$ --- це \emph{розподіл Релея}. Ця властивість переноситься й на довільну скінченну розмірність.
+\end{cases}$ --- це \emph{розподіл Релея}.
 
 \begin{exercise}
     Знайти основні числові характеристики розподілу Релея.
@@ -436,8 +442,9 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
         = \frac{1}{\sqrt{2\pi}\sigma_1\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2\sigma_1^2(1-\rho^2)}\left( x- \left( a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}\right)\right)^2\right\}
 \end{gather*}
 Аналогічно $f_{\xi_2}(y/\xi_1 = x) = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \exp\left\{-\frac{1}{2\sigma_2^2(1-\rho^2)}\left( y- \left( a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}\right)\right)^2\right\}$.
+\vspace{0.5em}
 
-\noindentОтже, обидві умовні щільності є щільностями нормального розподілу.
+\noindentОтже, обидві умовні \emph{щільності є щільностями нормального розподілу}.
 
 $\E\left( \xi_1 / \xi_2 = y\right) = a_1 + \frac{\rho\sigma_1(y-a_2)}{\sigma_2}$, 
 $\E\left( \xi_2 / \xi_1 = x\right) = a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}$. Лінії регресії --- прямі,

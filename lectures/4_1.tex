@@ -16,34 +16,43 @@
 Отже, у випадку НВВ $\xi$ $\chi_\xi(t)$ --- перетворення Фур'є щільності.
 Також з курсу гармонічного аналізу відомо, що за допомогою \emph{оберненого перетворення Фур'є}
 можна відновити $f_\xi(x)$ за $\chi_\xi(t)$: $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} e^{-itx} \chi_\xi(t)dt$.
+\begin{remark}
+    З оберненого перетворення Фур'є також випливає, що якщо дві випадкові величини мають однакові характеристичні функції,
+    то вони мають однаковий розподіл.
+\end{remark}
 
 \subsection{Властивості характеристичної функції}
 \begin{enumerate}
-    \item $\chi_\xi(0) = 1$, оскільки $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
-    
-    $\left|\chi_\xi(t)\right| \leq 1$, оскільки $\left|\int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x)\right| \leq \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right| dF_\xi(x) = \int\limits_{-\infty}^{+\infty} dF_\xi(x) = 1$.
+    \item Характеристична функція завжди існує, бо 
+    \begin{gather*}
+        \left|\chi_\xi(t)\right| = \left|\int\limits_{-\infty}^{+\infty} e^{itx} dF_\xi(x)\right| 
+        \leq \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right| dF_\xi(x) = \int\limits_{-\infty}^{+\infty} dF_\xi(x) = 1
+    \end{gather*}
+    Зокрема, $\chi_\xi(0) = 1$, оскільки $\sum\limits_{k=1}^{n(\infty)}\P\left\{\xi = x_k\right\} = 1$ та $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
     \item Характеристична функція є рівномірно неперервною.
-    \begin{proof}
-        $\left| \chi_\xi(t+h) - \chi_\xi(t) \right| = 
-        \left| \int\limits_{-\infty}^{+\infty} \left( e^{i(t+h)x} - e^{itx}\right) dF_\xi(x) \right| \leq \\
-        \leq \int\limits_{-\infty}^{+\infty} \left|e^{i(t+h)x} - e^{itx}\right| dF_\xi(x) = 
-        \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right|\left| e^{ihx} - 1\right| dF_\xi(x) = 
-        \int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x)$.
-
-        $e^{ihx} - 1 = (\cos(hx) - 1) + i\sin(hx) = -2\sin^2(\frac{hx}{2}) + 2i\sin(\frac{hx}{2})\cos(\frac{hx}{2})$, 
-        
-        $\left| e^{ihx} - 1\right| = 
-        \sqrt{4\sin^4(\frac{hx}{2}) + 4\sin^2(\frac{hx}{2})\cos^2(\frac{hx}{2})} = 2\left| \sin(\frac{hx}{2})\right|$.
-
-        $\int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x) = 2 \int\limits_{-\infty}^{+\infty} \left| \sin(\frac{hx}{2})\right| dF_\xi(x) =
-        \\\overset{A>0}{=} 2\cdot \left( \int\limits_{-\infty}^{-A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x) + 
-        \int\limits_{-A}^{A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x) + 
-        \int\limits_{A}^{+\infty}\left| \sin(\frac{hx}{2})\right| dF_\xi(x)\right)
-        $.
-
-        Інтеграл $\int\limits_{-A}^{A}\left| \sin(\frac{hx}{2})\right| dF_\xi(x)$
-        можна зробити як завгодно малим за рахунок вибору $h$,
-        а інші два --- за рахунок вибору $A$.
+    \begin{proof} Доведемо це за означенням.
+        \begin{gather*}
+            \left| \chi_\xi(t+h) - \chi_\xi(t) \right| = 
+            \left| \int\limits_{-\infty}^{+\infty} \left( e^{i(t+h)x} - e^{itx}\right) dF_\xi(x) \right| \leq
+            \int\limits_{-\infty}^{+\infty} \left|e^{i(t+h)x} - e^{itx}\right| dF_\xi(x) = \\ =
+            \int\limits_{-\infty}^{+\infty} \left|e^{itx}\right|\left| e^{ihx} - 1\right| dF_\xi(x) = 
+            \int\limits_{-\infty}^{+\infty} \left|e^{ihx} - 1\right| dF_\xi(x)
+        \end{gather*}
+        $e^{ihx} - 1 = (\cos(hx) - 1) + i\sin(hx) = -2\sin^2\left(\frac{hx}{2}\right) + 2i\sin\left(\frac{hx}{2}\right)\cos(\frac{hx}{2})$,
+        тому $\left| e^{ihx} - 1\right| = 
+        \sqrt{4\sin^4\left(\frac{hx}{2}\right) + 4\sin^2\left(\frac{hx}{2}\right)\cos^2\left(\frac{hx}{2}\right)} = 2\left| \sin\left(\frac{hx}{2}\right)\right|$
+        і можна записати 
+        \begin{gather*}
+            \left| \chi_\xi(t+h) - \chi_\xi(t) \right| \leq 2 \int\limits_{-\infty}^{+\infty} \left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x) = 
+            \\ = 2\cdot \left( \int\limits_{-\infty}^{-A}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x) + 
+            \int\limits_{-A}^{A}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x) + 
+            \int\limits_{A}^{+\infty}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x)\right)
+        \end{gather*}
+        де $A > 0$. Щоб забезпечити $\left| \chi_\xi(t+h) - \chi_\xi(t) \right| < \varepsilon$ для заданого $\varepsilon > 0$,
+        інтеграли $\int\limits_{-\infty}^{-A}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x)$ та 
+        $\int\limits_{A}^{+\infty}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x)$ можна зробити достатньо малими
+        за вибором достатньо великого $A$, а $\int\limits_{-A}^{A}\left| \sin\left(\frac{hx}{2}\right)\right| dF_\xi(x)$ --- вибором
+        достатньо малого $h$.
     \end{proof}
     \item $\eta = a\xi + b$ --- афінне перетворення $\xi$, $a, b \in \mathbb{R}$.
 
@@ -57,7 +66,7 @@
         \prod\limits_{k=1}^n \E e^{it\xi_k} = \prod\limits_{k=1}^n \chi_{\xi_k}(t)$.
     \end{proof}
     \item За допомогою характеристичної функції можна знайти початкові моменти будь-якого порядку: $\chi_\xi^{(k)}(t) = \int\limits_{-\infty}^{+\infty} (ix)^k e^{itx} dF_\xi(x)$,
-    причому $\chi_\xi^{(k)}(0) = \int\limits_{-\infty}^{+\infty} (ix)^k dF_\xi(x) = i^k \cdot \E\xi^k$.
+    тому $\chi_\xi^{(k)}(0) = \int\limits_{-\infty}^{+\infty} (ix)^k dF_\xi(x) = i^k \cdot \E\xi^k$.
     
     Отже, $\E\xi = -i \chi_\xi'(0)$, $\D\xi = \E\xi^2 - \left( \E\xi\right)^2 = - \chi_\xi''(0) + \left( \chi_\xi'(0) \right)^2$.
     \item Зв'язок характеристичної функції та генератриси ДВВ.
@@ -68,21 +77,30 @@
     \item Для того, щоб характеристична функція була дійснозначною,
     необхідно і достатньо, щоб розподіл ВВ був симетричним відносно 0.
     \begin{proof}
-        Розглянемо випадок НВВ. Нехай розподіл є симетричним відносно 0, тоді $f_\xi(x)$ --- парна.
-        $\chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx = 
-        \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx +
-        i\int\limits_{-\infty}^{+\infty} \sin(tx) f_\xi(x)dx = 
-        \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx = {Re}\chi_\xi(t)$, 
-        інтеграл з синусом рівний 0, бо інтегрується непарна функція по симетричному проміжку.
+        Розглянемо спочатку випадок НВВ: якщо розподіл є симетричним відносно 0, тоді $f_\xi(x)$ --- парна.
+        \begin{gather*}
+            \chi_\xi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} f_\xi(x)dx = 
+            \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx +
+            i\int\limits_{-\infty}^{+\infty} \sin(tx) f_\xi(x)dx = \\ =
+            \int\limits_{-\infty}^{+\infty} \cos(tx) f_\xi(x)dx = \mathrm{Re}\chi_\xi(t)
+        \end{gather*} 
+        Інтеграл з синусом рівний 0, бо інтегрується непарна функція по симетричному проміжку.
+
+        Тепер для ДВВ: якщо розподіл є симетричним відносно 0, то $\P\left\{\xi = x_k\right\} = \P\left\{\xi = -x_k\right\}$.
+        $\mathrm{Im}\chi_\xi(t)$ міститиме доданки виду $\sin\left(t x_k\right) \P\left\{\xi = x_k\right\}$ та
+        $\sin\left(-t x_k\right) \P\left\{\xi = -x_k\right\}$, які внаслідок непарності синуса взаємно скорочуються,
+        тому $\chi_\xi(t) = \mathrm{Re}\chi_\xi(t)$.
 
         Нехай $\chi_\xi(t)$ --- дійснозначна, тоді $\chi_\xi(t) = \overline{\chi_\xi(t)} = \chi_\xi(-t)$.
-        Отже, $\chi_\xi(t)$ --- парна, тоді з оберненого перетворення Фур'є $f_\xi(x)$ --- теж парна.
+        Отже, $\chi_\xi(t)$ --- парна, тоді для НВВ з оберненого перетворення Фур'є $f_\xi(x)$ --- теж парна,
+        а для ДВВ це можна пояснити побудовою характеристичної функції: якщо для деякого $x_k$
+        $\P\left\{\xi = x_k\right\} \neq \P\left\{\xi = -x_k\right\}$, то відповідні доданки не перетворяться на $\cos(t x_k)$.
     \end{proof}
 \end{enumerate}
 
 \subsection{Необхідні умови того, що функція є характеристичною}
 Нехай $\chi(t)$ --- деяка комплекснозначна функція дійсного аргументу.
-Якщо вона є характеристичною функцією деякої ВВ, то для неї має виконуватися:
+Якщо вона є характеристичною функцією деякої випадкової величини, то для неї мають виконуватися такі умови:
 \begin{enumerate}
     \item $\chi(0) = 1$, $\left| \chi(t)\right| \leq 1$.
     \item $\chi(t)$ --- рівномірно неперервна.
@@ -91,37 +109,41 @@
 \begin{example}
     \begin{enumerate}
         \item $\chi(t) = \cos(t)$ --- може бути характеристичною.
-        Оскільки $\cos(t) = \frac{1}{2}e^{it} + \frac{1}{2}e^{-it}$, то відповідна ВВ --- дискретна: 
-        \begin{tabular}{|c|c|c|}
-            \hline
-            $\xi$ & $-1$ & $1$ \\
-            \hline
-            $p$ & $1/2$ & $1/2$ \\
-            \hline
-        \end{tabular}
+        Оскільки $\cos(t) = \frac{1}{2}e^{it} + \frac{1}{2}e^{-it}$, то відповідна випадкова величина --- дискретна:
+        \begin{center}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                $\xi$ & $-1$ & $1$ \\
+                \hline
+                $p$ & $1/2$ & $1/2$ \\
+                \hline
+            \end{tabular}
+        \end{center}
         \item $\chi(t) = \sin(t)$ --- не може бути характеристичною, бо $\chi(0) = 0 \neq 1$.
         \item $\chi(t) = \cos^2(t)$ --- може бути характеристичною.
         $\cos^2(t) = \frac{1}{2} + \frac{1}{2}\cos(2t) = \frac{1}{2} + \frac{1}{4}e^{2it} + \frac{1}{4}e^{-2it}$, тому
-        відповідна ВВ --- дискретна:
-        \begin{tabular}{|c|c|c|c|}
-            \hline
-            $\xi$ & $-2$ & $0$ & $2$ \\
-            \hline
-            $p$ & $1/4$ & $1/2$ & $1/4$ \\
-            \hline
-        \end{tabular}
+        відповідна випадкова величина --- дискретна:
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                $\xi$ & $-2$ & $0$ & $2$ \\
+                \hline
+                $p$ & $1/4$ & $1/2$ & $1/4$ \\
+                \hline
+            \end{tabular}
+        \end{center}
         \item $\chi(t) = \frac{\alpha^2}{\alpha^2 + t^2}$ --- може бути характеристичною. 
-        Знайдемо щільність розподілу відповідної НВВ за формулою $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} \frac{\alpha^2 \cdot e^{-itx}}{\alpha^2 + t^2} dt$.
+        Знайдемо щільність розподілу відповідної НВВ за формулою оберненого перетворення Фур'є $f_\xi(x) = \frac{1}{2\pi}\int\limits_{-\infty}^{+\infty} \frac{\alpha^2 \cdot e^{-itx}}{\alpha^2 + t^2} dt$.
 
         При $x<0$: $\int\limits_{-\infty}^{+\infty} \frac{e^{-itx}}{\alpha^2 + t^2} dt = 2\pi i \cdot \underset{z=\alpha i}{\mathrm{Res}} \frac{e^{-izx}}{\alpha^2 + z^2} = 2\pi i \cdot \frac{e^{-i\cdot \alpha i\cdot x}}{2\alpha i} = \pi \cdot \frac{e^{\alpha x}}{\alpha}$.
 
         При $x>0$ аналогічно отримуємо $\pi \cdot \frac{e^{-\alpha x}}{\alpha}$.
-        Остаточно $f_\xi(x) = \frac{\alpha}{2}e^{-\alpha |x|}$ --- це щільність розподілу Лапласа.
+        Остаточно $f_\xi(x) = \frac{\alpha}{2}e^{-\alpha |x|}$ --- це щільність \emph{розподілу Лапласа}.
     \end{enumerate}
 \end{example}
 
 \begin{exercise}
-    Нехай $\chi(t)$ --- характеристична функція деякого розподілу. Чи можуть бути характеристичними функції $\overline{\chi}$, $\chi^2$, $|\chi|^2$, ${Re}\chi$, $|\chi|$, ${Im}\chi$? 
+    Нехай $\chi(t)$ --- характеристична функція деякого розподілу. Чи можуть бути характеристичними функції $\overline{\chi}$, $\chi^2$, $|\chi|^2$, $\mathrm{Re}\chi$, $|\chi|$, $\mathrm{Im}\chi$? 
 \end{exercise}
 
 Необхідні та достатні умови того, що функція є характеристичною, дає
@@ -149,6 +171,12 @@ $$
     \item $\xi \sim \mathrm{Exp}(\lambda)$ --- експоненційний розподіл.
     
     $\chi_\xi(t) = \lambda \int\limits_0^{+\infty} e^{itx} e^{-\lambda x} dx = \lambda \int\limits_0^{+\infty} e^{-(\lambda-it)x} dx = \frac{\lambda}{\lambda - it}$.
+    \item $\xi \sim \Gamma(\alpha, \beta)$ --- гамма-розподіл.
+    
+    $\chi_\xi(t) = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} e^{itx} x^{\alpha-1} e^{-\beta x} dx =
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^{\alpha-1} e^{-(\beta-it) x} dx = \left[ (\beta-it) x = u, dx = \frac{du}{\beta-it}\right] = 
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \int\limits_0^{+\infty} u^{\alpha-1} e^{-u} du = 
+    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \cdot \Gamma(\alpha) = (1-\frac{it}{\beta})^{-\alpha}$.
     \item $\xi \sim \mathrm{N}(a, \sigma^2)$ --- нормальний розподіл. Розглянемо стандартний розподіл $\eta \sim \mathrm{N}(0, 1)$,
     тоді $\xi = a + \sigma\cdot\eta$.
 
@@ -158,12 +186,6 @@ $$
     \frac{1}{\sqrt{2\pi}} e^{-\frac{t^2}{2}} \int\limits_{-\infty}^{+\infty} e^{-\frac{(x-it)^2}{2}} dx = 
     \left[ x-it = u, dx = du\right] = e^{-\frac{t^2}{2}}$.
     Отже, $\chi_\xi(t) = e^{iat - \frac{\sigma^2 t^2}{2}}$.
-    \item $\xi \sim \Gamma(\alpha, \beta)$ --- гамма-розподіл.
-    
-    $\chi_\xi(t) = \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} e^{itx} x^{\alpha-1} e^{-\beta x} dx =
-    \frac{\beta^\alpha}{\Gamma(\alpha)} \int\limits_0^{+\infty} x^{\alpha-1} e^{-(\beta-it) x} dx = \left[ (\beta-it) x = u, dx = \frac{du}{\beta-it}\right] = 
-    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \int\limits_0^{+\infty} u^{\alpha-1} e^{-u} du = 
-    \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{1}{(\beta-it)^\alpha} \cdot \Gamma(\alpha) = (1-\frac{it}{\beta})^{-\alpha}$.
 \end{enumerate}
 
 \begin{definition}
@@ -175,7 +197,7 @@ $$
 \end{definition}
 \begin{example}
     \begin{enumerate}
-        \item Перевірити стійкість нормального розподілу. Нехай $\xi_1 \sim \mathrm{N}(a_1, \sigma_1), ..., \xi_n \sim \mathrm{N}(a_n, \sigma_n)$ ---
+        \item Перевірити стійкість нормального розподілу. Нехай $\xi_1 \sim \mathrm{N}(a_1, \sigma_1)$, $...$, $\xi_n \sim \mathrm{N}(a_n, \sigma_n)$ ---
         незалежні у сукупності. 
     
         Знайдемо характеристичну функцію суми: $\chi_{\xi_1 + ... + \xi_n}(t) = \prod\limits_{k=1}^n \chi_{\xi_k}(t)=
@@ -210,22 +232,25 @@ $$
 
 \begin{example} Обчислення характеристичної функції для дискретного та неперервного випадкових векторів
     \begin{enumerate}
-        \item \begin{tabular}{c c}
-            \begin{tabular}{|c|c|c|}
-                \hline
-                \diagbox{$\xi_2$}{$\xi_1$} & $1$ & $2$ \\
-                \hline
-                $0$ & $0.1$ & $0.3$ \\
-                \hline
-                $1$ & $0.2$ & $0.4$ \\
-                \hline
-            \end{tabular} 
-        \end{tabular}
+        \item Дискретний випадковий вектор має закон розподілу 
+        \begin{center}
+            \begin{tabular}{c c}
+                \begin{tabular}{|c|c|c|}
+                    \hline
+                    \diagbox{$\xi_2$}{$\xi_1$} & $1$ & $2$ \\
+                    \hline
+                    $0$ & $0.1$ & $0.3$ \\
+                    \hline
+                    $1$ & $0.2$ & $0.4$ \\
+                    \hline
+                \end{tabular} 
+            \end{tabular}
+        \end{center}
 
             $\chi_{\vec{\xi}}(t_1, t_2) = 0.1 e^{i(1\cdot t_1 + 0\cdot t_2)} +
             0.3 e^{i(2\cdot t_1 + 0\cdot t_2)} + 0.2 e^{i(1\cdot t_1 + 1\cdot t_2)} +
             0.4 e^{i(2\cdot t_1 + 1\cdot t_2)}$.
-        \item $\vec{\xi} \sim {U}(D)$, $D = \left\{(x;y) \in \mathbb{R}^2:|x|\leq 1, |y|\leq 1\right\}$.
+        \item Нехай $D = \left\{(x;y) \in \mathbb{R}^2:|x|\leq 1, |y|\leq 1\right\}$ і $\vec{\xi} \sim {U}(D)$.
         
         $\chi_{\vec{\xi}}(t_1, t_2) = \frac{1}{4} \iint\limits_{D} e^{i(t_1x + t_2y)} dx dy = \frac{1}{4}\cdot\left( \int\limits_{-1}^1 e^{it_1x} dx\right) 
         \cdot\left( \int\limits_{-1}^1 e^{it_2y} dy\right) = \frac{e^{it_1}-e^{-it_1}}{2it_1}\cdot\frac{e^{it_2}-e^{-it_2}}{2it_2} = \begin{cases}
@@ -241,7 +266,7 @@ $$
 \begin{enumerate}
     \item Характеристична функція існує для будь-якого розподілу випадкового вектора, бо \\
     $\left| \chi_{\vec{\xi}}(\vec{t})\right| \leq 1$, $\chi_{\vec{\xi}}(\vec{0}) = 1$.
-    \item Характеристична функція рівномірно неперервна по кожному з аргументів.
+    \item Характеристична функція рівномірно неперервна за кожним з аргументів.
     \item За характеристичною функцією вектора можна знайти 
     характеристичну функцію будь-якої підсистеми цього вектора.
     $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)$, $\vec{\eta} = (\xi_1, \xi_2, ..., \xi_k)$, $k<n$.
