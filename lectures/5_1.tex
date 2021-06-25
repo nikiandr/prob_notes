@@ -1,48 +1,62 @@
 % !TEX root = ../main.tex
 
 \section{Функції одного випадкового аргументу}
+При розв'язанні задач іноді виникає необхідність визначити закон розподілу невипадкової функції від випадкового аргумента,
+розподіл якого є відомим.
 \subsection{Функції від дискретного випадкового аргументу}
-Нехай $\xi$ --- ДВВ з рядом розподілу 
-\begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    $\xi$ & $x_1$ & $x_2$ & $...$ & $x_n$ & $...$ \\
-    \hline
-    $p$ & $p_1$ & $p_2$ & $...$ & $p_n$ & $...$ \\
-    \hline
-\end{tabular}, а $\varphi$ --- деяка вимірна числова функція, 
+Нехай $\xi$ --- дискретна випадкова величина з рядом розподілу 
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $\xi$ & $x_1$ & $x_2$ & $...$ & $x_n$ & $...$ \\
+        \hline
+        $p$ & $p_1$ & $p_2$ & $...$ & $p_n$ & $...$ \\
+        \hline
+    \end{tabular}    
+\end{center}
+а $\varphi$ --- деяка вимірна числова функція, 
 область визначення якої містить можливі значення $\xi$.
 Можна розглядати випадкову величину $\eta = \varphi(\xi)$.
 
 Очевидно, що $\eta$ --- теж ДВВ, що приймає значення $y_k = \varphi(x_k)$, 
-$k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k\} = p_k$.
-Однак, можливо, що $y_k = \varphi(x_k) = \varphi(x_s) = ... = \varphi(x_r)$.
-Тоді $\P\{\eta = y_k\} = p_k + p_s + ... + p_r$.
+$k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k : \varphi(x_k) = y_k\}$.
+Якщо існує лише одне $\varphi^{-1} (y_k) = x_k$, то $\P\{\eta = y_k\} = \P\{\xi = x_k\} = p_k$.
+Однак, можливо, що $y_k = \varphi(x_{k_1}) = \varphi(x_{k_2}) = ... = \varphi(x_{k_m})$.
+Тоді $\P\{\eta = y_k\} = p_{k_1} + p_{k_2} + ... + p_{k_m}$.
 
 \begin{example}
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-        $\xi$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
-        \hline
-        $p$ & $1/9$ & $2/9$ & $1/9$ & $2/9$ & $3/9$ \\
-        \hline
-    \end{tabular}. Знайти закон розподілу $\eta = \xi^2$.
+    Нехай $\xi$ має ряд розподілу
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            $\xi$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+            \hline
+            $p$ & $1/9$ & $2/9$ & $1/9$ & $2/9$ & $3/9$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+    Знайти закон розподілу $\eta = \xi^2$.
     
     З ряду розподілу $\xi$ видно, що $\xi^2$ приймає значення $0, 1, 4$ з
     ймовірностями $1/9$, $2/9 + 2/9$ та $1/9 + 3/9$.
-    Отже, маємо ряд розподілу $\eta$: \begin{tabular}{|c|c|c|c|}
-        \hline
-        $\eta$ & $0$ & $1$ & $4$ \\
-        \hline
-        $p$ & $1/9$ & $4/9$ & $4/9$ \\
-        \hline
-    \end{tabular}
+    Отже, маємо ряд розподілу $\eta$: 
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            $\eta$ & $0$ & $1$ & $4$ \\
+            \hline
+            $p$ & $1/9$ & $4/9$ & $4/9$ \\
+            \hline
+        \end{tabular}
+    \end{center}
 \end{example}
 
-З алгоритму побудови ряду розподілу функції від дискретного
-випадкового аргументу $\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i\}$.
+З побудови ряду розподілу функції від дискретного
+випадкового аргументу випливає, що $\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i\}$.
 
-\subsection{Розподіл монотонної функції від неперервного випадкового аргументу}
-Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- монотонна неперервна числова функція.
+\subsection{Функції від неперервного випадкового аргументу}
+Нехай $\xi$ --- неперервна випадкова величина, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- монотонна неперервна числова функція,
+для якої обернена функція $\varphi^{-1}$ є диференційовною майже скрізь.
 Розглянемо два випадки.
 
 \begin{enumerate}
@@ -84,27 +98,45 @@ $k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k\
     $f_\eta(y) = F^\prime_\eta (y) = - f_\xi\left(\varphi^{-1} (y)\right) \cdot \left(\varphi^{-1} (y) \right)^{\prime}$.
 \end{enumerate}
 
-\noindent Остаточно, для монотонної неперервної функції $\varphi$ має місце формула:
-$$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} (y) \right)^{\prime}\right|, \; \eta = \varphi(\xi)$$
+\noindent Остаточно, для монотонної неперервної $\varphi$,
+для якої обернена функція $\varphi^{-1}$ є диференційовною майже скрізь, має місце формула:
+\begin{equation}\label{eq:phi_xi}
+    \eta = \varphi(\xi), f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} (y) \right)^{\prime}\right|
+\end{equation}
 При цьому обов'язково треба зазначити допустимі значення $y$.
 
-\begin{remark}
-    Взагалі кажучи, на функцію $\varphi$, окрім неперервності, треба накладати й умову диференційовності $\varphi^{-1}$ майже скрізь. 
-\end{remark}
-
 \begin{example}
-    $\xi \sim \mathrm{U}(-\frac{\pi}{2}; \frac{\pi}{2})$. Знайти розподіл $\eta = \sin \xi$.
+    Нехай $\xi \sim \mathrm{U}(-\frac{\pi}{2}; \frac{\pi}{2})$. Знайти розподіл $\eta = \sin \xi$.
 
     \noindent $f_\xi(x) = \begin{cases}
         \frac{1}{\pi}, & |x| < \frac{\pi}{2} \\
         0, & |x| \geq \frac{\pi}{2}
-    \end{cases}$, $\varphi(x) = \sin x$, $\varphi^{-1} (y) = \arcsin(y)$, $\left(\varphi^{-1} (y)\right)^{\prime} = \frac{1}{\sqrt{1-y^2}}$,
+    \end{cases}$, $\varphi(x) = \sin x$, $\varphi^{-1} (y) = \arcsin(y)$, $\left(\varphi^{-1} (y)\right)^{\prime} = \frac{1}{\sqrt{1-y^2}}$.
     $\eta$ може приймати значення від $-1$ до $1$. 
     Отже, $f_\eta(y) = \begin{cases}
         \frac{1}{\pi\sqrt{1-y^2}}, & |y| < 1 \\
         0, & |y| \geq 1
     \end{cases}$ --- це <<закон арксинуса>>.
 \end{example}
+
+\begin{example}
+    Нехай $\xi \sim \mathrm{N}(a, \sigma^2)$. Знайти розподіл $\eta = e^\xi$.
+
+    В цьому випадку $\varphi(x) = e^x$, $\varphi^{-1}(y) = \ln y$, $\left(\varphi^{-1} (y)\right)^{\prime} = \frac{1}{y}$.
+    $\eta$ може приймати лише додатні значення, тому отримуємо щільність
+    \begin{gather*}
+        f_\eta(y) = \begin{cases}
+            \frac{1}{\sqrt{2\pi}\sigma y} e^{-\frac{(\ln y-a)^2}{2\sigma^2}}, & y > 0 \\
+            0, & y \leq 0
+        \end{cases}
+    \end{gather*}
+    Розподіл $\eta$ називається \emph{логнормальним} (оскільки $\ln \eta$ має нормальний розподіл)
+    та позначається $\eta \sim \mathrm{LogN}(a, \sigma^2)$.
+\end{example}
+\begin{exercise}
+    Перевірити, що $\E\eta = e^{a + \frac{\sigma^2}{2}}$ і
+    $\D\eta = \left(e^{\sigma^2} - 1\right) e^{2a + \sigma^2}$.
+\end{exercise}
 
 \begin{example}
     Нехай $\xi$ --- довільна НВВ, $F_\xi (x)$ --- її функція розподілу. 
@@ -123,7 +155,7 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
     Якщо $\varphi$ не є неперервною, то $\eta = \varphi(\xi)$ може не бути НВВ. Наведемо декілька прикладів.
     \begin{enumerate}
         \item Нехай $\xi \sim \mathrm{Exp}(1)$. Знайдемо розподіл $\eta = \left[ \xi\right]$, де $\left[ \cdot\right]$ --- ціла частина.
-        Ціла частина приймає значення $0, 1, 2, ...$, знайдемо відповідні ймовірності. 
+        Оскільки ціла частина приймає значення $0, 1, 2, ...$, знайдемо відповідні ймовірності. 
         
         $\P\left\{ \left[ \xi\right] = n\right\} = \P\left\{ \xi \in [n; n+1)\right\} = \int\limits_n^{n+1} e^{-x} dx = e^{-n} - e^{-(n+1)} = e^{-n}(1 - e^{-1})$, $n = 0, 1, 2, ...$
 
@@ -135,8 +167,9 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
         
         Для $0< y < 1$ $F_\eta (y) = \P\left\{\eta < y\right\} = \P\left\{\eta \in [0; y)\right\} = \P\left\{\xi \in [n; n+y), n = 0, 1, 2, ...\right\}$.
 
-        Для фіксованого $n$ $\P\left\{\xi \in [n; n+y)\right\} = \int\limits_n^{n+y} e^{-x} dx = e^{-n}(1 - e^{-y})$. 
+        Для кожного $n$ $\P\left\{\xi \in [n; n+y)\right\} = \int\limits_n^{n+y} e^{-x} dx = e^{-n}(1 - e^{-y})$. 
         Отже, $\P\left\{\eta \in [0; y)\right\} = \sum\limits_{n=0}^{\infty} \P\left\{\xi \in [n; n+y)\right\} = (1 - e^{-y}) \sum\limits_{n=0}^{\infty} e^{-n} = \frac{1 - e^{-y}}{1 - e^{-1}}$. Отримали функцію розподілу $\eta$:
+
         $F_\eta (y) = \begin{cases}
             0, & y \leq 0 \\
             \frac{1 - e^{-y}}{1 - e^{-1}}, & 0 < y \leq 1 \\
@@ -145,12 +178,14 @@ $$f_\eta(y) = f_\xi\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} 
     \end{enumerate}
 \end{remark}
 
-\subsection{Розподіл немонотонної функції від неперервного випадкового аргументу}
-Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- немонотонна числова функція.
+Узагальнимо формулу \eqref{eq:phi_xi} на випадок немонотонної функції $\varphi$.
+Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- неперервна немонотонна числова функція.
 Тоді область можливих значень $\xi$ можна розбити на проміжки, на яких $\varphi$ буде монотонною. 
 Тоді, скориставшись результатом для монотонної функції, отримаємо формулу для щільності $\eta = \varphi(\xi)$:
-$$ f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \left|\left(\varphi_k^{-1} (y) \right)^{\prime}\right|$$
-де $m$ --- кількість проміжків монотонності, а $\varphi_k^{-1}$ --- відповідні обернені функції.
+\begin{equation}
+    f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \left|\left(\varphi_k^{-1} (y) \right)^{\prime}\right|
+\end{equation}
+де $m$ --- кількість проміжків монотонності, а $\varphi_k^{-1}$ --- відповідні обернені функції, які мають бути диференційовними майже скрізь.
 
 \begin{example}
     \begin{enumerate}
@@ -183,6 +218,10 @@ $$ f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \
 \end{example}
 
 \subsection{Числові характеристики функції неперервного випадкового аргументу}
+Для функцій від ДВВ вже було отримано, що
+$\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i\}$.
+Доведемо аналогічне твердження для функцій від НВВ.
+
 \begin{proposition*}
     $\E (\varphi(\xi))^k = \int\limits_{-\infty}^{+\infty} \varphi^k(x) f_\xi(x) dx$ для всіх $k \in \mathbb{N}$.
 \end{proposition*}
@@ -202,3 +241,10 @@ $$ f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \
 \begin{exercise}
     Дослідити, за яких умов на $\varphi$ ця формула має місце.
 \end{exercise}
+
+У випадках, коли $\varphi(x) = \cos (m x)$ або $\sin (m x)$ ($m\in \mathbb{R}$),
+для знаходження числових характеристик можна скористатися характеристичною функцією $\xi$,
+оскільки $\chi_{\xi}(m) = \E e^{i m \xi} = \E \cos(m\xi) + i \cdot\E\sin(m\xi)$,
+тому $\E\cos(m\xi) = \mathrm{Re} \chi_{\xi}(m)$ і
+$\E\sin(m\xi) = \mathrm{Im} \chi_{\xi}(m)$.
+Для знаходження моментів вищих порядків можна скористатися формулами пониження степеня.

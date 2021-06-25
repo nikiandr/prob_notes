@@ -2,23 +2,25 @@
 
 \section{Функції кількох випадкових аргументів}
 \subsection{Випадок довільної функції}
-Нехай $\varphi : \mathbb{R}^n \to \mathbb{R}$ --- задана числова функція.
+Нехай $\varphi : \mathbb{R}^n \to \mathbb{R}$ --- задана вимірна числова функція.
 
-Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)$ --- дискретний випадковий вектор, тоді $\eta = \varphi(\vec{\xi})$ --- ДВВ.
+Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$ --- дискретний випадковий вектор, тоді $\eta = \varphi(\vec{\xi})$ --- ДВВ.
 Побудову закону розподілу $\eta$ доцільно розглянути на прикладі.
 \begin{example}
     $\vec{\xi} = \left( \xi_1, \xi_2\right)$ задано таблицею розподілу:
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        \diagbox{$\xi_2$}{$\xi_1$} & $0$ & $1$ & $2$ \\
-        \hline
-        $-1$ & $0.1$ & $0.2$ & $0.3$ \\
-        \hline
-        $1$ & $0.2$ & $0.1$ & $0.1$ \\
-        \hline
-    \end{tabular}.
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \diagbox{$\xi_2$}{$\xi_1$} & $0$ & $1$ & $2$ \\
+            \hline
+            $-1$ & $0.1$ & $0.2$ & $0.3$ \\
+            \hline
+            $1$ & $0.2$ & $0.1$ & $0.1$ \\
+            \hline
+        \end{tabular}    
+    \end{center}
 
-    \noindentЗнайти закони розподілу $\eta_1 = \xi_1 \xi_2$ та $\eta_2 = \xi_1 + \xi_2$.
+    \noindentЗнайдемо закони розподілу $\eta_1 = \xi_1 \xi_2$ та $\eta_2 = \xi_1 + \xi_2$.
     Для цього треба визначити значення, які приймають ці величини, та обчислити відповідні ймовірності.
     
     $\eta_1$ приймає значення $-2$ (коли $\xi_1 = 2$, $\xi_2 = -1$), 
@@ -32,26 +34,28 @@
     $1$ (коли $\xi_1 = 0$, $\xi_2 = 1$ або $\xi_1 = 2$, $\xi_2 = -1$), 
     $2$ (коли $\xi_1 = 1$, $\xi_2 = 1$), 
     $3$ (коли $\xi_1 = 2$, $\xi_2 = 1$).
-    Відповідні сумісні ймовірності отримуємо з таблиці розподілу $\vec{\xi}$.
-
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-        $\eta_1$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
-        \hline
-        $p$ & $0.3$ & $0.2$ & $0.3$ & $0.1$ & $0.1$ \\
-        \hline
-    \end{tabular}
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-        $\eta_2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\
-        \hline
-        $p$ & $0.1$ & $0.2$ & $0.5$ & $0.1$ & $0.1$ \\
-        \hline
-    \end{tabular}
+    Відповідні сумісні ймовірності отримуємо з таблиці розподілу $\vec{\xi}$. Отже,
+    $\eta_1$ та $\eta_2$ мають наступні ряди розподілу:
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            $\eta_1$ & $-2$ & $-1$ & $0$ & $1$ & $2$ \\
+            \hline
+            $p$ & $0.3$ & $0.2$ & $0.3$ & $0.1$ & $0.1$ \\
+            \hline
+        \end{tabular}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            $\eta_2$ & $-1$ & $0$ & $1$ & $2$ & $3$ \\
+            \hline
+            $p$ & $0.1$ & $0.2$ & $0.5$ & $0.1$ & $0.1$ \\
+            \hline
+        \end{tabular}
+    \end{center}
 \end{example}
 
-Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)$ --- неперервний випадковий вектор
-із щільністю $f_{\vec{\xi}} (\vec{x})$, то можна знайти функцію розподілу $\eta = \varphi(\vec{\xi})$.
+Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$ --- неперервний випадковий вектор
+із щільністю $f_{\vec{\xi}} (\vec{x})$, то можна знайти функцію розподілу $\eta = \varphi(\vec{\xi})$:
 $$F_\eta (y) = \P \left\{ \eta < y\right\} = \P \left\{ \vec{\xi} \in D_y\right\} = \underset{D_y}{\int ... \int} f_{\vec{\xi}} (\vec{x}) d \vec{x}, \text{ де }D_y = \left\{\vec{x} \in \mathbb{R}^n : \varphi(\vec{x}) < y\right\}$$
 
 Розглянемо тепер взаємно однозначне гладке перетворення $\vec{\psi} : \mathbb{R}^n \to \mathbb{R}^n$ та
@@ -59,40 +63,44 @@ $$F_\eta (y) = \P \left\{ \eta < y\right\} = \P \left\{ \vec{\xi} \in D_y\right\
 $\P\left\{ \vec{\psi} (\vec{\xi}) \in D\right\} = \P\left\{ \vec{\xi} \in \vec{\psi}^{-1}(D)\right\} = \int_{\vec{\psi}^{-1}(D)} f_{\vec{\xi}} (\vec{x}) d\vec{x} = 
 \left[ \text{заміна }\vec{y} = \vec{\psi}(\vec{x})\right] = \int_D f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \mathcal{J}^{-1} (\vec{\psi}^{-1}(\vec{y})\right| d\vec{y}$,
 де $\mathcal{J} (\vec{x})$ --- якобіан $\vec{\psi}$. Отже,
-$$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \mathcal{J}^{-1} (\vec{\psi}^{-1}(\vec{y})\right|$$
+\begin{equation}
+    f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \mathcal{J}^{-1} (\vec{\psi}^{-1}(\vec{y})\right|
+\end{equation}
+Як в одновимірному випадку, треба вказувати, які значення може приймати $\vec{\eta}$.
 
 \begin{example}
     Нехай $A$ --- невироджена матриця розміру $n \times n$, $\vec{b} \in \mathbb{R}^n$ --- деякий вектор, $\vec{\xi}$ --- неперервний випадковий вектор.
     Знайти щільність розподілу $\vec{\eta} = A \vec{\xi} + \vec{b}$.
 
-    Тут $\vec{y} = \vec{\psi}(\vec{x}) = A \vec{x} + \vec{b}$, тому $\vec{\psi}^{-1} (\vec{y}) = A^{-1} (\vec{y} - \vec{b})$. Якобіан $\vec{\psi}$ рівний $\left| \det A\right|$. 
+    В цьому випадку $\vec{y} = \vec{\psi}(\vec{x}) = A \vec{x} + \vec{b}$, тому $\vec{\psi}^{-1} (\vec{y}) = A^{-1} (\vec{y} - \vec{b})$. Якобіан $\vec{\psi}$ рівний $\left| \det A\right|$. 
     Отже,
     $f_{\vec{\eta}}(\vec{y}) = \frac{1}{\left| \det A\right|} f_{\vec{\xi}}\left(A^{-1} (\vec{y} - \vec{b})\right)$
 \end{example}
 
+Далі розглянемо конкретні приклади числових функцій від випадкових векторів.
+
 \subsection{Закон розподілу мінімуму та максимуму}
 
-Нехай $\xi_1, ..., \xi_n$ незалежні та розподілені однаково, як деяка випадкова величина $\xi$.
+Нехай випадкові величини $\xi_1, ..., \xi_n$ незалежні та однаково розподілені, як деяка випадкова величина $\xi$.
 Знайдемо розподіл їх мінімуму та максимуму.
 \begin{enumerate}
-    \item $\mu_1 = \min\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
-
-    $F_{\mu_1} (x) = \P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
-    1 - \P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} \geq x \right\} =$
-
-    $ = 1 - \P \left\{ \xi_1 \geq x, \xi_2 \geq x, ..., \xi_n \geq x \right\} = 
-    1 - \P\left\{ \xi_1 \geq x\right\} \cdot \P\left\{ \xi_2 \geq x\right\} \cdot ... \cdot \P\left\{ \xi_n \geq x\right\} = $
-    
-    $ = 1 - (\P\left\{ \xi \geq x\right\})^n = 1 - (1- F_\xi (x))^n$.
+    \item Нехай $\mu_1 = \min\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
+    \begin{gather*}
+        F_{\mu_1} (x) = \P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
+        1 - \P \left\{ \min\{\xi_1, \xi_2, ..., \xi_n\} \geq x \right\} = \\ =
+        1 - \P \left\{ \xi_1 \geq x, \xi_2 \geq x, ..., \xi_n \geq x \right\} = 
+        1 - \P\left\{ \xi_1 \geq x\right\} \cdot \P\left\{ \xi_2 \geq x\right\} \cdot ... \cdot \P\left\{ \xi_n \geq x\right\} = \\
+        = 1 - (\P\left\{ \xi \geq x\right\})^n = 1 - (1- F_\xi (x))^n
+    \end{gather*}
 
     Якщо $\xi_1, ..., \xi_n$ --- неперервні, то $f_{\mu_1} (x) = \left( F_{\mu_1} (x)\right)^\prime = n (1- F_\xi (x))^{n-1} f_\xi(x)$.
-    \item $\mu_2 = \max\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
-
-    $F_{\mu_2} (x) = \P \left\{ \max\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
-    \P \left\{ \xi_1 < x, \xi_2 < x, ..., \xi_n < x \right\} = $
-
-    $ = \P\left\{ \xi_1 < x\right\} \cdot \P\left\{ \xi_2 < x\right\} \cdot ... \cdot \P\left\{ \xi_n < x\right\} =
-    (\P\left\{ \xi < x\right\})^n = (F_\xi (x))^n$.
+    \item Нехай $\mu_2 = \max\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
+    \begin{gather*}
+        F_{\mu_2} (x) = \P \left\{ \max\{\xi_1, \xi_2, ..., \xi_n\} < x \right\} =
+        \P \left\{ \xi_1 < x, \xi_2 < x, ..., \xi_n < x \right\} = \\ =
+        \P\left\{ \xi_1 < x\right\} \cdot \P\left\{ \xi_2 < x\right\} \cdot ... \cdot \P\left\{ \xi_n < x\right\} =
+        (\P\left\{ \xi < x\right\})^n = (F_\xi (x))^n
+    \end{gather*}
 
     Якщо $\xi_1, ..., \xi_n$ --- неперервні, то $f_{\mu_2} (x) = \left( F_{\mu_2} (x)\right)^\prime = n (F_\xi (x))^{n-1} f_\xi(x)$.
 \end{enumerate}
@@ -106,15 +114,15 @@ $$f_{\vec{\eta}} (\vec{y}) = f_{\vec{\xi}} (\vec{\psi}^{-1}(\vec{y})) \left| \ma
 \end{example}
 
 \subsection{Закон розподілу добутку двох НВВ}
-Нехай $\vec{\xi} = (\xi_1, \xi_2)$ --- неперервний випадковий вектор, щільність
+Нехай $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор, щільність
 $f_{\vec{\xi}}(x, y)$ відома.
 
 \noindent\textbf{Задача}: знайти розподіл $\eta = \xi_1\xi_2$.
 
-Розпишемо функцію розподілу за вже відомою схемою:
+Знайдемо функцію розподілу за вже відомою схемою:
 
-$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
-\mathbb{R}^2 : xy < z\right\}$
+$$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \in 
+\mathbb{R}^2 : xy < z\right\}$$
 
 Розглянемо два варіанти:
 \begin{enumerate}
@@ -154,8 +162,8 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 
     Продиференціюємо обидві частини по $z$:
 
-    $f_\eta(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx + 
-    \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$.
+    $f_\eta(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx + 
+    \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx$.
 \end{tabular}
 
 \item
@@ -195,54 +203,60 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
     
     Продиференціюємо обидві частини по $z$:
 
-    $f_\eta(z) = - \int\limits_{-\infty}^0 \frac{1}{x} f_{\vec{\xi}}(x, \frac{z}{x})dx 
-    + \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$
+    $f_\eta(z) = - \int\limits_{-\infty}^0 \frac{1}{x} f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx 
+    + \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx$
 
 \end{tabular}
-
 \end{enumerate}
 
-\noindentОтже, $f_{\xi_1 \xi_2}(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx + 
-\int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}(x, \frac{z}{x})dx$.
+\vspace{0.5em}
+\noindentОтже, отримали щільність добутку $\xi_1 \xi_2$:
+\begin{equation}\label{eq:distr_product}
+    f_{\xi_1 \xi_2}(z) = -\int\limits_{-\infty}^0 \frac{1}{x}f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx + 
+    \int\limits_0^{+\infty}\frac{1}{x}f_{\vec{\xi}}\left(x, \frac{z}{x}\right)dx
+\end{equation}
 
 \begin{remark}
-    Якщо $\xi_1$ та $\xi_2$ незалежні, то $f_{\vec{\xi}}(x, \frac{z}{x}) = 
-    f_{\xi_1}(x)f_{\xi_2}(\frac{z}{x})$.
+    Якщо $\xi_1$ та $\xi_2$ незалежні, то $f_{\vec{\xi}}\left(x, \frac{z}{x}\right) = 
+    f_{\xi_1}(x)f_{\xi_2}\left(\frac{z}{x}\right)$.
 \end{remark}
 
 \begin{example}
-    Нехай $\vec{\xi} = (\xi_1, \xi_2)$ рівномірно розподілений в квадраті $[0; 2]\times[0; 2]$.
+    Нехай $\vec{\xi} = (\xi_1, \xi_2)^T$ рівномірно розподілений в квадраті $K = [0; 2]\times[0; 2]$.
     Знайти закон розподілу $\eta = \xi_1 \xi_2$.
 
-    \begin{tabular}{c p{8.8cm}}
-        \begin{tikzpicture}[baseline={(current bounding box.center)} ,scale = 1]
-            \draw [black, ultra thick] 
-            (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
-            \fill [lightgray] 
-            (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
-            \draw [->] (-0.5, 0) -- (3, 0);
-            \draw [->] (0, -0.5) -- (0, 3);
-            \node [below left] at (3, 0) {$x$};
-            \node [below left] at (0, 3) {$y$};
-            \node [above right] at (0, 0) {$K$};
-            \node [left] at (0, 2) {$2$};
-            \node [below] at (2, 0) {$2$};
-            \node [below left] at (0, 0) {$0$};
-        \end{tikzpicture} 
-        &
-        $f_{\vec{\xi}}(x, y) = 
-        \begin{cases}
-            \frac{1}{4}, & (x, y) \in K \\
-            0, & (x, y) \notin K
-        \end{cases}
-        $
-    \end{tabular}
+    \begin{center}
+        \begin{tabular}{c p{4.5cm}}
+            \begin{tikzpicture}[baseline={(current bounding box.center)} ,scale = 1]
+                \draw [black, ultra thick] 
+                (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
+                \fill [lightgray] 
+                (0, 0) -- (2, 0) -- (2, 2) -- (0, 2) -- (0, 0);
+                \draw [->] (-0.5, 0) -- (3, 0);
+                \draw [->] (0, -0.5) -- (0, 3);
+                \node [below left] at (3, 0) {$x$};
+                \node [below left] at (0, 3) {$y$};
+                \node [above right] at (0, 0) {$K$};
+                \node [left] at (0, 2) {$2$};
+                \node [below] at (2, 0) {$2$};
+                \node [below left] at (0, 0) {$0$};
+            \end{tikzpicture} 
+            &
+            $f_{\vec{\xi}}(x, y) = 
+            \begin{cases}
+                \frac{1}{4}, & (x, y) \in K \\
+                0, & (x, y) \notin K
+            \end{cases}
+            $
+        \end{tabular}
+    \end{center}
     
-    $F_{\eta}(z) = \P\{\xi_1\xi_2 < z\} = \iint\limits_{\{xy < z\} \cap K} f_{\vec{\xi}}(x, y)dxdy$. При $z<0$ $F_{\eta}(z) = 0$,
+    В цьому випадку простіше знайти функцію розподілу з геометричних міркувань, а не застосовувати формулу \eqref{eq:distr_product}:
+    $F_{\eta}(z) = \P\{\xi_1\xi_2 < z\} = \iint\limits_{\{xy < z\}} f_{\vec{\xi}}(x, y)dxdy$. При $z<0$ $F_{\eta}(z) = 0$,
     а при $z \geq 4$ $F_{\eta}(z) = 1$.
 
         \begin{tabular}{c p{8.5 cm}}
-            \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 1]
+            \begin{tikzpicture}[baseline={(current bounding box.north)}, scale = 0.9]
                 \fill [lightgray, domain=0.5:2, smooth, variable = \x] plot ({\x}, 
                 {
                     1/\x
@@ -274,12 +288,16 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
             $=\frac{1}{4}\left(4 - \int\limits_{\frac{z}{2}}^2 
             \left(2 -\frac{z}{x}\right)dx\right) $
 
+            \vspace{0.2em}
             $= 1 - \frac{1}{4}\left.(2x - z \ln x)\right|_{\frac{z}{2}}^2 = $
             
+            \vspace{0.2em}
             $= 1 - \frac{1}{4}(4 - z\ln2 - z + z\ln\frac{z}{2}) =$
-
+            
+            \vspace{0.2em}
             $= \frac{1}{4}(z + z\ln2 - z\ln z + z\ln2) = $
-
+            
+            \vspace{0.2em}
             $= \frac{1}{4}(z + 2z\ln2 - z\ln z)$ 
             при $z\in [0; 4)$. \\
             Отже, $f_{\eta}(z) = 
@@ -292,38 +310,32 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 
 \subsection{Закон розподілу частки двох НВВ}
 
-Нехай $\vec{\xi} = (\xi_1, \xi_2)$ --- неперервний випадковий вектор, щільність
+Нехай $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор, щільність
 $f_{\vec{\xi}}(x, y)$ відома.
 
 \noindent\textbf{Задача}: знайти розподіл $\eta = \frac{\xi_2}{\xi_1}$.
 
-Розпишемо функцію розподілу за вже відомою схемою:
+Знайдемо функцію розподілу за вже відомою схемою:
 
-$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
-\mathbb{R}^2 : \frac{y}{x} < z\right\}$
+$$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \in 
+\mathbb{R}^2 : \frac{y}{x} < z\right\}$$
 
 \begin{enumerate}
     \item 
 \begin{tabular}{c p{8.8cm}}
-    \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.4]
-        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+    \begin{tikzpicture}[baseline={(current bounding box.north)}, scale = 0.4]
+        \fill [lightgray] (0, 5) -- (-5, 5) -- (-5, -5) -- (0, 0);
+        \fill [lightgray] (5, -5) -- (0, -5) -- (0, 0) -- (5, 5);
+        \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, 
         {
             \x
         });
-        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
-        {
-            \x
-        }) -- (0, 5) -- (-5, 5) -- (-5, -5);
-        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
-        {
-            \x
-        }) -- (5, -5) -- (0, -5) -- (0, 0);
         \draw [->] (-5, 0) -- (5, 0);
         \draw [->] (0, -5) -- (0, 5);
         \node [below left] at (5, 0) {$x$};
         \node [below left] at (0, 5) {$y$};
         \node [above left] at (5, -5) {$D_z$};
-        \node [above left] at (3, 3) {$y = zx$};
+        \node [above left] at (3.7, 3) {$y = zx$};
     \end{tikzpicture} &
     $z > 0$, тоді $D_z = 
     \left\{x<0, y>z x\right\} \cup 
@@ -341,24 +353,18 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 \item 
 \begin{tabular}{c p{8.8cm}}
     \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.4]
-        \draw [domain=-5:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        \fill [lightgray] (0, 0) -- (0, 5) -- (-5, 5);
+        \fill [lightgray] (0, 0) -- (0, -5) -- (5, -5);
+        \draw [domain=-5:5, smooth, variable = \x, thick] plot ({\x}, 
         {
             -\x
         });
-        \fill [lightgray, domain=-5:0, smooth, variable = \x] plot ({\x}, 
-        {
-            -\x
-        }) -- (0, 5) -- (-5, 5);
-        \fill [lightgray, domain=0:5, smooth, variable = \x] plot ({\x}, 
-        {
-            -\x
-        }) -- (0, -5) -- (0, 0);
         \draw [->] (-5, 0) -- (5, 0);
         \draw [->] (0, -5) -- (0, 5);
         \node [below left] at (5, 0) {$x$};
         \node [below left] at (0, 5) {$y$};
         \node [above left] at (4, -5) {$D_z$};
-        \node [above right] at (3, -3) {$y = zx$};
+        \node [above right] at (2.6, -3) {$y = zx$};
     \end{tikzpicture} &
     $z < 0$, тоді $D_z = 
     \left\{x<0, y>z x\right\} \cup 
@@ -374,8 +380,11 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 \end{tabular}
 \end{enumerate}
 
-\noindentОтже, $f_{\frac{\xi_2}{\xi_1}} (z)= -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
-\int\limits_0^{+\infty}xf_{\vec{\xi}}(x, zx)dx$.
+\noindentОтже, отримали щільність частки $\frac{\xi_2}{\xi_1}$ 
+\begin{equation}\label{eq:distr_frac}
+    f_{\frac{\xi_2}{\xi_1}} (z)= -\int\limits_{-\infty}^0 xf_{\vec{\xi}}(x, zx)dx + 
+    \int\limits_0^{+\infty}xf_{\vec{\xi}}(x, zx)dx    
+\end{equation}
 
 \begin{remark}
     Якщо $\xi_1$ та $\xi_2$ незалежні, то $f_{\vec{\xi}}(x, zx) = 
@@ -383,63 +392,59 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 \end{remark}
 
 \begin{exercise}
-    Перевірити, що щільність розподілу $\eta = \frac{\xi_1}{\xi_2}$ має вигляд
-
-    \noindent$f_\eta(z) = -\int\limits_{-\infty}^0 y f_{\vec {\xi}}(zy, y) dy + \int\limits_0^{+\infty}
-    yf_{\vec{\xi}}(zy, y)dy$.
+    Перевірити, що щільність розподілу $\frac{\xi_1}{\xi_2}$ має вигляд
+    \begin{equation}
+        f_{\frac{\xi_1}{\xi_2}}(z) = -\int\limits_{-\infty}^0 y f_{\vec {\xi}}(zy, y) dy + \int\limits_0^{+\infty}
+        yf_{\vec{\xi}}(zy, y)dy
+    \end{equation}
 \end{exercise}
 
 \begin{example}
-    $\xi_1$ та $\xi_2$ --- незалежні випадкові величини, що мають розподіл $\mathrm{N}(0, \sigma)$.
-    
-    \noindentЗнайти закон розподілу $\eta = \frac{\xi_2}{\xi_1}$.
+    Нехай $\xi_1$ та $\xi_2$ --- незалежні випадкові величини, що мають розподіл $\mathrm{N}(0, \sigma^2)$. Знайти закон розподілу $\eta = \frac{\xi_2}{\xi_1}$.
 
-    \noindentСкористаємося знайденою формулою, враховуючи незалежність:
-    \begin{equation*}
+    \noindentСкористаємося знайденою формулою \eqref{eq:distr_frac}, враховуючи незалежність:
+    \begin{gather*}
         f_\eta(z) = - \int\limits_{-\infty}^0 x f_{\xi_1}(x) f_{\xi_2}(zx) dx + 
         \int\limits_{0}^{+\infty} x f_{\xi_1}(x) f_{\xi_2}(zx) dx = 
-    \end{equation*}
-    \begin{equation*}
+        \\
         =
-        -\frac{1}{2\pi\sigma^2}\int\limits_{-\infty}^0 x e^{-\frac{x^2}{2\sigma^2}(1+z^2)} dx
+        -\frac{1}{2\pi\sigma^2}\int\limits_{-\infty}^0 x e^{-\frac{x^2}{2\sigma^2}\left(1+z^2\right)} dx
         +
-        \frac{1}{2\pi\sigma^2}\int\limits_0^{+\infty} x e^{-\frac{x^2}{2\sigma^2}(1+z^2)}dx = 
-    \end{equation*}
-    \begin{equation*}
+        \frac{1}{2\pi\sigma^2}\int\limits_0^{+\infty} x e^{-\frac{x^2}{2\sigma^2}\left(1+z^2\right)}dx = 
+        \\
         = \left[
         \begin{array}{c}
-            \frac{x^2}{2\sigma^2}(1+z^2) = t \\
-            \frac{x}{\sigma^2}(1+z^2)dx = dt 
+            \frac{x^2}{2\sigma^2}\left(1+z^2\right) = t \\
+            \frac{x}{\sigma^2}\left(1+z^2\right)dx = dt 
         \end{array}
         \right]
         =
-        \frac{-\sigma^2}{2\pi\sigma^2(1+z^2)}\int\limits_{+\infty}^0 e^{-t} dt
+        \frac{-\sigma^2}{2\pi\sigma^2\left(1+z^2\right)}\int\limits_{+\infty}^0 e^{-t} dt
         +
-        \frac{\sigma^2}{2\pi\sigma^2(1+z^2)}\int\limits^{+\infty}_0 e^{-t} dt = 
-    \end{equation*}
-    \begin{equation*}
+        \frac{\sigma^2}{2\pi\sigma^2\left(1+z^2\right)}\int\limits^{+\infty}_0 e^{-t} dt = 
+        \\
         = \frac{1}{\pi(1+z^2)}\int\limits_0^{+\infty}e^{-t}dt = \frac{1}{\pi(1+z^2)}, z \in \mathbb{R}
         \text{ --- це щільність розподілу Коші.}
-    \end{equation*}
+    \end{gather*}
 \end{example}
 
 \subsection{Закон розподілу суми двох НВВ}
 
-Нехай $\vec{\xi} = (\xi_1, \xi_2)$ --- неперервний випадковий вектор, щільність
+Нехай $\vec{\xi} = (\xi_1, \xi_2)^T$ --- неперервний випадковий вектор, щільність
 $f_{\vec{\xi}}(x, y)$ відома.
 
 \noindent\textbf{Задача}: знайти розподіл $\eta = \xi_1 + \xi_2$.
 
-Розпишемо функцію розподілу за вже відомою схемою:
+Знайдемо функцію розподілу за вже відомою схемою:
 
-$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \in 
-\mathbb{R}^2 : x + y < z\right\}$
+$$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \in 
+\mathbb{R}^2 : x + y < z\right\}$$
 
 \begin{tabular}{c p{8.8cm}}
     \begin{tikzpicture}[baseline={(current bounding box.north)} ,scale = 0.4]
         \fill [lightgray, domain=-5:5, smooth, variable = \x] 
         (-4, 5) -- (5, -4) -- (5, -5) -- (-5, -5) -- (-5, 5) -- (-4, 5);
-        \draw [domain=-4:5, smooth, variable = \x, ultra thick] plot ({\x}, 
+        \draw [domain=-4:5, smooth, variable = \x, thick] plot ({\x}, 
         {
             1 - \x
         });
@@ -459,8 +464,13 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
     $f_\eta(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, z-x) dx$
 \end{tabular}
 
+\noindentОтже, отримали щільність суми $\xi_1 + \xi_2$:
+\begin{equation}\label{eq:distr_sum}
+    f_{\xi_1 + \xi_2}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, z-x) dx
+\end{equation}
+
 \begin{remark}
-    Якщо $\xi_1$ та $\xi_2$ незалежні, то $f_\eta (z) = 
+    Якщо $\xi_1$ та $\xi_2$ незалежні, то $f_{\xi_1 + \xi_2} (z) = 
     \int\limits_{-\infty}^{+\infty}f_{\xi_1}(x) f_{\xi_2}(z-x) dx = 
     (f_{\xi_1} \ast f_{\xi_2})(z)$. Тут $\ast$ позначає операцію згортки.
 \end{remark}
@@ -477,7 +487,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
 
     \noindentЗнайти закон розподілу $\eta = \xi_1 + \xi_2$.
 
-    \noindentСкористаємося знайденою формулою, враховуючи незалежність:
+    \noindentСкористаємося знайденою формулою \eqref{eq:distr_sum}, враховуючи незалежність:
     \begin{equation*}
         f_\eta(z) = \left[z - x > 0 \Rightarrow x < z\right] = 
         \int\limits_0^z \lambda_1 e^{-\lambda_1 x}\lambda_2e^{-\lambda_2(z-x)}dx
@@ -496,7 +506,7 @@ $F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dxdy$, $D_z = \left\{(x, y) \i
         = \frac{\lambda_1\lambda_2}{\lambda_2 - \lambda_1}(e^{-\lambda_1 z} - e^{-\lambda_2 z})
         ,\; z \geq 0 \text{ та } 0 \text{ інакше.}
     \end{equation*}
-Це щільність закону Ерланга 2-го порядку.
+Це щільність так званого \emph{закону Ерланга 2-го порядку}.
 \noindentПри $\lambda_1 = \lambda_2 = \lambda$ отримаємо
 $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакше.
 Це вже буде щільність гамма-розподілу $\Gamma(2, \lambda)$.
