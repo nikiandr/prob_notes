@@ -19,10 +19,11 @@
     \Leftrightarrow ( \E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( \E \left| \xi\right|^t)^{\frac{1}{t}}$.
 
     Маємо важливий \textbf{наслідок}: якщо у випадкової величини $\xi$ існує скінченний абсолютний момент $\E\left|\xi\right|^m$ ($m\in \mathbb{N}$), то
-    $$\E \left| \xi\right| \leq (\E \left| \xi\right|^2)^{\frac{1}{2}} \leq (\E \left| \xi\right|^3)^{\frac{1}{3}} \leq ... \leq ( \E \left| \xi\right|^m)^{\frac{1}{m}}$$
-
-    Тобто, існування скінченного моменту $\E\left|\xi\right|^m$ гарантує існування як початкових, так і центральних моментів нижчих порядків
-    (оскільки $\left| \E\xi \right|^k \leq \E\left|\xi\right|^k$).
+    \begin{equation}\label{eq:moments_ineq}
+        \E \left| \xi\right| \leq (\E \left| \xi\right|^2)^{\frac{1}{2}} \leq (\E \left| \xi\right|^3)^{\frac{1}{3}} \leq ... \leq ( \E \left| \xi\right|^m)^{\frac{1}{m}}    
+    \end{equation}
+    Тобто, існування скінченного моменту $\E\left|\xi\right|^m$ гарантує існування як початкових, так і центральних моментів $m$-го та нижчих порядків,
+    оскільки $\left| \E\xi \right|^k \leq \E\left|\xi\right|^k$.
 \end{example}
 
 \subsection{Нерівність Гельдера}

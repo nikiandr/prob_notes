@@ -26,47 +26,49 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     \end{gather} 
     і \emph{асимптотично незміщеною}, якщо $\underset{n\to\infty}{\lim} \E\theta^*_n = \theta$. 
  \end{definition}
- \begin{example} 
-    Розглянемо деякі важливі незміщені оцінки.
-    \begin{enumerate}
-        \item \emph{Вибіркове середнє} --- незміщена оцінка математичного сподівання:
-        $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, $\E\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \E\xi_k = \frac{1}{n} \cdot{n} \cdot{\E\xi} = \E\xi$,
-        оскільки всі $\xi_k$ однаково розподілені.
-        \item \emph{Вибіркова дисперсія} --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $\E\xi$:
-        $\D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2$, 
-        $\E\left( \D^* \xi\right) = \frac{1}{n}\sum\limits_{k=1}^n \E\left(\xi_k - \E\xi \right)^2 = \D\xi$ знову через однаковий розподіл $\xi_k$.
-        \item Дослідимо вибіркову дисперсію, але у випадку невідомого математичного сподівання. 
-        \begin{gather*}
-            \D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2 = 
-            \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - \E\xi) - (\overline{\xi} - \E\xi) \right)^2 =  \\
-            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - 2\left(\overline{\xi} - \E\xi\right)\cdot 
-            \underbrace{\frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi\right)}_{\overline{\xi} - \E\xi} + \left(\overline{\xi} - \E\xi\right)^2 = \\
-            = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - \left(\overline{\xi} - \E\xi\right)^2
-        \end{gather*}
-        Перший доданок --- це формула для вибіркової дисперсії при відомому математичному сподіванні, а 
-        $\E\xi = \E\overline{\xi}$, тому
-        \begin{gather*}
-            \E\left( \D^* \xi\right) = \D\xi - \E\left(\overline{\xi} - \E\xi\right)^2= \D\xi - \D\overline{\xi} \\
-            \D\overline{\xi} = \D\left(\frac{1}{n}\sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n \D\xi_k = \frac{1}{n} \D\xi
-        \end{gather*}
-        Дві останні рівності одержані через незалежність та однаковий розподіл $\xi_k$. Отже, маємо $\E\left( \D^* \xi\right) = \left( 1- \frac{1}{n}\right) \D\xi$,
-        тому ця оцінка є лише асимптотично незміщеною. Проте, оцінка $\D^{**}\xi = \frac{n}{n-1} \D^*\xi$ буде незміщеною.
-        Таким чином, якщо $\E\xi$ невідоме, то \emph{виправлена вибіркова дисперсія} 
-        $\D^{**}\xi = \frac{1}{n-1} \sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2$ є незміщеною оцінкою дисперсії.
-        \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, перевіримо незміщеність $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$.
-        Знайдемо $\E a^*_n$. Як відомо, 
-        $f_{\min}(x) = n \left(1-F_{\xi}(x)\right)^{n-1} f_{\xi}(x) = n\left( 1- \frac{x-a}{b-a}\right)^{n-1}\frac{1}{b-a} = n\cdot\frac{(b-x)^{n-1}}{(b-a)^n}$, якщо
-        $x \in \left< a; b\right>$, та $0$ інакше.
-        \begin{gather*}
-            \E a^*_n = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
-            \frac{n}{(b-a)^n} \int_0^{b-a} (b-t)t^{n-1} dt = \\
-            = \frac{n}{(b-a)^n} \left.\left( \frac{bt^n}{n} - \frac{t^{n+1}}{n+1}\right)\right|_0^{b-a} = 
-            \frac{n}{(b-a)^n} \left(\frac{b(b-a)^n}{n} - \frac{(b-a)^{n+1}}{n+1}\right) = \\
-            = b - \frac{n(b-a)}{n+1} = \frac{bn + b - nb + na}{n+1} = a \cdot \frac{n}{n+1} + \frac{b}{n+1} \neq a
-         \end{gather*}
-         Але $\underset{n\to\infty}{\lim} \E a^*_n = a$, тому $a^*_n$ є асимптотично незміщеною оцінкою.
-    \end{enumerate}
- \end{example}
+ \begin{samepage}
+    \begin{example} 
+        Розглянемо деякі важливі незміщені оцінки.
+        \begin{enumerate}
+            \item \emph{Вибіркове середнє} --- незміщена оцінка математичного сподівання:
+            $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$, $\E\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \E\xi_k = \frac{1}{n} \cdot{n} \cdot{\E\xi} = \E\xi$,
+            оскільки всі $\xi_k$ однаково розподілені.
+            \item \emph{Вибіркова дисперсія} --- незміщена оцінка дисперсії у випадку відомого математичного сподівання $\E\xi$:
+            $\D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2$, 
+            $\E\left( \D^* \xi\right) = \frac{1}{n}\sum\limits_{k=1}^n \E\left(\xi_k - \E\xi \right)^2 = \D\xi$ знову через однаковий розподіл $\xi_k$.
+            \item Дослідимо вибіркову дисперсію, але у випадку невідомого математичного сподівання. 
+            \begin{gather*}
+                \D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2 = 
+                \frac{1}{n}\sum\limits_{k=1}^n \left((\xi_k - \E\xi) - (\overline{\xi} - \E\xi) \right)^2 =  \\
+                = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - 2\left(\overline{\xi} - \E\xi\right)\cdot 
+                \underbrace{\frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi\right)}_{\overline{\xi} - \E\xi} + \left(\overline{\xi} - \E\xi\right)^2 = \\
+                = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2 - \left(\overline{\xi} - \E\xi\right)^2
+            \end{gather*}
+            Перший доданок --- це формула для вибіркової дисперсії при відомому математичному сподіванні, а 
+            $\E\xi = \E\overline{\xi}$, тому
+            \begin{gather*}
+                \E\left( \D^* \xi\right) = \D\xi - \E\left(\overline{\xi} - \E\xi\right)^2= \D\xi - \D\overline{\xi} \\
+                \D\overline{\xi} = \D\left(\frac{1}{n}\sum\limits_{k=1}^n \xi_k \right) = \frac{1}{n^2} \sum\limits_{k=1}^n \D\xi_k = \frac{1}{n} \D\xi
+            \end{gather*}
+            Дві останні рівності одержані через незалежність та однаковий розподіл $\xi_k$. Отже, маємо $\E\left( \D^* \xi\right) = \left( 1- \frac{1}{n}\right) \D\xi$,
+            тому ця оцінка є лише асимптотично незміщеною. Проте, оцінка $\D^{**}\xi = \frac{n}{n-1} \D^*\xi$ буде незміщеною.
+            Таким чином, якщо $\E\xi$ невідоме, то \emph{виправлена вибіркова дисперсія} 
+            $\D^{**}\xi = \frac{1}{n-1} \sum\limits_{k=1}^n \left(\xi_k - \overline{\xi} \right)^2$ є незміщеною оцінкою дисперсії.
+            \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, перевіримо незміщеність $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$.
+            Знайдемо $\E a^*_n$. Як відомо, 
+            $f_{\min}(x) = n \left(1-F_{\xi}(x)\right)^{n-1} f_{\xi}(x) = n\left( 1- \frac{x-a}{b-a}\right)^{n-1}\frac{1}{b-a} = n\cdot\frac{(b-x)^{n-1}}{(b-a)^n}$, якщо
+            $x \in \left< a; b\right>$, та $0$ інакше.
+            \begin{gather*}
+                \E a^*_n = \frac{n}{(b-a)^n} \int_a^b x(b-x)^{n-1} dx = \left[ b-x = t \right] = 
+                \frac{n}{(b-a)^n} \int_0^{b-a} (b-t)t^{n-1} dt = \\
+                = \frac{n}{(b-a)^n} \left.\left( \frac{bt^n}{n} - \frac{t^{n+1}}{n+1}\right)\right|_0^{b-a} = 
+                \frac{n}{(b-a)^n} \left(\frac{b(b-a)^n}{n} - \frac{(b-a)^{n+1}}{n+1}\right) = \\
+                = b - \frac{n(b-a)}{n+1} = \frac{bn + b - nb + na}{n+1} = a \cdot \frac{n}{n+1} + \frac{b}{n+1} \neq a
+             \end{gather*}
+             Але $\underset{n\to\infty}{\lim} \E a^*_n = a$, тому $a^*_n$ є асимптотично незміщеною оцінкою.
+        \end{enumerate}
+     \end{example}
+ \end{samepage}
  \begin{exercise}
      Перевірити, що $b^*_n = \underset{1\leq k \leq n}{\max}\xi_k$ є асимптотично незміщеною оцінкою для параметра $b$ у випадку $\xi \sim \mathrm{U}\left< a; b\right>$.
      Користуючись вже дослідженими оцінками $a^*_n$ та $b^*_n$, знайти незміщені оцінки для параметрів $a$ і $b$ (підказка: це будуть деякі лінійні комбінації $a^*_n$ та $b^*_n$).
