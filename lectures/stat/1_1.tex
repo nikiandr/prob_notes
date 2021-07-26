@@ -225,9 +225,9 @@ $\sum\limits_{i=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     \emph{Емпіричною функцією розподілу (ЕФР)}, побудованою за випадковою вибіркою $\vec{\xi} = \left( \xi_1, ..., \xi_n\right)$, називається випадкова функція 
     $F_n^* : \mathbb{R}\times \Omega \to [0; 1]$, що задана як
     \begin{gather}
-        F_n^*(x) = \frac{1}{n} \sum\limits_{k=1}^n 1{\left\{ \xi_k < x\right\}}
+        F_n^*(x) = \frac{1}{n} \sum\limits_{k=1}^n \mathds{1}{\left\{ \xi_k < x\right\}}
     \end{gather}
-    Тут $1{\left\{ \xi_k < x\right\}}$ --- індикатор події $\left\{ \xi_k < x\right\}$, що дорівнює $1$ з ймовірністю $p = \P\left\{ \xi_k < x\right\} = F_{\xi}(x)$ та
+    Тут $\mathds{1}{\left\{ \xi_k < x\right\}}$ --- індикатор події $\left\{ \xi_k < x\right\}$, що дорівнює $1$ з ймовірністю $p = \P\left\{ \xi_k < x\right\} = F_{\xi}(x)$ та
     $0$ з ймовірністю $1-p$.       
 \end{definition}
 \begin{remark}
@@ -241,7 +241,7 @@ $\sum\limits_{i=1}^{r+1} d_i \cdot \frac{\omega_i}{d_i} = 1$, тому в дея
     $$
 \end{theorem*}
 \begin{proof}
-    Для всіх $k \in \mathbb{N} \text{ та } x \in\mathbb{R} :  \E1{\left\{ \xi_k < x\right\}} = F_{\xi}(x)$, причому при будь-якому $x \in \mathbb{R}$ ці індикатори
+    Для всіх $k \in \mathbb{N} \text{ та } x \in\mathbb{R} :  \E\left(\mathds{1}{\left\{ \xi_k < x\right\}}\right) = F_{\xi}(x)$, причому при будь-якому $x \in \mathbb{R}$ ці індикатори
     є незалежними випадковими величинами. Тому згідно посиленого закону великих чисел отримуємо бажану збіжність з ймовірністю 1 до $F_{\xi}(x)$.
 \end{proof}
 \begin{exercise}

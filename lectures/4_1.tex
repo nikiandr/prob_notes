@@ -205,16 +205,17 @@ $$
         \exp\left\{i\cdot \left( \sum\limits_{k=1}^n a_k\right)\cdot t - \frac{t^2}{2}\cdot\left( \sum\limits_{k=1}^n \sigma_k^2\right)\right\}$ ---
         це характеристична функція нормального розподілу. Отже, $\xi_1 + ... + \xi_n \sim \mathrm{N}\left(\sum\limits_{k=1}^n a_k,  \sqrt{\sum\limits_{k=1}^n \sigma_k^2}\right)$.
         \item Перевірити стійкість біноміального розподілу. Нехай $\xi_1 \sim \mathrm{Bin}(n_1, p_1)$, $\xi_2 \sim \mathrm{Bin}(n_2, p_2)$ --- незалежні.
-        $\chi_{\xi_1 + \xi_2} (t) = \left( p_1 e^{it} + q_1\right)^{n_1} \cdot \left( p_2 e^{it} + q_2\right)^{n_2} \overset{?}{=} \left(\P e^{it} + Q\right)^N$.
+        Чи існують такі $N \in \mathbb{N}$, $p \in (0, 1)$ і $q = 1 - p$, що
+        $\chi_{\xi_1 + \xi_2} (t) = \left( p_1 e^{it} + q_1\right)^{n_1} \cdot \left( p_2 e^{it} + q_2\right)^{n_2} = \left(p e^{it} + q\right)^n$?
 
-        Взагалі кажучи, біноміальний розподіл не є стійким по відношенню до  операції додавання.
+        Взагалі кажучи, біноміальний розподіл не є стійким по відношенню до операції додавання.
         Його називають \emph{умовно стійким} при $p_1 = p_2 = p$, тоді
         $\chi_{\xi_1 + \xi_2} (t) = \left( p e^{it} + q\right)^{n_1 + n_2}$ і $\xi_1 + \xi_2 \sim \mathrm{Bin}(n_1+n_2, p)$.
     \end{enumerate}
 \end{example}
 
 \begin{exercise}
-    Перевірити стійкість гамма-розподілу $\Gamma(\alpha, \beta)$.
+    Перевірити, що гамма-розподіл $\Gamma(\alpha, \beta)$ є умовно стійким, коли у доданків однакове значення $\beta$.
 \end{exercise}
 
 \section{Характеристичні функції випадкових векторів}

@@ -11,7 +11,7 @@
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
 
 Окремим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
-За законом Бернуллі розподілені випадкові величини-індикатори $1_A = \begin{cases}
+За законом Бернуллі розподілені випадкові величини-індикатори $\mathds{1}_A = \begin{cases}
     0, & \text{подія }A\text{ не відбулась}\\ 1, & \text{подія }A\text{ відбулась}
 \end{cases}$ при $\P(A) = p$.
 
@@ -109,11 +109,11 @@ $G'_\xi(1) = np(p+q)^{n-1} = np$, $G''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $G''
 \begin{enumerate}
     \item $\E\xi = np$.
     \item $\D\xi = npq$, $\sigma_\xi = \sqrt{npq}$.
-    \item $\mathrm{Mo}\xi = \begin{cases}
+    \item $\Mo\xi = \begin{cases}
         \left[np+p\right], & \text{якщо } np+p \text{ не ціле}\\
         np+p, np-q, & \text{якщо } np+p \text{ ціле}
     \end{cases}$ --- як найбільш ймовірна кількість успіхів у схемі Бернуллі.
-    \item $\mathrm{Me}\xi$ --- одне зі значень $\left[np\right] - 1$, $\left[np\right]$, $\left[np\right] + 1$.
+    \item $\Me\xi$ --- одне зі значень $\left[np\right] - 1$, $\left[np\right]$, $\left[np\right] + 1$.
 \end{enumerate}
 \end{samepage}
 
@@ -204,8 +204,8 @@ $G'_\xi(1) = \frac{1}{p}$, $G''_\xi(1) = \frac{2q}{p^2}$, $G''_\xi(1) + G'_\xi(1
 \begin{enumerate}
     \item $\E\xi = \frac{1}{p}$.
     \item $\D\xi = \frac{q}{p^2}$, $\sigma_\xi = \frac{\sqrt{q}}{p}$.
-    \item $\mathrm{Mo}\xi = 1$.
-    \item $\mathrm{Me}\xi = \left[ \frac{-1}{\log_2(1-p)}\right]$.
+    \item $\Mo\xi = 1$.
+    \item $\Me\xi = \left[ \frac{-1}{\log_2(1-p)}\right]$.
 \end{enumerate}
 
 \noindent\textbf{Застосування:} якщо проводяться незалежні випробування з ймовірністю успіху $p$ до першого успішного,
@@ -312,8 +312,8 @@ $G'_\xi(1) = a$, $G''_\xi(1) = a^2$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\
 \begin{enumerate}
     \item $\E\xi = a$.
     \item $\D\xi = a$, $\sigma_\xi = \sqrt{a}$.
-    \item $\mathrm{Mo}\xi = \left[a\right]$.
-    \item $\mathrm{Me}\xi \approx \left[a + 1/3 - 0.02/a\right]$.
+    \item $\Mo\xi = \left[a\right]$.
+    \item $\Me\xi \approx \left[a + 1/3 - 0.02/a\right]$.
 \end{enumerate}
 
 \noindent\textbf{Застосування:} як вже було показано в асимптотичній формулі Пуассона \eqref{eq:poiss_aprox},
@@ -482,13 +482,13 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 \begin{enumerate}
     \item $\E\xi = \int\limits_{-\infty}^{+\infty} x f_\xi(x)dx = \int\limits_{a}^{b} \frac{x}{b-a}dx = \frac{a+b}{2}$.
     \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \int\limits_{a}^{b} \frac{x^2}{b-a}dx - \frac{(a+b)^2}{4} = \frac{(b-a)^2}{12}$, $\sigma_\xi = \frac{b-a}{2\sqrt{3}}$.
-    \item $\mathrm{Mo}\xi$ --- будь-яка точка з $\left<a; b\right>$.
-    \item $\mathrm{Me}\xi = \frac{a+b}{2}$.
-    \item $\mathrm{As}\xi = 0$.
-    \item $\mathrm{Ex}\xi = -\frac{6}{5}$.
+    \item $\Mo\xi$ --- будь-яка точка з $\left<a; b\right>$.
+    \item $\Me\xi = \frac{a+b}{2}$.
+    \item $\As\xi = 0$.
+    \item $\Ex\xi = -\frac{6}{5}$.
 \end{enumerate}
 % \begin{exercise}
-%     Обчислити $\mathrm{Me}\xi$, $\mathrm{As}\xi$ та $\mathrm{Ex}\xi$ та перевірити наведені значення.
+%     Обчислити $\Me\xi$, $\As\xi$ та $\Ex\xi$ та перевірити наведені значення.
 % \end{exercise}
 
 \noindent\textbf{Застосування:} отримання вибірок з інших законів розподілу;
@@ -555,10 +555,10 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 \begin{enumerate}
     \item $\E\xi = \frac{1}{\lambda}$.
     \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$, $\sigma_\xi = \frac{1}{\lambda}$.
-    \item $\mathrm{Mo}\xi = 0$.
-    \item $\mathrm{Me}\xi = \frac{\ln2}{\lambda}$.
-    \item $\mathrm{As}\xi = 2$ --- не залежить від $\lambda$, бо $\beta_3 = \alpha_3 - 3\alpha_2 \alpha_1 + 2 \alpha_1^3 = \frac{2}{\lambda^3}$.
-    \item $\mathrm{Ex}\xi = 6$ --- теж не залежить від $\lambda$, бо $\beta_4 = \alpha_4 - 4\alpha_3 \alpha_1 + 6 \alpha_2 \alpha_1^2 - 3\alpha_1^4 = \frac{9}{\lambda^4}$.
+    \item $\Mo\xi = 0$.
+    \item $\Me\xi = \frac{\ln2}{\lambda}$.
+    \item $\As\xi = 2$ --- не залежить від $\lambda$, бо $\beta_3 = \alpha_3 - 3\alpha_2 \alpha_1 + 2 \alpha_1^3 = \frac{2}{\lambda^3}$.
+    \item $\Ex\xi = 6$ --- теж не залежить від $\lambda$, бо $\beta_4 = \alpha_4 - 4\alpha_3 \alpha_1 + 6 \alpha_2 \alpha_1^2 - 3\alpha_1^4 = \frac{9}{\lambda^4}$.
 \end{enumerate}
 
 \begin{exercise}
@@ -724,10 +724,10 @@ $\E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alph
 \begin{enumerate}
     \item $\E\xi = \frac{\alpha}{\beta}$.
     \item $\D\xi = \E\xi^2 - (\E\xi)^2 = \frac{(\alpha+1)\alpha}{\beta^2} - \frac{\alpha^2}{\beta^2} = \frac{\alpha}{\beta^2}$, $\sigma_\xi = \frac{\sqrt{\alpha}}{\beta}$.
-    \item $\mathrm{Mo}\xi = \frac{\alpha-1}{\beta}$.
-    \item $\mathrm{Me}\xi$ --- немає виразу у замкненій формі.
-    \item $\mathrm{As}\xi = \frac{2}{\sqrt{\alpha}}$.
-    \item $\mathrm{Ex}\xi = \frac{6}{\alpha}$.
+    \item $\Mo\xi = \frac{\alpha-1}{\beta}$.
+    \item $\Me\xi$ --- немає виразу у замкненій формі.
+    \item $\As\xi = \frac{2}{\sqrt{\alpha}}$.
+    \item $\Ex\xi = \frac{6}{\alpha}$.
 \end{enumerate}
 
 \noindent\textbf{Застосування:} гамма-розподіл застосовується для моделювання
@@ -882,7 +882,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ не виражається в елемент
     e^{-t^2} dt
 \end{gather*}
 Якщо $k = 2l + 1$, то $\beta_k = 0$, оскільки під інтегралом непарна функція.
-Зокрема, $\beta_3 = 0$, тому $\mathrm{As}\xi = 0$.
+Зокрема, $\beta_3 = 0$, тому $\As\xi = 0$.
 Візьмемо $k = 2l$:
 \begin{gather*}
     \beta_{2l} = 
@@ -895,17 +895,18 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ не виражається в елемент
     = \frac{\sigma^{2l}2^l}{\sqrt{\pi}}
     \int\limits_{0}^{+\infty}z^{l-\frac{1}{2}} e^{-z}
     dz = 
-    \frac{\sigma^{2l}2^l}{\sqrt{\pi}}\cdot\Gamma\left(l+\frac{1}{2}\right)
+    \frac{\sigma^{2l}2^l}{\sqrt{\pi}}\cdot\Gamma\left(l+\frac{1}{2}\right) = 
+    \frac{\sigma^{2l}2^l}{\sqrt{\pi}} \cdot \frac{(2l-1)!!}{2^l} \sqrt{\pi} = \sigma^{2l} (2l-1)!!
 \end{gather*}
 Зокрема, $\beta_2 = \D\xi = \frac{2 \sigma^2}{\sqrt{\pi}}\cdot\Gamma\left(\frac{3}{2}\right) = \sigma^2$,
 $\beta_4 = \frac{\sigma^4\cdot2^2}{\sqrt{\pi}}\cdot \Gamma\left(\frac{5}{2}\right) = 3\sigma^4$.
 
 \noindent \textbf{Числові характеристики:}
 \begin{enumerate}
-    \item $\E\xi = \mathrm{Mo}\xi = \mathrm{Me}\xi = a$.
+    \item $\E\xi = \Mo\xi = \Me\xi = a$.
     \item $\D\xi = \sigma^2$, $\sigma_\xi = \sigma$.
-    \item $\mathrm{As}\xi = 0$.
-    \item $\mathrm{Ex}\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 
+    \item $\As\xi = 0$.
+    \item $\Ex\xi = \frac{\beta_4}{\sigma_\xi^4} - 3 = 
     \frac{3\sigma^4}{\sigma^4} - 3 = 0$. 
 \end{enumerate}
 \begin{remark}
