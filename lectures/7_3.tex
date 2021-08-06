@@ -5,7 +5,7 @@ $\left\{ \xi_n\right\}_{n=1}^\infty$ зі скінченними математ�
 дисперсіями $\frac{1}{n}\sum\limits_{k=1}^n (\xi_k - \E\xi_k) \overset{\mathrm{P}}{\longrightarrow} 0$.
 Виявляється, що якщо знаменник цих сум буде прямувати до $0$ повільніше, то границя (хоча й в слабшому сенсі) вже не буде нульовою.
 \subsection{Теорема Ляпунова}
-\begin{theorem*}[теорема Ляпунова]
+\begin{theorem*}[теорема Ляпунова]\label{CLT}
     Нехай $\left\{ \xi_n\right\}_{n=1}^\infty$ --- послідовність незалежних випадкових величин таких, 
     що існують скінченні $\E\xi_k = a_k$, $\D\xi_k = \sigma_k^2$ та
     $m_k = \E\left|\xi_k - a_k\right|^3$ і виконується умова Ляпунова:
@@ -167,15 +167,15 @@ $\mathrm{U}[-1; 1]$ та $\mathrm{N}\left(0, \frac{1}{3}\right)$. Зауважи
 то сумарний розподіл кількості використаної електроенергії буде приблизно нормальним.
 
 \subsection{Умова Ліндеберга}
-    Замість умови Ляпунова в доведенні однойменної теореми можна вимагати виконання умови Ліндеберга:
+    Замість умови Ляпунова в доведенні однойменної теореми \ref{CLT} можна вимагати виконання умови Ліндеберга:
     $$\forall \; \varepsilon > 0 : \underset{n\to\infty}{\lim} 
-    \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) = 0$$
-    Тут $a_k = \E\xi_k$, $B_n = \sqrt{\sum\limits_{k=1}^n \D\xi_k}$, $1_A$ --- індикатор події $A$.
+    \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot \mathds{1}{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) = 0$$
+    Тут $a_k = \E\xi_k$, $B_n = \sqrt{\sum\limits_{k=1}^n \D\xi_k}$, $\mathds{1} A$ --- індикатор події $A$.
     Ймовірнісний зміст цієї умови такий: нехай $A_k = \left\{ \left|\xi_k - a_k \right| > \varepsilon \cdot B_n \right\}$, тоді
     \begin{gather*}
         \P \left( \bigcup\limits_{k=1}^n A_k\right) \leq \sum\limits_{k=1}^n \P(A_k) = \sum\limits_{k=1}^n \int_{|x-a_k| > \varepsilon \cdot B_n} dF_k(x) \leq
     \sum\limits_{k=1}^n \int_{|x-a_k| > \varepsilon \cdot B_n} \frac{(x-a_k)^2}{\varepsilon^2 B_n^2} dF_k(x) = \\
-    = \frac{1}{\varepsilon^2} \cdot \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot 1_{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) 
+    = \frac{1}{\varepsilon^2} \cdot \frac{1}{B_n^2}\sum\limits_{k=1}^n \E \left( \left( \xi_k - a_k\right)^2 \cdot \mathds{1}{\left\{|\xi_k - a_k| > \varepsilon \cdot B_n\right\}}\right) 
     \to 0, \; n\to\infty
     \end{gather*}
     Це означає, що кожний доданок $\frac{\xi_k - a_k}{B_n}$ має рівномірно малий внесок в суму $\frac{1}{B_n}\sum\limits_{k=1}^n (\xi_k - a_k)$.

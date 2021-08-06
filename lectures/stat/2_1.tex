@@ -109,7 +109,7 @@ $\int_{\overline{W}} \mathcal{L}_{H_1}(\vec{x}) d\vec{x}$.
 $X = \bigcup\limits_{i=1}^r X_i$ (рекомендації щодо вибору цих множин та їх кількості розглянемо пізніше). 
 В припущенні, що гіпотеза $H_0$ справджується, можемо обчислити ймовірності
 $p_i = \P\left\{\xi \in X_i / H_0 \right\}$, причому $\sum\limits_{i=1}^r p_i = 1$. Якщо $H_0$ справджується, то частості
-$\frac{n_i}{n}$, де $n_i = \sum\limits_{k=1}^n 1{\left\{\xi_k \in X_i \right\}}$ (кількість значень, що потрапили в $X_i$),
+$\frac{n_i}{n}$, де $n_i = \sum\limits_{k=1}^n \mathds{1}{\left\{\xi_k \in X_i \right\}}$ (кількість значень, що потрапили в $X_i$),
 мають прямувати за ймовірністю до $p_i$. Критерій Пірсона з'ясовує, чи можна вважати розходження між теоретичними ймовірностями $p_i$
 та практичними значеннями $\frac{n_i}{n}$ випадковими, а не систематичними. 
 
@@ -267,44 +267,44 @@ $\vec{\eta}_n = \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left( \vec{\xi_k} - \vec
     Нехай $H_0$ справджується, гіпотетичну область значень $\xi$ розбиваємо на $r>2$
     підмножин, що попарно не перетинаються: $X = \bigcup\limits_{i=1}^r X_i$, $p_i = \P\left\{\xi \in X_i / H_0 \right\}, i=1,...,r$.
     $\vec{\xi} = \left(\xi_1, \xi_2, ..., \xi_n\right)$ --- випадкова вибірка, введемо індикатори 
-    $I_{X_i}(\xi_j) = \begin{cases}
+    $\mathds{1}_{X_i}(\xi_j) = \begin{cases}
         1, & \xi_j \in X_i \\
         0, & \xi_j \notin X_i
     \end{cases}$.
-    Оскільки розподіл усіх $\xi_j$ такий самий, як у $\xi$, то $\E\left(I_{X_i}(\xi_j)\right) = p_i$,
-    $\D\left(I_{X_i}(\xi_j)\right) = p_i (1-p_i) = p_i q_i$.
+    Оскільки розподіл усіх $\xi_j$ такий самий, як у $\xi$, то $\E\left(\mathds{1}_{X_i}(\xi_j)\right) = p_i$,
+    $\D\left(\mathds{1}_{X_i}(\xi_j)\right) = p_i (1-p_i) = p_i q_i$.
     
     Введемо $r$-вимірні вектори:
     \begin{gather*}
         \overrightarrow{\mu^{(1)}} = \begin{pmatrix}
-            \frac{I_{X_1}(\xi_1) - p_1}{\sqrt{p_1}} \\
-            \frac{I_{X_2}(\xi_1) - p_2}{\sqrt{p_2}} \\
+            \frac{\mathds{1}_{X_1}(\xi_1) - p_1}{\sqrt{p_1}} \\
+            \frac{\mathds{1}_{X_2}(\xi_1) - p_2}{\sqrt{p_2}} \\
             \cdots \\
-            \frac{I_{X_r}(\xi_1) - p_r}{\sqrt{p_r}}
+            \frac{\mathds{1}_{X_r}(\xi_1) - p_r}{\sqrt{p_r}}
         \end{pmatrix}, \;
         \overrightarrow{\mu^{(2)}} = \begin{pmatrix}
-            \frac{I_{X_1}(\xi_2) - p_1}{\sqrt{p_1}} \\
-            \frac{I_{X_2}(\xi_2) - p_2}{\sqrt{p_2}} \\
+            \frac{\mathds{1}_{X_1}(\xi_2) - p_1}{\sqrt{p_1}} \\
+            \frac{\mathds{1}_{X_2}(\xi_2) - p_2}{\sqrt{p_2}} \\
             \cdots \\
-            \frac{I_{X_r}(\xi_2) - p_r}{\sqrt{p_r}}
+            \frac{\mathds{1}_{X_r}(\xi_2) - p_r}{\sqrt{p_r}}
         \end{pmatrix}, \;
         ..., \;
         \overrightarrow{\mu^{(n)}} = \begin{pmatrix}
-            \frac{I_{X_1}(\xi_n) - p_1}{\sqrt{p_1}} \\
-            \frac{I_{X_2}(\xi_n) - p_2}{\sqrt{p_2}} \\
+            \frac{\mathds{1}_{X_1}(\xi_n) - p_1}{\sqrt{p_1}} \\
+            \frac{\mathds{1}_{X_2}(\xi_n) - p_2}{\sqrt{p_2}} \\
             \cdots \\
-            \frac{I_{X_r}(\xi_n) - p_r}{\sqrt{p_r}}
+            \frac{\mathds{1}_{X_r}(\xi_n) - p_r}{\sqrt{p_r}}
         \end{pmatrix}
     \end{gather*}
     Внаслідок однакового розподілу та незалежності усіх $\xi_j$ всі $\overrightarrow{\mu^{(j)}}$ теж мають однаковий розподіл та незалежні.
-    Оскільки $\E\left(I_{X_i}(\xi_j)\right) = p_i$, то $\E \overrightarrow{\mu^{(1)}} = \E \overrightarrow{\mu^{(2)}} = ... = \E \overrightarrow{\mu^{(n)}} = \vec{0}$.
+    Оскільки $\E\left(\mathds{1}_{X_i}(\xi_j)\right) = p_i$, то $\E \overrightarrow{\mu^{(1)}} = \E \overrightarrow{\mu^{(2)}} = ... = \E \overrightarrow{\mu^{(n)}} = \vec{0}$.
     Знайдемо кореляційну матрицю $\K$ вектора $\overrightarrow{\mu^{(1)}}$:
     \begin{gather*}
-        {cov}\left(\frac{I_{X_i}(\xi_1) - p_i}{\sqrt{p_i}}, \frac{I_{X_j}(\xi_1) - p_j}{\sqrt{p_j}}\right) = 
-        \frac{1}{\sqrt{p_i p_j}} \E\left(\left(I_{X_i}(\xi_1) - p_i\right)\left(I_{X_j}(\xi_1) - p_j\right)\right) = \\
-        = \frac{1}{\sqrt{p_i p_j}} \left(\E\left(I_{X_i}(\xi_1) I_{X_j}(\xi_1)\right) - p_i p_j\right) = 
+        {cov}\left(\frac{\mathds{1}_{X_i}(\xi_1) - p_i}{\sqrt{p_i}}, \frac{\mathds{1}_{X_j}(\xi_1) - p_j}{\sqrt{p_j}}\right) = 
+        \frac{1}{\sqrt{p_i p_j}} \E\left(\left(\mathds{1}_{X_i}(\xi_1) - p_i\right)\left(\mathds{1}_{X_j}(\xi_1) - p_j\right)\right) = \\
+        = \frac{1}{\sqrt{p_i p_j}} \left(\E\left(\mathds{1}_{X_i}(\xi_1) \mathds{1}_{X_j}(\xi_1)\right) - p_i p_j\right) = 
         \begin{cases}
-            \frac{1}{p_i} \D\left(I_{X_i}(\xi_1)\right) = 1 - p_i, & i = j \\
+            \frac{1}{p_i} \D\left(\mathds{1}_{X_i}(\xi_1)\right) = 1 - p_i, & i = j \\
             -\sqrt{p_i p_j}, & i\neq j
         \end{cases}
     \end{gather*}
@@ -330,8 +330,8 @@ $\vec{\eta}_n = \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left( \vec{\xi_k} - \vec
     Виявляється, що координати $\overrightarrow{\mu^{(1)}}$ лінійно залежні:
     \begin{gather*}
         \sum_{i=1}^r \sqrt{p_i} \mu^{(1)}_i = 
-        \sum_{i=1}^r \left(I_{X_i}(\xi_1) - p_i\right) = 
-        \sum_{i=1}^r I_{X_i}(\xi_1) - 1 = 0 \text{ з ймовірністю } 1
+        \sum_{i=1}^r \left(\mathds{1}_{X_i}(\xi_1) - p_i\right) = 
+        \sum_{i=1}^r \mathds{1}_{X_i}(\xi_1) - 1 = 0 \text{ з ймовірністю } 1
     \end{gather*}
     Це означає, що матриця $\K$ вироджена і має ранг $n-1$: одночасно більше ніж одну координату виразити через інші неможливо,
     оскільки $X_1, X_2, ..., X_r$ попарно не перетинаються. 
@@ -381,9 +381,9 @@ $\vec{\eta}_n = \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left( \vec{\xi_k} - \vec
     $\overrightarrow{\eta^{(n)}} = \frac{1}{\sqrt{n}} \sum\limits_{i=1}^n \overrightarrow{\mu^{(i)}}$. Його перша координата дорівнює
     \begin{gather*}
         {\eta^{(n)}_1} = \frac{1}{\sqrt{n}}\left(
-            \frac{I_{X_1}(\xi_1) - p_1}{\sqrt{p_1}} +
-            \frac{I_{X_1}(\xi_2) - p_1}{\sqrt{p_1}} + ...
-            + \frac{I_{X_1}(\xi_n) - p_1}{\sqrt{p_1}}
+            \frac{\mathds{1}_{X_1}(\xi_1) - p_1}{\sqrt{p_1}} +
+            \frac{\mathds{1}_{X_1}(\xi_2) - p_1}{\sqrt{p_1}} + ...
+            + \frac{\mathds{1}_{X_1}(\xi_n) - p_1}{\sqrt{p_1}}
         \right) = \frac{n_1 - n p_1}{\sqrt{n p_1}}
     \end{gather*}
     Аналогічно
@@ -432,7 +432,7 @@ $\vec{\eta}_n = \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left( \vec{\xi_k} - \vec
 Нехай є $n$ спостережень двох випадкових величин $\xi$ та $\eta$, що позначимо відповідно
 $\left(x_1, x_2, ..., x_n\right)$ та $\left(y_1, y_2 ,... ,y_n\right)$. Перевірятимемо гіпотезу
 $H_0 : \xi \text{\emph{ та }} \eta \text{\emph{ незалежні}}$. 
-Як побачимо далі, розподіли $\xi$ та $\eta$ знати непотрібно, тому будемо вважати, що вони приймають скінченну кількість значень
+Як побачимо далі, розподіли $\xi$ та $\eta$ знати не потрібно, тому будемо вважати, що вони приймають скінченну кількість значень
 $\left\{X_1, X_2, ... , X_l\right\}$ та $\left\{Y_1, Y_2, ... , Y_k\right\}$ --- інакше спостереження можна згрупувати в деякі інтервали.
 
 Якщо гіпотеза $H_0$ справджується, то $\P\left\{\xi = X_i, \eta = Y_j \right\} = \P\left\{\xi = X_i\right\} \cdot \P\left\{\eta = Y_j\right\}$.
@@ -509,11 +509,11 @@ $H_0 : \xi \sim \mathrm{N}(0, 1)$ чи $H_0 : \xi \sim \mathrm{U}\left<-1, 1\rig
 $D_n = \underset{y \in [0; 1]}{\sup} \left| F_n^*(F_{\xi}^{-1}(y)) - y\right|$. Оскільки випадкові величини $\eta_k = F_{\xi}(\xi_k)$ утворюють
 вибірку з розподілу $\mathrm{U}\left<0, 1\right>$, то
 \begin{gather*}
-    F_n^*(F_{\xi}^{-1}(y)) = \frac{1}{n} \sum_{k=1}^n 1{\left\{ \xi_k < F_{\xi}^{-1}(y)\right\}} = 
-    \frac{1}{n} \sum_{k=1}^n 1{\left\{ \eta_k < y\right\}}, \;
-    1{\left\{ \eta_k < y\right\}} \sim \mathrm{Bin}(1, y) \text{ при } y \in [0; 1]
+    F_n^*(F_{\xi}^{-1}(y)) = \frac{1}{n} \sum_{k=1}^n \mathds{1}{\left\{ \xi_k < F_{\xi}^{-1}(y)\right\}} = 
+    \frac{1}{n} \sum_{k=1}^n \mathds{1}{\left\{ \eta_k < y\right\}}, \;
+    \mathds{1}{\left\{ \eta_k < y\right\}} \sim \mathrm{Bin}(1, y) \text{ при } y \in [0; 1]
 \end{gather*}
-$\eta_k$ незалежні, тому $\sum\limits_{k=1}^n 1{\left\{ \eta_k < y\right\}} \sim \mathrm{Bin}(n, y)$. Подальші перетворення цієї випадкової величини
+$\eta_k$ незалежні, тому $\sum\limits_{k=1}^n \mathds{1}{\left\{ \eta_k < y\right\}} \sim \mathrm{Bin}(n, y)$. Подальші перетворення цієї випадкової величини
 мають невипадковий характер, тому, дійсно, розподіл $D_n$ не залежить від розподілу $\xi$.
 Таким чином, якщо $H_0$ справджується, то значення $D_n$ буде досить малим. Значення $K(\lambda)$ знаходять з відповідної таблиці.
 
@@ -523,7 +523,7 @@ $\eta_k$ незалежні, тому $\sum\limits_{k=1}^n 1{\left\{ \eta_k < y\
     \item За реалізацією вибірки будуємо емпіричну функцію розподілу $F_n^*(x)$.
     \item Знаходимо значення статистики $D_n$ та $\lambda = \sqrt{n} \cdot D_n$.
     \item За заданим рівнем значущості $\alpha$ знаходимо таке $\lambda_\alpha$, що
-    $\P\left\{\sqrt{n}\cdot D_n \leq \lambda_\alpha / H_0\right\} = 1 - K(\lambda_\alpha) = \alpha$. 
+    $\P\left\{\sqrt{n}\cdot D_n \geq \lambda_\alpha / H_0\right\} = 1 - K(\lambda_\alpha) = \alpha$. 
     \item Якщо $\lambda_{\text{зн}}$ буде більшим за критичне значення $\lambda_\alpha$, то на рівні значущості $\alpha$
     дослідні дані суперечать гіпотезі $H_0$. Інакше вважають, що гіпотезу $H_0$ можна прийняти.
 \end{enumerate}

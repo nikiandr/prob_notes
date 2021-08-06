@@ -198,7 +198,7 @@ $k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k 
             \frac{2}{\pi} \frac{1}{\sqrt{1-y^2}}, & y \in [0; 1) \\
             0, & y \notin [0; 1)
         \end{cases}$.
-        \item $\xi \sim \mathrm{N}(a, \sigma)$, знайти розподіл $\eta = \xi^2$.
+        \item\label{ex:squared_norm_distr} $\xi \sim \mathrm{N}(a, \sigma)$, знайти розподіл $\eta = \xi^2$.
 
         На проміжках $(-\infty; 0]$ та $[0; +\infty)$ $x^2$ є монотонною функцією, 
         відповідні обернені --- $\varphi_1^{-1} (y) = -\sqrt{y}$, $\varphi_2^{-1} (y) = \sqrt{y}$.
@@ -242,9 +242,9 @@ $\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i
     Дослідити, за яких умов на $\varphi$ ця формула має місце.
 \end{exercise}
 
-У випадках, коли $\varphi(x) = \cos (m x)$ або $\sin (m x)$ ($m\in \mathbb{R}$),
+У випадках, коли $\varphi(x) = \cos (s x)$ або $\sin (s x)$ ($s\in \mathbb{R}$),
 для знаходження числових характеристик можна скористатися характеристичною функцією $\xi$,
-оскільки $\chi_{\xi}(m) = \E e^{i m \xi} = \E \cos(m\xi) + i \cdot\E\sin(m\xi)$,
-тому $\E\cos(m\xi) = \mathrm{Re} \chi_{\xi}(m)$ і
-$\E\sin(m\xi) = \mathrm{Im} \chi_{\xi}(m)$.
+оскільки $\chi_{\xi}(s) = \E e^{i s \xi} = \E \cos(s\xi) + i \cdot\E\sin(s\xi)$,
+тому $\E\cos(s\xi) = \mathrm{Re} \chi_{\xi}(s)$ і
+$\E\sin(s\xi) = \mathrm{Im} \chi_{\xi}(s)$.
 Для знаходження моментів вищих порядків можна скористатися формулами пониження степеня.

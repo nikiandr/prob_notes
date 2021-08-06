@@ -104,7 +104,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
     Перевіримо конзистентність оцінок, незміщеність чи асимптотичну незміщеність яких вже дослідили.
     \begin{enumerate}
         \item \emph{Вибіркове середнє} $\overline{\xi} = \frac{1}{n}\sum\limits_{k=1}^n \xi_k$ є конзистентною оцінкою
-        за законом великих чисел (і навіть сильно конзистентною).
+        за законом великих чисел (теорема \ref{LLN}) (і навіть сильно конзистентною з теореми \ref{SLLN}).
         \item \emph{Вибіркова дисперсія} $\D^*\xi = \frac{1}{n}\sum\limits_{k=1}^n \left(\xi_k - \E\xi \right)^2$
         є незміщеною оцінкою дисперсії в разі відомого $\E\xi$. 
         $\D\left(\D^*\xi\right) = \frac{1}{n^2}\sum\limits_{k=1}^n \D\left(\xi_k - \E\xi \right)^2 =
@@ -112,7 +112,13 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
         \item \emph{Виправлена вибіркова дисперсія} $\D^{**}\xi = \frac{n}{n-1} \D^*\xi$ є незміщеною оцінкою дисперсії в разі невідомого $\E\xi$. 
         $\D\left(\D^{**}\xi\right) = \left(\frac{n}{n-1} \right)^2 \cdot \D\left(\D^*\xi\right) \to 0, n\to\infty$, тому ця оцінка конзистентна.
         \item Нехай $\xi \sim \mathrm{U}\left< a; b\right>$, $a^*_n = \underset{1\leq k \leq n}{\min}\xi_k$ --- асимптотично незміщена оцінка $a$.
-        Перевірятимемо конзистентність за означенням:
+        Перевірятимемо конзистентність за означенням: для
+       $ \varepsilon > 0$ 
+       $\P\left\{|a^*_n - a| < \varepsilon\right\} = 
+       \P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} =
+       \P\left\{a < a^*_n < a + \varepsilon\right\}$,
+       тому при $\varepsilon \geq b-a$ маємо $\P\left\{|a^*_n - a| < \varepsilon\right\} = 1$,
+       а при $0 < \varepsilon < b-a$
         \begin{gather*}
             \varepsilon > 0, \; \P\left\{|a^*_n - a| < \varepsilon\right\} = 
             \P\left\{a - \varepsilon < a^*_n < a + \varepsilon\right\} = \int_{a}^{a+\varepsilon} f_{\min}(x) dx = \\
@@ -182,7 +188,7 @@ $\theta_1, \theta_2, ..., \theta_k$ --- набір параметрів. Тип 
 \end{gather}
 Тут $C(n, \theta)$ --- деяке значення, що залежить лише від $n$ та $\theta$.
 \begin{remark}
-    В умові теореми необхідно накладати деякі умови, виконання яких припускалися при доведенні: додатність та 
+    В умові теореми, взагалі кажучи, необхідно накладати деякі умови, виконання яких припускалися при доведенні: додатність та 
     диференційовність функції правдоподібності на області визначення,
     існування (скінченність) $\mathcal{I}(\theta)$ та можливість диференціювання відповідного інтегралу по параметру.
 \end{remark}
@@ -229,7 +235,7 @@ $\D\theta^* \cdot \mathcal{I}(\theta) \to 1$ при $n\to\infty$. Оскільк
     \end{gather}
 \end{definition}
 Це поняття в подальшому дозволить наближувати розподіл точкових оцінок нормальним розподілом.
-Наприклад, для вибіркового середнього $\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$ згідно ЦГТ маємо
+Наприклад, для вибіркового середнього $\overline{\xi} = \frac{1}{n} \sum\limits_{k=1}^n \xi_k$ згідно ЦГТ (\ref{CLT}) маємо
 $$ 
 \frac{\overline{\xi} - \E\xi}{\sqrt{\D\overline{\xi}}} = \frac{\frac{1}{n} \sum\limits_{k=1}^n (\xi_k  -\E\xi)}{\sqrt{\D\xi/n}} = 
 \frac{1}{\sqrt{n}} \sum\limits_{k=1}^n \left(\frac{\xi_k - \E\xi}{\sqrt{\D\xi}} \right)

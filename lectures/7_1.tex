@@ -1,17 +1,17 @@
 % !TEX root = ../main.tex
 \section{Послідовності випадкових величин}
 \subsection{Нерівності Маркова та Чебишова}
-\begin{theorem*}[нерівність Маркова]
+\begin{proposition*}[нерівність Маркова]
     Нехай модуль випадкової величини $\xi$ має скінченне математичне сподівання: $\E|\xi| < +\infty$.
     Тоді 
     \begin{gather}\label{Markov_ineq}
         \forall \; \varepsilon >0 : \P\left\{ |\xi| \geq \varepsilon\right\} \leq \frac{\E|\xi|}{\varepsilon}
     \end{gather}
-\end{theorem*}
+\end{proposition*}
 \begin{proof}
     Запишемо випадкову величину $|\xi|$ через події-індикатори: 
-    $|\xi| = |\xi|\cdot I\left\{|\xi| \geq \varepsilon\right\} + |\xi|\cdot I\left\{|\xi| < \varepsilon\right\} \geq
-    \varepsilon\cdot I\left\{|\xi| \geq \varepsilon\right\}$. Звідси $\E|\xi| \geq \E \left( \varepsilon\cdot I\left\{|\xi| \geq \varepsilon\right\}\right) =
+    $|\xi| = |\xi|\cdot \mathds{1}\left\{|\xi| \geq \varepsilon\right\} + |\xi|\cdot \mathds{1}\left\{|\xi| < \varepsilon\right\} \geq
+    \varepsilon\cdot \mathds{1}\left\{|\xi| \geq \varepsilon\right\}$. Звідси $\E|\xi| \geq \E \left( \varepsilon\cdot \mathds{1}\left\{|\xi| \geq \varepsilon\right\}\right) =
     \varepsilon \cdot \P\left\{ |\xi| \geq \varepsilon\right\}$.
 \end{proof}
 \begin{remark}
@@ -20,20 +20,18 @@
 
 \begin{example}
     Багатьма спостереженнями з'ясовано, що середня кількість
-    сонячних днів у Києві складає 220. Оцінити ймовірність того, що
-    сонячних днів за рік буде не менше 300.
-
-    \noindentПозначимо $\xi$ кількість сонячних днів. За умовою $\xi$ невід'ємна та $\E\xi = 220$,
+    сонячних днів на рік у Києві складає 220. Оцінити ймовірність того, що
+    сонячних днів за рік буде не менше 300. Позначимо $\xi$ кількість сонячних днів. За умовою $\xi$ невід'ємна та $\E\xi = 220$,
     тому за нерівністю Маркова $\P\left\{ \xi \geq 300\right\} \leq \frac{220}{300} = \frac{11}{15}$.
 \end{example}
 
-\begin{theorem*}[нерівність Чебишова]
+\begin{proposition*}[нерівність Чебишова]
     Нехай випадкова величина $\xi$ має скінченні математичне сподівання та дисперсію.
 Тоді
 \begin{gather}\label{Cheb_ineq}
     \forall \; \varepsilon >0 : \P\left\{ \left|\xi - \E\xi\right| \geq \varepsilon\right\} \leq \frac{\D\xi}{\varepsilon^2}
 \end{gather}
-\end{theorem*} 
+\end{proposition*} 
 \begin{proof}
     $\P\left\{ |\xi - \E\xi| \geq \varepsilon\right\} = \P\left\{ (\xi - \E\xi)^2 \geq \varepsilon^2\right\}$.
     Застосуємо нерівність Маркова:
@@ -150,7 +148,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
         
         \noindentДля $\varepsilon >0$ $\P\left\{|\xi_n -0| \geq \varepsilon\right\} = \P\left\{ \xi_n \geq \varepsilon\right\}$.
         $\forall \; \varepsilon >0 \; \exists \; N: \forall n\geq N:n^7 > \varepsilon$, тому з якогось номера
-        $\P\left\{ \xi_n \geq \varepsilon\right\} = \P\left\{ \xi_n = n^7 \right\} = \frac{1}{n} \to 0, n\to\infty$, тому $\xi_n \overset{\mathrm{P}}{\longrightarrow} 0, n \to \infty$.
+        $\P\left\{ \xi_n \geq \varepsilon\right\} = \P\left\{ \xi_n = n^7 \right\} = \frac{1}{n} \to 0, n\to\infty$, звідки $\xi_n \overset{\mathrm{P}}{\longrightarrow} 0, n \to \infty$.
     \end{example}
     \item \textbf{Збіжність в середньому.}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{в середньому},
@@ -172,7 +170,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
     Є також \emph{еквівалентне означення збіжності} за розподілом: якщо для будь-якої обмеженої неперервної функції $\varphi : \mathbb{R} \to \mathbb{R}$
     $\underset{n \to \infty}{\lim} \E \varphi(\xi_n) = \E\varphi(\xi)$.
     Доведення еквівалентності цих двох означень виходить за рамки курсу: його ідея полягає в тому, що $F_{\xi}(x) = \P\left\{ \xi < x\right\} = \E 1_{(-\infty, x)}(\xi)$,
-    де $1_{(-\infty, x)}$ --- індикатор множини $(-\infty, x)$, і такі функції-індикатори можна наблизити з будь-якою заданою точністю неперервними функціями та навпаки.
+    де $1_{(-\infty, x)}$ --- індикатор множини $(-\infty, x)$, і такі функції-індикатори можна наблизити з будь-якою заданою точністю обмеженими неперервними функціями та навпаки.
     \begin{example}
         Нехай $\xi_n \sim \mathrm{Exp}(\frac{1}{n})$. Перевірити $\xi_n \overset{\mathrm{F}}{\to} 0, n \to \infty$.
         Тут під 0 розуміється ДВВ, що приймає значення 0 з ймовірністю 1.
@@ -192,7 +190,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
     Збіжності в середньому та середньому квадратичному є частковими випадками \emph{збіжності порядку $k$}, для якої
 $\underset{n \to \infty}{\lim} \E|\xi_n - \xi|^k = 0$. Оскільки 
 для $0 < s < t$ має місце
-$( \E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( \E \left| \xi\right|^t)^{\frac{1}{t}}$
+$( \E \left| \xi\right|^s)^{\frac{1}{s}} \leq ( \E \left| \xi\right|^t)^{\frac{1}{t}}$ \eqref{eq:moments_ineq}
 то збіжність порядку $k$ гарантує збіжність порядків менше $k$.
 \end{remark}
 \begin{proposition*}

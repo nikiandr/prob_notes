@@ -9,15 +9,16 @@
     Тоді $\xi = \sum\limits_{k=1}^n \left( \frac{\xi_k - a_k}{\sigma_k}\right)^2$ має
     розподіл \emph{$\chi^2$ (хі-квадрат, Пірсона) з $n$ ступенями вільності}.
 
-    \noindent$\mathring{\xi}_{k} = \frac{\xi_k - a_k}{\sigma_k} \sim \mathrm{N}(0, 1)$, тому можна ще записати
+    \noindentОскільки $\mathring{\xi}_{k} = \frac{\xi_k - a_k}{\sigma_k} \sim \mathrm{N}(0, 1)$, то можна ще записати
     $\xi = \sum\limits_{k=1}^n (\mathring{\xi}_{k})^2$.
 
 \noindent\textbf{Коротке позначення:} $\xi \sim \chi_n^2$, $n\in\mathbb{N}$ --- кількість ступенів вільності.
 
 \noindent\textbf{Щільність розподілу:}
-відомо, що якщо $\eta \sim \mathrm{N}(0, 1)$, то $\eta^2 \sim \Gamma\left(\frac{1}{2}, \frac{1}{2}\right)$.
+відомо, що якщо $\eta \sim \mathrm{N}(0, 1)$, то $\eta^2 \sim \Gamma\left(\frac{1}{2}, \frac{1}{2}\right)$ (приклад \ref{ex:squared_norm_distr}).
 Гамма-розподіл стійкий при $\beta_1 = \beta_2 = ... = \beta_n$, $\mathring{\xi}_{k}$ незалежні у сукупності,
-тому $\xi = \sum\limits_{k=1}^n (\mathring{\xi}_{k})^2 \sim \Gamma\left(\frac{n}{2}, \frac{1}{2}\right) = \chi_n^2$.
+тому $\xi = \sum\limits_{k=1}^n (\mathring{\xi}_{k})^2 \sim \Gamma\left(\frac{n}{2}, \frac{1}{2}\right) = \chi_n^2$,
+звідки маємо щільність розподілу
 \begin{equation*}
     f_{\chi_n^2}(x) = \begin{cases}
         \frac{1}{2^{\frac{n}{2}} \Gamma\left(\frac{n}{2}\right)} x^{\frac{n}{2}-1} e^{-\frac{x}{2}}, & x \geq 0 \\
@@ -58,9 +59,8 @@
 
 \noindent\textbf{Коротке позначення:} $\eta \sim \chi_n$, $n\in\mathbb{N}$ --- кількість ступенів вільності.
 
-\noindent\textbf{Щільність розподілу:} скористаємося формулою для визначення щільності розподілу функції від
-випадкової величини. $\eta = \sqrt{\xi}$, тому позначимо $\varphi(x) = \sqrt{x}$, $\varphi^{-1}(y) = y^2$,
-$\left( \varphi^{-1}(y) \right)^{\prime} = 2y$.
+\noindent\textbf{Щільність розподілу:} скористаємося формулою \eqref{eq:phi_xi}. $\eta = \sqrt{\xi}$, тому позначимо $\varphi(x) = \sqrt{x}$, $\varphi^{-1}(y) = y^2$,
+$\left( \varphi^{-1}(y) \right)^{\prime} = 2y$, звідки отримуємо щільність
 \begin{equation*}
     f_{\chi_n}(y) = f_{\chi_n^2}\left(\varphi^{-1} (y)\right) \cdot \left|\left(\varphi^{-1} (y) \right)^{\prime}\right| =
 f_{\chi_n^2}(y^2) \cdot 2y = 
@@ -79,9 +79,9 @@ f_{\chi_n^2}(y^2) \cdot 2y =
     Нескладно помітити, що $\chi_2$ --- це розподіл Релея.
 \end{remark} 
 
-\noindent Знайдемо ще розподіл $\zeta = \frac{\chi_n}{\sqrt{n}}$. $\varphi(y) = \frac{y}{\sqrt{n}}$,
+\noindent Знайдемо ще розподіл величини $\zeta = \frac{\chi_n}{\sqrt{n}}$. $\varphi(y) = \frac{y}{\sqrt{n}}$,
 $\varphi^{-1}(z) = z \sqrt{n}$, 
-$\left( \varphi^{-1}(z) \right)^{\prime} = \sqrt{n}$.
+$\left( \varphi^{-1}(z) \right)^{\prime} = \sqrt{n}$, тому
 
 \begin{equation*}
     f_{\frac{\chi_n}{\sqrt{n}}}(z) = f_{\chi_n}\left(\varphi^{-1} (z)\right) \cdot \left|\left(\varphi^{-1} (y) \right)^{\prime}\right| =
@@ -101,7 +101,7 @@ f_{\chi_n}(z \sqrt{n}) \cdot \sqrt{n} =
 
 \noindent\textbf{Коротке позначення:} $\zeta \sim \mathrm{St}_n$, $n\in\mathbb{N}$ --- кількість ступенів вільності.
 
-\noindent\textbf{Щільність розподілу:} скористаємося формулою для визначення щільності розподілу частки
+\noindent\textbf{Щільність розподілу:} скористаємося формулою \eqref{eq:distr_frac} для визначення щільності розподілу частки
 двох незалежних НВВ.
 \begin{gather*}
     f_{\mathrm{St}_n} (z) = \int\limits_0^{+\infty} x f_{\xi}(z x) f_{\frac{\chi_n}{\sqrt{n}}} (x) dx =
@@ -152,7 +152,7 @@ f_{\chi_n}(z \sqrt{n}) \cdot \sqrt{n} =
 
 \noindent\textbf{Коротке позначення:} $\eta \sim \mathrm{F}(n_1, n_2)$, $n_1, n_2\in\mathbb{N}$ --- кількість ступенів вільності.
 
-\noindent\textbf{Щільність розподілу:} скористаємося формулою для визначення щільності розподілу частки
+\noindent\textbf{Щільність розподілу:} скористаємося формулою \eqref{eq:distr_frac} для визначення щільності розподілу частки
 двох незалежних НВВ. Нагадаємо, що 
 $f_{\chi_n^2}(x) = \begin{cases}
     \frac{1}{2^{\frac{n}{2}} \Gamma\left(\frac{n}{2}\right)} x^{\frac{n}{2}-1} e^{-\frac{x}{2}}, & x \geq 0 \\

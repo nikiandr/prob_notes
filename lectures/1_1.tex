@@ -64,7 +64,7 @@
 \end{example}
 \begin{definition}
     \emph{Випадкова подія} --- підмножина $\Omega$. В подальшому випадкові події позначатимемо великими літерами латинського алфавіту: $A, B, C$ тощо.
-    Тобто, в загальному випадку $A = \left\{\omega_{k1}, \omega_{k2}, ..., \omega_{kn}, ...\right\} \subset \Omega$
+    Тобто, в загальному випадку $A = \left\{\omega_{k_1}, \omega_{k_2}, ..., \omega_{k_n}, ...\right\} \subset \Omega$
     (принаймні, для зліченного простору $\Omega$).
     Неможливою подією є $\varnothing$, вірогідною є $\Omega$. 
 \end{definition}
@@ -185,11 +185,12 @@
 \begin{example}
     Нехай точка кидається навмання на відрізок $\left[a; b\right]$. 
     Яка ймовірність її 
-    потрапляння в $\left<\alpha; \beta\right> \subset  \left[a; b\right]$?
+    потрапляння в проміжок $\left<\alpha; \beta\right> \subset  \left[a; b\right]$?
     Розглянемо подію $A = \left\{ 
         \text{точка потрапила в} \left<\alpha; \beta\right>
     \right\}$.
-    \newline
+    
+    \vspace{0.5em}
     \hbox to \hsize{\hfil{
         \begin{tikzpicture}
             \draw [fill] (0, 0) circle [radius = 0.05];
@@ -204,10 +205,11 @@
             \draw [thick] (0, 0) -- (8, 0);
         \end{tikzpicture}
     }\hfil}
-    Логічно припустити, що $\P(A) = k\cdot l_{\left<\alpha; \beta\right>}$ для деякого $k > 0$.
-    Тоді $\P(\Omega) = 1 = k\cdot l_{\left[a; b\right]}$. Таким чином, 
-    $k = \frac{1}{l_{\left[a; b\right]}} = \frac{1}{b-a}$,
-    тому $\P(A) = \frac{l_{\left<\alpha; \beta\right>}}{l_{\left[a; b\right]}}$.
+    Логічно припустити, що $\P(A) = k\cdot l\left({\left<\alpha; \beta\right>}\right)$ для деякого $k > 0$.
+    Тоді $\P(\Omega) = 1 = k\cdot l\left({\left[a; b\right]}\right)$. Таким чином, 
+    $k = \frac{1}{l\left({\left[a; b\right]}\right)} = \frac{1}{b-a}$,
+    тому $\P(A) = \frac{l\left({\left<\alpha; \beta\right>}\right)}{l\left({\left[a; b\right]}\right)} = 
+    \frac{\beta - \alpha}{b - a}$.
 \end{example}
 \begin{definition}
     Нехай простір елементарних подій інтерпретується як замкнена область в 
@@ -220,9 +222,11 @@
     \end{definition}
 
 \begin{example}[задача Бюффона]\label{buffon}
-    На площину з накресленими паралельними прямими на відстані $2a$ одна від одної кидають
-    голку довжиною $2l, l \leq a $. Яка ймовірність того, що голка перетне 
-    яку-небудь пряму?
+    \begin{samepage}
+        На площину з накресленими паралельними прямими на відстані $2a$ одна від одної кидають
+        голку довжиною $2l, l \leq a $. Яка ймовірність того, що голка перетне 
+        яку-небудь пряму?
+    \end{samepage}
     \newline
     \hbox to \hsize{\hfil{
         \begin{tikzpicture}[scale = 0.5]
@@ -271,7 +275,7 @@
     l\sin\varphi\ d\varphi = l\left.(-\cos\varphi)\right|^\pi_0 = 2l$.
     Отже, $\P(A) = \frac{2l}{\pi a}$.
     \newline
-    Якщо провести $n$ кидань голки, у $m$ з яких голка потрапить на пряму, то за допомогою приблизної рівності $\frac{m}{n} 
+    Якщо провести $n$ кидань голки, у $m$ з яких голка потрапить на пряму, то за допомогою наближеної рівності $\frac{m}{n} 
     \approx \frac{2l}{\pi a}$ можна приблизно обчислити число $\pi$. 
     Наприклад, якщо взяти $n=5000, m=2532, l/a = 0.8$, то отримаємо $\pi \approx 3.1596$ при точному значенні $\pi \approx 3.1415$.
 \end{example}

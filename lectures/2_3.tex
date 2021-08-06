@@ -11,7 +11,7 @@
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
 
 Окремим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
-За законом Бернуллі розподілені випадкові величини-індикатори $\mathds{1}_A = \begin{cases}
+За законом Бернуллі розподілені випадкові величини-індикатори $\mathds{1}_A \mathds{1}(A)= \begin{cases}
     0, & \text{подія }A\text{ не відбулась}\\ 1, & \text{подія }A\text{ відбулась}
 \end{cases}$ при $\P(A) = p$.
 
@@ -448,35 +448,37 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
     \end{center}
 \end{samepage}
 
-\noindent \textbf{Функція розподілу:}
-\begin{center}
-    \begin{tabular}{c c}
-        $
-            F_\xi(x) = \begin{cases}
-                0, & x \leq a \\
-                \frac{x-a}{b-a}, & a< x \leq b \\
-                1, & x > b
-            \end{cases}
-        $ &
-        \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=1.5]
-            \pgfmathsetmacro{\a}{1};
-        \pgfmathsetmacro{\b}{3};
-        \draw [->] (-2, 0) -- (5, 0);
-        \draw [->] (0, -0.5) -- (0, 1.2);
-        \draw [ultra thick] (-2, 0) -- (\a, 0);
-        \draw [domain=\a:\b, smooth, variable = \x, ultra thick] plot ({\x}, {(\x-\a)/(\b-\a)});
-        \draw [ultra thick] (\b, 1) -- (5, 1);
-        \node [below] at (\a, -0.03) {$a$};
-        \node [below] at (\b, 0) {$b$};
-        \node [below] at (5, 0) {$x$};
-        \node [left] at (0, 1.2) {$F_\xi(x)$};
-        \draw [dashed] (0, 1) -- (\b, 1);
-        \draw [dashed] (\b, 0) -- (\b, 1);
-        \node [left] at (0, 1) {$1$};
-        %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
-        \end{tikzpicture}
-    \end{tabular}
-\end{center}
+\begin{samepage}
+    \noindent \textbf{Функція розподілу:}
+    \begin{center}
+        \begin{tabular}{c c}
+            $
+                F_\xi(x) = \begin{cases}
+                    0, & x \leq a \\
+                    \frac{x-a}{b-a}, & a< x \leq b \\
+                    1, & x > b
+                \end{cases}
+            $ &
+            \begin{tikzpicture}[baseline={(current bounding box.center)}, yscale=1.5]
+                \pgfmathsetmacro{\a}{1};
+            \pgfmathsetmacro{\b}{3};
+            \draw [->] (-2, 0) -- (5, 0);
+            \draw [->] (0, -0.5) -- (0, 1.2);
+            \draw [ultra thick] (-2, 0) -- (\a, 0);
+            \draw [domain=\a:\b, smooth, variable = \x, ultra thick] plot ({\x}, {(\x-\a)/(\b-\a)});
+            \draw [ultra thick] (\b, 1) -- (5, 1);
+            \node [below] at (\a, -0.03) {$a$};
+            \node [below] at (\b, 0) {$b$};
+            \node [below] at (5, 0) {$x$};
+            \node [left] at (0, 1.2) {$F_\xi(x)$};
+            \draw [dashed] (0, 1) -- (\b, 1);
+            \draw [dashed] (\b, 0) -- (\b, 1);
+            \node [left] at (0, 1) {$1$};
+            %\node [right] [align=center] at (2.5, 0.3) {Приклад для \\ $a = \a, b = \b$};
+            \end{tikzpicture}
+        \end{tabular}
+    \end{center}
+\end{samepage}
 
 \noindent\textbf{Числові характеристики:}
 \begin{enumerate}
