@@ -5,7 +5,7 @@
 Для успішного використання методів математичного аналізу в розв'язанні задач теорії ймовірностей
 необхідно ввести кількісну характеристику випадкового результату стохастичного експерименту.
 Такою характеристикою є \emph{випадкова величина} --- одне з основних понять теорії ймовірностей.
-\begin{definition}\label{def:random_variable}
+\begin{definition}\label{def:random_variable}\index{випадкова величина}
     Нехай $\left\{\Omega, \mathcal{F}, \P \right\}$ --- ймовірнісний простір деякого стохастичного експерименту.
     \emph{Випадковою величиною} називається функція $\xi = \xi(\omega): \Omega 
     \rightarrow \mathbb{R}$, для якої 
@@ -61,7 +61,7 @@ $\xi_{x, y}(\omega_2) = y$ для будь-яких $x, y\in\mathbb{R}$.
 Універсальною ймовірнісною характеристикою будь-якої випадкової величини є функція 
 розподілу випадкової величини.
 
-\begin{definition}
+\begin{definition}\index{функція розподілу}
     Дійснозначна функція дійсного аргументу $ F_\xi (x) = 
     \P\left\{\omega:\xi(\omega) < x\right\}$ або просто
     $\P\left\{\xi < x\right\}$ називається \emph{функцією розподілу випадкової величини}.
@@ -139,7 +139,7 @@ $\xi_{x, y}(\omega_2) = y$ для будь-яких $x, y\in\mathbb{R}$.
 \end{remark}
 
 \subsection{Дискретні випадкові величини}
-\begin{definition}
+\begin{definition}\index{випадкова величина!дискретна}
     Випадкова величина $\xi$ називається 
     \emph{дискретною випадковою величиною (ДВВ)}, якщо вона набуває скінченну або зліченну 
     кількість значень. Функція розподілу ДВВ, відповідно, має скінченну або зліченну кількість розривів першого роду.
@@ -148,7 +148,7 @@ $\xi_{x, y}(\omega_2) = y$ для будь-яких $x, y\in\mathbb{R}$.
 з якими ці значення приймаються.
 $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} > 0, i = 1,2,... , \; \sum\limits_{i=1}^\infty p_i = 1$$
 
-\begin{definition}
+\begin{definition}\index{ряд розподілу}
     \emph{Законом розподілу (ймовірностей)} ДВВ називається співвідношення, яке вказує, 
     які значення ця випадкова величина приймає та з якими ймовірностями.
     Закон розподілу ДВВ записується у вигляді \emph{ряду розподілу}:
@@ -182,7 +182,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
         \end{tabular}
     \end{center}
 \end{example}
-\begin{definition}
+\begin{definition}\index{полігон!розподілу ймовірностей}
     Графічне зображення закону розподілу ДВВ називається 
     \emph{полігоном розподілу ймовірностей}.
 \end{definition}
@@ -273,7 +273,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
 Якщо ДВВ набуває лише скінченну кількість значень, то $F_\xi(x) = 1$ при $x>x_n$.
 
 \subsection{Неперервні випадкові величини}
-\begin{definition}
+\begin{definition}\index{випадкова величина!неперервна}
     Випадкова величина $\xi$ називається \emph{неперервною випадковою величиною (НВВ)},
     якщо її функція розподілу неперервна, диференційовна майже скрізь, можливо, за винятком
     окремих ізольованих точок.
@@ -288,7 +288,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
 З неперервності функції розподілу для довільної точки $x_0$ маємо $\P\left\{\xi = x_0\right\} = 0$, тому
 замість ймовірності потрапляння НВВ у окрему точку розглядається так звана щільність розподілу ймовірностей у цій точці.
 
-\begin{definition}
+\begin{definition}\index{щільність розподілу}
     \emph{Щільність розподілу ймовірностей} неперервної випадкової величини $\xi$
     дорівнює границі (якщо вона існує):
     \begin{equation}\label{eq:prob_dens}
@@ -296,7 +296,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
     \end{equation}
 \end{definition}
 Отже, закон розподілу НВВ можна задавати щільністю $f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{\P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x}$.
-Нескладно помітити \emph{зв'язок щільності з функцією розподілу}:
+Нескладно помітити \emph{зв'язок щільності з функцією розподілу}\index{функція розподілу}:
 \begin{equation}\label{eq:dens_pdf}
     f_\xi(x) = \lim\limits_{\Delta x\rightarrow 0} \frac{\P\left\{x\leq \xi < x+\Delta x\right\}}{\Delta x} = 
     \lim\limits_{\Delta x\rightarrow 0} \frac{F_\xi(x+\Delta x) - F_\xi(x)}{\Delta x} = F'_\xi(x)
@@ -313,7 +313,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
     \begin{proof}
         З формули Ньютона-Лейбніца $\int\limits_{-\infty}^x f_\xi(t)dt = F_\xi(x) - \underset{x\to-\infty}{\lim}F_\xi(x) = F_\xi(x)$.
     \end{proof}
-    \item \emph{Властивість нормування:} оскільки $\lim\limits_{x \to +\infty} F_\xi(x) = 1$, то $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
+    \item \emph{Умова нормування:} \index{умова!нормування} оскільки $\lim\limits_{x \to +\infty} F_\xi(x) = 1$, то $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = 1$.
     Геометрична інтерпретація цієї властивості --- площа під кривою розподілу завжди рівна $1$.
     \item $\P\left\{\omega: a \leq \xi(\omega) < b\right\} = F_\xi(b) - F_\xi(a) = \int\limits_a^b f_\xi(x)dx$.
     Ця властивість справджується і для довільних проміжків $\left< a; b\right>$,
@@ -347,7 +347,7 @@ $$p_i = \P\left\{\omega: \xi(\omega) = x_i\right\} = \P\left\{\xi = x_i\right\} 
                 $\int\limits_{-\infty}^{+\infty} f_\xi(x)dx = A\cdot\int\limits_1^3 x^2 dx = 
                 A\cdot \frac{x^3}{3} \bigr\vert_1^3 = A\cdot \frac{26}{3}$.
             
-                З властивості нормування $A = \frac{3}{26}$.
+                З умови нормування $A = \frac{3}{26}$.
         \end{tabular}
 
         \begin{tabular}{c c}

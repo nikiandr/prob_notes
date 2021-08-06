@@ -2,7 +2,8 @@
 \section{Деякі нерівності}
 \subsection{Нерівність Єнсена}
 
-\noindent\textbf{Твердження.} Нехай $\xi$ --- деяка випадкова величина
+\noindent\textbf{Твердження.}\index{нерівність!Єнсена}
+Нехай $\xi$ --- деяка випадкова величина
 з $\E|\xi| < \infty$, а $\varphi(x)$ --- опукла функція. Тоді $\varphi(\E\xi) \leq \E\varphi(\xi)$.
 \begin{proof}
     Оскільки $\varphi(x)$ --- опукла, то $\forall \; y \in \mathbb{R} \;\exists \; C(y): \forall \; x \in \mathbb{R}: \varphi(x) - \varphi(y) \geq c(y)(x-y)$.
@@ -26,7 +27,7 @@
     оскільки $\left| \E\xi \right|^k \leq \E\left|\xi\right|^k$.
 \end{example}
 
-\subsection{Нерівність Гельдера}
+\subsection{Нерівність Гельдера}\index{нерівність!Гельдера}
 \noindent\textbf{Твердження.} Нехай $1 < p < \infty$, $\frac{1}{p} + \frac{1}{q} = 1$. Якщо для випадкових величин $\xi$ та $\eta$ 
 $\E\left| \xi\right|^p$ та $\E\left| \eta\right|^q$ скінченні, то $\E\left| \xi \eta\right|$ теж скінченне, причому
 $\E\left| \xi \eta\right| \leq \left( \E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( \E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
@@ -40,12 +41,12 @@ $\E\left| \xi \eta\right| \leq \left( \E\left| \xi\right|^p\right)^{\frac{1}{p}}
     звідки $\E\left| \xi \eta\right| \leq \left( \E\left| \xi\right|^p\right)^{\frac{1}{p}} \cdot \left( \E\left| \eta\right|^q\right)^{\frac{1}{q}}$.
 \end{proof}
 \begin{remark}
-    При $p = q = 2$ отримуємо вже знайому нерівність Коші-Буняковського:
+    При $p = q = 2$ отримуємо вже знайому нерівність Коші-Буняковського:\index{нерівність!Коші-Буняковського}
     
     \noindent$\left| \E \xi \eta \right| \leq \E\left| \xi \eta \right| \leq \sqrt{\E\xi^2}\cdot\sqrt{\E\eta^2}$.
 \end{remark}
 
-\subsection{Нерівність Мінковського}
+\subsection{Нерівність Мінковського}\index{нерівність!Мінковського}
 \noindent\textbf{Твердження.} Нехай для випадкових величин $\xi$ та $\eta$ і $1\leq p < \infty$ маємо скінченні
 $\E\left| \xi\right|^p$ та $\E\left| \eta\right|^p$. Тоді
 $\left(\E\left| \xi + \eta\right|^p\right)^{\frac{1}{p}} \leq \left(\E\left| \xi \right|^p\right)^{\frac{1}{p}}

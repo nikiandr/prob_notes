@@ -55,6 +55,7 @@ $\chi_{\vec{\eta}}(\vec{t}) = \chi_{\vec{\xi}}(A^{*}\vec{t})$. Маємо
 вектор, координати якого незалежні у сукупності та мають нормальний розподіл.
 
 \begin{definition}
+    \index{розподіл!гауссівський (нормальний)!багатовимірний}
     $n$\emph{-вимірним гауссівським вектором} $\vec{\xi}$ називається випадковий вектор,
     характеристична функція якого має вигляд $\chi_{\vec{\xi}}(\vec{t}) = \exp\left\{i(\vec{a}, \vec{t}) - \frac{1}{2}(K\vec{t}, \vec{t})\right\}$,
     де $K$ --- кореляційна матриця, а $\vec{a} = \left( \E\xi_1, \E\xi_2, ..., \E\xi_n\right)^T$ --- центр розсіювання.
@@ -264,6 +265,7 @@ $\Lambda = \mathrm{diag}(\sqrt{\lambda_1}, \sqrt{\lambda_2}, ..., \sqrt{\lambda_
 зосереджені на $m$-вимірному підпросторі $\mathbb{R}^n$ --- $\mathrm{Im}K + \vec{a}$.
 
 \subsection{Нормальний розподіл на площині} 
+\index{розподіл!гауссівський (нормальний)!на площині}
 Розглянемо двовимірний гауссівський вектор $\vec{\xi} = (\xi_1, \xi_2)^T \sim \mathrm{N}(\vec{a}, K)$.
 Нехай $\vec{a} = \begin{pmatrix}
     a_1 \\ a_2
@@ -300,6 +302,7 @@ $K^{-1} = \frac{1}{(1-\rho^2)\sigma_1^2\sigma_2^2}\begin{pmatrix}
     \includegraphics[scale=0.45]{bivar}
 }\hfil}
 Лінії рівня цієї поверхні задають \emph{еліпси розсіювання}:
+\index{еліпси розсіювання}
 $$f_{\vec{\xi}}(x,y) = C \Leftrightarrow \frac{(x-a_1)^2}{\sigma_1^2} -
 2\rho\frac{x-a_1}{\sigma_1}\frac{y-a_2}{\sigma_2} +
 \frac{(y-a_2)^2}{\sigma_2^2} = \lambda^2$$
@@ -411,7 +414,7 @@ $\mathrm{tg}2\alpha = \frac{2\rho\sigma_1\sigma_2}{\sigma_1^2 - \sigma_2^2}$\new
 для якої $F_{\eta}(R) = \P\left\{\Vert \vec{\xi} \Vert < R\right\} = \begin{cases}
     1 - e^{-\frac{R^2}{2\sigma^2}}, & R > 0 \\
     0, & R \leq 0
-\end{cases}$ --- це \emph{розподіл Релея}.
+\end{cases}$ --- це \emph{розподіл Релея} \index{розподіл!Релея}.
 
 \begin{exercise}
     Знайти основні числові характеристики розподілу Релея.
@@ -453,4 +456,5 @@ $\E\left( \xi_2 / \xi_1 = x\right) = a_2 + \frac{\rho\sigma_2(x-a_1)}{\sigma_1}$
 $\rho\frac{\sigma_1}{\sigma_2} = \frac{K\xi_1\xi_2}{D\xi_2}$ та $\rho\frac{\sigma_2}{\sigma_1}  = \frac{K\xi_1\xi_2}{D\xi_1}$ --- відповідні кутові коефіцієнти прямих регресії.
 
 $\D\left( \xi_1 / \xi_2 = y\right) = \sigma_1^2(1-\rho^2)$, 
-$\D\left( \xi_2 / \xi_1 = x\right) = \sigma_2^2(1-\rho^2)$. Умовні дисперсії є сталими, ця властивість називається \emph{гомоскедастичністю}.
+$\D\left( \xi_2 / \xi_1 = x\right) = \sigma_2^2(1-\rho^2)$. Умовні дисперсії є сталими, ця властивість називається \emph{гомоскедастичністю} 
+\index{гомоскедастичність}.

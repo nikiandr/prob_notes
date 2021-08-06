@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 \section{Послідовності випадкових величин}
 \subsection{Нерівності Маркова та Чебишова}
-\begin{proposition*}[нерівність Маркова]
+\begin{proposition*}[нерівність Маркова]\index{нерівність!Маркова}
     Нехай модуль випадкової величини $\xi$ має скінченне математичне сподівання: $\E|\xi| < +\infty$.
     Тоді 
     \begin{gather}\label{Markov_ineq}
@@ -25,7 +25,7 @@
     тому за нерівністю Маркова $\P\left\{ \xi \geq 300\right\} \leq \frac{220}{300} = \frac{11}{15}$.
 \end{example}
 
-\begin{proposition*}[нерівність Чебишова]
+\begin{proposition*}[нерівність Чебишова]\index{нерівність!Чебишова}
     Нехай випадкова величина $\xi$ має скінченні математичне сподівання та дисперсію.
 Тоді
 \begin{gather}\label{Cheb_ineq}
@@ -51,6 +51,7 @@ $\D\left( \frac{\xi}{n}\right) = \frac{pq}{n}$. З нерівності Чеби
 $\P\left\{ \left|\frac{\xi}{n} - p\right| \geq \varepsilon\right\} \leq \frac{pq}{n \varepsilon^2}$.
 
 \subsection{Послідовності випадкових величин}
+\index{послідовність випадкових величин}
 Розглядаємо фіксований ймовірнісний простір $\left\{ \Omega, \mathcal{F}, \P\right\}$ та
 послідовність випадкових величин $\left\{ \xi_n (\omega)\right\}_{n=1}^{\infty}$.
 Якщо для кожного $n \in \mathbb{N}$ випадкові величини $\xi_1, \xi_2, ..., \xi_n$ \emph{незалежні у сукупності},
@@ -87,7 +88,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
 не є еквівалентними одне одному.
 \vspace{1em}
 \noindent\begin{enumerate}
-    \item \textbf{Збіжність майже напевно (сильна збіжність, збіжність з ймовірністю 1).}
+    \item \textbf{Збіжність майже напевно (сильна збіжність, збіжність з ймовірністю 1).} \index{збіжність!майже напевно (сильна, з ймовірністю 1)}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{майже напевно}, якщо
     $\P\left\{ \omega: \underset{n\to\infty}{\lim} \xi_n(\omega) = \xi(\omega)\right\} = 1$. 
     Це еквівалентно умові $\P\left\{ \omega: \underset{n\to\infty}{\lim} \xi_n(\omega) \neq \xi(\omega)\right\} = 0$.
@@ -103,7 +104,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
     послідовності $\xi_n$, що не збігається до деякої $\xi$, але будь-яка її підпослідовність $\xi_{n_k}$ містить свою підпослідовність
     $\xi_{n_{k_l}}$, яка все ж таки збігається до $\xi$.
     
-    \begin{proposition*}[лема Бореля-Кантеллі]
+    \begin{proposition*}[лема Бореля-Кантеллі]\index{лема!Бореля-Кантеллі}
         Якщо для послідовності подій $\left\{A_n \right\}_{n=1}^{\infty}$ ряд
     $\sum\limits_{n=1}^{\infty} \P(A_n)$ збігається, то $\P\left( \bigcap\limits_{n=1}^{\infty} \bigcup\limits_{k = n}^{\infty} A_k\right) = 0$.
     Це означає, що ймовірність того, що відбудеться нескінченна кількість цих подій, є нульовою.
@@ -128,7 +129,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
         $\sum\limits_{n=1}^{\infty} \P\left\{\left| \xi_n \right| > \varepsilon\right\}$ збігається і 
         $\xi_n \overset{\mathrm{P1}}{\longrightarrow} 0, n \to \infty$.
     \end{example}
-    \item \textbf{Збіжність за ймовірністю.}
+    \item \textbf{Збіжність за ймовірністю.}\index{збіжність!за ймовірністю}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за ймовірністю}, якщо 
     $\forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} \P\left\{|\xi_n - \xi| \geq \varepsilon\right\}= 0$.
     Це еквівалентно умові $\forall \; \varepsilon > 0: \underset{n \to \infty}{\lim} \P\left\{|\xi_n - \xi| \leq \varepsilon\right\}= 1$.
@@ -150,16 +151,16 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
         $\forall \; \varepsilon >0 \; \exists \; N: \forall n\geq N:n^7 > \varepsilon$, тому з якогось номера
         $\P\left\{ \xi_n \geq \varepsilon\right\} = \P\left\{ \xi_n = n^7 \right\} = \frac{1}{n} \to 0, n\to\infty$, звідки $\xi_n \overset{\mathrm{P}}{\longrightarrow} 0, n \to \infty$.
     \end{example}
-    \item \textbf{Збіжність в середньому.}
+    \item \textbf{Збіжність в середньому.}\index{збіжність!в середньому}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{в середньому},
     якщо $\underset{n \to \infty}{\lim} \E|\xi_n - \xi| = 0$.
     Позначення: $\xi_n \overset{\text{С}}{\longrightarrow} \xi, n \to \infty$.
-    \item \textbf{Збіжність в середньому квадратичному.}
+    \item \textbf{Збіжність в середньому квадратичному.}\index{збіжність!в середньому квадратичному}
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{в середньому квадратичному},
     якщо $\underset{n \to \infty}{\lim} \E(\xi_n - \xi)^2 = 0$.
     
     \noindentПозначення: $\xi_n \overset{\text{СК}}{\longrightarrow} \xi, n \to \infty$.
-    \item \textbf{Збіжність за розподілом (слабка збіжність, збіжність в основному).}
+    \item \textbf{Збіжність за розподілом (слабка збіжність, збіжність в основному).}\index{збіжність!за розподілом (слабка, в основному)}
 
     \noindent$\left\{ \xi_n\right\}_{n=1}^{\infty}$ збігається до $\xi$ \emph{за розподілом}, якщо функціональна послідовність
     $\left\{ F_{\xi_n} (x)\right\}_{n=1}^{\infty}$ збігається до $F_{\xi}(x)$ в точках її неперервності.
@@ -186,7 +187,7 @@ $\omega \in \Omega$. Тому ми маємо ввести інше означе
     \end{example}
 \end{enumerate}
 
-\begin{remark}
+\begin{remark}\index{збіжність!порядку $k$}
     Збіжності в середньому та середньому квадратичному є частковими випадками \emph{збіжності порядку $k$}, для якої
 $\underset{n \to \infty}{\lim} \E|\xi_n - \xi|^k = 0$. Оскільки 
 для $0 < s < t$ має місце
@@ -309,7 +310,7 @@ $\E(\xi_n - C)^2 = \D\xi_n + (\E(\xi_n -C))^2$,
 
 Наведемо без доведення важливу теорему, що стосується збіжності за розподілом.
 
-\begin{theorem*}[теорема неперевності Леві]
+\begin{theorem*}[теорема неперевності Леві]\index{теорема!неперевності Леві}
     Збіжність за розподілом послідовності випадкових величин $\left\{ \xi_n\right\}_{n=1}^{\infty}$ еквівалентна поточковій збіжності їх
     характеристичних функцій:
     \begin{gather}\label{levi_theor}

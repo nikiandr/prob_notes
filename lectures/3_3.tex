@@ -2,7 +2,7 @@
 \section{Числові характеристики випадкових векторів}
 
 \subsection{Математичне сподівання випадкових векторів}
-\begin{definition}
+\begin{definition}\index{математичне сподівання!випадкового вектора}
     \emph{Математичним сподіванням $\E{\vec{\xi}}$} 
     випадкового вектора $\vec{\xi}$ називається вектор 
     $\left(\E{\xi_1}, ..., \E{\xi_n}\right)^T$.
@@ -35,7 +35,7 @@
 
 \subsection{Мішані початкові та центральні 
             моменти випадкових векторів}
-\begin{definition}
+\begin{definition}\index{момент!початковий!мішаний}
     \emph{Мішаним початковим моментом} порядку 
     $k_1+k_2+...+k_n$ 
     $\left(k_i \in \mathbb{N}\right)$
@@ -51,7 +51,7 @@
     $\E\xi_1 = \alpha_{1+0+...+0}, \E\xi_2 = \alpha_{0+1+...+0},
     ..., \E\xi_n = \alpha_{0+0+...+1}$.
 \end{remark}
-\begin{definition}
+\begin{definition}\index{момент!центральний!мішаний}
     \emph{Мішаним центральним моментом} порядку 
     $k_1+k_2+...+k_n$
     $\left(k_i \in \mathbb{N}\right)$ 
@@ -80,7 +80,7 @@
 Дисперсії координат задають розсіювання 
 вздовж відповідних координатних осей.
 
-\begin{definition}
+\begin{definition}\index{момент!кореляційний}\index{коваріація}
     \emph{Кореляційним моментом} або 
     \emph{коваріацією} випадкових величин 
     $\xi_i$ та $\xi_j$ називається мішаний 
@@ -97,7 +97,7 @@
 \begin{remark}
     ${cov}(\xi_k, \xi_k) = \E(\xi_k-\E\xi_k)^2 = \D\xi_k$.
 \end{remark}
-\begin{definition}
+\begin{definition}\index{матриця!кореляційна}
    \emph{Кореляційною матрицею} випадкового 
    вектора $\vec{\xi}$ називається матриця, у яку зібрано усі 
    кореляційні моменти випадкового вектора
@@ -158,7 +158,7 @@
         a^2\D\xi_1 \pm 2ab\K\xi_1\xi_2 + b^2\D\xi_2$.
     \end{proof}
 
-    \item\label{cov_ineq} $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+    \item\label{cov_ineq} $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$. \index{нерівність!Коші-Буняковського}
     \begin{proof}
         Два способи: 
         \begin{enumerate}[label=\Roman*.]
@@ -195,7 +195,7 @@
 
     Обернене твердження, взагалі кажучи, не має місця. Тому випадкові 
     величини, для яких $\K\xi_1\xi_2 = 0$, називаються 
-    \emph{некорельованими}.
+    \emph{некорельованими}. \index{випадкова величина!некорельовані величини}
 \end{enumerate}
 
 \begin{example} З некорельованості не випливає незалежність.
@@ -269,7 +269,7 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\x
 
 \noindent \textbf{Висновок:} ${cov}(\xi, \eta)$ задає \emph{скалярний добуток} на $\mathcal{L}_0^2(\Omega)$.
 
-\vspace{0.5em}
+\vspace{0.5em} \index{нерівність!Коші-Буняковського}
 Таким чином, властивість $|{cov}(\xi,\eta)| \leq \sqrt{\D\xi} \cdot \sqrt{\D\eta}$ ---
 це нерівність Коші-Буняковського, а кореляційна матриця $\K$ --- це матриця Грама системи
 випадкових величин $\left\{\xi_1, \xi_2, ..., \xi_n\right\}$.
@@ -277,14 +277,14 @@ $\mathcal{L}_0^2(\Omega) = \left\{\xi : \Omega \rightarrow \mathbb{R} \;|\; \E\x
 і невід'ємно визначеною в загальному випадку.
 
 \subsection{Коефіцієнт кореляції}
-\begin{definition}
+\begin{definition}\index{коефіцієнт кореляції}
     \emph{Коефіцієнтом кореляції} називають безрозмірну числову характеристику
     \begin{equation*}
         \rho_{\xi_1\xi_2} = \frac{\K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}}
     \end{equation*}
 \end{definition}
 
-\begin{definition}
+\begin{definition}\index{матриця!кореляційна!нормована}
     Всі коефіцієнти кореляції збираються в 
     \emph{нормовану кореляційну матрицю}:
 

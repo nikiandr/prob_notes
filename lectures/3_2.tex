@@ -1,7 +1,7 @@
 % !TEX root = ../main.tex
 \subsection{Неперервні випадкові вектори}
 
-\begin{definition}
+\begin{definition}\index{випадковий вектор!неперервний}
     Вимірна функція $\vec{\xi}(\omega): \Omega \rightarrow \mathbb{R}^n$ називається 
     \emph{неперервним випадковим вектором}, якщо координати $\xi_i$ є 
     неперервними випадковими величинами для $i = 1,...,n$.
@@ -9,8 +9,8 @@
 Як наслідок, сумісна функція розподілу $F_{\vec{\xi}}\left(\vec{x}\right) = 
 \P\left\{\omega:\xi_1(\omega)<x_1,...,\xi_n(\omega)<x_n\right\}$ є неперервною за кожним аргументом.
 Введемо аналог щільності розподілу спочатку для двовимірних випадкових векторів.
-\begin{definition}
-    \emph{Щільністю розподілу} двовимірного випадкового вектора називається 
+\begin{definition}\index{щільність розподілу!сумісна}
+    \emph{Щільністю розподілу (сумісною)} двовимірного випадкового вектора називається 
     подвійна границя
     \begin{equation}
         f_{\vec{\xi}}(x, y) = \lim_{\substack{\Delta x \to 0 \\ 
@@ -29,7 +29,7 @@
 \end{remark}
 
 Як і у випадку неперервних випадкових величин, можна отримати
-\emph{зв'язок щільності розподілу з сумісною функцією розподілу}:
+\emph{зв'язок щільності розподілу з сумісною функцією розподілу}\index{функція розподілу!сумісна}:
 \begin{gather*}
     \lim_{\substack{\Delta x \to 0 \\ 
 \Delta y \to 0}} \frac{\P\left\{\vec{\xi} \in \Pi\right\}}
@@ -64,14 +64,14 @@ y + \theta_4 \Delta y)\Delta y}
     f_{\vec{\xi}}(x, y) = \frac{\partial^2 F_{\vec{\xi}}}{\partial x \partial y}(x, y)
 \end{equation}
 
-\begin{definition}
+\begin{definition}\index{поверхня розподілу}
     Поверхня, що є графіком щільності двовимірного випадкового вектора, називається 
     \emph{поверхнею розподілу}.
 \end{definition}
 \begin{definition}
     Лінії, де $f_\xi(x, y) = const$, називаються \emph{лініями рівних ймовірностей}.
 \end{definition}
-\begin{definition}
+\begin{definition}\index{щільність розподілу!маргінальна}
     Щільності розподілу окремих координат називаються 
     \emph{маргінальними щільностями}.
 \end{definition}
@@ -82,10 +82,10 @@ y + \theta_4 \Delta y)\Delta y}
     \item З формули \eqref{eq:dens_r2} $F_{\vec{\xi}}(x, y) 
     = \int\limits_{-\infty}^x \int\limits_{-\infty}^y f_{\vec{\xi}}(t, s) 
     dt ds $.
-    \item Умова нормування: 
+    \item \emph{Умова нормування:} \index{умова!нормування}: 
     $\int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{\infty} f_{\vec{\xi}}(t, s) 
     dt ds = 1$ --- об'єм під поверхнею розподілу 
-    дорівнює 1, що випливає з того, що $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
+    дорівнює 1, що випливає з $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
     \item З умов узгодженості $F_{\xi_1}(x) = \int\limits_{-\infty}^{x} \int\limits_{-\infty}^{+\infty} 
     f_{\vec{\xi}}(t, s) dt ds$.
     $F_{\xi_2}(y) = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{y} 
@@ -108,7 +108,7 @@ y + \theta_4 \Delta y)\Delta y}
 \end{enumerate}
 \vspace{1em}
 Розглянемо ще важливий приклад неперервного випадкового вектора.
-\begin{definition}
+\begin{definition}\index{розподіл!рівномірний}
     Нехай $D$ --- замкнена обмежена область в $\mathbb{R}^2$,
     $S(D)$ --- її площа. 
     Вектор $\vec{\xi} = (\xi_1,\xi_2)^T$ називається 
@@ -268,8 +268,8 @@ y + \theta_4 \Delta y)\Delta y}
 \end{exercise}
 Узагальнимо поняття щільності на випадок довільної розмірності.
 \begin{samepage}
-    \begin{definition}
-        \emph{Щільністю розподілу} $n$-вимірного неперервного випадкового 
+    \begin{definition}\index{щільність розподілу!сумісна}
+        \emph{Щільністю розподілу (сумісною)} $n$-вимірного неперервного випадкового 
         вектора $\vec{\xi} = \left(\xi_1, \xi_2, ..., \xi_n\right)^T$ називається границя
         \begin{equation}
             f_{\vec{\xi}} (\vec{x}) = \lim_{\substack{\Delta x_i \to 0 \\

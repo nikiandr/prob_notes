@@ -10,7 +10,7 @@
 Тоді $\P(A/B) = \frac{m_{A\cap B}}{m_B} = \frac{m_{A\cap B}/n}{m_B/n} = \frac{\P(A\cap B)}{\P(B)}$, де $n = \mathrm{card}(\Omega)$.
 
 Для довільних ймовірнісних просторів ця формула вводиться як означення умовної ймовірності.
-\begin{definition}
+\begin{definition}\index{умовна (умовне, умовний)!ймовірність}
     Якщо подія $B$ має додатну ймовірність $\P(B)>0$, то \emph{умовна ймовірність} події $A$ за умови, що відбулась подія $B$,
     обчислюється за формулою 
     \begin{equation}\label{eq:cond_prob}
@@ -35,7 +35,7 @@
 \end{exercise}
 
 \subsection{Незалежність подій}
-\begin{definition}
+\begin{definition}\index{подія!незалежні події}
     Дві події $A$ та $B$ називаються \emph{незалежними}, якщо
     \begin{equation}\label{eq:indep_events}
         \P(A/B) = \P(A) \text{ або } \P(B/A) = \P(B)
@@ -61,7 +61,7 @@
     \end{proof}
 \end{enumerate}
 
-\begin{definition}
+\begin{definition}\index{подія!незалежні події!в сукупності}
     Події $A_1, A_2, ..., A_n \in \mathcal{F}$ називаються \emph{незалежними у сукупності}, якщо
     \begin{equation}\label{eq:indep}
         \forall i_1, i_2, ..., i_k \in \{1,...,n\}: \P\left(\bigcap\limits_{j=1}^k A_{i_j}\right) = \prod\limits_{j=1}^k \P\left(A_{i_j}\right)
@@ -78,7 +78,7 @@
     Із незалежності подій у сукупності випливає попарна незалежність, 
     але наслідку в інший бік, взагалі кажучи, немає.
 \end{remark}
-\begin{example}[приклад Бернштейна]
+\begin{example}[приклад Бернштейна]\index{приклад Бернштейна}
     Дитина кидає на підлогу тетраедр, три грані якого розфарбовані відповідно зеленим, синім та червоним кольором,
     а четверта --- усіма трьома кольорами. Введемо події $\text{З}, \text{С}, \text{Ч}$, які означають, що випала грань,
     на якій є зелений, синій або червоний колір відповідно.
@@ -90,7 +90,7 @@
 \end{example}
 
 \subsection{Теореми додавання та множення}
-\noindent\textbf{Теорема множення.} 
+\noindent\textbf{Теорема множення.} \index{теорема!множення}
 З формули \eqref{eq:cond_prob} випливає, що
 \begin{equation}\label{eq:mult_for_2}
     \P(A\cap B) = \P(A)\cdot \P(B/A) = \P(B) \cdot \P(A/B)
@@ -116,7 +116,8 @@
     Тому за формулою \eqref{eq:mult_for_n} $\P\left(M^{(1)} \cap A^{(2)} \cap M^{(3)} \cap A^{(4)}\right) = \frac{2 \cdot 3 \cdot 1 \cdot 2}{10 \cdot 9 \cdot 8 \cdot 7} = \frac{1}{420}$.
 \end{example}
 
-\noindent\textbf{Теорема додавання.} Нехай $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
+\noindent\textbf{Теорема додавання.} \index{теорема!додавання} 
+Нехай $A_1, A_2, ..., A_n \in \mathcal{F}$ --- незалежні у сукупності.
 Тоді з рівностей $\P\left(\bigcup\limits_{k=1}^n A_k\right) = 1 - \P\left(\overline{\bigcup\limits_{k=1}^n A_k}\right) = 1 - \P\left(\bigcap\limits_{k=1}^n \overline{A_k}\right)$
 випливає формула
 \begin{equation}
@@ -129,7 +130,7 @@
 
 Нехай $H_1, H_2, ..., H_n \in \mathcal{F}$ (може бути й зліченна кількість) --- деяка повна група подій,
 які називаємо \emph{гіпотезами (припущеннями)}, а подія $A$ відбувається разом з якоюсь гіпотезою. Тоді має місце
-\emph{формула повної ймовірності}:
+\emph{формула повної ймовірності}:\index{формула!повної ймовірності}
 \begin{equation}\label{eq:total_prob}
     \P\left( A \right) = \sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)
 \end{equation}
@@ -167,6 +168,7 @@
 В результаті проведення експерименту відбулась деяка подія $A$.
 Постає питання: чому рівні \emph{апостеріорні} ймовірності $\P(H_1/A), \P(H_2/A), ..., \P(H_n/A)$?
 Тобто, чому дорівнюють ймовірності, що мала місце кожна з гіпотез за умови, що подія $A$ відбулась? На це питання дає відповідь \emph{формула Баєса}:
+\index{формула!Баєса}
 \begin{equation}\label{eq:bayes}
     \P(H_i/A) = \frac{\P(H_i \cap A)}{\P(A)} = \frac{\P(H_i) \cdot \P(A/H_i)}{\sum\limits_{k=1}^n \P(H_k)\cdot \P(A/H_k)}, i = 1,...,n
 \end{equation}

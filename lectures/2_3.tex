@@ -2,7 +2,7 @@
 \section{Деякі закони розподілу випадкових величин}
 
 \subsection{Біноміальний розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!біноміальний}
     ДВВ $\xi$ розподілена за \emph{біноміальним законом}, 
     якщо набуває значень $0,1,...,n$ з ймовірностями \begin{equation}
         \P\left\{\xi = k\right\} = C_n^k p^k q^{n-k}, q = 1 - p
@@ -10,7 +10,7 @@
 \textbf{Коротке позначення:} $\xi \sim \mathrm{Bin}(n, p)$.
     $n$ і $p$ --- параметри закону, $n\in \mathbb{N}$, $p\in (0;1)$.
 
-Окремим випадком біноміального закону є \emph{розподіл Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
+Окремим випадком біноміального закону є \emph{розподіл Бернуллі}\index{розподіл!Бернуллі}: $\xi \sim \mathrm{Bin}(1, p)$.
 За законом Бернуллі розподілені випадкові величини-індикатори $\mathds{1}_A \mathds{1}(A)= \begin{cases}
     0, & \text{подія }A\text{ не відбулась}\\ 1, & \text{подія }A\text{ відбулась}
 \end{cases}$ при $\P(A) = p$.
@@ -121,7 +121,7 @@ $G'_\xi(1) = np(p+q)^{n-1} = np$, $G''_\xi(1) = n(n-1)p^2 = n^2p^2 - np^2$, $G''
 то $\xi \sim \mathrm{Bin}(n, p)$ задає кількість успіхів.
 
 \subsection{Геометричний розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!геометричний}
     ДВВ $\xi$ розподілена за \emph{геометричним законом}, 
     якщо набуває значень $1,2,3,..$ з ймовірностями \begin{equation}
         \P\left\{\xi = k\right\} = pq^{k-1}, q = 1 - p
@@ -222,12 +222,12 @@ $G'_\xi(1) = \frac{1}{p}$, $G''_\xi(1) = \frac{2q}{p^2}$, $G''_\xi(1) + G'_\xi(1
     Довести цю властивість і те, що геометричний розподіл --- 
     єдиний дискретний розподіл, що <<не має пам'яті>>.
 \end{exercise}
-До геометричного закону можна звести \emph{закон розподілу Паскаля} $\xi \sim \mathrm{Pas}(a)$,
+До геометричного закону можна звести \emph{закон розподілу Паскаля}\index{розподіл!Паскаля} $\xi \sim \mathrm{Pas}(a)$,
 що задається $\P\left\{\xi = k\right\} = \frac{a^k}{(1+a)^{k+1}}, k = 0,1,2,...$ для $a>0$,
 заміною $p=\frac{1}{a+1}$. Для нього $\E\xi = a$, $\D\xi = a + a^2$.
 
 \subsection{Розподіл Пуассона}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!Пуассона}
     ДВВ $\xi$ розподілена за \emph{законом Пуассона}, 
     якщо набуває значень $0,1,2,..$ з ймовірностями \begin{equation}
         \P\left\{\xi = k\right\} = \frac{a^k}{k!}e^{-a}
@@ -321,6 +321,7 @@ $G'_\xi(1) = a$, $G''_\xi(1) = a^2$, $G''_\xi(1) + G'_\xi(1) - \left( G'_\xi(1)\
 має кількість подій в \hyperref[poiss_proc]{потоці Пуассона}.
 
 \subsection{Потік Пуассона}\label{poiss_proc}
+\index{потік Пуассона}
 \emph{Потоком} називають послідовність подій, які наступають в певні моменти часу одна за одною.
 Потік характеризується випадковою величиною $\xi(t)$ --- 
 кількістю подій, що наступили протягом проміжку часу $\left[ 0; t\right)$.
@@ -406,7 +407,7 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 \end{example}
 
 \subsection{Рівномірний розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!рівномірний}
     НВВ $\xi$ розподілена за \emph{рівномірним законом}, 
     якщо її щільність розподілу має вигляд \begin{equation}
         f_\xi(x) = \begin{cases}
@@ -497,7 +498,7 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 похибка округлення до найближчої поділки приладу при ціні поділки $a$ має розподіл $\mathrm{U}\left<-\frac{a}{2}; \frac{a}{2}\right>$.
 
 \subsection{Експоненційний (показниковий) розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!експоненційний (показниковий)}
     НВВ $\xi$ розподілена за \emph{експоненційним законом}, 
     якщо її щільність розподілу має вигляд \begin{equation}
         f_\xi(x) = \begin{cases}
@@ -586,7 +587,7 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 \end{gather*}
 
 \noindent\textbf{Застосування:}
-\begin{enumerate}
+\begin{enumerate}\index{потік Пуассона}
     \item Час між двома сусідніми подіями в потоці Пуассона має експоненційний розподіл.
     \begin{exercise}
         Довести цю властивість.
@@ -619,7 +620,7 @@ $\frac{\partial G_\xi}{\partial t} = - \lambda G_\xi + \lambda z G_\xi = -\lambd
 \end{example}
 
 \subsection{Гамма-розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!гамма}
     НВВ $\xi$ розподілена за \emph{гамма-законом}, 
     якщо її щільність розподілу має вигляд 
     \begin{equation}
@@ -736,14 +737,14 @@ $\E\xi^2 = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha) \cdot \beta^2}  = \frac{(\alph
 складних потоків подій, в економіці, теорії масового обслуговування, логістиці.
 У випадку натурального параметру $\alpha = k \in \mathbb{N}$ за законом
 $\Gamma(k, \lambda)$ розподілений час очікування появи $k$-тої події
-в процесі Пуассона з інтенсивністю $\lambda$. Таку версію гамма-розподілу іноді називають \emph{розподілом Ерланга}.
+в потоці Пуассона \index{потік Пуассона} з інтенсивністю $\lambda$. Таку версію гамма-розподілу іноді називають \emph{розподілом Ерланга} \index{розподіл!Ерланга}.
 \begin{exercise}
     Нехай $T$ --- час очікування появи $k$-тої події
     в потоці Пуассона з інтенсивністю $\lambda$. Довести $T \sim \Gamma(k, \lambda)$.
 \end{exercise} % https://towardsdatascience.com/gamma-distribution-intuition-derivation-and-examples-55f407423840
 
 \subsection{Гауссівський (нормальний) розподіл}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:}\index{розподіл!гауссівський (нормальний)}
     НВВ $\xi$ розподілена за \emph{нормальним законом}, 
     якщо її щільність розподілу має вигляд 
     \begin{equation}
@@ -784,6 +785,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ не виражається в елемент
 функціях.
 Для зручного використання гауссівського закону в задачах введемо 
 спеціальну функцію, \emph{функцію Лапласа} $\Phi(x)$, значення якої занесено до \hyperref[table:laplace]{таблиці}:
+\index{функція Лапласа}
 \begin{gather*}
     \Phi(x) = \frac{1}{\sqrt{2\pi}} 
     \int\limits_{0}^{x} e^{-\frac{t^2}{2}} dt
@@ -942,7 +944,7 @@ $\beta_4 = \frac{\sigma^4\cdot2^2}{\sqrt{\pi}}\cdot \Gamma\left(\frac{5}{2}\righ
     \Phi\left(\frac{a + \varepsilon - a}{\sigma}\right)
     - \Phi\left(\frac{a - \varepsilon - a}{\sigma}\right) = 
     2\Phi(\frac{\varepsilon}{\sigma})$.
-    \item \emph{<<Правило $3\sigma$>>}: 
+    \item \emph{<<Правило $3\sigma$>>}: \index{правило $3\sigma$}
     $\P\left\{\left| \xi - a \right| < 3\sigma\right\} = 
     \P\left\{\xi \in \left( a-3\sigma; a+3\sigma\right)\right\} = 2\Phi\left(3\right)
     \approx 0.9973$.

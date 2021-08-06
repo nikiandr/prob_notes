@@ -22,6 +22,16 @@
 \usepackage{adjustbox}
 \usepackage{xcolor} % градации цветов
 \usepackage{anyfontsize}
+\usepackage{imakeidx}
+\newlength{\subitemindent}
+\setlength{\subitemindent}{5pt}
+% \newlength{\subsubitemindent}
+% \setlength{\subsubitemindent}{25pt}
+\makeatletter
+\renewcommand{\subitem}{\par\hangindent 40\p@ \hspace*{\subitemindent} \vspace*{1pt} ---  }
+% \renewcommand{\subsubitem}{\par\hangindent 40\p@ \hspace*{\subsubitemindent} \vspace*{1pt} ---  }
+\makeatother
+
 \usepackage[psdextra]{hyperref}
 \hypersetup{unicode=true}
 \hypersetup{

@@ -19,12 +19,12 @@
 
 \subsection{Теоретико-множинний підхід}
 Введемо початкові поняття теорії ймовірностей.
-\begin{definition}
+\begin{definition}\index{стохастичний експеримент}
     \emph{Стохастичним експериментом (випробуванням, коротко --- СЕ)} називається експеримент, 
     який можна повторювати неодноразово, зберігаючи певні умови, і результат якого 
     експерименту заздалегідь передбачити неможливо.
 \end{definition}
-\begin{definition}
+\begin{definition}\index{подія}
     Будь-який результат стохастичного експерименту називається \emph{подією}.
 \end{definition}
 \begin{example}
@@ -40,7 +40,7 @@
     \item \emph{Неможливі} --- ніколи не відбуваються в даному СЕ.
     \item \emph{Вірогідні} --- завжди відбуваються в даному СЕ.
 \end{enumerate}
-\begin{definition}
+\begin{definition}\index{подія!простір елементраних подій}
     Будемо вважати, що кожному стохастичного експерименту можна поставити у відповідність деяку множину, що
     називається \emph{простором елементарних подій} $\Omega$. 
     Під \emph{елементарними подіями} $\omega$ будемо розуміти єдині
@@ -62,7 +62,7 @@
         В цьому прикладі $\Omega$ вже є незліченним.
     \end{enumerate}
 \end{example}
-\begin{definition}
+\begin{definition}\index{подія!випадкова}
     \emph{Випадкова подія} --- підмножина $\Omega$. В подальшому випадкові події позначатимемо великими літерами латинського алфавіту: $A, B, C$ тощо.
     Тобто, в загальному випадку $A = \left\{\omega_{k_1}, \omega_{k_2}, ..., \omega_{k_n}, ...\right\} \subset \Omega$
     (принаймні, для зліченного простору $\Omega$).
@@ -101,11 +101,11 @@
 
     Операція узагальнюється на скінченну або зліченну кількість подій: $A = \bigcap\limits_{i=1}^{n \left( \infty \right)} A_i$.
 \end{enumerate}
-\begin{definition}
+\begin{definition}\index{подія!несумісні події}
     Події $A$ та $B$ називається \emph{несумісними}, якщо вони не відбуваються одночасно: $A \cap B = \varnothing$.
     Узагальнення: події $A_1, A_2, ..., A_n, ...$ називаються \emph{попарно несумісними}, якщо $A_i \cap A_j = \varnothing$ для $i \neq j$.
 \end{definition}
-\begin{definition}
+\begin{definition}\index{подія!повна група подій}
     Події $A_1, A_2, ..., A_n, ...$ утворюють \emph{повну групу подій}, якщо вони попарно несумісні 
     та $\bigcup\limits_{i=1}^{n \left( \infty \right)} A_i = \Omega$.
 \end{definition}
@@ -118,13 +118,14 @@
     \item \emph{Різниця подій} $A \setminus B$ --- це подія $A \cap \overline{B}$. Для протилежної події маємо $\overline{A} =  \Omega \setminus A$.
 \end{enumerate}
 
-\begin{definition}
+\begin{definition}\index{алгебра подій}
     Непорожня система підмножин $\mathcal{F}$ простору елементарних подій $\Omega$ утворює \emph{алгебру подій}, якщо:
     \begin{enumerate}
         \item $\Omega \in \mathcal{F}$;
         \item $\left( A, B \in \mathcal{F}\right) \Rightarrow \left( A \cup B \in \mathcal{F}\right)$;
         \item $\left( A \in \mathcal{F}\right) \Rightarrow \left( \overline{A} \in \mathcal{F}\right)$.
     \end{enumerate}
+    \index{алгебра подій!$\sigma$-алгебра подій}
     \emph{Узагальнення:} якщо $\Omega$ містить зліченну кількість подій, то означення $\sigma$-алгебра отримаємо заміною умови
     2 на $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup\limits_{n=1}^{\infty} A_n \in \mathcal{F}\right)$.
     
@@ -140,7 +141,7 @@
 Поставимо у відповідність кожній елементарній події $\omega_k$ число $p_k\geq 0$ так, що $\sum\limits_{k=0}^{ n \left( \infty\right)}p_k = 1$.
 Тоді $\P(A) = \sum\limits_{\omega_k \in A} p_k$ --- кількісна характеристика, \emph{ймовірність події $A$}.
 
-\begin{definition}
+\begin{definition}\index{модель ймовірності!класична}
     Якщо простір елементарних подій $\Omega$ скінченний
     та всі $\omega_k$ рівноможливі, то такий стохастичний експеримент називається \emph{класичним}.
     В цьому випадку $p_1 = p_2 = ... = p_n = \frac{1}{n}$, де $n = \mathrm{card}(\Omega)$,
@@ -211,7 +212,7 @@
     тому $\P(A) = \frac{l\left({\left<\alpha; \beta\right>}\right)}{l\left({\left[a; b\right]}\right)} = 
     \frac{\beta - \alpha}{b - a}$.
 \end{example}
-\begin{definition}
+\begin{definition}\index{модель ймовірності!геометрична}
     Нехай простір елементарних подій інтерпретується як замкнена область в 
     $ \mathbb{R} ^n$, а випадкові події --- її підмножини, причому елементарні події є рівноможливими. В якості $\sigma$-алгебри 
     подій $\mathcal{F}$ беремо підмножини, що мають міру $\mu$. Тоді в якості ймовірності 
@@ -221,7 +222,7 @@
     називається \emph{геометричною моделлю ймовірності}.
     \end{definition}
 
-\begin{example}[задача Бюффона]\label{buffon}
+\begin{example}[задача Бюффона]\label{buffon}\index{задача!Бюффона}
     \begin{samepage}
         На площину з накресленими паралельними прямими на відстані $2a$ одна від одної кидають
         голку довжиною $2l, l \leq a $. Яка ймовірність того, що голка перетне 
@@ -284,7 +285,7 @@
 Іноді може статися так, що якщо брати різні моделі для описання однієї події, можна отримати різні ймовірності.
 Продемонструємо це на прикладі.
 
-\begin{example}[\href{https://en.wikipedia.org/wiki/Bertrand_paradox_(probability)}{парадокс Бертрана}]
+\begin{example}[\href{https://en.wikipedia.org/wiki/Bertrand_paradox_(probability)}{парадокс Бертрана}]\index{парадокс Бертрана}
     Нехай в колі радіусом $R$ навмання обирається хорда. Яка ймовірність того, 
     що її довжина буде більшою за довжину сторони правильного трикутника, 
     вписаного в це коло?

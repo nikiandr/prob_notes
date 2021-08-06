@@ -4,7 +4,7 @@
 в задачах математичної статистики, та їх числових характеристик.
 
 \section{Розподіл \texorpdfstring{$\chi^2$}{x2} (Пірсона)}
-\noindent\textbf{Означення:}
+\noindent\textbf{Означення:} \index{розподіл!$\chi^2$ (хі-квадрат, Пірсона)}
     нехай $\xi_k \sim \mathrm{N}(a_k, \sigma_k)$, $k= 1,..., n$ --- незалежні у сукупності.
     Тоді $\xi = \sum\limits_{k=1}^n \left( \frac{\xi_k - a_k}{\sigma_k}\right)^2$ має
     розподіл \emph{$\chi^2$ (хі-квадрат, Пірсона) з $n$ ступенями вільності}.
@@ -52,7 +52,7 @@
     \item $\D\chi_n^2 = \frac{n/2}{1/4} = 2n$.
 \end{enumerate}
 
-\section{Розподіл \texorpdfstring{$\chi$}{x}}
+\section{Розподіл \texorpdfstring{$\chi$}{x}}\index{розподіл!$\chi$ (хі)}
 \noindent\textbf{Означення:} нехай випадкова величина $\xi$ має розподіл $\chi_n^2$.
 Тоді $\eta = \sqrt{\xi}$ має розподіл
 \emph{$\chi$ (хі) з $n$ ступенями вільності}.
@@ -76,7 +76,7 @@ f_{\chi_n^2}(y^2) \cdot 2y =
 \end{enumerate}
 
 \begin{remark}
-    Нескладно помітити, що $\chi_2$ --- це розподіл Релея.
+    Нескладно помітити, що $\chi_2$ --- це розподіл Релея. \index{розподіл!Релея}
 \end{remark} 
 
 \noindent Знайдемо ще розподіл величини $\zeta = \frac{\chi_n}{\sqrt{n}}$. $\varphi(y) = \frac{y}{\sqrt{n}}$,
@@ -96,6 +96,7 @@ f_{\chi_n}(z \sqrt{n}) \cdot \sqrt{n} =
 \end{exercise}
 
 \section{Розподіл Стьюдента (\texorpdfstring{$t$}{t}-розподіл)}
+\index{розподіл Стьюдента}
 \noindent\textbf{Означення:} якщо $\xi \sim \mathrm{N}(0, 1)$ та $\eta \sim \frac{\chi_n}{\sqrt{n}}$ незалежні,
 то $\zeta = \frac{\xi}{\eta} = \frac{\xi}{\chi_n /\sqrt{n}}$ має \emph{розподіл Стьюдента з $n$ ступенями вільності}.
 
@@ -143,10 +144,11 @@ f_{\chi_n}(z \sqrt{n}) \cdot \sqrt{n} =
 \end{enumerate}
 
 \begin{remark}
-    Нескладно помітити, що $\mathrm{St}_1$ --- це розподіл Коші.
+    Нескладно помітити, що $\mathrm{St}_1$ --- це розподіл Коші. \index{розподіл!Коші}
 \end{remark}
 
 \section{Розподіл Фішера-Снедекора (\texorpdfstring{$F$}{F}-розподіл)}
+\index{розподіл!Фішера-Снедекора}
 \noindent\textbf{Означення:} випадкова величина $\eta = \frac{\chi_{n_1}^2/n_1}{\chi_{n_2}^2/n_2}$, чисельник
 та знаменник якої незалежні, має \emph{розподіл Фішера-Снедекора з $n_1$, $n_2$ ступенями вільності}.
 
