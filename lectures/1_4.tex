@@ -25,7 +25,7 @@ $$\P\left(\underbrace{A_1 \cap ... \cap A_1}_{\text{перші }m_1}
 \cap ... \cap  \underbrace{A_k \cap ... \cap A_k}_{\text{останні }m_k}\right)
 = p_1^{m_1} p_2^{m_2} ... p_k^{m_k}$$
 
-Це є лише один із можливих варіантів послідовності появи подій в серії випробувань. Всього таких варіантів 
+Це лише один із можливих варіантів послідовності появи подій в серії випробувань. Всього таких варіантів 
 рівно $C_n^{m_1, m_2, ..., m_k} = \frac{n!}{m_1!m_2! ... m_k!}$. Таким чином отримуємо:
 \begin{equation}\label{eq:poly_prob}
     \P_n(m_1, ..., m_k) = \frac{n!}{m_1!m_2! ... m_k!} p_1^{m_1} p_2^{m_2} ... p_k^{m_k}
@@ -161,7 +161,7 @@ $$
         \left(1-\frac{a}{n}\right)^{n-m} = \\
         \frac{a^m}{m!}\cdot 1 \left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)
         ...\left(1 - \frac{m+1}{n}\right)\left(1-\frac{a}{n}\right)^n \left(1-\frac{a}{n}\right)^{-m} 
-        \to \frac{a^m}{m!}e^{-a} n\to\infty
+        \to \frac{a^m}{m!}e^{-a}, n\to\infty
     \end{gather*}
     Отже, ця наближена рівність є наслідком існування границі $\P_n(m)$ при $n\to\infty$. 
 \end{proof}

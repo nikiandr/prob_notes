@@ -114,8 +114,8 @@
 \begin{remark}
     $\mathring{\vec{\xi}} = \left(\mathring{\xi_1}, ..., \mathring{\xi_n}
     \right)^T$.
-    Тоді $\K\vec{\xi} = \E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T = \E \left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$,
-    де математичне сподівання від матриці $\left(\vec{\xi} - \E\xi\right)\left(\vec{\xi} - \E\xi\right)^T$ визначається поелементно.
+    Тоді $\K\vec{\xi} = \E\,\mathring{\vec{\xi}}\,\mathring{\vec{\xi}}^T = \E \left(\vec{\xi} - \E\vec{\xi}\right)\left(\vec{\xi} - \E\vec{\xi}\right)^T$,
+    де математичне сподівання від матриці $\left(\vec{\xi} - \E\vec{\xi}\right)\left(\vec{\xi} - \E\vec{\xi}\right)^T$ визначається поелементно.
 \end{remark}
 
 \noindent \textbf{Властивості кореляційного моменту:}
@@ -183,14 +183,16 @@
     \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $\K\xi_1\xi_2 = 0$.
     \begin{proof}
         Нехай $\xi_1$ та $\xi_2$ --- незалежні.
-
-        $\K\xi_1\xi_2 = \E\xi_1\xi_2 - \E\xi_1\E\xi_2 = 
-        \iint\limits_{\mathbb{R}^2} xy f_{\vec{\xi}}(x,y)dx dy 
-        - \E\xi_1\E\xi_2
-        = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx \cdot
-        \int\limits_{-\infty}^{+\infty}yf_{\xi_2}(y)dy
-        - \E\xi_1\E\xi_2 = 
-        \E\xi_1\E\xi_2 - \E\xi_1\E\xi_2 = 0$.
+        З властивості математичного сподівання (4, ст. \pageref{eq:EXY_indep}) маємо
+        $\E\xi_1 \xi_2 = \E\xi_1 \E\xi_2$, тому
+        $\K\xi_1 \xi_2 = \E\xi_1 \xi_2 - \E\xi_1 \E\xi_2 = 0$.
+        % $\K\xi_1\xi_2 = \E\xi_1\xi_2 - \E\xi_1\E\xi_2 = 
+        % \iint\limits_{\mathbb{R}^2} xy f_{\vec{\xi}}(x,y)dx dy 
+        % - \E\xi_1\E\xi_2
+        % = \int\limits_{-\infty}^{+\infty}xf_{\xi_1}(x)dx \cdot
+        % \int\limits_{-\infty}^{+\infty}yf_{\xi_2}(y)dy
+        % - \E\xi_1\E\xi_2 = 
+        % \E\xi_1\E\xi_2 - \E\xi_1\E\xi_2 = 0$.
     \end{proof}
 
     Обернене твердження, взагалі кажучи, не має місця. Тому випадкові 

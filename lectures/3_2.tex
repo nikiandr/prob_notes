@@ -87,11 +87,11 @@ y + \theta_4 \Delta y)\Delta y}
     dt ds = 1$ --- об'єм під поверхнею розподілу 
     дорівнює 1, що випливає з $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
     \item З умов узгодженості $F_{\xi_1}(x) = \int\limits_{-\infty}^{x} \int\limits_{-\infty}^{+\infty} 
-    f_{\vec{\xi}}(t, s) dt ds$.
+    f_{\vec{\xi}}(t, s) dt ds$,
     $F_{\xi_2}(y) = \int\limits_{-\infty}^{+\infty} \int\limits_{-\infty}^{y} 
     f_{\vec{\xi}}(t, s) dt ds$.
     \item З попередньої властивості диференціюванням можна отримати маргінальні щільності $f_{\xi_1}(x) = F'_{\xi_1}(x) 
-    = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, s) ds $.
+    = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, s) ds $,
     $f_{\xi_2}(y) = F'_{\xi_2}(y) 
     = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(t, y) dt $.
     
@@ -107,7 +107,7 @@ y + \theta_4 \Delta y)\Delta y}
     f_{\xi_1}(x)\cdot f_{\xi_2}(y)$.
 \end{enumerate}
 \vspace{1em}
-Розглянемо ще важливий приклад неперервного випадкового вектора.
+Розглянемо важливий приклад неперервного випадкового вектора.
 \begin{definition}\index{розподіл!рівномірний}
     Нехай $D$ --- замкнена обмежена область в $\mathbb{R}^2$,
     $S(D)$ --- її площа. 
@@ -295,7 +295,7 @@ y + \theta_4 \Delta y)\Delta y}
     f_{\vec{\xi}} (\vec{t})dt_1...dt_n$.
     \item $\int\limits_{-\infty}^{+\infty}...\int\limits_{-\infty}^{+\infty}
     f_{\vec{\xi}} (\vec{x})dx_1...dx_n = 1$.
-    \item Для кожного $I = \left\{i_1, i_2, ..., i_k\right\} \in \{1,...,n\}$
+    \item Для кожного $I = \left\{i_1, i_2, ..., i_k\right\} \subset \{1,...,n\}$
     позначимо $\Pi = \left\{t_{i} < x_{i} , i \in I \text{ та } t_i \in \mathbb{R}, i \notin I\right\}$.
     Тоді $F_{\xi_{i_1} \xi_{i_2} ... \xi_{i_k}}(x_{i_1}, x_{i_2}, ..., x_{x_k}) = \int_{\Pi} f_{\vec{\xi}}(\vec{t}) d\vec{t}$.
     Зокрема, 
@@ -303,7 +303,7 @@ y + \theta_4 \Delta y)\Delta y}
     \int\limits_{-\infty}^{x_i}...\int\limits_{-\infty}^{+\infty}
     f_{\vec{\xi}} (\vec{t})d\vec{t}$.
 
-    \item Для кожного $I = \left\{i_1, i_2, ..., i_k\right\}$ $f_{\xi_{i_1}...\xi_Pi_k}(x_{i_1}, ..., x_{i_k})$ отримується
+    \item Для кожного $I = \left\{i_1, i_2, ..., i_k\right\} \subset \{1,...,n\}$ $f_{\xi_{i_1}...\xi_{i_k}}(x_{i_1}, ..., x_{i_k})$ отримується
     інтегруванням $f_{\vec{\xi}}(\vec{x})$ по <<зайвим>> координатам від $-\infty$ до $+\infty$. Наприклад, 
     $$f_{\xi_1 ... \xi_k} (x_1, ..., x_k) = 
     \underbrace{
