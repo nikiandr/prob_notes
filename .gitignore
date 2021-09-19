@@ -25,5 +25,6 @@
 *.fdb_latexmk
 *.json
 *.pdf
+*.synctex(busy)
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
