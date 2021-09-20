@@ -15,22 +15,24 @@
     \begin{enumerate}[label = \textbf{A\arabic*:}]
         \item Будь-якому стохастичному експерименту можна поставити у відповідність
         простір елементарних подій $\Omega$.\index{подія!простір елементраних подій}
-        \item $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup\limits_{n=1}^{n (\infty)} A_n \in \mathcal{F}\right)$.
+        \item $\left(\forall n \in \mathbb{N}: A_n \in \mathcal{F} \right) \Rightarrow \left( \bigcup\limits_{n=1}^{\infty} A_n \in \mathcal{F}\right)$.
         \item $\left( A \in \mathcal{F}\right) \Rightarrow \left( \overline{A} \in \mathcal{F}\right)$.
         
-        Дві останні аксіоми стосуються побудови алгебри чи $\sigma$-алгебри подій.
+        Дві останні аксіоми стосуються побудови $\sigma$-алгебри подій.
     \end{enumerate}
-    \item Властивості ймовірності:
+    \item Аксіоми ймовірності:
     \begin{enumerate}[label = \textbf{P\arabic*:}]
         \item $\forall A \in \mathcal{F}: \P(A)\geq 0$.
         \item $\P(\Omega) = 1$ --- аксіома нормування. \index{аксіома!нормування}
         \item $\forall A_1, A_2, ..., A_n, ... \in \mathcal{F},  A_i \cap A_j = \varnothing \text{ при } i \neq j: \P\left(\bigcup\limits_{n=1}^{\infty} A_n\right) = \sum\limits_{n=1}^{\infty} \P(A_n)$ ---
         аксіома зліченної адитивності. \index{аксіома!зліченної адитивності}
-        Іноді, у випадках <<простої>> алгебри (а не $\sigma$-алгебри), достатньо
-        аксіоми скінченної адитивності \textbf{P3$'$}: \index{аксіома!скінченної адитивності}
-        $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j  = \varnothing \text{ при } i \neq j: \P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} \P(A_k)$.
     \end{enumerate}
 \end{enumerate}
+\begin{remark}
+    Іноді, у випадках <<простої>> алгебри, коли потребуємо у $\textbf{A2}$ лише $\bigcup\limits_{k=1}^n A_k \in \mathcal{F}$, достатньо
+    аксіоми скінченної адитивності \textbf{P3$'$}: \index{аксіома!скінченної адитивності}
+    $\forall A_1, A_2, ..., A_n \in \mathcal{F},  A_i \cap A_j  = \varnothing \text{ при } i \neq j: \P\left(\bigcup\limits_{k=1}^{n} A_k\right) = \sum\limits_{k=1}^{n} \P(A_k)$.
+\end{remark}
 \begin{definition}\index{ймовірність}
     Нормована міра $\P$, що введена на вимірному просторі $\left\{ \Omega, \mathcal{F}\right\}$,
     називається \emph{ймовірністю}. Всі події беруться з $\sigma$-алгебри подій.
@@ -212,16 +214,16 @@
 
 За допомогою теорем \ref{th:1} та \ref{th:2} можна довести, що замість аксіоми \textbf{P3} можна розглядати деяку іншу аксіому.
 \begin{theorem}\index{аксіома!неперервності}
-    Аксіома зліченної адитивності \textbf{P3} еквівалентна аксіомі неперервності
-    \textbf{P4}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap\limits_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} \P(B_n) = 0$$
+    Аксіома зліченної адитивності \emph{\textbf{P3}} еквівалентна одночасному виконанню аксіом неперервності
+    \emph{\textbf{P4}} та скінченної адитивності \emph{\textbf{P3$'$}}: $$\forall n \in \mathbb{N}: B_n \in \mathcal{F}, B_1 \supset B_2 \supset ... \supset B_n \supset ..., \bigcap\limits_{n=1}^{\infty} B_n = \varnothing \Rightarrow \lim_{n\rightarrow \infty} \P(B_n) = 0$$
     \begin{proof}
-        За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}.
+        За теоремою \refeq{th:2} маємо наслідок \textbf{P3} $\Rightarrow$ \textbf{P4}, \textbf{P3$'$}.
 
-        Доведемо \textbf{P4} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j = \varnothing \text{ при } i \neq j$
+        Доведемо \textbf{P4}, \textbf{P3$'$} $\Rightarrow$ \textbf{P3}. Для подій $A_1, A_2, ... , A_n, ... \in \mathcal{F}, A_i \cap A_j = \varnothing \text{ при } i \neq j$
         введемо події $B_n = \bigcup\limits_{k=n+1}^{\infty} A_k$. Для них виконується $B_1 \supset B_2 \supset ... \supset B_n \supset ...$ та $\bigcap\limits_{n=1}^{\infty} B_n = \varnothing$,
         тому з аксіоми \textbf{P4} $\lim\limits_{n\rightarrow \infty} \P(B_n) = 0$.
 
-        З іншого боку, маємо таку рівність:
+        З іншого боку, з аксіоми \textbf{P3$'$} маємо таку рівність:
         $$\P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \P\left(\bigcup\limits_{k=1}^{n} A_k\right) + \P\left(\bigcup\limits_{k=n+1}^{\infty} A_k\right) = \sum\limits_{k=1}^{n} \P(A_k) + \P(B_n)$$
         Перейшовши у правій частині до границі при $n \rightarrow \infty$, отримаємо $\P\left(\bigcup\limits_{k=1}^{\infty} A_k\right) = \sum\limits_{k=1}^{\infty} \P(A_k)$, 
         що є твердженням аксіоми зліченної адитивності.
