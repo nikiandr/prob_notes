@@ -1,0 +1,174 @@
+\babel@toc {ukrainian}{}
+\ttl@starttoc {default@1}
+\contentsline {part}{I\hspace {1em}Теорія ймовірностей}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Випадкові події}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Основні поняття теорії ймовірностей}{6}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Теоретико-множинний підхід}{6}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Класична модель ймовірності}{7}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Геометрична модель ймовірності}{8}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Аксіоми теорії ймовірностей}{11}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Система аксіом Колмогорова}{11}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Властивості ймовірності, що випливають з аксіом}{12}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Теореми неперервності ймовірності}{13}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Умовна ймовірність та її застосування}{14}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Поняття умовної ймовірності}{14}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Незалежність подій}{14}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Теореми додавання та множення}{15}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Формула повної ймовірності}{16}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Формула Баєса}{16}{subsection.1.3.5}%
+\contentsline {section}{\numberline {1.4}Незалежні випробування. Схема Бернуллі.}{17}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Поліноміальна схема}{17}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Схема Бернуллі}{18}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Найбільш імовірна кількість успіхів в схемі Бернуллі}{18}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Асимптотичні наближення формули Бернуллі}{19}{subsection.1.4.4}%
+\contentsline {chapter}{\numberline {2}Випадкові величини}{20}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Поняття випадкової величини}{20}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Функція розподілу}{21}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Дискретні випадкові величини}{21}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Неперервні випадкові величини}{22}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Числові характеристики випадкових величин}{24}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Математичне сподівання}{24}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Дисперсія}{25}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Моменти випадкової величини}{26}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Мода та медіана випадкової величини}{26}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Асиметрія та ексцес випадкової величини}{27}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Генератриса (твірна функція) ДВВ}{27}{subsection.2.2.6}%
+\contentsline {section}{\numberline {2.3}Деякі закони розподілу випадкових величин}{28}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Біноміальний розподіл}{28}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Геометричний розподіл}{29}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Розподіл Пуассона}{30}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Потік Пуассона}{30}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Рівномірний розподіл}{31}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Експоненційний (показниковий) розподіл}{32}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Гамма-розподіл}{33}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}Гауссівський (нормальний) розподіл}{34}{subsection.2.3.8}%
+\contentsline {chapter}{\numberline {3}Випадкові вектори}{37}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Поняття випадкового вектора}{37}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Сумісна функція розподілу}{37}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Дискретні випадкові вектори}{39}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Неперервні випадкові вектори}{40}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Числові характеристики випадкових векторів}{43}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Математичне сподівання випадкових векторів}{43}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Мішані початкові та центральні моменти випадкових векторів}{43}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Коваріація як скалярний добуток випадкових величин}{45}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Коефіцієнт кореляції}{45}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Умовні закони розподілу}{46}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Умовний закон розподілу ДВВ}{46}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Умовне математичне сподівання ДВВ}{47}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Умовний закон розподілу НВВ}{47}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Умовне математичне сподівання НВВ}{47}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Формули повного математичного сподівання та дисперсії}{48}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Випадок незалежних координат}{49}{subsection.3.3.6}%
+\contentsline {chapter}{\numberline {4}Характеристичні функції. Гауссівські випадкові вектори}{50}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Характеристичні функції випадкових величин}{50}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Поняття характеристичної функції}{50}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Властивості характеристичної функції}{50}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Необхідні умови того, що функція є характеристичною}{52}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Характеристичні функції деяких розподілів}{52}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Характеристичні функції випадкових векторів}{53}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Поняття характеристичної функції випадкового вектору}{53}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Властивості характеристичних функцій векторів}{54}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Багатовимірний нормальний розподіл}{54}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Виведення характеристичної функції та щільності}{54}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Властивості гауссівських векторів}{56}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Вироджені гауссівські вектори}{57}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Нормальний розподіл на площині}{57}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Колове розсіювання}{59}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Умовний гауссівський розподіл на площині}{59}{subsection.4.3.6}%
+\contentsline {chapter}{\numberline {5}Функції випадкових аргументів}{60}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Функції одного випадкового аргументу}{60}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Функції від дискретного випадкового аргументу}{60}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Функції від неперервного випадкового аргументу}{60}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Числові характеристики функції неперервного випадкового аргументу}{62}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Функції кількох випадкових аргументів}{63}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Випадок довільної функції}{63}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Закон розподілу мінімуму та максимуму}{63}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Закон розподілу добутку двох НВВ}{64}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Закон розподілу частки двох НВВ}{65}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Закон розподілу суми двох НВВ}{66}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}Числові характеристики функції багатьох випадкових аргументів}{67}{subsection.5.2.6}%
+\contentsline {section}{\numberline {5.3}Деякі нерівності}{67}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Нерівність Єнсена}{67}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Нерівність Гельдера}{68}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Нерівність Мінковського}{68}{subsection.5.3.3}%
+\contentsline {chapter}{\numberline {6}Основні розподіли математичної статистики}{69}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Розподіл $\chi ^2$ (Пірсона)}{69}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Розподіл $\chi $}{69}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Розподіл Стьюдента ($t$-розподіл)}{70}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Розподіл Фішера-Снедекора ($F$-розподіл)}{71}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Граничні теореми теорії ймовірностей}{72}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Послідовності випадкових величин}{72}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Нерівності Маркова та Чебишова}{72}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Послідовності випадкових величин}{73}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Види збіжності послідовності випадкових величин}{73}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Закон великих чисел}{76}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Теорема Чебишова (ЗВЧ у формі Чебишова).}{76}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Посилений закон великих чисел}{77}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}Закон великих чисел у схемі Бернуллі}{77}{subsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.2.4}Методи Монте-Карло}{78}{subsection.7.2.4}%
+\contentsline {section}{\numberline {7.3}Центральна гранична теорема}{79}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Теорема Ляпунова}{79}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Умова Ліндеберга}{81}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Застосування ЦГТ до схеми Бернуллі}{82}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Інтегральна теорема Муавра-Лапласа}{82}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Локальна теорема Муавра-Лапласа}{82}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Гранична теорема Пуассона}{83}{subsection.7.4.3}%
+\contentsline {section}{\numberline {7.5}Збіжність та граничні теореми для послідовностей випадкових векторів}{84}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Збіжність випадкових векторів}{84}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}Граничні теореми}{84}{subsection.7.5.2}%
+\contentsline {part}{II\hspace {1em}Математична статистика}{85}{part.2}%
+\contentsline {chapter}{\numberline {8}Вибірка, точкове та інтервальне оцінювання}{86}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Вибірка та її первинний аналіз}{86}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Поняття вибірки}{86}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Розподіл випадкової вибірки}{86}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}Дискретний варіаційний ряд}{88}{subsection.8.1.3}%
+\contentsline {subsection}{\numberline {8.1.4}Інтервальний варіаційний ряд}{88}{subsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.1.5}Емпірична функція розподілу}{89}{subsection.8.1.5}%
+\contentsline {subsection}{\numberline {8.1.6}Вибіркові характеристики ГС}{90}{subsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.1.7}Діаграми розмаху}{90}{subsection.8.1.7}%
+\contentsline {section}{\numberline {8.2}Точкові оцінки}{91}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Незміщеність оцінки}{91}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Конзистентність оцінки}{92}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Ефективність оцінки}{93}{subsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.2.4}Асимптотична нормальність оцінки}{95}{subsection.8.2.4}%
+\contentsline {section}{\numberline {8.3}Методи отримання точкових оцінок}{95}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Метод моментів}{95}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Метод максимальної правдоподібності}{96}{subsection.8.3.2}%
+\contentsline {section}{\numberline {8.4}Інтервальне оцінювання}{97}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Побудова довірчих інтервалів для гаусcівської ГС}{97}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Наближені довірчі інтервали}{99}{subsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.4.3}Довірчий інтервал для ймовірності появи події}{99}{subsection.8.4.3}%
+\contentsline {subsection}{\numberline {8.4.4}Довірчі інтервали для параметрів рівномірної ГС}{100}{subsection.8.4.4}%
+\contentsline {chapter}{\numberline {9}Перевірка статистичних гіпотез}{102}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Поняття статистичних гіпотез та їх перевірки}{102}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Статистичні гіпотези. Помилки першого та другого роду}{102}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Методика перевірки статистичних гіпотез}{103}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Критерій Пірсона ($\chi ^2$) та критерій Колмогорова}{103}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Критерій Пірсона та алгоритм його використання}{104}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Доведення теореми Пірсона}{105}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Критерій незалежності $\chi ^2$}{108}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}Критерій згоди Колмогорова}{108}{subsection.9.2.4}%
+\contentsline {section}{\numberline {9.3}Перевірка параметричних гіпотез}{109}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Прості гіпотези. Критерій Неймана-Пірсона}{109}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Приклади побудови найкращої критичної області}{111}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Перевірка складних параметричних гіпотез}{113}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Перевірка гіпотез про рівність параметрів двох ГС}{114}{subsection.9.3.4}%
+\contentsline {chapter}{\numberline {10}Елементи регресійного аналізу}{118}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Математична модель лінійної регресії}{118}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Однофакторна лінійна регресія}{118}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Метод найменших квадратів}{119}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}Багатофакторна (множинна) лінійна регресія}{120}{subsection.10.1.3}%
+\contentsline {section}{\numberline {10.2}Статистичний аналіз лінійної регресійної моделі}{122}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Властивості оцінок параметрів}{122}{subsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.2.2}Оцінка дисперсії похибок спостережень}{124}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Перевірка адекватності моделі}{125}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Аналіз точності прогнозів моделі}{125}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Приклад побудови та аналізу моделі}{126}{subsection.10.2.5}%
+\contentsline {subsection}{\numberline {10.2.6}Деякі труднощі застосування лінійної регресійної моделі}{127}{subsection.10.2.6}%
+\contentsline {chapter}{Таблиці значень деяких функцій}{129}{chapter*.5}%
+\contentsline {section}{Функція Лапласа}{129}{section*.6}%
+\contentsline {section}{Деякі квантилі розподілу $\chi ^2_n$}{131}{section*.7}%
+\contentsline {section}{Деякі квантилі розподілу $\mathrm {St}_n$}{132}{section*.8}%
+\contentsline {section}{Квантилі рівня 0.95 розподілу $\mathrm {F}(n_1, n_2)$}{133}{section*.9}%
+\contentsline {chapter}{Предметний покажчик}{135}{section*.10}%
+\contentsfinish 
