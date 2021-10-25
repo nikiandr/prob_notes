@@ -107,7 +107,8 @@
     \end{proof}
     \item $\lim\limits_{x,y \to +\infty} F_{\vec{\xi}}(x, y) = 1$.
     \begin{proof}
-        Випливає з умов узгодженості.
+        Випливає з теореми про неперервність 
+        ймовірності (\ref{th:1}) аналогічно попередньому пункту.
     \end{proof}
     \item Функція розподілу є неперервною зліва по кожному з аргументів: 
     
@@ -177,9 +178,9 @@
     \item $\lim\limits_{x_1, ..., x_n \rightarrow +\infty} F_{\vec{\xi}}(\vec{x}) = 1$.
     \item \emph{<<Умови узгодженості>>} \index{умова!узгодженості (умови)}: 
         $$\forall k = 1,...,n: \lim\limits_{\forall i\neq k : x_i \to + \infty} F_{\vec{\xi}}(\vec{x}) = F_{\xi_k}(x_k)$$
-        $$\forall I = \left\{i_1, i_2, ..., i_k\right\} \in \{1,...,n\}: 
+        $$\forall I = \left\{i_1, i_2, ..., i_k\right\} \subset \{1,...,n\}: 
         \lim\limits_{\forall i \notin I : x_i \to + \infty} F_{\vec{\xi}}(\vec{x}) =
-        F_{\xi_{i_1} \xi_{i_2} ... \xi_{i_k}}(x_{i_1}, x_{i_2}, ..., x_{x_k})$$.
+        F_{\xi_{i_1} \xi_{i_2} ... \xi_{i_k}}(x_{i_1}, x_{i_2}, ..., x_{i_k})$$.
     \item Якщо координати $\xi_1, \xi_2, ..., \xi_n$ є незалежними у сукупності, то 
     $F_{\vec{\xi}}(\vec{x}) = F_{\xi_1}(x_1) \cdot ... \cdot F_{\xi_n}(x_n)$.
 \end{enumerate}
