@@ -7,7 +7,7 @@
 Якщо $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$ --- дискретний випадковий вектор, тоді $\eta = \varphi(\vec{\xi})$ --- ДВВ.
 Побудову закону розподілу $\eta$ доцільно розглянути на прикладі.
 \begin{example}
-    $\vec{\xi} = \left( \xi_1, \xi_2\right)$ задано таблицею розподілу:
+    $\vec{\xi} = \left( \xi_1, \xi_2\right)^T$ задано таблицею розподілу:
     \begin{center}
         \begin{tabular}{|c|c|c|c|}
             \hline
@@ -68,7 +68,7 @@ $\P\left\{ \vec{\psi} (\vec{\xi}) \in D\right\} = \P\left\{ \vec{\xi} \in \vec{\
 \end{equation}
 Як в одновимірному випадку, треба вказувати, які значення може приймати $\vec{\eta}$.
 
-\begin{example}
+\begin{example}\label{eq:vector_transform}
     Нехай $A$ --- невироджена матриця розміру $n \times n$, $\vec{b} \in \mathbb{R}^n$ --- деякий вектор, $\vec{\xi}$ --- неперервний випадковий вектор.
     Знайти щільність розподілу $\vec{\eta} = A \vec{\xi} + \vec{b}$.
 
@@ -480,10 +480,18 @@ $$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \i
 \end{remark}
 
 \begin{exercise}
-    Перевірити, що щільність розподілу $\eta_1 = \xi_1 - \xi_2$ має вигляд
-    $f_{\eta_1}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x-z) dx$, а 
-    $\eta_2 = \xi_2 - \xi_1$ --- $f_{\eta_2}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x+z) dx$.
+    Перевірити, що щільність розподілу $\eta_1 = \xi_1 - \xi_2$ та $\eta_2 = \xi_2 - \xi_1$ мають вигляд
+    \begin{gather*}
+        f_{\eta_1}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x-z) dx,
+        f_{\eta_2}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x+z) dx
+    \end{gather*}
+    % $f_{\eta_1}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x-z) dx$, а 
+    % $\eta_2 = \xi_2 - \xi_1$ --- $f_{\eta_2}(z) = \int\limits_{-\infty}^{+\infty} f_{\vec{\xi}}(x, x+z) dx$.
 \end{exercise}
+\begin{remark}
+    За допомогою результату прикладу \ref{eq:vector_transform} можна одночасно отримати щільності
+    розподілу $\xi_1 + \xi_2$ та $\xi_1 - \xi_2$.
+\end{remark}
 
 \begin{example}
     $\xi_1$ та $\xi_2$ --- незалежні випадкові величини, $\xi_i \sim \mathrm{Exp}(\lambda_i)$, 
@@ -517,8 +525,34 @@ $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакш
 \end{example}
 
 \subsection{Числові характеристики функції багатьох випадкових аргументів}
-Розглядаємо неперервний випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)$ та
-випадкову величину $\eta = \varphi(\vec{\xi})$.
+Розглядаємо неперервний випадковий вектор $\vec{\xi} = (\xi_1, \xi_2, ..., \xi_n)^T$ та
+випадкову величину $\eta = \varphi(\vec{\xi})$. Спочатку доведемо обіцяне в пункті \ref{sec:expectation}
+твердження:
+\begin{proposition*}\label{proof:expectation}
+    Для НВВ $\xi_1$ та $\xi_2$ має місце $\E(\xi_1 + \xi_2) = \E\xi_1 + \E\xi_2$.
+\end{proposition*}
+\begin{proof}
+    Скористаємося прикладом \ref{eq:vector_transform} для матриці
+    $A = \begin{pmatrix}
+        1 & 1 \\ 0 & 1
+    \end{pmatrix}$, тобто розглянемо
+    $\vec{\eta} = A \vec{\xi} = (\xi_1 + \xi_2, \xi_2)^T$. Маємо
+    $\det A = 1$ та $A^{-1} = \begin{pmatrix}
+        1 & -1 \\ 0 & 1
+    \end{pmatrix}$, тому
+    \begin{gather*}
+        f_{\vec{\eta}}(\vec{y}) = f_{\vec{\xi}}\left(A^{-1}\vec{y}\right) = 
+        f_{\vec{\xi}}\left(y_1 - y_2, y_2\right) \\
+        \E\eta_1 = \E\left(\xi_1 + \xi_2\right) = \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty} y_1 f_{\vec{\eta}}(\vec{y}) dy_1 dy_2 = 
+        \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty} y_1 f_{\vec{\xi}}\left(y_1 - y_2, y_2\right) dy_1 dy_2 = \\ =
+        \left[\vec{y} = A \vec{x}\right] = 
+        \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty} (x_1 + x_2) f_{\vec{\xi}}\left(x_1, x_2\right) dx_1 dx_2 = \\ =
+        \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty} x_1 f_{\vec{\xi}}\left(x_1, x_2\right) dx_1 dx_2 + 
+        \int\limits_{-\infty}^{+\infty}\int\limits_{-\infty}^{+\infty} x_2 f_{\vec{\xi}}\left(x_1, x_2\right) dx_1 dx_2 = 
+        \E\xi_1 + \E\xi_2
+    \end{gather*}
+\end{proof}
+
 \begin{exercise}
     Довести, що для НВВ $\eta$, що приймає невід'ємні значення, $\E\eta = \int\limits_0^{+\infty} (1 - F_{\eta}(x)) dx$.
 \end{exercise}
@@ -527,25 +561,43 @@ $f_{\eta}(z) = \lambda^2 z e^{-\lambda z}$ при $z \geq 0$ та $0$ інакш
     $\E\eta^k = \int_{\mathbb{R}^n} \varphi^k(\vec{x}) f_{\vec{\xi}} (\vec{x}) d\vec{x}$ для всіх $k \in \mathbb{N}$.
 \end{proposition*}
 \begin{proof}
-    Доведемо у випадку $n=2$, та $\varphi(x, y) \geq 0$.
+    Розглянемо спочатку випадок $\varphi(\vec{x}) \geq 0$:
     \begin{gather*}
         \E\eta^k = \int\limits_0^{+\infty} \left(1 - F_{\eta^k}(z)\right) dz = 
-    \int\limits_0^{+\infty} \left({\iint_{\varphi^k(x,y) \geq z}} f_{\vec{\xi}}(x,y) dx dy\right) dz = \\
-    =\iint\limits_{\mathbb{R}^2} \left( \int\limits_0^{\varphi^k(x,y)} dz\right) f_{\vec{\xi}}(x,y) dx dy = 
-     \iint\limits_{\mathbb{R}^2} \varphi^k(x,y) f_{\vec{\xi}}(x,y) dx dy
+        \int\limits_0^{+\infty} \left({\iint_{\varphi^k(\vec{x}) \geq z}} f_{\vec{\xi}}(\vec{x}) d\vec{x}\right) dz = \\
+        =\int\limits_{\mathbb{R}^n} \left( \int\limits_0^{\varphi^k(\vec{x})} dz\right) f_{\vec{\xi}}(\vec{x}) d\vec{x} = 
+        \int\limits_{\mathbb{R}^n} \varphi^k(\vec{x}) f_{\vec{\xi}} (\vec{x}) d\vec{x}
+    \end{gather*}
+    Для випадку знакозмінної $\varphi(\vec{x})$ скористаємося розкладом
+    $\varphi(\vec{x}) = \varphi_{+}(\vec{x}) - \varphi_{-}(\vec{x})$, де
+    $\varphi_{+}(\vec{x}) = \max\left\{\varphi(\vec{x}), 0\right\} \geq 0$,
+    $\varphi_{-}(\vec{x}) = -\min\left\{\varphi(\vec{x}), 0\right\} \geq 0$. Тоді
+    \begin{gather*}
+        \E \eta^k = \E \varphi^k(\vec{\xi}) = 
+        \E \left(\varphi_{+}(\vec{\xi}) - \varphi_{-}(\vec{\xi})\right)^k = 
+        \E \left(
+            \sum_{m=0}^k C_k^m (-1)^{k-m} \varphi_{+}^m(\vec{\xi}) \varphi_{-}^{k-m} (\vec{\xi})
+        \right) \oeq
+    \end{gather*}
+    За доведеним вище \hyperref[proof:expectation]{твердженням} та невід'ємністю $\varphi_{+}(\vec{x})$ і $\varphi_{-}(\vec{x})$ маємо
+    \begin{gather*}
+        \oeq \sum_{m=0}^k C_k^m (-1)^{k-m} \cdot \E \left(\varphi_{+}^m(\vec{\xi}) \varphi_{-}^{k-m} (\vec{\xi}) \right) = 
+        \sum_{m=0}^k C_k^m (-1)^{k-m} 
+        \int\limits_{\mathbb{R}^n} \varphi_{+}^m(\vec{x}) \varphi_{-}^{k-m} (\vec{x}) f_{\vec{\xi}} (\vec{x}) d\vec{x} = \\
+        = \int\limits_{\mathbb{R}^n}\left( \sum_{m=0}^k C_k^m (-1)^{k-m} \varphi_{+}^m(\vec{x}) \varphi_{-}^{k-m} (\vec{x})\right) f_{\vec{\xi}} (\vec{x}) d\vec{x}
+        = \int\limits_{\mathbb{R}^n} \left(\varphi_{+}(\vec{x}) - \varphi_{-}(\vec{x})\right)^k (\vec{x}) d\vec{x}
+        = \int\limits_{\mathbb{R}^n} \varphi^k(\vec{x}) f_{\vec{\xi}} (\vec{x}) d\vec{x}
     \end{gather*}
 \end{proof}
 
-\begin{exercise}
-    Довести твердження в більш загальному вигляді.
-\end{exercise}
+% \begin{exercise}
+%     Довести твердження в більш загальному вигляді.
+% \end{exercise}
 
-\begin{example}\label{proof:expectation}
-    $\xi_1, \xi_2$ --- НВВ, знайдемо $\E(\xi_1 + \xi_2)$ та $\E\xi_1\xi_2$
+\begin{example}
+    $\xi_1, \xi_2$ --- НВВ, знайдемо $\E\xi_1\xi_2$
     у випадку незалежності цих НВВ.
-    $$E(\xi_1 + \xi_2) = \iint\limits_{\mathbb{R}^2} (x+y) f_{\vec{\xi}}(x,y) dx dy = 
-    \iint\limits_{\mathbb{R}^2} x f_{\vec{\xi}}(x,y) dx dy + 
-    \iint\limits_{\mathbb{R}^2} y f_{\vec{\xi}}(x,y) dx dy = \E\xi_1 + \E\xi_2$$
+
     Якщо $\xi_1, \xi_2$ незалежні, то $f_{\vec{\xi}}(x,y) = f_{\xi_1}(x) f_{\xi_2}(y)$.
     $$\E\xi_1 \xi_2 =
     \iint\limits_{\mathbb{R}^2} xy f_{\xi_1}(x) f_{\xi_2}(y) dx dy =
