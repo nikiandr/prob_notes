@@ -118,7 +118,7 @@
         Доведення аналогічне одновимірному випадку (властивість \refeq{cdf:left_con}, 
         с. \pageref{cdf:left_con}).
     \end{proof}
-    \item Для $\Pi = [a; b)\times [c; d)$ $\P\left\{\vec{\xi} \in \Pi \right\} = F(b,d) + F(a,c) - F(b,c) - F(a,d)$.
+    \item Для $\Pi = [a; b)\times [c; d)$ $\P\left\{\vec{\xi} \in \Pi \right\} = F_{\vec{\xi}}(b,d) + F_{\vec{\xi}}(a,c) - F_{\vec{\xi}}(b,c) - F_{\vec{\xi}}(a,d)$.
     \begin{proof}
         Нехай $A = \left\{\xi_1 < a, \xi_2 < c\right\}$,
         $B = \left\{\xi_1 \in [a;b), \xi_2 < c\right\}$,
@@ -148,10 +148,10 @@
             Оскільки
             $E = A \cup B \cup C \cup D$, причому $A$, $B$, $C$, $D$ попарно несумісні, то
             $\P(E) = \P(A) + \P(B) + \P(C) + \P(D)$.
-            $\P(E) = F(b, d)$, $\P(A) = F(a, c)$, $\P(B) = F(b,c) - F(a,c)$,
-            $\P(C) = F(a, d) - F(a, c)$. 
+            $\P(E) = F_{\vec{\xi}}(b, d)$, $\P(A) = F_{\vec{\xi}}(a, c)$, $\P(B) = F_{\vec{\xi}}(b,c) - F_{\vec{\xi}}(a,c)$,
+            $\P(C) = F_{\vec{\xi}}(a, d) - F_{\vec{\xi}}(a, c)$. 
             
-            Отже, $\P\left\{\vec{\xi} \in \Pi\right\} = F(b,d) + F(a,c) - F(b,c) - F(a,d)$.
+            Отже, $\P\left\{\vec{\xi} \in \Pi\right\} = F_{\vec{\xi}}(b,d) + F_{\vec{\xi}}(a,c) - F_{\vec{\xi}}(b,c) - F_{\vec{\xi}}(a,d)$.
         \end{tabular}
     \end{proof}
 \end{enumerate}
@@ -180,7 +180,7 @@
         $$\forall k = 1,...,n: \lim\limits_{\forall i\neq k : x_i \to + \infty} F_{\vec{\xi}}(\vec{x}) = F_{\xi_k}(x_k)$$
         $$\forall I = \left\{i_1, i_2, ..., i_k\right\} \subset \{1,...,n\}: 
         \lim\limits_{\forall i \notin I : x_i \to + \infty} F_{\vec{\xi}}(\vec{x}) =
-        F_{\xi_{i_1} \xi_{i_2} ... \xi_{i_k}}(x_{i_1}, x_{i_2}, ..., x_{i_k})$$.
+        F_{\xi_{i_1} \xi_{i_2} ... \xi_{i_k}}(x_{i_1}, x_{i_2}, ..., x_{i_k})$$
     \item Якщо координати $\xi_1, \xi_2, ..., \xi_n$ є незалежними у сукупності, то 
     $F_{\vec{\xi}}(\vec{x}) = F_{\xi_1}(x_1) \cdot ... \cdot F_{\xi_n}(x_n)$.
 \end{enumerate}

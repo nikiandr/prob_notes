@@ -179,9 +179,79 @@ $k = 1, 2, ...$ з ймовірностями $\P\{\eta = y_k\} = \P\{\xi = x_k 
 \end{remark}
 
 Узагальнимо формулу \eqref{eq:phi_xi} на випадок немонотонної функції $\varphi$.
-Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\varphi$ --- неперервна немонотонна числова функція.
-Тоді область можливих значень $\xi$ можна розбити на проміжки, на яких $\varphi$ буде монотонною. 
-Тоді, скориставшись результатом для монотонної функції, отримаємо формулу для щільності $\eta = \varphi(\xi)$:
+Нехай $\xi$ --- НВВ, $f_\xi(x)$ --- її щільність розподілу, а $\eta = \varphi(x)$, де $\varphi$ --- неперервна немонотонна числова функція.
+Тоді область можливих значень $\xi$ можна розбити на проміжки, на яких $\varphi$ буде монотонною:
+
+\begin{center}
+    \begin{tikzpicture}[xscale = 1, yscale = 1, baseline={(current bounding box.north)}]
+        \draw [->] (-7, 0) -- (7, 0);
+        \draw [->] (0, -0.5) -- (0, 3);
+        \draw [domain=-7:-5.953, smooth, variable = \x, ultra thick, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \draw [domain=-5.953:-3.214, smooth, variable = \x, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \draw [domain=-3.214:0.331, smooth, variable = \x, ultra thick, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \draw [domain=0.331:3.069, smooth, variable = \x, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \draw [domain=3.069:6.614, smooth, variable = \x, ultra thick, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \draw [domain=6.614:7, smooth, variable = \x, samples=50] plot ({\x}, {cos(deg(\x-1.7)) + 1.5});
+        \node [below] at (7, 0) {$x$};
+        \node [left] at (0, 3) {$\varphi(x)$};
+        \draw [domain=-7:7, smooth, variable = \x, thick, samples=2] plot ({\x}, 1.7);
+        \draw [dashed] (-5.953, 1.7) -- (-5.953, 0);
+        \draw [dashed] (-3.214, 1.7) -- (-3.214, 0);
+        \draw [dashed] (0.331, 1.7) -- (0.331, 0);
+        \draw [dashed] (3.069, 1.7) -- (3.069, 0);
+        \draw [dashed] (6.614, 1.7) -- (6.614, 0);
+        \draw [dashed] (-4.583, 2.5) -- (-4.583, 0);
+        \draw [dashed] (-1.442, 0.5) -- (-1.442, 0);
+        \draw [dashed] (1.7, 2.5) -- (1.7, 0);
+        \draw [dashed] (4.882, 2.5) -- (4.882, 0);
+        \node [below] at (-5.953, 0) {$x_1$};
+        \node [below] at (-3.214, 0) {$x_2$};
+        \node [below] at (0.331, 0) {$x_3$};
+        \node [below] at (3.069, 0) {$x_4$};
+        \node [below] at (6.614, 0) {$x_5$};
+        \node [below] at (-4.583, 0) {$a_1$};
+        \node [below] at (-1.442, 0) {$a_2$};
+        \node [below] at (1.7, 0) {$a_3$};
+        \node [below] at (4.882, 0) {$a_4$};   
+        \node [above left] at (0, 1.7) {$y$};    
+    \end{tikzpicture}
+\end{center}
+На рисунку інтервалами монотонності будуть $\left(-\infty, a_1\right)$,
+$\left(a_1, a_2\right)$, $\left(a_2, a_3\right)$, $\left(a_3, a_4\right)$,
+$\left(a_4, \infty\right)$. На кожному з них існує обернена функція
+$\varphi_k^{-1} (y), k=1,...,5$. Розглянемо подію $\left\{\eta < y\right\}$.
+Як видно з рисунку, ця подія рівна об'єднанню несумісних подій
+$\left\{ -\infty < \xi < x_1\right\}$,
+$\left\{ x_2 < \xi < a_2\right\}$, $\left\{ a_2 < \xi < x_3\right\}$,
+$\left\{ x_4 < \xi < a_4\right\}$, $\left\{ a_4 < \xi < x_5\right\}$. Отже,
+\begin{gather*}
+    F_\eta(y) = \P\left\{\eta < y\right\} = \P\{\xi < x_1\} + 
+    \P\left\{ x_2 < \xi < a_2\right\} + \P\left\{ a_2 < \xi < x_3\right\} + \\ +  \;
+    \P\left\{ x_4 < \xi < a_4\right\} + \P\left\{ a_4 < \xi < x_5\right\} = 
+    \int\limits_{-\infty}^{x_1} f_{\xi} (x) dx + \int\limits_{x_2}^{a_2} f_{\xi} (x) dx + 
+    \int\limits_{a_2}^{x_3} f_{\xi} (x) dx + \int\limits_{x_4}^{a_4} f_{\xi} (x) dx \; + \\ + \; 
+    \int\limits_{a_4}^{x_5} f_{\xi} (x) dx = 
+    \int\limits_{-\infty}^{\varphi_1^{-1}(y)} f_{\xi} (x) dx +
+    \int\limits_{\varphi_2^{-1}(y)}^{a_2} f_{\xi} (x) dx + 
+    \int\limits_{a_2}^{\varphi_3^{-1}(y)} f_{\xi} (x) dx + 
+    \int\limits_{\varphi_4^{-1}(y)}^{a_4} f_{\xi} (x) dx + 
+    \int\limits_{a_4}^{\varphi_5^{-1}(y)} f_{\xi} (x) dx
+\end{gather*}
+Після диференціювання останньої рівності по $y$ отримаємо
+\begin{gather*}
+    f_{\eta}(y) = 
+    f_{\xi} \left(\varphi_1^{-1}(y)\right) \cdot \left(\varphi_1^{-1}(y)\right)' -
+    f_{\xi} \left(\varphi_2^{-1}(y)\right) \cdot \left(\varphi_2^{-1}(y)\right)' +
+    f_{\xi} \left(\varphi_3^{-1}(y)\right) \cdot \left(\varphi_3^{-1}(y)\right)' - \; \\ - \; 
+    f_{\xi} \left(\varphi_4^{-1}(y)\right) \cdot \left(\varphi_4^{-1}(y)\right)' + 
+    f_{\xi} \left(\varphi_5^{-1}(y)\right) \cdot \left(\varphi_5^{-1}(y)\right)' = \; \\ = \; 
+    f_{\xi} \left(\varphi_1^{-1}(y)\right) \cdot \left|\left(\varphi_1^{-1}(y)\right)'\right| + ... +
+    f_{\xi} \left(\varphi_5^{-1}(y)\right) \cdot \left|\left(\varphi_5^{-1}(y)\right)'\right|
+\end{gather*}
+Перехід до суми з модулями пояснюється спаданням (а отже, від'ємністю похідної)
+обернених функцій на відповідних інтервалах.
+
+Таким чином, в загальному випадку отримаємо наступну формулу для щільності $\eta = \varphi(\xi)$:
 \begin{equation}
     f_\eta (y) = \sum\limits_{k=1}^m f_\xi\left(\varphi_k^{-1} (y)\right) \cdot \left|\left(\varphi_k^{-1} (y) \right)^{\prime}\right|
 \end{equation}
@@ -244,7 +314,7 @@ $\E(\varphi(\xi))^k = \sum\limits_{i=1}^{n(\infty)} \varphi^k(x_i) \P\{\xi = x_i
 
 У випадках, коли $\varphi(x) = \cos (s x)$ або $\sin (s x)$ ($s\in \mathbb{R}$),
 для знаходження числових характеристик можна скористатися характеристичною функцією $\xi$,
-оскільки $\chi_{\xi}(s) = \E e^{i s \xi} = \E \cos(s\xi) + i \cdot\E\sin(s\xi)$,
+оскільки $\chi_{\xi}(t) = \E e^{i t \xi} = \E \cos(t\xi) + i \cdot\E\sin(t\xi)$,
 тому $\E\cos(s\xi) = \mathrm{Re} \chi_{\xi}(s)$ і
 $\E\sin(s\xi) = \mathrm{Im} \chi_{\xi}(s)$.
 Для знаходження моментів вищих порядків можна скористатися формулами пониження степеня.

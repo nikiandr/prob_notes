@@ -36,7 +36,7 @@
     \item $\E \left(c\cdot\xi\right) = c\cdot \E\xi$ --- це властивість рядів та інтегралів.
     \item $\E\left( \xi_1 + \xi_2\right) = \E\xi_1 + \E\xi_2$.
     \begin{proof}[Доведення для ДВВ]
-        $\P\left\{\xi_1 = x_k\right\} = p_k$, $\P\left\{\xi_2 = y_j\right\} = p_j$, $\P\left\{\xi_1 + \xi_2 = x_k + y_j\right\} = p_{kj}$.
+        $\P\left\{\xi_1 = x_k\right\} = p_k$, $\P\left\{\xi_2 = y_j\right\} = p_j$, $\P\left\{\xi_1 = x_k, \xi_2 = y_j\right\} = p_{kj}$.
         В цих позначеннях
         $\E\left( \xi_1 + \xi_2\right) = \sum\limits_k \sum\limits_j (x_k+y_j) p_{kj} =
         \sum\limits_k x_k \sum\limits_j p_{kj} + \sum\limits_j y_j \sum\limits_k p_{kj} = \sum\limits_k x_k p_k + \sum\limits_j y_j p_j = \E\xi_1 + \E\xi_2$.
@@ -379,7 +379,7 @@ $\D\xi = \beta_2 = \E\xi^2 - (\E\xi)^2 = \alpha_2 - \alpha_1^2$ є наступ�
     \begin{proof}
         Випливає з того, що $\left| \sum\limits_{k=0}^{\infty} \P\left\{\xi = k\right\} z^k \right| \leq \sum\limits_{k=0}^{\infty} \P\left\{\xi = k\right\} = 1$.
     \end{proof}
-    \item Генератриса --- аналітична функція в колі $|z|\leq 1$ (як наслідок властивості 1).
+    \item Генератриса --- аналітична функція в колі $|z| < 1$ (як наслідок властивості 1).
     \item За генератрисою можна відновити розподіл $\xi$:
     $\P\left\{\xi = k\right\} = \frac{1}{k!}\cdot G_\xi^{(k)}(0)$.
     \item За допомогою генератриси можна знайти факторіальні моменти $\xi$.

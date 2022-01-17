@@ -295,6 +295,16 @@ $$
         \left(\frac{\partial \chi_{\vec{\xi}}(\vec{t})}{\partial t_k} \Biggr \vert_{\vec{t} = \vec{0}}\right) \cdot \left(\frac{\partial \chi_{\vec{\xi}}(\vec{t})}{\partial t_j} \Biggr \vert_{\vec{\vec{t}} = \vec{0}}\right)\end{gather*}
 \end{enumerate}
 
+\begin{exercise}
+    Характеристична функція випадкового вектора також є перетворенням Фур'є щільності, але багатовимірним.
+    Користуючись оберненим перетворенням
+    \begin{gather*}
+        f_{\vec{\xi}}(x_1, x_2, ..., x_n) = \frac{1}{(2\pi)^n} \int\limits_{\mathbb{R}^n} \chi_{\vec{\xi}}(t_1, t_2, ..., t_n) e^{-i(\vec{x}, \vec{t})} dt_1 dt_2 ... dt_n
+    \end{gather*}
+    довести, що з $\chi_{\vec{\xi}}(\vec{t}) = \prod\limits_{k=1}^n \chi_{\xi_k}(t_k)$
+    випливає незалежність координат $\vec{\xi}$.
+\end{exercise}
+
 Необхідні та достатні умови того, що комплекснозначна функція $n$ дійсних змінних є характеристичною, дає
 \emph{теорема Бохнера-Хінчина}: $\chi(\vec{t})$ має бути рівномірно неперервною по кожній змінній, $\chi(\vec{0}) = 1$ та 
 невід'ємно визначеною: 

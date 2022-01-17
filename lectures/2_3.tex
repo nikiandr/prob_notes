@@ -28,29 +28,29 @@
 
 \noindent\textbf{Полігон розподілу:} приклад для $n=5$, $p=0.6$.
 \begin{center}
-    \begin{tikzpicture}
-        \pgfmathsetmacro{\s}{5};
-        \pgfmathsetmacro{\p}{0.6};
-        \pgfmathsetmacro{\q}{1-\p};
-        \pgfmathsetmacro{\n}{5};
-        \draw [->] (-1,0) -- (\n+1, 0);
-        \draw [->] (0, -0.1*\s) -- (0, 0.4*\s);
-        \draw [thick] (0,\q^\n*\s) -- (1, {\n*\p*\q^(\n-1)*\s}) -- (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s});
-        \draw [thick] (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s}) -- (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s});
-        \draw [thick] (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s}) -- (4, {\n*\p^4*\q^(\n-4)*\s});
-        \draw [thick] (4, {\n*\p^4*\q^(\n-4)*\s}) -- (5, \p^\n*\s);
-        \draw [fill] (0,\q^\n) circle [radius = 0.05];
-        \draw [fill] (1, {\n*\p*\q^(\n-1)*\s}) circle [radius = 0.05];
-        \draw [fill] (2, {(\n*(\n-1)/2)*\p^2*\q^(\n-2)*\s}) circle [radius = 0.05];
-        \draw [fill] (3, {(\n*(\n-1)*(\n-2)/6)*\p^3*\q^(\n-3)*\s}) circle [radius = 0.05];
-        \draw [fill] (4, {\n*\p^4*\q^(\n-4)*\s}) circle [radius = 0.05];
-        \draw [fill] (5, \p^\n*\s) circle [radius = 0.05];
-        \node [below left] at (0, 0) {0};
-        \foreach \k in {1,...,\n}:
-            \node [below] at (\k, 0) {\k};
-        \node [below] at (\n+1, 0) {$x$};
-        \node [left] at (0, 0.4*\s) {$p$};
-    \end{tikzpicture}
+    \begin{tikzpicture}[
+        declare function={
+            binl(\i) = \n!/(\i!*(\n-\i)!))*\p^\i*\q^(\n-\i);
+        },
+        every circle/.style={radius = 0.05}
+    ]
+     \pgfmathsetmacro{\s}{5};
+     \pgfmathsetmacro{\p}{0.6};
+     \pgfmathsetmacro{\q}{1-\p};
+     \pgfmathsetmacro{\n}{5};
+     \draw [->] (-1,0) -- (\n+1, 0);
+     \draw [->] (0, -0.1*\s) -- (0, 0.4*\s);
+ 
+     \draw[fill, thick] \foreach \i in {1,...,\n}{
+            (\i-1, {binl(\i-1)*\s}) circle -- (\i, {binl(\i)*\s}) circle
+     };
+ 
+     \node [below left] at (0, 0) {0};
+     \foreach \k in {1,...,\n}:
+         \node [below] at (\k, 0) {\k};
+     \node [below] at (\n+1, 0) {$x$};
+     \node [left] at (0, 0.4*\s) {$p$};
+ \end{tikzpicture}
 \end{center}
 
 \noindent\textbf{Функція розподілу:} приклад для $n=5$, $p=0.6$.
@@ -883,7 +883,7 @@ e^{-\frac{(t-a)^2}{2\sigma^2}} dt$ не виражається в елемент
     \int\limits_{-\infty}^{+\infty}t^k 
     e^{-t^2} dt
 \end{gather*}
-Якщо $k = 2l + 1$, то $\beta_k = 0$, оскільки під інтегралом непарна функція.
+Якщо $k = 2l + 1$, то $\beta_k = 0$, бо під інтегралом непарна функція.
 Зокрема, $\beta_3 = 0$, тому $\As\xi = 0$.
 Візьмемо $k = 2l$:
 \begin{gather*}
