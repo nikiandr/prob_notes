@@ -28,7 +28,7 @@ for n in range(21, 31):
         res += f"{t.ppf(1-q, df=n):.3f} &"
     res += f"{t.ppf(1-q_list[-1], df=n):.3f} \\\\"
     res += "\n\\hline \n"
-for n in [40, 50, 60, 70, 70, 90, 100, 120, 150]:
+for n in [40, 50, 60, 70, 80, 90, 100, 120, 150]:
     res += f"\\textbf{{{n}}} & "
     for q in q_list[:-1]:
         res += f"{t.ppf(1-q, df=n):.3f} &"
