@@ -254,7 +254,7 @@ $$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \i
     
     В цьому випадку простіше знайти функцію розподілу з геометричних міркувань, а не застосовувати формулу \eqref{eq:distr_product}:
     $F_{\eta}(z) = \P\{\xi_1\xi_2 < z\} = \iint\limits_{\{xy < z\}} f_{\vec{\xi}}(x, y)dxdy$. При $z<0$ $F_{\eta}(z) = 0$,
-    а при $z \geq 4$ $F_{\eta}(z) = 1$.
+    а при $z \geq 4$ $F_{\eta}(z) = 1$. Розглянемо тепер $z \in [0, 4)$:
 
         \begin{tabular}{c p{8.5 cm}}
             \begin{tikzpicture}[baseline={(current bounding box.north)}, scale = 0.9]
@@ -287,7 +287,7 @@ $$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \i
             \int\limits_{\frac{z}{x}}^2dy\right) = $
 
             $=\frac{1}{4}\left(4 - \int\limits_{\frac{z}{2}}^2 
-            \left(2 -\frac{z}{x}\right)dx\right) $
+            \left(2 -\frac{z}{x}\right)dx\right) = $
 
             \vspace{0.2em}
             $= 1 - \frac{1}{4}\left.(2x - z \ln x)\right|_{\frac{z}{2}}^2 = $
@@ -299,8 +299,7 @@ $$F_\eta(z) = \iint\limits_{D_z}f_{\vec{\xi}}(x, y)dx dy, D_z = \left\{(x, y) \i
             $= \frac{1}{4}(z + z\ln2 - z\ln z + z\ln2) = $
             
             \vspace{0.2em}
-            $= \frac{1}{4}(z + 2z\ln2 - z\ln z)$ 
-            при $z\in [0; 4)$. \\
+            $= \frac{1}{4}(z + 2z\ln2 - z\ln z)$ \\
             Отже, $f_{\eta}(z) = 
             \begin{cases}
                 0, & z \notin (0, 4] \\

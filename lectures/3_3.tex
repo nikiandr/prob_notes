@@ -38,7 +38,7 @@
 \begin{definition}\index{момент!початковий!мішаний}
     \emph{Мішаним початковим моментом} порядку 
     $k_1+k_2+...+k_n$ 
-    $\left(k_i \in \mathbb{N}\right)$
+    $\left(k_i \in \mathbb{N}\cup\{0\}\right)$
     випадкового вектора 
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
@@ -54,7 +54,7 @@
 \begin{definition}\index{момент!центральний!мішаний}
     \emph{Мішаним центральним моментом} порядку 
     $k_1+k_2+...+k_n$
-    $\left(k_i \in \mathbb{N}\right)$ 
+    $\left(k_i \in \mathbb{N}\cup\{0\}\right)$ 
     випадкового вектора
     $\vec{\xi} = \left(\xi_1, ..., \xi_n\right)^T$
     називається число
@@ -173,13 +173,13 @@
 
             $\E(\xi_{1H} \pm \xi_{2H})^2 \geq 0 \Leftrightarrow 
             \E(\xi^2_{1H}\pm2\xi_{1H}\xi_{2H}+\xi^2_{2H}) \geq 0 
-            \Leftrightarrow 2 \pm 
-            2\frac{\K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
-            \Leftrightarrow $
-
-            $\left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
+            \Leftrightarrow 
+            \E\xi^2_{1H} + \E\xi^2_{2H} \pm 2 \E\xi_{1H}\xi_{2H} \geq 0 \Leftrightarrow
+            \\ \Leftrightarrow 2 \pm 2\frac{\K\xi_1\xi_2}{\sigma_{\xi_1}\sigma_{\xi_2}} \geq 0 
+            \Leftrightarrow \left|\K\xi_1\xi_2\right| \leq \sigma_{\xi_1} \sigma_{\xi_2}$.
         \end{enumerate}
     \end{proof}
+    \vspace{-1em}
     \item Якщо $\xi_1$ та $\xi_2$ --- незалежні, то $\K\xi_1\xi_2 = 0$.
     \begin{proof}
         Нехай $\xi_1$ та $\xi_2$ --- незалежні.

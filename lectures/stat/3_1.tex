@@ -188,7 +188,7 @@ $F^T F \vec{x} = \vec{0}$, тоді $\vec{x}^T F^T F \vec{x} = (F\vec{x})^T F\ve
     Нехай $M$ --- невід'ємно визначена ($M \geq 0$) матриця $n \times n$, тоді її власні числа $\lambda_1 \geq \lambda_2 \geq ... \geq \lambda_n \geq 0$.
     Існує ортогональна матриця $U$, для якої $M = U \cdot \mathrm{diag}(\lambda_1, ..., \lambda_n) \cdot U^{-1}$.
     Для $S = U \cdot \mathrm{diag}(\sqrt{\lambda_1}, ..., \sqrt{\lambda_n}) \cdot U^{-1}$ маємо
-    $S^2 = \left(\mathrm{diag}(\sqrt{\lambda_1}, ..., \sqrt{\lambda_n})\right)^2 = \mathrm{diag}(\lambda_1, ..., \lambda_n) = M$,
+    $S^2 = U \left(\mathrm{diag}(\sqrt{\lambda_1}, ..., \sqrt{\lambda_n})\right) U^{-1} \cdot U \left(\mathrm{diag}(\sqrt{\lambda_1}, ..., \sqrt{\lambda_n})\right) U^{-1} = U \cdot \mathrm{diag}(\lambda_1, ..., \lambda_n) \cdot U^{-1}= M$,
     причому $\sqrt{\lambda_1} \geq \sqrt{\lambda_2} \geq ... \geq \sqrt{\lambda_n} \geq 0$, тому $S \geq 0$. У випадку $M>0$
     мали б $\lambda_n > 0$, звідки $\sqrt{\lambda_n} > 0$ і $S > 0$. Зрозуміло, що $S = \sqrt{M}$ теж є симетричною матрицею. Також за побудовою
     $\sqrt{M}$ комутує з $M$ та $M^{-1}$ (якщо вона існує): $\sqrt{M} \cdot M = M \cdot \sqrt{M}$, $\sqrt{M} \cdot M^{-1} = M^{-1} \cdot \sqrt{M}$. 
